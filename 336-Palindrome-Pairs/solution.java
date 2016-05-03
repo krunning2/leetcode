@@ -16,10 +16,10 @@ public class Solution {
                         res.add(Arrays.asList(map.get(s2rvs), i));
                     }
                 }
-                if(isValid(s2)){
+                if(isValid(s2) && s2.length()!=0){
                     String s1rvs = new StringBuilder(s1).reverse().toString();
-                    if(map.containsKey(s1rvs) && map.get(s1rvs) != i && str2.length()!=0){
-                        res.add(Arrays.asList(map.get(s1rvs), i));
+                    if(map.containsKey(s1rvs) && map.get(s1rvs) != i){
+                        res.add(Arrays.asList(i, map.get(s1rvs)));
                     }
                 }
             }
