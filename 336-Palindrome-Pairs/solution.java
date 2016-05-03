@@ -1,3 +1,4 @@
+//idea: split stringA into two parts, if left part is palindrome and the reverse of right part is same as the other string B, then BA is palindrome. the other way round.
 public class Solution {
     public List<List<Integer>> palindromePairs(String[] words) {
         HashMap<String, Integer> map = new HashMap<String, Integer>();
