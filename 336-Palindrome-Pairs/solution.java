@@ -16,6 +16,7 @@ public class Solution {
                         res.add(Arrays.asList(map.get(s2rvs), i));
                     }
                 }
+                //check dupes
                 if(isValid(s2) && s2.length()!=0){
                     String s1rvs = new StringBuilder(s1).reverse().toString();
                     if(map.containsKey(s1rvs) && map.get(s1rvs) != i){
