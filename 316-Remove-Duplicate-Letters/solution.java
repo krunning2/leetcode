@@ -11,7 +11,7 @@ public class Solution {
             if(exist[c - 'a']){
                 continue;
             }
-            counter[c] --;
+            counter[c - 'a'] --;
             while(!deque.isEmpty() && deque.peek() > c && counter[deque.peek() - 'a'] > 0){
                 int tmp = deque.pop() - 'a';
                 counter[tmp]--;
