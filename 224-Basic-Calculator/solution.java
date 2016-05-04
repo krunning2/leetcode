@@ -22,7 +22,7 @@ public class Solution {
                     opts.pop();
                 }
             }else{
-                int tmp = (s.charAt(p) - '0';
+                int tmp = s.charAt(p) - '0';
                 while(p < s.length() && Character.isDigit(s.charAt(p))){
                     tmp = tmp * 10 + (s.charAt(p) - '0');
                     p++;
