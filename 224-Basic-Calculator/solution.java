@@ -27,6 +27,7 @@ public class Solution {
                     p++;
                 }
                 ints.push(tmp);
+                continue;
             }
             p++;
         }
