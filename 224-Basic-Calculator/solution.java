@@ -19,7 +19,7 @@ public class Solution {
                     opts.pop();
                 }
             }else{
-                ints.push(c);
+                ints.push(c - 'a');
             }
         }
         while(!opts.isEmpty()){
@@ -27,11 +27,11 @@ public class Solution {
         }
         return ints.isEmpty() ? 0 : ints.pop();
     }
-    private int cal(char c1, char c2, char op){
+    private int cal(int c1, int c2, char op){
         if(op == '+'){
-            return (c1 - 'a') + (c2 - 'a');
+            return c1 + c2;
         }else{
-            return (c2 - 'a') - (c1 - 'a');
+            return c2 - c1;
         }
     }
 }
