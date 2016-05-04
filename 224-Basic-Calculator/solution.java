@@ -2,7 +2,9 @@ public class Solution {
     public int calculate(String s) {
         Stack<Integer> ints = new Stack<Integer>();
         Stack<Character> opts = new Stack<Character>();
-        for(char c : s.toCharArray()){
+        int p = 0;
+        while(p < s.length()){
+            char c = p.charAt(p);
             if(c == ' '){
                 continue;
             }else if(c == '+'){
@@ -19,11 +21,17 @@ public class Solution {
                     opts.pop();
                 }
             }else{
-                ints.push(c - 'a');
+                int tmp = 0;
+                while(p < s.length() && Character.isDigital(s.charAt(p))){
+                    tmp * 10 + (s.chatAt(p) - '0');
+                    p++;
+                }
+                ints.push(tmp);
             }
+            p++;
         }
         while(!opts.isEmpty()){
-            ints.push(cal(ins.pop(), ints.pop(), opts.pop()));
+            ints.push(cal(ints.pop(), ints.pop(), opts.pop()));
         }
         return ints.isEmpty() ? 0 : ints.pop();
     }
