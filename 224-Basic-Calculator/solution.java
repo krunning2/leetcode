@@ -13,7 +13,7 @@ public class Solution {
                 opts.push(c);
             }else if(c == ')'){
                 while(!opts.isEmpty() && opts.peek() != '('){
-                    ints.push(cal(ins.pop(), ints.pop(), opts.pop()));
+                    ints.push(cal(ints.pop(), ints.pop(), opts.pop()));
                 }
                 if(!opts.isEmpty()){ 
                     opts.pop();
