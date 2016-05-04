@@ -23,7 +23,7 @@ public class Solution {
             }else{
                 int tmp = 0;
                 while(p < s.length() && Character.isDigit(s.charAt(p))){
-                    tmp = tmp * 10 + (s.chatAt(p) - '0');
+                    tmp = tmp * 10 + (s.charAt(p) - '0');
                     p++;
                 }
                 ints.push(tmp);
