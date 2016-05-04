@@ -1,6 +1,6 @@
 public class Solution {
     public int calculate(String s) {
-        Stack<Character> ints = new Stack<Character>();
+        Stack<Integer> ints = new Stack<Integer>();
         Stack<Character> opts = new Stack<Character>();
         for(char c : s.toCharArray()){
             if(c == ' '){
