@@ -1,29 +1,29 @@
 public class Solution {
     public String removeDuplicateLetters(String s) {
         boolean[] exist = new boolean[26];
-        Deque<Character> deque = new LinkedList<Character>();
+        Stack<Character> stack = new Stack<Character>();
         int[] counter = new int[26];
         char[] chars = s.toCharArray();
         for(char c : chars){
             counter[c - 'a'] ++;
         }
         for(char c : chars){
+            counter[c - 'a'] --;
             if(exist[c - 'a']){
                 continue;
             }
-            counter[c - 'a'] --;
-            while(!deque.isEmpty() && deque.peek() > c && counter[deque.peek() - 'a'] > 0){
+            while(!stack.isEmpty() && stack.peek() > c && counter[stack.peek() - 'a'] > 0){
                 int tmp = deque.pop() - 'a';
                 counter[tmp]--;
                 exist[tmp] = false;
             }
-            deque.push(c);
-            exist[c] = true;
+            stack.push(c);
+            exist[c - 'a'] = true;
         }
         StringBuilder sb = new StringBuilder();
-        while(!deque.isEmpty()){
-            sb.append(deque.pollFirst());
+        while(!stack.isEmpty()){
+            sb.append(stack.pop());
         }
-        return sb.toString();
+        return sb.reverse().toString();
     }
 }
