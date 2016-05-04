@@ -4,7 +4,7 @@ public class Solution {
         Stack<Character> opts = new Stack<Character>();
         int p = 0;
         while(p < s.length()){
-            char c = p.charAt(p);
+            char c = s.charAt(p);
             if(c == ' '){
                 continue;
             }else if(c == '+'){
