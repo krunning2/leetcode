@@ -5,6 +5,7 @@ public class Solution {
         int p = 0;
         while(p < s.length()){
             char c = s.charAt(p);
+            p++;
             if(c == ' '){
                 continue;
             }else if(c == '+'){
@@ -21,15 +22,13 @@ public class Solution {
                     opts.pop();
                 }
             }else{
-                int tmp = 0;
+                int tmp = (s.charAt(p) - '0';
                 while(p < s.length() && Character.isDigit(s.charAt(p))){
                     tmp = tmp * 10 + (s.charAt(p) - '0');
                     p++;
                 }
                 ints.push(tmp);
-                continue;
             }
-            p++;
         }
         while(!opts.isEmpty()){
             ints.push(cal(ints.pop(), ints.pop(), opts.pop()));
