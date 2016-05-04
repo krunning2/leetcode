@@ -13,8 +13,7 @@ public class Solution {
                 continue;
             }
             while(!stack.isEmpty() && stack.peek() > c && counter[stack.peek() - 'a'] > 0){
-                int tmp = deque.pop() - 'a';
-                counter[tmp]--;
+                int tmp = stack.pop() - 'a';
                 exist[tmp] = false;
             }
             stack.push(c);
