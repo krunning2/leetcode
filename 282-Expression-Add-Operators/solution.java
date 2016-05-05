@@ -13,6 +13,7 @@ public class Solution {
             return;
         }
         for(int i = pos; i < num.length(); i++){
+            //if it starts with "0", this digit should only be 0, not 05,0005.....
             if(i != pos && num.charAt(pos) == '0') break;
             long cur = Long.parseLong(num.substring(pos, i + 1));
             if(pos == 0){
