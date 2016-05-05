@@ -24,7 +24,7 @@ public class Solution {
             int[]dy = {0, 0 , 1, -1};
             for(int i = 0; i < 4; i++){
                 visited[y][x] = true;
-                DFShelper(matrix, x + dx, y + dy, mem, visited, matrix[y][x], count + 1, res);
+                DFShelper(matrix, x + dx[i], y + dy[i], mem, visited, matrix[y][x], count + 1, res);
                 mem[y][x] = Math.max(mem[y][x], res[0]);
                 visited[y][x] = false;
             }
@@ -32,7 +32,7 @@ public class Solution {
         
     }
     private boolean isValid(int[][]matrix, int x, int y, int cur, boolean[][] visited){
-        if(x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length && matrix[y][x] > cur){
+        if(x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length && matrix[y][x] > cur && !visited[x][y]){
             return true;
         }
         return false;
