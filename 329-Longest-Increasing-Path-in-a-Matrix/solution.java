@@ -13,7 +13,7 @@ public class Solution {
         
     }
     private void DFShelper(int[][] matrix, int x, int y, int[][] mem, boolean[][] visited,int cur, int count, int[] res){
-        if(matrix, x, y, cur, visited){
+        if(isValid(matrix, x, y, cur, visited)){
             if(mem[y][x] > count){
                 return;
             }
