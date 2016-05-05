@@ -8,9 +8,10 @@ public class Solution {
             p++;
             if(c == ' '){
                 continue;
-            }else if(c == '+'){
-                opts.push(c);
-            }else if(c == '-'){
+            }else if(c == '+' || c == '-'){
+                while(!opts.isEmpty() && opts.peek() == '-'){
+                    ints.push(cal(ints.pop(), ints.pop(), opts.pop()));
+                }
                 opts.push(c);
             }else if(c == '('){
                 opts.push(c);
@@ -22,7 +23,7 @@ public class Solution {
                     opts.pop();
                 }
             }else{
-                int tmp = s.charAt(p) - '0';
+                int tmp = c - '0';
                 while(p < s.length() && Character.isDigit(s.charAt(p))){
                     tmp = tmp * 10 + (s.charAt(p) - '0');
                     p++;
