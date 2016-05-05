@@ -9,7 +9,7 @@ public class Solution {
             if(c == ' '){
                 continue;
             }else if(c == '+' || c == '-'){
-                while(!opts.isEmpty() && opts.peek() == '-'){
+                while(!opts.isEmpty() && opts.peek() == '-' || opts.peek() == '+'){
                     ints.push(cal(ints.pop(), ints.pop(), opts.pop()));
                 }
                 opts.push(c);
