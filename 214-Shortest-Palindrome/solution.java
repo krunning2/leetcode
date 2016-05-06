@@ -11,7 +11,7 @@ public class Solution {
     }
     private boolean[][] get(String s){
         int len = s.length();
-        boolean[][] mem = new int[len][len];
+        boolean[][] mem = new boolean[len][len];
         for(int i = 0; i < len; i++){
             mem[i][i] = true;
         }
