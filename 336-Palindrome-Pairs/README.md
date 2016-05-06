@@ -1,0 +1,1 @@
+//idea: split stringA into two parts, if left part is palindrome and the reverse of right part is same as the other string B, then BA is palindrome. the other way round.
