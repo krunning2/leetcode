@@ -21,8 +21,8 @@ public class Solution {
             int[]dy = {0, 0 , 1, -1};
             for(int i = 0; i < 4; i++){
                 visited[y][x] = true;
-                int cur = DFShelper(matrix, x + dx[i], y + dy[i], mem, visited, matrix[y][x]) + 1;
-                max = Math.max(cur, max);
+                int tmp = DFShelper(matrix, x + dx[i], y + dy[i], mem, visited, matrix[y][x]) + 1;
+                max = Math.max(tmp, max);
                 visited[y][x] = false;
             }
         }
