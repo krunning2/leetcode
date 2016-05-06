@@ -14,9 +14,9 @@ public class Solution {
         
     }
     private int DFShelper(int[][] matrix, int x, int y, int[][] mem, boolean[][] visited, int cur){
-        if(mem[y][x] > 0) return mem[y][x];
-        int max = 1;
+        int max = 0;
         if(isValid(matrix, x, y, cur, visited)){
+            if(mem[y][x] > 0) return mem[y][x];
             int[]dx = {1, -1, 0, 0};
             int[]dy = {0, 0 , 1, -1};
             for(int i = 0; i < 4; i++){
