@@ -7,7 +7,7 @@ public class Solution {
         for(int i = 0; i < matrix.length; i++){
             for(int j = 0; j < matrix[0].length; j++){
                 DFShelper(matrix, j, i, mem, visited, Integer.MIN_VALUE, 1, res);
-                int[][] mem = new int[matrix.length][matrix[0].length];
+                mem = new int[matrix.length][matrix[0].length];
             }
         }
         return res[0];
