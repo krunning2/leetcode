@@ -25,8 +25,8 @@ public class Solution {
                 max = Math.max(tmp, max);
                 visited[y][x] = false;
             }
+            mem[y][x] = max;
         }
-        mem[y][x] = max;
         return max;
     }
     private boolean isValid(int[][]matrix, int x, int y, int cur, boolean[][] visited){
