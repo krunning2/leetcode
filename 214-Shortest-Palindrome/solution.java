@@ -12,9 +12,9 @@ public class Solution {
         while(start < end){
             if(s.charAt(start) != s.charAt(end)){
                 return false;
-                start++;
-                end--;
             }
+            start++;
+            end--;
         }
         return true;
     }
