@@ -6,14 +6,14 @@ public class Solution {
         int max = 1;
         for(int i = 0; i < matrix.length; i++){
             for(int j = 0; j < matrix[0].length; j++){
-                int tmp = DFShelper(matrix, j, i, mem, visited);
+                int tmp = DFShelper(matrix, j, i, mem, visited, Integer.MIN_VALUE);
                 max = Math.max(max, tmp);
             }
         }
         return max;
         
     }
-    private int DFShelper(int[][] matrix, int x, int y, int[][] mem, boolean[][] visited){
+    private int DFShelper(int[][] matrix, int x, int y, int[][] mem, boolean[][] visited, int cur){
         if(mem[y][x] > 0) return mem[y][x];
         int max = 1;
         if(isValid(matrix, x, y, cur, visited)){
