@@ -4,7 +4,7 @@ public class Solution {
             return "";
         }
         StringBuilder sb = new StringBuilder(s);
-        StringBuilder sb_rev = new StringBuilder(s).reverse()
+        StringBuilder sb_rev = new StringBuilder(s).reverse();
         sb.append("#");
         sb.append(sb_rev);
         int index = getNext(sb);
