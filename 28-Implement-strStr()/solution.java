@@ -3,7 +3,7 @@ public class Solution {
         if(haystack == null || haystack.length() == 0 || needle == null || needle.length() == 0){
             return -1;
         }
-        int[] = getNext(needle);
+        int[] next = getNext(needle);
         int j = 0;
         for(int i = 0; i < haystack.length(); i++){
             if(j == -1 || haystack.charAt(i) == needle.charAt(j)){
