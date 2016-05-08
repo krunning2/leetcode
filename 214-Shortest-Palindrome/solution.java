@@ -8,7 +8,7 @@ public class Solution {
         sb.append("#");
         sb.append(sb_rev);
         int index = getNext(sb);
-        return sb_rev.substring(0, sb_rev.length() - index).toString;
+        return sb_rev.substring(0, sb_rev.length() - index) + s;
     }
     private int getNext(StringBuilder sb){
         int[] next = new int[sb.length()+1];
