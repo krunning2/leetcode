@@ -32,11 +32,7 @@ public class Solution {
             if(k == -1 || s.charAt(j) == s.charAt(k)){
                 j ++;
                 k++;
-                if(s.charAt(k) == s.charAt(j)){
-                    next[j] = next[k];
-                }else{
-                    next[j] = k;
-                }
+                next[j] = k;
             }else{
                 k = next[k];
             }
