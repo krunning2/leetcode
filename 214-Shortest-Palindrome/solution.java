@@ -1,6 +1,6 @@
 public class Solution {
     public String shortestPalindrome(String s) {
-        if(s == null || s.length == 0){
+        if(s == null || s.length() == 0){
             return "";
         }
         StringBuilder sb = new StringBuilder(s);
