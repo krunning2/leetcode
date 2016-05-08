@@ -16,6 +16,7 @@ public class Solution {
                 j = next[j];
             }
         }
+        return -1;
     }
     
     private int[] getNext(String s){
