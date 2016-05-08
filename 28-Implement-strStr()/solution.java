@@ -24,11 +24,11 @@ public class Solution {
     }
     
     private int[] getNext(String s){
-        int[] next = new int[s.length()];
+        int[] next = new int[s.length() + 1];
         int j = 0;
         int k = -1;
         next[0] = -1;
-        while(j < s.length() - 1){
+        while(j < s.length()){
             if(k == -1 || s.charAt(j) == s.charAt(k)){
                 j ++;
                 k++;
