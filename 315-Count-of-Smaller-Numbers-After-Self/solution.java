@@ -11,13 +11,13 @@ public class Solution {
                 }else{
                     l = mid;
                 }
-                if(nums[i] >= T.get(l)){
-                    res.add(l);
-                    T.add(i, nums[i]);
-                }else{
-                    res.add(r);
-                    T.add(i, nums[i]);
-                }
+            }
+            if(nums[i] >= T.get(l)){
+                res.add(l);
+                T.add(l, nums[i]);
+            }else{
+                res.add(r);
+                T.add(r, nums[i]);
             }
         }
         Collections.reverse(res);
