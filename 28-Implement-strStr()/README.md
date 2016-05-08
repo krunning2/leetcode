@@ -6,6 +6,8 @@ next[0] = -1;
 So if(T[j] == T[k]) then next[j + 1] = next[j] + 1 = k + 1; 
 if(T[j] != T[k]) then recursively to find the shorter length by calling k = next[k];
 
+Should be careful when calculating the next[], while(i < len - 1)
+
 2. Find the substring
 A[i]
 B[j]
@@ -19,13 +21,5 @@ Ex.
 
 ababcababa
 ababa
-
- 
-
-
-
-
-
-
 
 http://blog.csdn.net/v_july_v/article/details/7041827
