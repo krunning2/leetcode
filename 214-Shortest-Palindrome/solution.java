@@ -1,27 +1,28 @@
 public class Solution {
     public String shortestPalindrome(String s) {
-        if (s == null || s.length() == 0 || s.length() == 1) return s;
-        int len = s.length(), tail = len;
-        StringBuilder builder = new StringBuilder();
-        while (1 < tail) {
-            if (isPalindrome(s.substring(0, tail))) {
-                builder = builder.append(s.substring(tail, len)).reverse();
-                break;
-            }
-            tail--;
+        if(s == null || s.length == 0){
+            return "";
         }
-        if (builder.length() == 0) {
-            builder = builder.append(s.substring(tail, len)).reverse();
-        }
-        return builder.append(s).toString();
+        StringBuilder sb = new StringBuilder(s);
+        StringBuilder sb_rev = new StringBuilder(s).reverse()
+        sb.append("#");
+        sb.append(sb_rev);
+        int index = getNext(sb);
+        return sb_rev.substring(0, sb_rev.length() - index).toString;
     }
-
-    private boolean isPalindrome(String str) {
-        int len = str.length();
-        for (int i = 0; i < len / 2; i++) {
-            if (str.charAt(i) != str.charAt(len - i - 1))
-                return false;
+    private int getNext(StringBuilder sb){
+        int[] next = new int[sb.length()+1];
+        int j = 0, k = -1;
+        next[0] = -1;
+        while(j < sb.length()){
+            if(k == -1 || sb.charAt(j) == sb.charAt(k)){
+                k ++;
+                j ++;
+                next[j] = k;
+            }else{
+                k = next[k];
+            }
         }
-        return true;
+        return next[sb.length()];
     }
 }
