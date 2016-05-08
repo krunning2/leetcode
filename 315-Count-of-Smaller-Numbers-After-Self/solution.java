@@ -1,7 +1,7 @@
 public class Solution {
     public List<Integer> countSmaller(int[] nums) {
         List<Integer> res = new ArrayList<Integer>();
-        List<Integer> T = new ArrayList<Integer>();
+        List<Integer> T = new ArrayList<Integer>(Collections.nCopies(nums.length, Integer.MAX_VALUE));
         for(int i = nums.length - 1; i >= 0; i--){
             int l = 0, r = nums.length - 1;
             while(l + 1 < r){
