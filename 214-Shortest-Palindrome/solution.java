@@ -14,7 +14,7 @@ public class Solution {
         int[] next = new int[sb.length()];
         int j = 0, k = -1;
         next[0] = -1;
-        while(j < sb.length()){
+        while(j < sb.length() - 1){
             if(k == -1 || sb.charAt(j) == sb.charAt(k)){
                 k ++;
                 j ++;
