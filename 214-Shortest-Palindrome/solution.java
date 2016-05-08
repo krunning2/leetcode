@@ -8,10 +8,10 @@ public class Solution {
         sb.append("#");
         sb.append(sb_rev);
         int index = getNext(sb);
-        return sb_rev.substring(0, sb_rev.length() - index) + s;
+        return sb_rev.substring(0, sb_rev.length() - index + 1) + s;
     }
     private int getNext(StringBuilder sb){
-        int[] next = new int[sb.length()+1];
+        int[] next = new int[sb.length()];
         int j = 0, k = -1;
         next[0] = -1;
         while(j < sb.length()){
@@ -23,6 +23,6 @@ public class Solution {
                 k = next[k];
             }
         }
-        return next[sb.length()];
+        return next[sb.length() - 1];
     }
 }
