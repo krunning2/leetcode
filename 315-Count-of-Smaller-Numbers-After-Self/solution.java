@@ -14,7 +14,7 @@ public class Solution {
         int start = 0;
         int end = sorted.size() - 1;
         if (sorted.get(end) < target) return end + 1;
-        if (sorted.get(start) >= target) return 0;
+        //if (sorted.get(start) >= target) return 0;
         while (start + 1 < end) {
             int mid = start + (end - start) / 2;
             if (sorted.get(mid) < target) {
