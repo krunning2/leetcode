@@ -1,26 +1,29 @@
 public class Solution {
     public List<Integer> countSmaller(int[] nums) {
-        List<Integer> res = new ArrayList<Integer>();
-        List<Integer> T = new ArrayList<Integer>(Collections.nCopies(nums.length, Integer.MAX_VALUE));
-        for(int i = nums.length - 1; i >= 0; i--){
-            int l = 0, r = nums.length - 1;
-            while(l + 1 < r){
-                int mid = l - (l - r) / 2;
-                if(nums[i] <= T.get(mid)){
-                    r = mid;
-                }else{
-                    l = mid;
-                }
-            }
-            if(nums[i] >= T.get(l)){
-                res.add(l);
-                T.add(l, nums[i]);
-            }else{
-                res.add(r);
-                T.add(r, nums[i]);
+        Integer[] ans = new Integer[nums.length];
+        List<Integer> sorted = new ArrayList<Integer>();
+        for (int i = nums.length - 1; i >= 0; i--) {
+            int index = findIndex(sorted, nums[i]);
+            ans[i] = index;
+            sorted.add(index, nums[i]);
+        }
+        return Arrays.asList(ans);
+    }
+    private int findIndex(List<Integer> sorted, int target) {
+        if (sorted.size() == 0) return 0;
+        int start = 0;
+        int end = sorted.size() - 1;
+        if (sorted.get(end) < target) return end + 1;
+        if (sorted.get(start) >= target) return 0;
+        while (start + 1 < end) {
+            int mid = start + (end - start) / 2;
+            if (sorted.get(mid) < target) {
+                start = mid + 1;
+            } else {
+                end = mid;
             }
         }
-        Collections.reverse(res);
-        return res;
+        if (sorted.get(start) >= target) return start;
+        return end;
     }
 }
