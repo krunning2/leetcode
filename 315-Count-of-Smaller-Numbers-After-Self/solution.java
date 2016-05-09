@@ -7,7 +7,8 @@ public class Solution {
             res.add(index);
             list.add(index, nums[i]);
         }
-        return Collections.reverse(res);
+        Collections.reverse(res);
+        return res;
     }
     private int find(int target, List<Integer> list){
         if(list.size() == 0) return 0;
