@@ -1,0 +1,1 @@
+https://leetcode.com/discuss/73280/my-simple-ac-java-binary-search-code
