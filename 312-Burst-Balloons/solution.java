@@ -13,6 +13,6 @@ public class Solution {
                 }
             }
         }
-        return dp[1][n];
+        return dp[1][len];
     }
 }
