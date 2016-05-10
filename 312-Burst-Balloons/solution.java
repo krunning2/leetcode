@@ -5,7 +5,7 @@ public class Solution {
         int[] new_nums = new int[len + 2];
         for(int i = 1; i <= len; i++) new_nums[i] = nums[i - 1];
         new_nums[0] = new_nums[len + 1] = 1;
-        for(int k = 0; k <= len; k ++){
+        for(int k = 0; k < len; k ++){
             for(int i = 1; i <= len - k; i ++){
                 int j = i + k;
                 for(int x = i; x <= j; x ++){
