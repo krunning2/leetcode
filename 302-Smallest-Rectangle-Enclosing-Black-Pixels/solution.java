@@ -17,7 +17,7 @@ public class Solution {
             int mid = low - (low - high) / 2;
             boolean flag = false;
             for(int i = min; i < max; i++){
-                if((searchHorizontal ? image[i][mid] : image[mid][i]) == '1'){
+                if((horizontal ? image[i][mid] : image[mid][i]) == '1'){
                     flag = true;
                     break;
                 }
