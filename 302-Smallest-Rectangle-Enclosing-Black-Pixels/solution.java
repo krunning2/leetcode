@@ -6,9 +6,9 @@ public class Solution {
         int row = image.length;
         int col = image[0].length;
         int left = getBoundary(image, 0, y, 0, row, true, true);
-        int right = getBoundary(image, y + 1, col, 0, row, true, false);
+        int right = getBoundary(image, y, col, 0, row, true, false);
         int top = getBoundary(image, 0, x, left, right, false, true);
-        int down = getBoundary(image, x + 1, row, left, right, false, false);
+        int down = getBoundary(image, x, row, left, right, false, false);
         return (right - left) * (down - top);
     }
     private int getBoundary(char[][] image, int low, int high, int min, int max,
