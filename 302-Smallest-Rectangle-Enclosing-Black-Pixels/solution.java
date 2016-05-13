@@ -16,7 +16,7 @@ public class Solution {
         while(low < high){
             int mid = low - (low - high) / 2;
             boolean flag = false;
-            for(int i = min; i < max; i++){
+            for(int i = min; i <= max; i++){
                 if((horizontal ? image[i][mid] : image[mid][i]) == '1'){
                     flag = true;
                     break;
