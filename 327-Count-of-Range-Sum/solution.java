@@ -29,7 +29,7 @@ public class Solution {
         if(start == end){
             return new Node(A[start], A[end], 0L);
         }
-        long mid = (start + end) >> 1;
+        int mid = (start + end) >> 1;
         Node root = new Node(A[start], A[end], 0L);
         root.left = build(A[start], A[mid], A);
         root.left = build(A[mid + 1], A[end], A);
@@ -57,11 +57,11 @@ public class Solution {
     class Node {
         Node left;
         Node right;
-        int start;
-        int end;
+        long start;
+        long end;
         long val;
         
-        Node(int start, int end, long val){
+        Node(long start, long end, long val){
             this.start = start;
             this.end = end;
             this.val = val;
