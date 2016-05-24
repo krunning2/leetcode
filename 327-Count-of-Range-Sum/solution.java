@@ -22,7 +22,7 @@ public class Solution {
         return (int) res;
     }
     
-    private Node build(long start, long end, long[] A){
+    private Node build(int start, int end, long[] A){
         if(start > end){
             return null;
         }
@@ -57,11 +57,11 @@ public class Solution {
     class Node {
         Node left;
         Node right;
-        long start;
-        long end;
+        int start;
+        int end;
         long val;
         
-        Node(long start, long end, long val){
+        Node(int start, int end, long val){
             this.start = start;
             this.end = end;
             this.val = val;
