@@ -7,9 +7,9 @@ public class Solution {
             set.add(sum);
         }
         long[] B = new long[set.size()];
-        int i = 0;
+        int j = 0;
         for(long x : set){
-            B[i++] = x; 
+            B[j++] = x; 
         }
         Arrays.sort(B);
         long res = 0;
