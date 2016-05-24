@@ -8,7 +8,7 @@ public class Solution {
         }
         long[] B = new long[set.size()];
         int i = 0;
-        for(int x : set){
+        for(long x : set){
             B[i++] = x; 
         }
         Arrays.sort(B);
