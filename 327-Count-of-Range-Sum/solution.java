@@ -44,7 +44,7 @@ public class Solution {
         }
         return query(root.left, start, end) + query(root.right, start, end);
     }
-    private void modify(Node, root, long val){
+    private void modify(Node root, long val){
         if(root == null){
             return;
         }
