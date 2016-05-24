@@ -31,8 +31,8 @@ public class Solution {
         }
         int mid = (start + end) >> 1;
         Node root = new Node(A[start], A[end], 0L);
-        root.left = build(A[start], A[mid], A);
-        root.left = build(A[mid + 1], A[end], A);
+        root.left = build(start, mid, A);
+        root.right = build(mid + 1, end, A);
         return root;
     }
     private long query(Node root, long start, long end){
