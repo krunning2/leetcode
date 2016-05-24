@@ -14,7 +14,7 @@ public class Solution {
         Arrays.sort(B);
         long res = 0;
         Node root = build(0, B.length - 1, B);
-        for(int i = nums.length - 1; i >= 0; i++){
+        for(int i = nums.length - 1; i >= 0; i--){
             modify(root, sum);
             sum -= nums[i];
             res += query(root, lower + sum, upper + sum);
