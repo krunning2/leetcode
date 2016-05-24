@@ -57,11 +57,11 @@ public class Solution {
     class Node {
         Node left;
         Node right;
-        int start;
-        int end;
+        long start;
+        long end;
         long val;
         
-        Node(int start, int end, int val){
+        Node(long start, long end, long val){
             this.start = start;
             this.end = end;
             this.val = val;
