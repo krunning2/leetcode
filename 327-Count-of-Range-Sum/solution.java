@@ -27,10 +27,10 @@ public class Solution {
             return null;
         }
         if(start == end){
-            return new Node(A[start], A[end], 0);
+            return new Node(A[start], A[end], 0L);
         }
         long mid = (start + end) >> 1;
-        Node root = new Node(A[start], A[end], 0);
+        Node root = new Node(A[start], A[end], 0L);
         root.left = build(A[start], A[mid], A);
         root.left = build(A[mid + 1], A[end], A);
         return root;
