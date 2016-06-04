@@ -14,7 +14,7 @@ public class NumArray {
         i++;
         while(i <= n){
             BIT[i] += val;
-            i += (i & -i)
+            i += (i & -i);
         }
     }
     private int getSum(int i){
@@ -34,7 +34,7 @@ public class NumArray {
     }
 
     public int sumRange(int i, int j) {
-        return getSum(j) - getSum(j - 1);
+        return getSum(j) - getSum(i - 1);
     }
     
 }
