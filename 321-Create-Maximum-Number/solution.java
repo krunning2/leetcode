@@ -6,7 +6,7 @@ public class Solution {
             int[] tmp2 = getMaxSub(nums2, k - i);
             int[] tmp3 = new int[k];
             int pos1 = 0, pos2 = 0, pos3 = 0;
-            while(pos1 < tmp1.length || post2 < tmp2.length){
+            while(pos1 < tmp1.length || pos2 < tmp2.length){
                 if(compare(nums1, pos1, nums2, pos2) > 0){
                     tmp3[pos3 ++] = tmp1[pos1 ++];
                 }else{
