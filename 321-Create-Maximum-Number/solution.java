@@ -27,7 +27,7 @@ public class Solution {
         }
         if(s1 == nums1.length) return -1;
         if(s2 == nums2.length) return 1;
-        return nums1[s1].comparesTo(nums2[s2]);
+        return nums1[s1]-(nums2[s2]);
     }
     
     private int[] getMaxSub(int[] num, int k){
