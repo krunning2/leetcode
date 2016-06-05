@@ -1,21 +1,18 @@
 public class Solution {
     public int[] maxNumber(int[] nums1, int[] nums2, int k) {
         int[] res = new int[k];
-        for(int i = Math.max(k - nums2.length, 0); i <= Math.min(nums1.length, k); i++){
-            int[] tmp1 = getMaxSub(nums1, i);
-            int[] tmp2 = getMaxSub(nums2, k - i);
-            int[] tmp3 = new int[k];
-            int pos1 = 0, pos2 = 0, pos3 = 0;
-            while(pos1 < tmp1.length || pos2 < tmp2.length){
-                if(compare(nums1, pos1, nums2, pos2)){
-                    tmp3[pos3 ++] = tmp1[pos1 ++];
-                }else{
-                    tmp3[pos3 ++] = tmp2[pos2 ++];
-                }
+        for (int i = Math.max(k - nums2.length, 0); i <= Math.min(nums1.length, k); i++) {
+            int[] res1 = getMaxSub(nums1, i);
+            int[] res2 = getMaxSub(nums2, k - i);
+            int[] res = new int[k];
+            int pos1 = 0, pos2 = 0, tpos = 0;
+
+            while (pos1 < res1.length || pos2 < res2.length) {
+                res[tpos++] = greater(res1, pos1, res2, pos2) ? res1[pos1++] : res2[pos2++];
             }
-            if(!compare(tmp3, 0, res, 0)){
-                res = tmp3;
-            }
+
+            if (!greater(ans, 0, res, 0))
+                ans = res;
         }
         return res;
     }
