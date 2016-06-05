@@ -21,7 +21,7 @@ public class Solution {
     }
     // In case of 04 0 >> 004, should be 040
     private int compare(int[] nums1, int s1, int[] nums2, int s2){
-        while(s1 < nums1.length && s2 < nums2.length && nums1[s1] == nums[s2]){
+        while(s1 < nums1.length && s2 < nums2.length && nums1[s1] == nums2[s2]){
             s1++;
             s2++;
         }
