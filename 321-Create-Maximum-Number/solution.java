@@ -8,10 +8,10 @@ public class Solution {
             int pos1 = 0, pos2 = 0, tpos = 0;
 
             while (pos1 < res1.length || pos2 < res2.length) {
-                res[tpos++] = greater(res1, pos1, res2, pos2) ? res1[pos1++] : res2[pos2++];
+                res[tpos++] = compare(res1, pos1, res2, pos2) ? res1[pos1++] : res2[pos2++];
             }
 
-            if (!greater(ans, 0, res, 0))
+            if (!compare(ans, 0, res, 0))
                 ans = res;
         }
         return ans;
