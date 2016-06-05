@@ -1,7 +1,7 @@
 public class Solution {
     public int[] maxNumber(int[] nums1, int[] nums2, int k) {
         int[] res = new int[k];
-        for(int i = Math.max(nums2.length - k, 0); i <= k && i <= nums1.length; i++){
+        for(int i = Math.max(k - nums2.length, 0); i <= k && i <= nums1.length; i++){
             int[] tmp1 = getMaxSub(nums1, i);
             int[] tmp2 = getMaxSub(nums2, k - i);
             int[] tmp3 = new int[k];
@@ -27,7 +27,7 @@ public class Solution {
         }
         if(s1 == nums1.length) return -1;
         if(s2 == nums2.length) return 1;
-        return nums1[s1]-(nums2[s2]);
+        return nums1[s1]-nums2[s2];
     }
     
     private int[] getMaxSub(int[] num, int k){
