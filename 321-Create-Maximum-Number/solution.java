@@ -1,6 +1,6 @@
 public class Solution {
     public int[] maxNumber(int[] nums1, int[] nums2, int k) {
-        int[] res = new int[k];
+        int[] ans = new int[k];
         for (int i = Math.max(k - nums2.length, 0); i <= Math.min(nums1.length, k); i++) {
             int[] res1 = getMaxSub(nums1, i);
             int[] res2 = getMaxSub(nums2, k - i);
@@ -14,7 +14,7 @@ public class Solution {
             if (!greater(ans, 0, res, 0))
                 ans = res;
         }
-        return res;
+        return ans;
     }
     // In case of 04 0 >> 004, should be 040
     public boolean compare(int[] nums1, int start1, int[] nums2, int start2) {
