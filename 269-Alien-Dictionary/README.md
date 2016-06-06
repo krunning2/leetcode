@@ -29,4 +29,6 @@ r:1
 t:1
 f:1
 e:1
-Then use Karn's aglorithm to do topological sort. This is essentially BFS. https://en.wikipedia.org/wiki/Topological_sorting
+Then use Karn's aglorithm to do topological sort. This is essentially BFS. 
+计数时需要注意的是，我们不能将同样一条边计数两次，所以要用一个集合来排除已经计数过的边。
+https://en.wikipedia.org/wiki/Topological_sorting
