@@ -40,9 +40,9 @@ public class Solution {
             res.append(c);
             if(map.containsKey(c)){
                 for(char cur : map.get(c)){
-                    degree.put(cur, map.get(cur) - 1);
-                    if(map.get(cur) == 0){
-                        queue.offer(map.get(cur));
+                    degree.put(cur, degree.get(cur) - 1);
+                    if(degree.get(cur) == 0){
+                        queue.offer(cur);
                     }
                 }
             }
