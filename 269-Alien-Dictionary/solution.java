@@ -20,7 +20,7 @@ public class Solution {
                         map.put(cur.charAt(j), set);
                     }
                     if(!set.contains(next.charAt(j))){
-                        degree.put(cur.charAt(j), degree.get(cur.charAt(j)+1);
+                        degree.put(cur.charAt(j), degree.get(cur.charAt(j))+1);
                         set.add(next.charAt(j));
                     }
                 }
