@@ -13,14 +13,14 @@ public class Solution extends Reader4 {
     public int read(char[] buf, int n) {
         int p = 0;
         while(p < n){
-            if(buffCnt == 0){
-                buffCnt = read(buff);
+            if(p_buff == 0){
+                buffCnt = read4(buff);
             }
             while(p < n && p_buff < buffCnt){
                 buf[p++] = buff[p_buff++];
             }
             if(p_buff == buffCnt){
-                buffCnt = 0;
+                p_buff = 0;
             }
             if(buffCnt < 4){
                 break;
