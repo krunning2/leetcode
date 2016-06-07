@@ -12,7 +12,7 @@ public class Solution {
         if(intervals == null || intervals.size() <= 1){
             return intervals;
         }
-        Comparator<Interval> c = new Comparator<Integer>(){
+        Comparator<Interval> c = new Comparator<Interval>(){
             public int compare(Interval i1, Interval i2){
                 return i1.start - i2.start;
             }
