@@ -1,4 +1,11 @@
-/*Really nice solution! Let me try to explain the code with example in the problem description:
+1.build a graph with edge and degree with two maps, one is for degree, another is for the neighborhood and edges
+2.using set to avoid the duplicate edges
+3.Go BFS
+  3.1 Push the in-degree == 0 node to queue
+  3.2 Decrease the degree by 1 when removing the dependent node.
+  3.3 Push the in-degree == 0 node to queue
+4. In case of circle or invalid list, we should check the size of degree map and the length of result string.
+
 
 First, build a degree map for each character in all the words:
 
