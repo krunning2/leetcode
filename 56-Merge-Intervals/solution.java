@@ -16,7 +16,7 @@ public class Solution {
             public int compare(Interval i1, Interval i2){
                 return i1.start - i2.start;
             }
-        }
+        };
         Collections.sort(intervals, c);
         List<Interval> res = new ArrayList<Interval>();
         Interval pre = intervals.get(0);
