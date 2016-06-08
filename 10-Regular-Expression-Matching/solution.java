@@ -4,13 +4,13 @@ public class Solution {
         return helper(s, 0, p, 0, new int[s.length() + 1][p.length() + 1]);
     }
     private boolean helper(String s, int ps, String p, int pp, int[][] mem){
-        if(ps == s.length()){
-            return pp == p.length();
+        if(pp == p.length()){
+            return ps == s.length();
         }
         if(mem[ps][pp] != 0) return mem[ps][pp] == 1;
         //
         if(pp < p.length() - 1 && p.charAt(pp + 1) == '*'){
-            while(pp < p.length() && ps < ps.length() && (p.charAt(pp) == s.charAt(ps) || p.charAt(pp) == '.')){
+            while(pp < p.length() && ps < s.length() && (p.charAt(pp) == s.charAt(ps) || p.charAt(pp) == '.')){
                 if(helper(s, ps, p, pp + 2, mem)){
                     mem[ps][pp] = 1;
                     return true;
