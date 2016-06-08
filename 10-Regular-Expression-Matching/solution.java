@@ -21,6 +21,7 @@ public class Solution {
         }else if(pp < p.length() && ps < s.length() && (p.charAt(pp) == s.charAt(ps) || p.charAt(pp) == '.')){
             return helper(s, ps + 1, p, pp + 1, mem);
         }
+        mem[ps][pp] = -1;
         return false;
     }
 }
