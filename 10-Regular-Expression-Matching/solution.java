@@ -1,7 +1,7 @@
 public class Solution {
     public boolean isMatch(String s, String p) {
         if(s == null || p == null) return p == null && s == null;
-        return helper(s, p, 0, 0, new int[s.length() + 1][p.length() + 1]);
+        return helper(s, 0, p, 0, new int[s.length() + 1][p.length() + 1]);
     }
     private boolean helper(String s, int ps, Stirng p, int pp, int[][] mem){
         if(p1 == s.length()){
