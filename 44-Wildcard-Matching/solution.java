@@ -19,6 +19,7 @@ public class Solution {
         }else if(ps < s.length() && pp < p.length() && (p.charAt(pp) == '?' || p.charAt(pp) == s.charAt(ps))){
             return helper(s, p, ps + 1, pp + 1, mem);
         }
+        mem[ps][pp] = -1;
         return false;
     }
 }
