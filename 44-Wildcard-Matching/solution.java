@@ -16,7 +16,7 @@ public class Solution {
                 ps ++;
             }
             return helper(s, p, ps, pp + 1, mem);
-        }else if(ps < s.length() && pp < p.length() && (p.charAt(pp) == '.' || p.charAt(pp) == s.charAt(ps))){
+        }else if(ps < s.length() && pp < p.length() && (p.charAt(pp) == '?' || p.charAt(pp) == s.charAt(ps))){
             return helper(s, p, ps + 1, pp + 1, mem);
         }
         return false;
