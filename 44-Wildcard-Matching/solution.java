@@ -10,7 +10,7 @@ public class Solution {
                 is_star = true;
                 p2 = p1;
                 s2 = s1;
-                p2++
+                p2++;
                 // while(p2 < p.length() && p.charAt(p2) == '*'){
                 //     p2 ++;
                 // }
