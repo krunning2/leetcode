@@ -10,10 +10,10 @@ public class Solution {
                 is_star = true;
                 p2 = p1;
                 s2 = s1;
-                while(p2 < p.length() && p.charAt(p2) == '*'){
-                    p2 ++;
-                }
-                if(p2 == p.length()) return true;
+                // while(p2 < p.length() && p.charAt(p2) == '*'){
+                //     p2 ++;
+                // }
+                // if(p2 == p.length()) return true;
                 p1 = p2;
             }else if(p1 == p.length() || p.charAt(p1) != s.charAt(s1)){
                 if(!is_star) return false;
