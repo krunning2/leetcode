@@ -1,26 +1,30 @@
 public class Solution {
     public boolean isMatch(String s, String p) {
-        if(s == null || p == null) return p == null && s == null;
-        if(s.equals("aaabbbaabaaaaababaabaaabbabbbbbbbbaabababbabbbaaaaba") && p.equals("a*******b")) return false;
-        return helper(s, p, 0, 0, new int[s.length() + 1][p.length() + 1]);
-    }
-    
-    private boolean helper(String s, String p, int ps, int pp, int[][] mem){
-        if(pp == p.length()) return ps == s.length();
-        if(mem[ps][pp] != 0) return mem[ps][pp] == 1;
-        if(pp < p.length() && p.charAt(pp) == '*'){
-            while(ps < s.length() && pp < p.length()){
-                if(helper(s, p, ps, pp + 1, mem)){
-                    mem[ps][pp] = 1;
-                    return true;
+        int p1 = 0, p2 = 0, s1 = 0, s2 = 0;
+        boolean is_star = false;
+        while(s1 < s.length()){
+            if(p1 < p.length() && (s.charAt(s1) == p.charAt(p1) || p.charAt(p1) == '?')){
+                s1 ++;
+                p1 ++;
+            }else if(p1 < p.length() && p.charAt(p1) == '*'){
+                is_star = true;
+                p2 = p1;
+                s2 = s1;
+                while(p2 < p.length() && p.charAt(p2) == '*'){
+                    p2 ++;
                 }
-                ps ++;
+                if(p2 == p.length()) return true;
+                p1 = p2;
+            }else if(p1 == p.length() || p.charAt(p1) != s.charAt(s1)){
+                if(!is_star) return false;
+                s2++;
+                p1 = p2;
+                s1 = s2;
             }
-            return helper(s, p, ps, pp + 1, mem);
-        }else if(ps < s.length() && pp < p.length() && (p.charAt(pp) == '?' || p.charAt(pp) == s.charAt(ps))){
-            return helper(s, p, ps + 1, pp + 1, mem);
         }
-        mem[ps][pp] = -1;
-        return false;
+        while(p1 < p.length() && p.charAt(p1) == '*'){
+            p1 ++;
+        }
+        return p1 == p.length();
     }
 }
