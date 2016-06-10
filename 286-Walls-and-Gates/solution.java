@@ -4,7 +4,7 @@ public class Solution {
     private static final int GATE = 0;
     public void wallsAndGates(int[][] rooms) {
         if(rooms == null || rooms.length == 0){
-            return null;
+            return;
         }
         Queue<Point> queue = new LinkedList<Point>();
         for(int i = 0; i < rooms.length; i ++){
