@@ -20,7 +20,7 @@ public class Solution {
         inorder(root.left, target, k, res);
         if(res.size() == k){
             if(Math.abs(root.val - target) < Math.abs(target - res.get(0))){
-                res.remove();
+                res.remove(0);
             }else{
                 return;
             }
