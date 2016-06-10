@@ -8,7 +8,7 @@ public class Solution {
         }
         Queue<Point> queue = new LinkedList<Point>();
         for(int i = 0; i < rooms.length; i ++){
-            for(int j = 0; j < rooms.length; j ++){
+            for(int j = 0; j < rooms[0].length; j ++){
                 if(rooms[i][j] == GATE){
                     queue.offer(new Point(i, j));
                 }
