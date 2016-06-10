@@ -22,14 +22,14 @@ public class Solution {
             }
         }
         while(k > 0){
-            if(!predecessor.isEmpty() && !successor.isEmpty()){
+            if(predecessor.isEmpty() && successor.isEmpty()){
                 break;
             }
             if(predecessor.isEmpty()){
                 res.add(getSuccessor(successor));
             } else if(successor.isEmpty()){
                 res.add(getPredecessor(predecessor));
-            } else if(Math.abs(successor.peek() - target) < Math.abs(predecessor.peek() - target)){
+            } else if(Math.abs(successor.peek().val - target) < Math.abs(predecessor.peek().val - target)){
                 res.add(getSuccessor(successor));
             }else{
                 res.add(getPredecessor(predecessor));
