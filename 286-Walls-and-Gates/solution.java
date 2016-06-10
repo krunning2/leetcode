@@ -19,7 +19,7 @@ public class Solution {
         int[] dy = {1,-1,0,0};
         while(!queue.isEmpty()){
             level ++;
-            int size queue.size();
+            int size = queue.size();
             for(int i = 0; i < size; i++){
                 Point cur = queue.poll();
                 for(int i = 0; i < 4; i++){
