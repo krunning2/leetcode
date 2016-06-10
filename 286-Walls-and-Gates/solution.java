@@ -22,10 +22,10 @@ public class Solution {
             int size = queue.size();
             for(int i = 0; i < size; i++){
                 Point cur = queue.poll();
-                for(int i = 0; i < 4; i++){
-                    if(check(rooms, cur, dx, dy, level)){
-                        rooms[dx + cur.x][dy + cur.y] = level;
-                        queue.offer(new Point(dx + cur.x, dy + cur.y));
+                for(int j = 0; j < 4; j++){
+                    if(check(rooms, cur, dx[j], dy[j], level)){
+                        rooms[dx[j] + cur.x][dy[j] + cur.y] = level;
+                        queue.offer(new Point(dx[j] + cur.x, dy[j] + cur.y));
                     }
                 }
             }
