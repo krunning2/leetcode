@@ -17,7 +17,7 @@ public class Solution {
         if(root == null){
             return;
         }
-        inorder(root.left, target, int k, res);
+        inorder(root.left, target, k, res);
         if(res.size() == k){
             if(Math.abs(root.val - target) < Math.abs(target - res.get(0))){
                 res.remove();
