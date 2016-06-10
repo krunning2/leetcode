@@ -10,7 +10,7 @@
 public class Solution {
     public int closestValue(TreeNode root, double target) {
         if(root == null){
-            throw new Exception("Root can't be null");
+            throw new RuntimeException("Root can't be null");
         }
         int[] res = {root.val};
         helper(root, target, res);
