@@ -13,7 +13,13 @@ public class Solution {
             throw new RuntimeException("Root can't be null");
         }
         int cur = root.val;
-        int kid = root.val < target ? closestValue(root.right, target) : closestValue(root.left, target);
+        int kid = cur;
+        if(root.val < target && root.right != null){
+            kid = closestValue(root.right, target);
+        }
+        if(root.val > target && root.left != null){
+            kid = closestValue(root.left, target);
+        }
         return Math.abs(cur - target) < Math.abs(kid - target) ? cur : kid;
     }
    
