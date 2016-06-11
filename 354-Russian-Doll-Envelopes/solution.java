@@ -3,7 +3,7 @@ public class Solution {
         if(envelopes == null || envelopes.length <= 0){
             return 0;
         }
-        Arrays.sort(envelopes, new Comparacter<int[]>(){
+        Arrays.sort(envelopes, new Comparactor<int[]>(){
             public int compare(int[] a, int[] b){
                 return a[0] - b[0];
             }
