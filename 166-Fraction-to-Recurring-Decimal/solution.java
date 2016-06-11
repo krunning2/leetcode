@@ -10,7 +10,7 @@ public class Solution {
         }
         n = Math.abs(n);
         d = Math.abs(d);
-        sb.append((n / d));
+        sb.append(n / d);
         if(n % d == 0){
             return sb.toString();
         }else{
