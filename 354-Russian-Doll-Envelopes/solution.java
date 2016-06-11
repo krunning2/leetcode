@@ -13,7 +13,7 @@ public class Solution {
         for(int i = 0; i < envelopes.length; i++){
             dp[i] = 1;
             for(int j = 0; j < i; j++){
-                if(envelopes[i][0] > envelopes[j][10]&& envelopes[i][1] > envelopes[j][1]){
+                if(envelopes[i][0] > envelopes[j][0]&& envelopes[i][1] > envelopes[j][1]){
                     dp[i] = Math.max(dp[i], dp[j] + 1);
                     max = Math.max(max, dp[i]);
                 }
