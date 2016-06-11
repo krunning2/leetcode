@@ -1,37 +1,31 @@
 public class Solution {
     public String fractionToDecimal(int numerator, int denominator) {
-        StringBuilder sb = new StringBuilder();
-        if(denominator == 0) return "";
+        if(denominator == 0) return "NaN";
         if(numerator == 0) return "0";
-        boolean sign = true;
-        if(numerator > 0 && denominator < 0 || numerator < 0 && denominator > 0){
-            sign = false;
-            numerator = Math.abs(numerator);
-            denominator = Math.abs(denominator);
+        StringBuilder sb = new StringBuilder();
+        Long n = new Long(numerator);
+        Long d = new Long(denominator);
+        if(n * d < 0){
+            sb.append("-");
         }
-        int pre = numerator;
-        int remaining = 0;
-        boolean dot = false;
-        boolean repeat = false;
-        while(true){
-            if(numerator / denominator > 0){
-                if(dot && numerator == pre * 10){
-                    repeat = true;
-                }
-                remaining = numerator - (numerator / denominator) * denominator;
-                if(numerator / denominator != 0 && repeat){
-                    sb.append("(").append(numerator / denominator).append(")");
-                    break;
-                }
-                sb.append(numerator / denominator);
-                if(remaining == 0) break;
-                if(!dot){
-                    sb.append(".");
-                    dot = true;
-                }
-                pre = numerator;
-                numerator = remaining * 10;
+        sb.append(n / d);
+        if(n % d == 0){
+            return sb.toString();
+        }else{
+            sb.append(".");    
+        }
+        HashMap<Long, String> map = new HashMap<Long, String>();
+        Long r = n % d;
+        while(r > 0){
+            if(map.containsKey(r)){
+                sb.insert(map.get(r), "(");
+                sb.append(")");
+                break;
             }
+            map.put(r, sb.length());
+            r *= 10;
+            sb.append(r / d);
+            r %= d; 
         }
         return sb.toString();
     }
