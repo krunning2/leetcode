@@ -1,13 +1,17 @@
-class Solution {
-public:
-    int hIndex(vector<int>& citations) {
-        int left=0, len = citations.size(), right= len-1,  mid;
-        while(left<=right)
-        {
-            mid=left+ (right-left)/2;
-            if(citations[mid] >= (len-mid)) right = mid - 1;
-            else left = mid + 1;
+public class Solution {
+    public int hIndex(int[] citations) {
+        if(citations == null || citations.length == 0){
+            return 0;
         }
-        return len - left;
+        int start = 0, end = citations.length - 1, len = citations.length;
+        while(start <= end){
+            int mid = start + (end - start) / 2;
+            if(citations[mid] < len - mid){
+                start = mid + 1;
+            }else{
+                end = mid - 1;
+            }
+        }
+        return len - start;
     }
-};
+}
