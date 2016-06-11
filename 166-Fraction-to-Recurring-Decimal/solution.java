@@ -10,7 +10,7 @@ public class Solution {
         }
         n = Math.abs(n);
         d = Math.abs(d);
-        sb.append(Long.toString(n / d));
+        sb.append((n / d));
         if(n % d == 0){
             return sb.toString();
         }else{
@@ -26,7 +26,7 @@ public class Solution {
             }
             map.put(r, sb.length());
             r *= 10;
-            sb.append(Long.toString(r / d));
+            sb.append(r / d));
             r %= d;
         }
         return sb.toString();
