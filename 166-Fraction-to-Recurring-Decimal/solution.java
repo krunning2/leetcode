@@ -26,7 +26,7 @@ public class Solution {
             }
             map.put(r, sb.length());
             r *= 10;
-            sb.append(r / d));
+            sb.append(r / d);
             r %= d;
         }
         return sb.toString();
