@@ -8,13 +8,15 @@ public class Solution {
         if(n * d < 0){
             sb.append("-");
         }
-        sb.append(n / d);
+        n = Math.abs(n);
+        d = Math.abs(d);
+        sb.append(Long.toString(n / d));
         if(n % d == 0){
             return sb.toString();
         }else{
             sb.append(".");    
         }
-        HashMap<Long, String> map = new HashMap<Long, String>();
+        HashMap<Long, Integer> map = new HashMap<Long, Integer>();
         Long r = n % d;
         while(r > 0){
             if(map.containsKey(r)){
@@ -24,8 +26,8 @@ public class Solution {
             }
             map.put(r, sb.length());
             r *= 10;
-            sb.append(r / d);
-            r %= d; 
+            sb.append(Long.toString(r / d));
+            r %= d;
         }
         return sb.toString();
     }
