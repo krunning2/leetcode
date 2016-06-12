@@ -7,13 +7,23 @@ public class Solution {
             flights.putIfAbsent(oneway[0], new PriorityQueue());
             flights.get(oneway[0]).add(oneway[1]);
         }
-        dfs("JFK", flights, path);
+        Stack<String> stack = new Stack<>();
+        stack.push("JFK");
+        PriorityQueue<String> arrivals = flights.get(stack.peek());
+        while(!stack.isEmpty()){
+            while (arrivals != null && !arrivals.isEmpty()){
+                stack.push(arrivals.poll());
+            }
+            path.addFirst(stack.pop());
+        }
+        
         return path;
     }
     public void dfs(String departure, Map<String, PriorityQueue<String>>flights, LinkedList<String> path) {
+        Stack<String> stack = new Stack<>();
         PriorityQueue<String> arrivals = flights.get(departure);
         while (arrivals != null && !arrivals.isEmpty()){
-            dfs(arrivals.poll(), flights, path);
+            dfs(arrivals.poll());
         }
         path.addFirst(departure);
     }
