@@ -1,0 +1,1 @@
+To solve the intersection of two string, we can use bit map
