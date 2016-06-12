@@ -1,14 +1,15 @@
 public class Solution {
     public int minPatches(int[] nums, int n) {
-        int cnt = 0,i=0;
-        for(long known_sum = 1;known_sum <= n;){
-            if(i < nums.length && known_sum >= nums[i]){
-                known_sum += nums[i++];
-            }else{
-                known_sum <<= 1;
-                cnt++;
+        long miss = 1;
+        int added = 0, i = 0;
+        while (miss <= n) {
+            if (i < nums.length && nums[i] <= miss) {
+                miss += nums[i++];
+            } else {
+                miss += miss;
+                added++;
             }
         }
-        return cnt;
+        return added;
     }
 }
