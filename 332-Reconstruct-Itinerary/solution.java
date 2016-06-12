@@ -13,7 +13,7 @@ public class Solution {
     public void dfs(String departure, Map<String, PriorityQueue<String>>flights, LinkedList<String> path) {
         PriorityQueue<String> arrivals = flights.get(departure);
         while (arrivals != null && !arrivals.isEmpty()){
-            dfs(arrivals.poll());
+            dfs(arrivals.poll(), fights, path);
         }
         path.addFirst(departure);
     }
