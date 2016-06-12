@@ -1,0 +1,1 @@
+https://leetcode.com/discuss/68352/easiest-java-solution-with-explanation
