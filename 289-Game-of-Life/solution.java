@@ -27,7 +27,9 @@ public class Solution {
         int count = 0;
         for(int i = Math.max(0, x - 1); i <= Math.min(x + 1, m); i++){
             for(int j = Math.max(0, y - 1); j <= Math.min(y + 1, n); j++){
-                count += board[i][j] & 1;
+                if((board[i][j] & 1) == 1){
+                    count ++;
+                }
             }
         }
         if((board[x][y] & 1) == 1){
