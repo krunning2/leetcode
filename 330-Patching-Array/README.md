@@ -2,3 +2,5 @@ Let miss as the number which we already know we can build all sums in [0,miss). 
 
 if there is no more element in the num[], we also patch Miss.
 
+http://www.cnblogs.com/grandyang/p/5165821.html
+
