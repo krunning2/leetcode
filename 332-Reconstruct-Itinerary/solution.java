@@ -9,9 +9,11 @@ public class Solution {
         }
         Stack<String> stack = new Stack<>();
         stack.push("JFK");
-        PriorityQueue<String> arrivals = flights.get(stack.peek());
+        
         while(!stack.isEmpty()){
+            PriorityQueue<String> arrivals = flights.get(stack.peek());
             while (arrivals != null && !arrivals.isEmpty()){
+                arrivals = flights.get(stack.peek());
                 stack.push(arrivals.poll());
             }
             path.addFirst(stack.pop());
@@ -23,7 +25,7 @@ public class Solution {
         Stack<String> stack = new Stack<>();
         PriorityQueue<String> arrivals = flights.get(departure);
         while (arrivals != null && !arrivals.isEmpty()){
-            dfs(arrivals.poll());
+            dfs(arrivals.poll(), flights, path);
         }
         path.addFirst(departure);
     }
