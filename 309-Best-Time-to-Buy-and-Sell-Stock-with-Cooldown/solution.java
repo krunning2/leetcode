@@ -11,7 +11,7 @@ public class Solution {
         sell[1] = Math.max(0, prices[1] - prices[0]);
         for(int i = 2; i < n; i++){
             buy[i] = Math.max(sell[i - 2] - prices[i], buy[i - 1]);
-            sell[i] = Math.max(sell[i - 1], buy[i - 1] + prices[i]):
+            sell[i] = Math.max(sell[i - 1], buy[i - 1] + prices[i]);
         }
         return sell[n - 1];
     }
