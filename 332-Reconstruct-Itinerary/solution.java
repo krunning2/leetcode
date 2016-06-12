@@ -13,8 +13,8 @@ public class Solution {
         while(!stack.isEmpty()){
             PriorityQueue<String> arrivals = flights.get(stack.peek());
             while (arrivals != null && !arrivals.isEmpty()){
-                arrivals = flights.get(stack.peek());
                 stack.push(arrivals.poll());
+                arrivals = flights.get(stack.peek());
             }
             path.addFirst(stack.pop());
         }
