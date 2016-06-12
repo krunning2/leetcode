@@ -14,20 +14,26 @@ public class Solution {
             list.add(new Pair(i.start, true));
             list.add(new Pair(i.end, false));
         }
-        Arrays.sort(list, new Comparator<Pair>(){
+        Collections.sort(list, new Comparator<Pair>(){
             public int compare(Pair i1, Pair i2){
-                return i1.t - i2.t;
+                if(i1.t == i2.t){
+                    return i1.is_start ? 1 : -1;
+                } else {
+                    return i1.t - i2.t;
+                }
             }
         });
         int count = 0;
+        int max = 0;
         for(Pair p : list){
             if(p.is_start){
                 count++;
             }else{
                 count--;
             }
+            max = Math.max(max, count);
         }
-        return count;
+        return max;
     }
     class Pair{
         int t;
