@@ -12,7 +12,7 @@ public class Solution {
         List<Pair> list = new ArrayList<Pair>();
         for(Interval i : intervals){
             list.add(new Pair(i.start, true));
-            list.add(i.end, false);
+            list.add(new Pair(i.end, false));
         }
         Arrays.sort(list, new Comparator<Interval>(){
             public int compare(Interval i1, Interval i2){
