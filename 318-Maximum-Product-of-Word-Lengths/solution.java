@@ -4,7 +4,7 @@ public class Solution {
             return 0;
         }
         int[] values = new int[words.length];
-        for(int i = 0; i< s.length(); i++){
+        for(int i = 0; i< words.length; i++){
             String s = words[i];
             for(char c : s.toCharArray()){
                 values[i] |= 1 << (c - 'a');
