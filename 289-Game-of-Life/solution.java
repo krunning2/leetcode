@@ -30,7 +30,9 @@ public class Solution {
                 count += board[i][j] & 1;
             }
         }
-        count -= board[x][y] & 1;
+        if((board[x][y] & 1) == 1){
+            count--;
+        }
         return count;
     }
 }
