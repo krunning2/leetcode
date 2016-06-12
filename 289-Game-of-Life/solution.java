@@ -6,10 +6,10 @@ public class Solution {
         for(int i = 0; i < board.length; i++){
             for(int j = 0; j < board[0].length; j++){
                 int lives = getLives(board, i, j);
-                if(lives == 3 && board[i][j] & 1 == 0){
+                if(lives == 3 && (board[i][j] & 1 == 0)){
                     board[i][j] = 2;
                 }
-                if(board[i][j] & 1 == 1 && (lives == 3 || lives == 2)){
+                if((board[i][j] & 1 == 1) && (lives == 3 || lives == 2)){
                     board[i][j] = 3;
                 }
             }
@@ -27,7 +27,7 @@ public class Solution {
         int count = 0;
         for(int i = Math.max(0, x - 1); i <= Math.min(x + 1, m); i++){
             for(int j = Math.max(0, y - 1); j <= Math.min(y + 1, n); j++){
-                if(board[i][j] & 1 == 1){
+                if((board[i][j] & 1) == 1){
                     count++;
                 }
             }
