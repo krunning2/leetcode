@@ -14,8 +14,8 @@ public class Solution {
             list.add(new Pair(i.start, true));
             list.add(new Pair(i.end, false));
         }
-        Arrays.sort(list, new Comparator<Interval>(){
-            public int compare(Interval i1, Interval i2){
+        Arrays.sort(list, new Comparator<Pair>(){
+            public int compare(Pair i1, Pair i2){
                 return i1.t - i2.t;
             }
         });
