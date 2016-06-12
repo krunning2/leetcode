@@ -4,9 +4,9 @@ public class Solution {
         int i = 0;
         while( miss <= n){
             if(i < nums.length && nums[i] <= miss){
-                res ++;
                 miss += nums[i++];
             }else{
+                res ++;
                 miss += miss;
             }
         }
