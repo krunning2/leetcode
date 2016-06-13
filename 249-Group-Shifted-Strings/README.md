@@ -1,0 +1,1 @@
+Calculate the bitMap for each of the string by shifting back the string to the original string start with 'a'
