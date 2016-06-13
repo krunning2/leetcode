@@ -7,7 +7,7 @@ public class Solution {
         HashMap<String, List<String>> map = new HashMap<String, List<String>>();
         for(String s : strings){
             String key = getBitMap(s);
-            map.putIfAbsent(s, new ArrayList<String>());
+            map.putIfAbsent(key, new ArrayList<String>());
             map.get(key).add(s);
         }
         for(List<String> list : map.values()){
