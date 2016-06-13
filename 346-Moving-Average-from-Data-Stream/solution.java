@@ -6,12 +6,12 @@ public class MovingAverage {
     public MovingAverage(int size) {
         this.size = size;
         this.sum = 0;
-        queue = new Deque<Integer>();
+        queue = new LinkedList<Integer>();
     }
     
     public double next(int val) {
         sum += val;
-        queue.addLast(val);
+        queue.addFirst(val);
         if(queue.size() > size){
             sum -= queue.removeLast();
         }
