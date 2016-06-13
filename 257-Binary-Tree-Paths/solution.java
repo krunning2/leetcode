@@ -19,7 +19,7 @@ public class Solution {
             res.add(sb.toString().substring(0, sb.length() - 2));
             return;
         }
-        String val = new String.valueOf(node.val);
+        String val = String.valueOf(node.val);
         sb.append(val).append("->");
         DFS(node.left, res, sb);
         DFS(node.right, res, sb);
