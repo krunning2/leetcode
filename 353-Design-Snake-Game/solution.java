@@ -1,7 +1,8 @@
 public class SnakeGame {
-    int width, int height, int[][] food;
+    int width, height, len;
+	int[][] food;
     LinkedList<Pair> snake;
-    int len;
+    
     /** Initialize your data structure here.
         @param width - screen width
         @param height - screen height 
@@ -40,9 +41,10 @@ public class SnakeGame {
             if(food[len][0] == cur.x && food[len][1] == cur.y){
                 len++;
             } else {
-              snake.removeLast();  
+              //snake.removeLast();  
             }
         }
+        while(snake.size()>len+1) snake.removeLast();
         return len;
     }
     class Pair{
