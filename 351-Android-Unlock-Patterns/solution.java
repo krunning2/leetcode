@@ -1,6 +1,6 @@
 public class Solution {
     public int numberOfPatterns(int m, int n) {
-        int[][] skip = new int[10][1];
+        int[][] skip = new int[10][10];
         skip[1][3] = skip[3][1] = 2;
         skip[1][7] = skip[7][1] = 4;
         skip[3][9] = skip[9][3] = 6;
@@ -19,11 +19,11 @@ public class Solution {
         return res;
     }
     private int helper(int count, int[][]skip, boolean[] visited, int cur, int m, int n, int len){
-        if(len >= m){
-            count ++;
-        }
         if(len > n){
             return count;
+        }
+        if(len >= m){
+            count ++;
         }
         for(int i = 1; i <= 9; i++){
             if(!visited[i] && (skip[cur][i] == 0 || visited[skip[cur][i]])){
