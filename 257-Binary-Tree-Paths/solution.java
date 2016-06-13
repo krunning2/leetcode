@@ -10,7 +10,7 @@
 public class Solution {
     public List<String> binaryTreePaths(TreeNode root) {
         List<String> res = new ArrayList<String>();
-        DFS(node, res, new StringBuilder());
+        DFS(root, res, new StringBuilder());
         return res;
     }
     
