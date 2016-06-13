@@ -7,8 +7,8 @@ public class Solution {
         int min = Integer.MAX_VALUE;
         HashMap<Integer, Set<Integer>> map = new HashMap<Integer, Set<Integer>>();
         for(int i = 0; i < points.length; i++){
-            max = Math.max(max, [i][0]);
-            min = Math.min(min, [i][0]);
+            max = Math.max(max, points[i][0]);
+            min = Math.min(min, points[i][0]);
             map.putIfAbsent(points[i][0], new HashSet<Integer>());
             map.get(points[i][0].add(points[i][1]))
         }
