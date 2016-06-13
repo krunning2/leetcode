@@ -16,12 +16,14 @@ public class Solution {
     }
     
     private void DFS(TreeNode node, List<String> res, StringBuilder sb){
-        if(node.left == null && node.right == null){
-            res.add(sb.toString().substring(0, sb.length() - 2));
-            return;
-        }
         String val = String.valueOf(node.val);
         sb.append(val).append("->");
+        if(node.left == null && node.right == null){
+            res.add(sb.toString().substring(0, sb.length() - 2));
+            sb.delete(sb.length() - 2 - val.length(), sb.length());
+            return;
+        }
+        
         if(node.left != null){
             DFS(node.left, res, sb);
         }
