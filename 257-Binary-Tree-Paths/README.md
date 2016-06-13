@@ -1,0 +1,1 @@
+We can use setLength() to remove the last few characters
