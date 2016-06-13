@@ -23,6 +23,6 @@ public class Solution {
         sb.append(val).append("->");
         DFS(node.left, res, sb);
         DFS(node.right, res, sb);
-        sb.remove(sb.length() - 2 - val.length(), sb.length());
+        sb.delete(sb.length() - 2 - val.length(), sb.length());
     }
 }
