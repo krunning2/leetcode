@@ -37,14 +37,13 @@ public class SnakeGame {
             }
         }
         snake.addFirst(cur);
+        Pair tail = snake.removeLast(); 
         if(len < food.length){
             if(food[len][0] == cur.x && food[len][1] == cur.y){
                 len++;
-            } else {
-              //snake.removeLast();  
+                snake.addLast(tail);
             }
         }
-        while(snake.size()>len+1) snake.removeLast();
         return len;
     }
     class Pair{
