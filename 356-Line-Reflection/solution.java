@@ -10,7 +10,7 @@ public class Solution {
             max = Math.max(max, points[i][0]);
             min = Math.min(min, points[i][0]);
             map.putIfAbsent(points[i][0], new HashSet<Integer>());
-            map.get(points[i][0].add(points[i][1]))
+            map.get(points[i][0].add(points[i][1]));
         }
         int mid =(max + min) >> 1;
         for(int i = 0; i < points.length; i++){
