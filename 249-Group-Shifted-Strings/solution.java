@@ -20,7 +20,7 @@ public class Solution {
         StringBuilder sb = new StringBuilder();
         int dist = s.charAt(0) - 'a';
         for(int i = 0; i < s.length(); i++){
-            sb.append(s.charAt(i) - 'a' - dist + 26) % 26 + 'a');
+            sb.append((s.charAt(i) - 'a' - dist + 26) % 26 + 'a');
         }
         return sb.toString();
     }
