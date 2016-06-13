@@ -1,18 +1,22 @@
 public class ValidWordAbbr {
-    Map<String, Boolean> dict = new HashMap<String, Boolean>();
+    Map<String, String> dict = new HashMap<String, String>();
     public ValidWordAbbr(String[] dictionary) {
         for(String s : dictionary){
             String abb = getAbb(s);
-            if(dict.containsKey(abb)){
-                dict.put(getAbb(s), false);
+            if(dict.containsKey(abb) && !dict.get(abb).equals(s)){
+                dict.put(getAbb(s), "");
             }else{
-                dict.put(getAbb(s), true);
+                dict.put(getAbb(s), s);
             }
         }
     }
 
     public boolean isUnique(String word) {
-        return dict.get(getAbb(word));
+        String abbr = getAbb(word);
+        if(dict.containsKey(abbr) && dict.get(abbr).equals(word) || !dict.containsKey(abbr)){
+            return true;
+        }
+        return false;
     }
     private String getAbb(String s){
         if(s.length() > 2){
