@@ -42,7 +42,7 @@ public class Trie {
     // that starts with the given prefix.
     public boolean startsWith(String prefix) {
         TrieNode node = root;
-        for(char c : word.toCharArray()){
+        for(char c : prefix.toCharArray()){
             if(node.map.containsKey(c)){
                 node = node.map.get(c);
             }else{
