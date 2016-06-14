@@ -5,7 +5,9 @@ public class Solution {
         }
         for(int i = 0; i < board.length; i++){
             for(int j = 0; j < board[0].length; j++){
-                if(DFS(board, word, i, j, new boolean[board.length][board[0].length], 0)) return true;
+                if(board[i][j] == word.charAt(0) && DFS(board, word, i, j, new boolean[board.length][board[0].length], 0)){
+                    return true;
+                }
             }
         }
         return false;
