@@ -11,7 +11,7 @@ public class Solution {
         return false;
     }
     private boolean DFS(char[][] board, String word, int x, int y, boolean[][] visited, int cur){
-        if(x < 0 || y < 0 || x >= board.length || y >= board[0].length || visited[x][y] || cur >= word.length()){
+        if(x < 0 || y < 0 || x >= board.length || y >= board[0].length || visited[x][y]){
             return false;
         }
         if(board[x][y] != word.charAt(cur)){
@@ -21,11 +21,13 @@ public class Solution {
         visited[x][y] = true;
         int[] dx = {0, 0, -1, 1};
         int[] dy = {1, -1, 0, 0};
-        boolean flag = false;
         for(int i = 0; i < 4; i++){
-            flag |= DFS(board, word, x + dx[i], y + dy[i], visited, cur + 1);
+            if( DFS(board, word, x + dx[i], y + dy[i], visited, cur + 1)){
+                visited[x][y] = false;
+                return true;
+            }
         }
         visited[x][y] = false;
-        return flag;
+        return false;
     }
 }
