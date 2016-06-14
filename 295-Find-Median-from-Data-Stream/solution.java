@@ -1,6 +1,6 @@
 public class MedianFinder {
     Comparator<Integer> c = new Comparactor<Integer>(){
-        public int compare(Integer){
+        public int compare(Integer a, Integer b){
             return b - a;
         }
     }
