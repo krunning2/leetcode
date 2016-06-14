@@ -5,7 +5,7 @@ public class Solution {
         if((n + m) % 2 == 0){
             return (find(nums1, nums2, 0, 0, (n + m) / 2 + 1) + find(nums1, nums2, 0, 0, (n + m) / 2) )/ 2.0;
         }else{
-            return find(A, B, 0, 0 , (n + m) / 2 + 1);
+            return find(nums1, nums2, 0, 0 , (n + m) / 2 + 1);
         }
     }
     private int find(int[] A, int[] B, int startA, int startB, int k){
