@@ -29,8 +29,8 @@ public class Trie {
     public boolean search(String word) {
         TrieNode node = root;
         for(char c : word.toCharArray()){
-            if(node.map.containsKey()){
-                node = node.get(c);
+            if(node.map.containsKey(c)){
+                node = node.map.get(c);
             }else{
                 return false;
             }
@@ -43,8 +43,8 @@ public class Trie {
     public boolean startsWith(String prefix) {
         TrieNode node = root;
         for(char c : word.toCharArray()){
-            if(node.map.containsKey()){
-                node = node.get(c);
+            if(node.map.containsKey(c)){
+                node = node.map.get(c);
             }else{
                 return false;
             }
