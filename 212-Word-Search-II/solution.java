@@ -5,7 +5,7 @@ public class Solution {
             return res;
         }
         Trie t = new Trie();
-        for(String s : word){
+        for(String s : words){
             t.insert(s);
         }
         int m = board.length;
