@@ -1,6 +1,6 @@
 public class Solution {
     public List<String> findWords(char[][] board, String[] words) {
-        List<String> res = new ArrayList<String>();
+        Set<String> res = new HashSet<String>();
         if(board == null || board.length == 0 || words == null || words.length == 0){
             return res;
         }
@@ -15,10 +15,10 @@ public class Solution {
                 DFS(board, i, j, "", new boolean[m][n], t, res);
             }
         }
-        return res;
+        return new ArrayList<String>(res);
     }
     
-    private void DFS(char[][] board, int i, int j, String s, boolean[][]visited, Trie t, List<String> res){
+    private void DFS(char[][] board, int i, int j, String s, boolean[][]visited, Trie t, Set<String> res){
         if(i < 0 || i >= board.length || j < 0 || j >= board[0].length || visited[i][j]){
             return;
         }
