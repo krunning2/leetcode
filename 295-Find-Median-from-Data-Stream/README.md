@@ -1,0 +1,1 @@
+Always keep maxHeap size >= minHeap size
