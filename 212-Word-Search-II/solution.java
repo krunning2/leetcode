@@ -2,7 +2,7 @@ public class Solution {
     public List<String> findWords(char[][] board, String[] words) {
         Set<String> res = new HashSet<String>();
         if(board == null || board.length == 0 || words == null || words.length == 0){
-            return res;
+            return new ArrayList<String>(res);;
         }
         Trie t = new Trie();
         for(String s : words){
