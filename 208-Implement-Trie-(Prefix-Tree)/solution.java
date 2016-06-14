@@ -3,7 +3,7 @@ class TrieNode {
     TrieNode children[];
     String word;
     public TrieNode() {
-        children = new int[26];
+        children = new TrieNode[26];
         word = "";
     }
 }
