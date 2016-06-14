@@ -1,6 +1,6 @@
 class TrieNode {
     // Initialize your data structure here.
-    int children[];
+    TrieNode children[];
     String word;
     public TrieNode() {
         children = new int[26];
