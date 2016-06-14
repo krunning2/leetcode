@@ -32,8 +32,8 @@ public class Solution {
         visited[i][j] = true;
         int[] dx = {0, 0, 1, -1};
         int[] dy = {1, -1, 0, 0};
-        for(int i = 0; i < 4; i++){
-            DFS(board, i + dx, j + dy, s, visited, t, res);
+        for(int k = 0; k < 4; k++){
+            DFS(board, i + dx[k], j + dy[k], s, visited, t, res);
         }
         visited[i][j] = false;
     }
