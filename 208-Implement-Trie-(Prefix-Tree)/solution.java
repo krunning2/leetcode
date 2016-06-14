@@ -20,7 +20,7 @@ public class Trie {
         TrieNode node = root;
         for(char c : word.toCharArray()){
             node.map.putIfAbsent(c, new TrieNode());
-            node = node.get(c);
+            node = node.map.get(c);
         }
         node.is_end = true;
     }
