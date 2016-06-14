@@ -3,7 +3,7 @@ public class MedianFinder {
         public int compare(Integer a, Integer b){
             return b - a;
         }
-    }
+    };
     PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(10, c);
     PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();
     Integer median = null;
