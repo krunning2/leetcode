@@ -1,10 +1,10 @@
 class TrieNode {
     // Initialize your data structure here.
-    Map<Character, TrieNode> map;
-    boolean is_end;
+    int children[];
+    String word;
     public TrieNode() {
-        map = new HashMap<Character, TrieNode>();
-        is_end = false;
+        children = new int[26];
+        word = "";
     }
 }
 
@@ -19,23 +19,25 @@ public class Trie {
     public void insert(String word) {
         TrieNode node = root;
         for(char c : word.toCharArray()){
-            node.map.putIfAbsent(c, new TrieNode());
-            node = node.map.get(c);
+            if(node.children[c - 'a'] == null){
+                node.children[c - 'a'] = new TrieNode();
+            }
+            node = node.children[c - 'a'];
         }
-        node.is_end = true;
+        node.word = word;
     }
 
     // Returns if the word is in the trie.
     public boolean search(String word) {
         TrieNode node = root;
         for(char c : word.toCharArray()){
-            if(node.map.containsKey(c)){
-                node = node.map.get(c);
+            if(node.children[c - 'a'] != null){
+                node = node.children[c - 'a'];
             }else{
                 return false;
             }
         }
-        return node.is_end;
+        return node.word.equals(word);
     }
 
     // Returns if there is any word in the trie
@@ -43,8 +45,8 @@ public class Trie {
     public boolean startsWith(String prefix) {
         TrieNode node = root;
         for(char c : prefix.toCharArray()){
-            if(node.map.containsKey(c)){
-                node = node.map.get(c);
+            if(node.children[c - 'a'] != null){
+                node = node.children[c - 'a'];
             }else{
                 return false;
             }
