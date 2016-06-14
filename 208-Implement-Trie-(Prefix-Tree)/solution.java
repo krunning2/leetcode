@@ -3,7 +3,7 @@ class TrieNode {
     Map<Character, TrieNode> map;
     boolean is_end;
     public TrieNode() {
-        map = HashMap<Character, TrieNode>();
+        map = new HashMap<Character, TrieNode>();
         is_end = false;
     }
 }
