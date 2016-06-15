@@ -16,7 +16,9 @@ public class Solution {
                 if(sourceMap[cur] < targetMap[cur]){
                     count++;
                 }
-                sourceMap[cur]++;
+                if(targetMap[cur] > 0){
+                    sourceMap[cur]++;
+                }
                 j++;
             }
             if(count == target.length() && (min > j - i || min == -1)){
@@ -24,10 +26,12 @@ public class Solution {
                 res = source.substring(i, j);
             }
             char cur = source.charAt(i);
-            if(sourceMap[cur] == targetMap[cur]){
+            if(targetMap[cur] > 0 && sourceMap[cur] == targetMap[cur]){
                 count--;
             }
-            sourceMap[cur] --;
+            if(targetMap[cur] > 0){
+                sourceMap[cur] --;
+            }
         }
         return res;
     }
