@@ -13,7 +13,7 @@ public class Solution {
                 return l1.val - l2.val;
             }
         });
-        ListNode head = new ListNode();
+        ListNode head = new ListNode(0);
         ListNode cur = head;
         for(ListNode node : lists){
             if(node != null){
