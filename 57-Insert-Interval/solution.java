@@ -15,11 +15,11 @@ public class Solution {
             if(newInterval.end < i.start){
                 res.add(newInterval);
                 newInterval = i;
-            }else if(newInterval.start <= i.end && newInterval.end >= i.start){
+            }else if(newInterval.start > i.end){
+                res.add(i);
+            }else{
                 newInterval.start = Math.min(newInterval.start, i.start);
                 newInterval.end = Math.max(newInterval.end, i.end);
-            }else{
-                res.add(i);
             }
         }
         res.add(newInterval);
