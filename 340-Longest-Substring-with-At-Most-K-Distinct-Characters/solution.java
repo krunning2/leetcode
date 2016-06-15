@@ -8,7 +8,7 @@ public class Solution {
         int res = 0;
         while(p2 < s.length()){
             char c2 = s.charAt(p2);
-            if(map.containsKey(c2))){
+            if(map.containsKey(c2)){
                 map.put(c2, map.get(c2) + 1);
             }else{
                 map.put(c2, 1);
