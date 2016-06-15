@@ -19,7 +19,7 @@ public class Solution {
                 sourceMap[cur]++;
                 j++;
             }
-            if(count >= target.length() && (min > j - i || min == -1)){
+            if(count == target.length() && (min > j - i || min == -1)){
                 min = j - i;
                 res = source.substring(i, j);
             }
