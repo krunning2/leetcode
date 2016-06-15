@@ -1,10 +1,10 @@
 public class Solution {
     public int[] plusOne(int[] digits) {
         if(digits == null || digits.length == 0){
-            return new int[1]{1};
+            return new int[]{1};
         }
         int n = digits.length;
-        for(int i = 0; i < n; i++){
+        for(int i = n - 1; i >= 0; i--){
             if(digits[i] == 9){
                 digits[i] = 0;
             }else{
