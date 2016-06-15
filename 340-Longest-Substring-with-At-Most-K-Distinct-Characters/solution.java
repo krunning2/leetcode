@@ -22,9 +22,9 @@ public class Solution {
             }
             res = Math.max(res, j - i);
             char tmp = s.charAt(i);
-            if(map.containsKey(tmp) && map.get(tmp) > 1){
+            if(map.get(tmp) > 1){
                 map.put(tmp, map.get(tmp) - 1);
-            }else if(map.containsKey(tmp) && map.get(tmp) <= 1){
+            }else if(map.get(tmp) <= 1){
                 map.remove(tmp);
             }
         }
