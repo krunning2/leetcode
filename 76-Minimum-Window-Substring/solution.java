@@ -1,48 +1,40 @@
 public class Solution {
-    public String minWindow(String s, String t) {
-        if(s == null || s.length() == 0 || t == null || t.length() == 0){
-            return "";
-        }
-        HashMap<Character, Integer> target = new HashMap<Character, Integer>();
-        HashMap<Character, Integer> source = new HashMap<Character, Integer>();
-        for(char c : t.toCharArray()){
-            if(target.containsKey(c)){
-                target.put(c, target.get(c) + 1);
-            }else{
-                target.put(c, 1);
-            }
-        }
-        int j = 0;
-        int counter = 0;
-        int min  = -1;
+    public String minWindow(String source, String target) {
         String res = "";
-        for(int i = 0; i < s.length(); i++){
-            while(j < s.length() && counter < t.length()){
-                char tmp = s.charAt(j);
-                if(target.containsKey(tmp)){
-                    if(!source.containsKey(tmp) || source.get(tmp) < target.get(tmp)){
-                        counter++;
-                    }
-                    if(!source.containsKey(tmp)){
-                        source.put(tmp, 1);
-                    }else{
-                        source.put(tmp, source.get(tmp) + 1);
-                    }
+        if(source == "" || source == null || target == "" || target == null){
+            return res;
+        }
+        char[] targetMap = new char[256];
+        char[] sourceMap = new char[256];
+        int j = 0;
+        int min = -1;
+        int count = 0;
+        init(target, targetMap);
+        for(int i = 0 ; i < source.length(); i++){
+            while(j < source.length() && count < target.length()){
+                char cur = source.charAt(j);
+                if(sourceMap[cur] < targetMap[cur]){
+                    count++;
                 }
+                sourceMap[cur]++;
                 j++;
             }
-            if(counter >= t.length() && (min == -1 || min > j - i)){
+            if(count >= target.length() && (min > j - i || min == -1)){
                 min = j - i;
-                res.substring(i, j);
+                res = source.substring(i, j);
             }
-            char tmp = s.charAt(i);
-            if(target.containsKey(tmp)){
-                counter--;
+            char cur = source.charAt(i);
+            if(sourceMap[cur] == targetMap[cur]){
+                count--;
             }
-            if(source.containsKey(tmp)){
-                source.put(tmp, source.get(tmp) - 1);
-            }
+            sourceMap[cur] --;
         }
         return res;
+    }
+    
+    private void init(String target, char[] targetMap){
+        for(int i = 0; i < target.length(); i++){
+            targetMap[target.charAt(i)]++;
+        }
     }
 }
