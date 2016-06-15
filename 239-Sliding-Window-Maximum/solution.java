@@ -1,7 +1,7 @@
 public class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
         if(nums == null || k <= 0){
-            return null;
+            return new int[0];
         }
         int n = nums.length;
         int[] res = new int[n - k + 1];
@@ -11,10 +11,10 @@ public class Solution {
                 deque.pollLast();
             }
             deque.offerLast(nums[i]);
-            if(i - k >= 0 && nums[i - k] = deque.peekFirst()){
+            if(i - k >= 0 && nums[i - k] == deque.peekFirst()){
                 deque.pollFirst();
             }
-            if(i + 1 == k){
+            if(i + 1 >= k){
                 res[i - k + 1] = deque.peekFirst();
             }
         }
