@@ -24,7 +24,7 @@ public class Solution {
                 p1++;
             }
             p2++;
-            res = Math.max(p2 - p1);
+            res = Math.max(res, p2 - p1);
         }
         return res;
     }
