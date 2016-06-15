@@ -18,7 +18,7 @@ public class Solution {
         String res = "";
         for(int i = 0; i < s.length(); i++){
             while(j < s.length() && counter < t.length()){
-                char tmp = s.charAt(j)
+                char tmp = s.charAt(j);
                 if(target.containsKey(tmp)){
                     if(!source.containsKey(tmp) || source.get(tmp) < target.get(tmp)){
                         counter++;
@@ -42,7 +42,7 @@ public class Solution {
             if(source.containsKey(tmp)){
                 source.put(tmp, source.get(tmp) - 1);
             }
-            
         }
+        return res;
     }
 }
