@@ -16,7 +16,7 @@ public class Solution {
                 map.put(cur + 1, true);
                 cur++;
             }
-            int cur = nums[i];
+            cur = nums[i];
             while(map.containsKey(cur - 1)){
                 count++;
                 map.put(cur - 1, true);
