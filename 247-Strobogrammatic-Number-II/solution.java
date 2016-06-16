@@ -34,7 +34,7 @@ public class Solution {
             sb.append(c);
         }
         for(int i = len - 1; i >= 0; i--){
-            sb.append(getMirror(s.charAt(i));
+            sb.append(getMirror(s.charAt(i)));
         }
         return sb.toString();
     }
