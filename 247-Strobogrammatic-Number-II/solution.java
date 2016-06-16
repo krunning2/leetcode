@@ -12,7 +12,7 @@ public class Solution {
             char[] tmp = {'0', '1', '8'};
             List<String> newRes = new ArrayList<String> ();
             for(char c : tmp)
-                for(int = 0; i < res.size(); i++){
+                for(int i= 0; i < res.size(); i++){
                     newRes.add(fill(res.get(i), false, c));
                 }
             return newRes;
