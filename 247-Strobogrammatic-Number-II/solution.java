@@ -5,7 +5,7 @@ public class Solution {
         DFS(res, n / 2, digits, 0, "");
         if(n % 2 == 0){
             for(int i = 0; i < res.size(); i++){
-                res.set(fill(res.get(i), true, '0'));
+                res.set(i, fill(res.get(i), true, '0'));
             }
             return res;
         }else{
