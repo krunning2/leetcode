@@ -24,7 +24,7 @@ public class Solution {
             return;
         }
         for(int i = 0; i < digits.length; i++){
-            DFS(res, n, digits, pos + 1, cur + digits.[i]);
+            DFS(res, n, digits, pos + 1, cur + digits[i]);
         }
     }
     private String fill(String s, boolean is_oven, char c){
