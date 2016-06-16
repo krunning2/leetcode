@@ -24,6 +24,7 @@ public class Solution {
             return;
         }
         for(int i = 0; i < digits.length; i++){
+            if(pos == 0 && i == 0) continue;
             DFS(res, n, digits, pos + 1, cur + digits[i]);
         }
     }
@@ -45,6 +46,7 @@ public class Solution {
             case '6' : return '9';
             case '8' : return '8';
             case '9' : return '6';
+            default : return 'x';
         }
     }
 }
