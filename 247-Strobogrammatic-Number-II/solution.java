@@ -4,7 +4,7 @@ public class Solution {
         String[] digits = {"0", "1", "6", "8", "9"};
         DFS(res, n / 2, digits, 0, "");
         if(n % 2 == 0){
-            for(int = 0; i < res.size(); i++){
+            for(int i = 0; i < res.size(); i++){
                 res.set(fill(res.get(i), true, '0'));
             }
             return res;
