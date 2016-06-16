@@ -4,14 +4,14 @@ public class Solution {
             return true;
         }
         int start = 0, end = num.length() - 1;
-        while(start < end){
+        while(start <= end){
             if(!check(num.charAt(start), num.charAt(end))){
                 return false;
             }
             start++;
             end--;
         }
-        if(start == end) return (num.charAt(start) == '8' || num.charAt(start) == '1' || num.charAt(start) == '0');
+        //if(start == end) return (num.charAt(start) == '8' || num.charAt(start) == '1' || num.charAt(start) == '0');
         return true;
     }
     private boolean check(char c1, char c2){
