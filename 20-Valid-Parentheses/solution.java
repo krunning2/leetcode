@@ -6,7 +6,7 @@ public class Solution {
                 stack.push(c);
             }else{
                 char cur = get(c);
-                if(stack.peek() != cur) return false;
+                if(stack.isEmpty() || stack.peek() != cur) return false;
                 stack.pop();
             }
         }
