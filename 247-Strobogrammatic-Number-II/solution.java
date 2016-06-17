@@ -4,10 +4,10 @@ public class Solution {
     }
     private List<String> helper(int n, int m){
         if(m == 1){
-            return new Arrays.asList("0", "1", "8");
+            return new ArrayList<String>(Arrays.asList("0", "1", "8"));
         }
         if(m == 0){
-            return new Arrays.asList("");
+            return new ArrayList<String>(Arrays.asList(""));
         }
         List<String> list = helper(n, m - 2);
         List<String> res = new ArrayList<String>();
