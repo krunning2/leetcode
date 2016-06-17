@@ -22,7 +22,7 @@ public class Solution {
         }
         List<String> list = helper(m - 2, n);
         List<String> res = new ArrayList<String>();
-        for(int i = 0; i < list.size(); ++){
+        for(int i = 0; i < list.size(); i++){
             String s = list.get(i);
             if(m != n){
                 res.add("0" + s + "0");
