@@ -1,52 +1,26 @@
 public class Solution {
     public List<String> findStrobogrammatic(int n) {
-        List<String> res = new ArrayList<String> ();
-        String[] digits = {"0", "1", "6", "8", "9"};
-        DFS(res, n / 2, digits, 0, "");
-        if(n % 2 == 0){
-            for(int i = 0; i < res.size(); i++){
-                res.set(i, fill(res.get(i), true, '0'));
-            }
-            return res;
-        }else{
-            char[] tmp = {'0', '1', '8'};
-            List<String> newRes = new ArrayList<String> ();
-            for(char c : tmp)
-                for(int i= 0; i < res.size(); i++){
-                    newRes.add(fill(res.get(i), false, c));
-                }
-            return newRes;
-        }
+        return helper(n, n);
     }
-    private void DFS(List<String> res, int n, String[] digits, int pos, String cur){
-        if(pos == n){
-            res.add(cur);
-            return;
+    private List<String> helper(int n, int m){
+        if(m == 1){
+            return new Arrays.asList("0", "1", "8");
         }
-        for(int i = 0; i < digits.length; i++){
-            if(pos == 0 && i == 0) continue;
-            DFS(res, n, digits, pos + 1, cur + digits[i]);
+        if(m == 0){
+            return new Arrays.asList("");
         }
-    }
-    private String fill(String s, boolean is_oven, char c){
-        StringBuilder sb = new StringBuilder(s);
-        int len = sb.length();
-        if(!is_oven){
-            sb.append(c);
+        List<String> list = helper(n, m - 2);
+        List<String> res = new ArrayList<String>();
+        for(int i = 0; i < list.size(); i++){
+             String s = list.get(i);
+             if(m != n){
+                 res.add("0" + s + "0");
+             }
+             res.add("1" + s + "1");
+             res.add("6" + s + "9");
+             res.add("8" + s + "8");
+             res.add("9" + s + "6");
         }
-        for(int i = len - 1; i >= 0; i--){
-            sb.append(getMirror(s.charAt(i)));
-        }
-        return sb.toString();
-    }
-    private char getMirror(char c){
-        switch(c){
-            case '0' : return '0';
-            case '1' : return '1';
-            case '6' : return '9';
-            case '8' : return '8';
-            case '9' : return '6';
-            default : return 'x';
-        }
+        return res;
     }
 }
