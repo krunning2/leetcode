@@ -17,7 +17,7 @@ public class Solution {
             for(int j = 0; j < 4; j++){
                 int nextR = row + dr[j];
                 int nextC = col + dc[j];
-                if(nextR >= 0 && nextR < m || nextC >= 0 && nextC < n && matrix[nextR][nextC] == 1){
+                if(nextR >= 0 && nextR < m && nextC >= 0 && nextC < n && matrix[nextR][nextC] == 1){
                     int f1 = uf.find(convertToId(row, col, n));
                     int f2 = uf.find(convertToId(nextR, nextC, n));
                     if(f1 != f2){
