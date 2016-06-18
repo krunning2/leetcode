@@ -37,7 +37,7 @@ public class LRUCache {
         }
     }
     
-    private moveToTail(Node cur){
+    private void moveToTail(Node cur){
         cur.pre = tail.pre;
         tail.pre.next = cur;
         cur.next = tail;
