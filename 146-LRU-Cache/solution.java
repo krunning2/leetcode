@@ -27,6 +27,7 @@ public class LRUCache {
     
     public void set(int key, int value) {
         if(map.size() >= capacity){
+            map.remove(head.next.key);
             head.next = head.next.next;
             head.next.next.pre = head;
         }
