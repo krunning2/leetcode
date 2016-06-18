@@ -15,12 +15,10 @@ public class Solution {
     }
     class UnionFind{
         Map<Integer, Integer> father;
-        UnionFind(int m, int n){
+        UnionFind(int n){
             father = new HashMap<Integer, Integer>();
-            for(int i = 0; i < m; i++){
-                for(int j = 0; j < n; j++){
-                    father.put(convertToId(i, j, n),convertToId(i, j, n));
-                }
+            for(int j = 0; j < n; j++){
+                father.put(j, j)
             }
         }
         
