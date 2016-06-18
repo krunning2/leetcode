@@ -26,14 +26,15 @@ public class LRUCache {
     }
     
     public void set(int key, int value) {
+        if(get(key) != -1){
+           map.get(key).val = value; 
+        }
         if(map.size() >= capacity){
             map.remove(head.next.key);
             head.next = head.next.next;
             head.next.next.pre = head;
         }
-        if(map.containsKey(key)){
-            map.get(key).val = value;
-        }else{
+        if(!map.containsKey(key)){
             Node n = new Node(key, value);
             map.put(key, n);
             moveToTail(n);
