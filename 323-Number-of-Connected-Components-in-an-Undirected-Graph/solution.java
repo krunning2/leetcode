@@ -13,7 +13,7 @@ public class Solution {
                 uf.union(n0, n1);
             }
         }
-        return res
+        return res;
     }
     class UnionFind{
         Map<Integer, Integer> father;
