@@ -1,21 +1,23 @@
 public class Solution {
     public List<Integer> numIslands2(int m, int n, int[][] positions) {
         List<Integer> res = new ArrayList<Integer> ();
-        if(positins == null || positions.length == 0){
+        if(positions == null || positions.length == 0){
             return res;
         }
         int count = 0;
         UnionFind uf = new UnionFind(m, n);
+        boolean[][] visited = new boolean[m][n];
         for(int i = 0; i < positions.length; i++){
             int row = positions[i][0];
             int col = positions[i][1];
+            visited[row][col] = true;
             int[] dr = {0, 0, -1, 1};
             int[] dc = {1, -1, 0, 0};
             count++;
             for(int i = 0; i < 4; i++){
                 int nextR = row + dr[i];
                 int nextC = col + dc[i];
-                if(nextR < 0 || nextR >= m || nextC < 0 || nextC >= n){
+                if(nextR < 0 || nextR >= m || nextC < 0 || nextC >= n || visited[nextR][nextC]){
                     continue;
                 }
                 int f1 = uf.find(convertToId(row, col, n));
