@@ -19,7 +19,7 @@ public class Solution {
     class UnionFind{
         Map<Integer, Integer> father;
         UnionFind(int n){
-            father = HashMap<Integer, Integer>();
+            father = new HashMap<Integer, Integer>();
             father.put(n, n);
         }
         public int find(int key){
