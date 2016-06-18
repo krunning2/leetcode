@@ -18,7 +18,7 @@ public class Solution {
         UnionFind(int n){
             father = new HashMap<Integer, Integer>();
             for(int j = 0; j < n; j++){
-                father.put(j, j)
+                father.put(j, j);
             }
         }
         
