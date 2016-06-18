@@ -4,7 +4,7 @@ public class Solution {
         if(edges == null || edges.length == 0){
             return 0;
         }
-        UnionFind uf = new UnionFind(n - 1);
+        UnionFind uf = new UnionFind(n);
         for(int i = 0; i < n; i++){
             int n0 = edges[i][0];
             int n1 = edges[i][1];
@@ -19,7 +19,8 @@ public class Solution {
         Map<Integer, Integer> father;
         UnionFind(int n){
             father = new HashMap<Integer, Integer>();
-            father.put(n, n);
+            for(int i = 0; i < n; i++)
+                father.put(n, n);
         }
         public int find(int key){
             int f = father.get(key);
