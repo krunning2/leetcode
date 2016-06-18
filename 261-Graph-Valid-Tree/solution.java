@@ -7,7 +7,7 @@ public class Solution {
         for(int i = 0; i < edges.length; i++){
             int n0 = edges[i][0];
             int n1 = edges[i][1];
-            if(uf.find(n0) == un.find(n1)){
+            if(uf.find(n0) == uf.find(n1)){
                 return false;
             }
             uf.union(n0, n1);
