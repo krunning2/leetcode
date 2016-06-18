@@ -1,11 +1,11 @@
 public class Solution {
     public int countComponents(int n, int[][] edges) {
-        int res = n;
-        if(edges == null || edges.length == 0){
-            return 0;
+        if (n <= 1) {
+            return n;
         }
+        int res = n;
         UnionFind uf = new UnionFind(n);
-        for(int i = 0; i < n; i++){
+        for(int i = 0; i < edges.length; i++){
             int n0 = edges[i][0];
             int n1 = edges[i][1];
             if(uf.find(n0) != uf.find(n1)){
