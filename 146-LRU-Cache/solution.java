@@ -26,7 +26,8 @@ public class LRUCache {
     }
     
     public void set(int key, int value) {
-        if(get(key) != -1){
+        if(map.containsKey(key)){
+           get(key);
            map.get(key).val = value; 
            return;
         }
