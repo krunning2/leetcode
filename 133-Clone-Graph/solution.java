@@ -15,7 +15,6 @@ public class Solution {
         Queue<UndirectedGraphNode> queue = new LinkedList<UndirectedGraphNode> ();
         // Add the nodes
         while(!queue.isEmpty()){
-            UndirectedGraphNode cur = queue.poll();
             for(UndirectedGraphNode cur : queue.poll().neighbors){
                 if(!map.containsKey(cur)){
                     map.put(cur, new UndirectedGraphNode(cur.label));
