@@ -1,11 +1,10 @@
 public class Solution {
     public int countComponents(int n, int[][] edges) {
-        boolean visited[] = new boolean[n];
         int res = n;
         if(edges == null || edges.length == 0){
             return 0;
         }
-        UnionFind uf = new UnionFind(n);
+        UnionFind uf = new UnionFind(n - 1);
         for(int i = 0; i < n; i++){
             int n0 = edges[i][0];
             int n1 = edges[i][1];
