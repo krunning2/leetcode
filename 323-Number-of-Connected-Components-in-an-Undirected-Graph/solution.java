@@ -20,7 +20,7 @@ public class Solution {
         UnionFind(int n){
             father = new HashMap<Integer, Integer>();
             for(int i = 0; i < n; i++)
-                father.put(n, n);
+                father.put(i, i);
         }
         public int find(int key){
             int f = father.get(key);
