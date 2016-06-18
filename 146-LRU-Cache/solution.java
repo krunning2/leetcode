@@ -33,7 +33,6 @@ public class LRUCache {
         }
         if(map.containsKey(key)){
             map.get(key).val = value;
-            get(key);
         }else{
             Node n = new Node(key, value);
             map.put(key, n);
