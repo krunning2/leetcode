@@ -14,6 +14,7 @@ public class Solution {
         map.put(node, root);
         Queue<UndirectedGraphNode> queue = new LinkedList<UndirectedGraphNode> ();
         // Add the nodes
+        queue.offer(node);
         while(!queue.isEmpty()){
             for(UndirectedGraphNode cur : queue.poll().neighbors){
                 if(!map.containsKey(cur)){
