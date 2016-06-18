@@ -3,7 +3,6 @@ public class Solution {
         if (n <= 1) {
             return n;
         }
-        return n - edges.length;
         int res = n;
         UnionFind uf = new UnionFind(n);
         for(int i = 0; i < edges.length; i++){
@@ -14,7 +13,7 @@ public class Solution {
                 uf.union(n0, n1);
             }
         }
-        return res;
+        return res
     }
     class UnionFind{
         Map<Integer, Integer> father;
