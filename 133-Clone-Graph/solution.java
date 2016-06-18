@@ -25,7 +25,7 @@ public class Solution {
         // Build the edges
         for(UndirectedGraphNode key : map.keySet()){
             for(UndirectedGraphNode n : key.neighbors){
-                map.get(key).add(n);
+                map.get(key).neighbors.add(map.get(n));
             }
         }
         return map.get(node);
