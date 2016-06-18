@@ -29,7 +29,8 @@ public class LRUCache {
             head.next.next.pre = head;
         }
         if(map.containsKey(key)){
-            get(key).val = value;
+            map.get(key).val = value;
+            get(key);
         }else{
             Node n = new Node(key, value);
             map.put(key, n);
