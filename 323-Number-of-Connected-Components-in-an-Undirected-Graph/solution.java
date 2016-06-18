@@ -3,6 +3,7 @@ public class Solution {
         if (n <= 1) {
             return n;
         }
+        return n - edges.length;
         int res = n;
         UnionFind uf = new UnionFind(n);
         for(int i = 0; i < edges.length; i++){
