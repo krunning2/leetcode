@@ -33,6 +33,7 @@ public class Solution {
                 father.put(p, f);
                 p = tmp;
             }
+            return f;
         }
         public void union(int key1, int key2){
             int f1 = find(key1);
