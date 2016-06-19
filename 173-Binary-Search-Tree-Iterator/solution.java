@@ -11,6 +11,7 @@
 public class BSTIterator {
     Stack<TreeNode> stack;
     TreeNode cur;
+    TreeNode res;
     public BSTIterator(TreeNode root) {
         stack = new Stack<TreeNode> ();
         cur = root;
@@ -18,17 +19,20 @@ public class BSTIterator {
 
     /** @return whether we have a next smallest number */
     public boolean hasNext() {
-        return (cur != null || !stack.isEmpty());
+        while(stack.isEmpty() || cur != null){
+            while(cur != null){
+                stack.push(cur);
+                cur = cur.left;
+            }
+            res = stack.pop();
+            cur = res.right;
+            return true;
+        }
+        return false;
     }
 
     /** @return the next smallest number */
     public int next() {
-        while(cur != null){
-            stack.push(cur);
-            cur = cur.left;
-        }
-        TreeNode res = stack.pop();
-        cur = res.right;
         return res.val;
     }
 }
