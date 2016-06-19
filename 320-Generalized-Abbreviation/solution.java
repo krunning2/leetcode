@@ -19,8 +19,9 @@ public class Solution {
         }else{
             helper(word, pos + 1, count + 1, sb, res);
             if(count != 0) {
-                sb.append(count)
+                sb.append(count);
             }
+            sb.append(word.charAt(pos))
             helper(word, pos + 1, 0, sb, res);
         }
         sb.setLength(len);
