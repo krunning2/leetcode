@@ -29,13 +29,15 @@ public class Solution {
         if(t.search(s)){
             res.add(s);
         }
-        visited[i][j] = true;
+       
         int[] dx = {0, 0, 1, -1};
         int[] dy = {1, -1, 0, 0};
         for(int k = 0; k < 4; k++){
+            visited[i][j] = true;
             DFS(board, i + dx[k], j + dy[k], s, visited, t, res);
+            visited[i][j] = false;
         }
-        visited[i][j] = false;
+        
     }
     
     class TrieNode {  
