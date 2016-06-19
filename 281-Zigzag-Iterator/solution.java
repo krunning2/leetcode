@@ -14,7 +14,7 @@ public class ZigzagIterator {
             return i1.next();
         }else{
             readV1 = !readV1;
-            return i2.next;
+            return i2.next();
         }
     }
 
