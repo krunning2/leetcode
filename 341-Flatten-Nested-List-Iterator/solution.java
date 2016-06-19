@@ -37,6 +37,7 @@ public class NestedIterator implements Iterator<Integer> {
                 return cur.getInteger();
             }
         }
+        return null;
     }
 
     @Override
