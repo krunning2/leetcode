@@ -10,7 +10,7 @@ public class Vector2D implements Iterator<Integer> {
 
     @Override
     public Integer next() {
-        i1d.next();
+        return i1d.next();
     }
 
     @Override
