@@ -1,0 +1,1 @@
+We should have the logic to modify the state if going to next element
