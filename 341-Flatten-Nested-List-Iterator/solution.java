@@ -30,7 +30,7 @@ public class NestedIterator implements Iterator<Integer> {
                iterator = stack.pop(); 
             }
             NestedInteger cur = iterator.next();
-            if(!cur.isInteger){
+            if(!cur.isInteger()){
                 stack.push(iterator);
                 iterator = cur.getList().iterator();
             }else{
