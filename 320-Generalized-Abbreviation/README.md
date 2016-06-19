@@ -3,3 +3,6 @@ e.g. word->1->2->3->4, once it reaches 4, it backtrack to 3, here there is two c
 1) append the current character
 2) keeping counting
 
+
+
+http://www.cnblogs.com/EdwardLiu/p/5090524.html
