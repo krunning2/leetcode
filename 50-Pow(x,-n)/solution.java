@@ -7,7 +7,7 @@ public class Solution {
         }
         double res = 1;
         for(double f = x; n > 0; n = n >> 1){
-            if(n & 1 == 1){
+            if((n & 1) == 1){
                 res *= f;
             }
             f *= f;
