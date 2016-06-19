@@ -16,7 +16,7 @@
  * }
  */
 public class NestedIterator implements Iterator<Integer> {
-    NestedIterator cur = null;
+    NestedInteger cur = null;
     Stack<Iterator<NestedInteger>> stack;
     public NestedIterator(List<NestedInteger> nestedList) {
         stack = new Stack<Iterator<NestedInteger>>();
