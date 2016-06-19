@@ -4,7 +4,7 @@ public class Vector2D implements Iterator<Integer> {
     public Vector2D(List<List<Integer>> vec2d) {
         i2d = vec2d.iterator();
         if(i2d.hasNext()){
-            i1d = i2d.next();
+            i1d = i2d.next().iterator();
         }
     }
 
@@ -19,7 +19,7 @@ public class Vector2D implements Iterator<Integer> {
             if(i1d.hasNext()){
                 return true;
             }else{
-                i1d = i2d.next();
+                i1d = i2d.next().iterator();
             }
         }
         return false;
