@@ -6,7 +6,7 @@ public class Solution {
         Arrays.sort(nums);
         int n = nums.length;
         int t = n - 1;
-        int mid = n / 2 - 1;
+        int mid = t / 2;
         int[] tmp = new int[n];
         for(int i = 0; i < n; i++){
             if(i % 2 == 0){
