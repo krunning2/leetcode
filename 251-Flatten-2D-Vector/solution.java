@@ -15,7 +15,7 @@ public class Vector2D implements Iterator<Integer> {
 
     @Override
     public boolean hasNext() {
-        while(i2d.hasNext() || i1d.hasNext()){
+        while(i2d.hasNext() || i1d != null && i1d.hasNext()){
             if(i1d.hasNext()){
                 return true;
             }else{
