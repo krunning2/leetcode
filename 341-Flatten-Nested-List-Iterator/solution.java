@@ -20,7 +20,7 @@ public class NestedIterator implements Iterator<Integer> {
     Stack<Iterator<NestedInteger>> stack;
     public NestedIterator(List<NestedInteger> nestedList) {
         iterator = nestedList.iterator();
-        stack = new Stack<NestedInteger>();
+        stack = new Stack<Iterator<NestedInteger>>();
     }
 
     @Override
