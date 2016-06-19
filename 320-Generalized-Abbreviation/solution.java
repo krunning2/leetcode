@@ -1,7 +1,7 @@
 public class Solution {
     public List<String> generateAbbreviations(String word) {
         List<String> res = new ArrayList<String>();
-        if(word == null || word.length() == 0){
+        if(word == null){
             return res;
         }
         helper(word, 0, 0, new StringBuilder(), res);
@@ -15,13 +15,12 @@ public class Solution {
             }else{
                 res.add(sb.append(count).toString());
             }
-            return;
         }else{
             helper(word, pos + 1, count + 1, sb, res);
             if(count != 0) {
                 sb.append(count);
             }
-            sb.append(word.charAt(pos))
+            sb.append(word.charAt(pos));
             helper(word, pos + 1, 0, sb, res);
         }
         sb.setLength(len);
