@@ -42,7 +42,7 @@ public class NestedIterator implements Iterator<Integer> {
 
     @Override
     public boolean hasNext() {
-        iterator.hasNext() || !stack.isEmpty();
+        return iterator.hasNext() || !stack.isEmpty();
     }
 }
 
