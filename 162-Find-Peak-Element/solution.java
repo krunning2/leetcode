@@ -10,6 +10,6 @@ public class Solution {
                 end = mid;
             }
         }
-        return A[start] > A[end] ? start : end;
+        return nums[start] > nums[end] ? start : end;
     }
 }
