@@ -10,14 +10,14 @@ public class Solution {
             indegree[prerequisites[i][0]]++;
         }
         Queue<Integer> q = new LinkedList<Integer>();
-        for(int in : indegree){
-            if(in == 0){
-                q.offer(in);
+        for(int i = 0; i < indegree.length; i++){
+            if(indegree[i] == 0){
+                q.offer(i);
             }
         }
         int count = numCourses;
         while(!q.isEmpty()){
-            int cur = queue.poll();
+            int cur = q.poll();
             for(int i : map.get(cur)){
                 if(--indegree[i] == 0){
                     q.offer(i);
