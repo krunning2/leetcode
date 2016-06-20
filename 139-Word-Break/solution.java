@@ -4,7 +4,7 @@ public class Solution {
         int max = getMaxLength(wordDict);
         dp[0] = true;
         for(int i = 1; i <= s.length(); i++){
-            for(j = 0; j < i; i++){
+            for(int j = 0; j < i; j++){
                 if(dp[j] && s.substring(j, i)){
                     dp[i] = true;
                     break;
