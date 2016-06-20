@@ -13,7 +13,7 @@ public class Solution {
                 String tmp = pos == 0 ? s.substring(pos, i + 1) : cur + " "+ s.substring(pos, i + 1);
                 int size = res.size();
                 helper(s, dict, i+1, res, tmp, visited);
-                if(size == res.size()) visited[i] = false;
+                if(size == res.size()) visited[i] = true;
             }
         }
     }
