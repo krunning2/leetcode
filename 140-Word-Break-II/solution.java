@@ -10,7 +10,7 @@ public class Solution {
         }
         for(int i = pos; i < s.length(); i++){
             if(dict.contains(s.substring(pos, i + 1))){
-                helper(s, dict, i+1, cur + " "+ s.substring(pos, i + 1));
+                helper(s, dict, i+1, (cur + " "+ s.substring(pos, i + 1)));
             }
         }
     }
