@@ -1,14 +1,22 @@
 public class Solution {
     public boolean wordBreak(String s, Set<String> wordDict) {
-        return helper(s, wordDict, 0);
-    }
-    private boolean helper(String s, Set<String> dict, int pos){
-        if(pos == s.length()) return true;
-        for(int i = pos; i < s.length(); i++){
-            if(dict.contains(s.substring(pos, i + 1))){
-                if(helper(s, dict, i+1)) return true;
+        boolean[] dp = new boolean[s.length() + 1];
+        int max = getMaxLength(wordDict);
+        dp[0] = true;
+        for(int i = 1; i <= s.length(); i++){
+            for(j = 0; j < i; i++){
+                if(dp[j] && s.substring(j, i)){
+                    dp[i] = true;
+                    break;
+                }
             }
         }
-        return false;
+        return dp[s.length()];
+    }
+    private int getMaxLength(Set<String> wordDict){
+        int max = 0;
+        for(String s : wordDict){
+            max = Math.max(s.length(), max);
+        }
     }
 }
