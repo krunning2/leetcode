@@ -18,5 +18,6 @@ public class Solution {
         for(String s : wordDict){
             max = Math.max(s.length(), max);
         }
+        return max;
     }
 }
