@@ -2,9 +2,9 @@ public class Solution {
     public int[][] generateMatrix(int n) {
         int[][] res = new int[n][n];
         int start = 0;
-        int count = 0;
+        int count = 1;
         while(start * 2< n){
-            count = helper(n, matrix, count, start);
+            count = helper(n, res, count, start);
             start ++;
         }
         return res;
