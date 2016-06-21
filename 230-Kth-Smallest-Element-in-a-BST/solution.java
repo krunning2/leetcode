@@ -33,6 +33,70 @@ public class Solution {
             }
         }
     }
+    private void insert(Node root, int x){
+        Node pre = root;
+        while(root != null){
+            pre = root;
+            root.count++;
+            if(root.val > x){
+                root = root.left;
+            }else{
+                root = root.right;
+            }
+        }
+        if(pre.val > x){
+            pre.left = new Node(x);
+        }else{
+            pre.right = new Node(x);
+        }
+    }
+    
+    private void delete(Node root, int x){
+        Node pre = root;
+        while(root != null){
+            pre = root;
+            if(root.val > x){
+                root = root.left;
+                root.count--;
+            }else if(root.val < x){
+                root = root.right;
+                root.count--;
+            } else {
+                Node replaced = null;
+                if(root.left != null){
+                    replaced = root.left;
+                    Node tmp = null;
+                    while(replaced.right != null){
+                        replaced.count--;
+                        tmp = replaced;
+                        replaced = replaced.right;
+                    }
+                    // remove the right child
+                    if(tmp != null){
+                        tmp.right = null;
+                    }
+                }else if(root.right != null){
+                    replaced = root.right;
+                    Node tmp = null;
+                    while(replaced.left != null){
+                        replaced.count--;
+                        tmp = replaced;
+                        replaced = replaced.left;
+                    }
+                    // remove the left child
+                    if(tmp != null){
+                        tmp.left = null;
+                    }
+                }else{
+                    if(pre.val < x){
+                        pre.right = replaced;
+                    }else{
+                        pre.left = replace;
+                    }
+                }
+            }
+        }
+    }
     
     private Node build(TreeNode root){
         if(root == null) return null;
