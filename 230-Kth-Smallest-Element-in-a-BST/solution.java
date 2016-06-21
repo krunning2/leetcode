@@ -29,7 +29,7 @@ public class Solution {
             if(k == 1){
                 return root.val;
             }else{
-                return query(root.left, k - 1);
+                return query(root.right, k - 1);
             }
         }
     }
