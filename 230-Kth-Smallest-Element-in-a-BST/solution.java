@@ -91,7 +91,7 @@ public class Solution {
                     if(pre.val < x){
                         pre.right = replaced;
                     }else{
-                        pre.left = replace;
+                        pre.left = replaced;
                     }
                 }
             }
