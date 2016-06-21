@@ -43,6 +43,7 @@ public class Solution {
         r.right = right;
         if(left != null) r.count += left.count;
         if(right != null) r.count += right.count;
+        return r;
     }
     class Node{
         int count;
@@ -51,7 +52,7 @@ public class Solution {
         int val;
         Node(int v){
             val = v;
-            val = 1;
+            count = 1;
         }
     }
 }
