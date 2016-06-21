@@ -9,20 +9,49 @@
  */
 public class Solution {
     public int kthSmallest(TreeNode root, int k) {
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        TreeNode cur = root;
-        while(cur != null || !stack.isEmpty()){
-            while(cur != null){
-                stack.push(cur);
-                cur = cur.left;
-            }
-            k--;
-            cur = stack.pop();
-            if(k == 0){
-                return cur.val;
-            }
-            cur = cur.right;
+        Node newRoot = build(root);
+        return query(newRoot, k);
+    }
+    
+    private int query(Node root, int k){
+        if(k <= 0 || k > root.count){
+            return -1;
         }
-        return 0;
+        if(root.left != null){
+            if(root.left.count == k - 1){
+                return root.val;
+            }else if(root.left.count >= k){
+                return query(root.left, k);
+            }else{
+                return query(root.right, k - root.left.count - 1);
+            }
+        }else{
+            if(k == 1){
+                return root.val;
+            }else{
+                return query(root.left, k - 1);
+            }
+        }
+    }
+    
+    private Node build(TreeNode root){
+        if(root == null) return null;
+        Node r = new Node(root.val);
+        Node left = build(root.left);
+        Node right = build(root.right);
+        r.left = left;
+        r.right = right;
+        if(left != null) r.count += left.count;
+        if(right != null) r.count += right.count;
+    }
+    class Node{
+        int count;
+        Node left;
+        Node right;
+        int val;
+        Node(int v){
+            val = v;
+            val = 1;
+        }
     }
 }
