@@ -1,0 +1,1 @@
+keep a pointer to indicate next number, if the current number exists in the array, then +1, or if it is greater than the element, just move on to next element. otherwise, print from current pointer to the next array element
