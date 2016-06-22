@@ -1,15 +1,15 @@
 public class TicTacToe {
     int[] cols;
     int[] rows;
-    int diagnoal;
-    int anti_diagnoal;
+    int diagonal;
+    int anti_diagonal;
     int n;
     /** Initialize your data structure here. */
     public TicTacToe(int n) {
         cols = new int[n];
         rows = new int[n];
-        diagnoal = 0;
-        anti_diagnoal = 0;
+        diagonal = 0;
+        anti_diagonal = 0;
         this.n = n;
     }
     
@@ -25,10 +25,10 @@ public class TicTacToe {
         int add = player == 1 ? 1 : -1;
         cols[col] += add;
         rows[row] += add;
-        diagnoal += col == row ? add : 0;
-        anti_diagnoal += row == n - col - 1 ? add : 0;
-        if( cols[col] == n || rows[row] == n || diagnoal == n || anti_diagnoal == n) return 1;
-        if(cols[col] == -n || rows[row] == -n || diagnoal == -n || anti_diagnoal == -n) return 2;
+        diagonal += col == row ? add : 0;
+        anti_diagonal += row == n - col - 1 ? add : 0;
+        if( cols[col] == n || rows[row] == n || diagonal == n || anti_diagonal == n) return 1;
+        if(cols[col] == -n || rows[row] == -n || diagonal == -n || anti_diagonal == -n) return 2;
         return 0;
     }
 }
