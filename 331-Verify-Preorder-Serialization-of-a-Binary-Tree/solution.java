@@ -5,7 +5,7 @@ public class Solution {
         for(String node : nodes){
             diff--;
             if(diff < 0) return false;
-            if(!diff.equals("#")){
+            if(!node.equals("#")){
                 diff += 2;
             }
         }
