@@ -2,16 +2,17 @@ public class Solution {
     public List<String> letterCombinations(String digits) {
         String[] dict = {"","", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
         List<String> res = new ArrayList<String> ();
+        if(digits == null || digits.length() == 0) return res;
         DFS(dict, new StringBuilder(), digits, 0, res);
         return res;
     }
     private void DFS(String[] dict, StringBuilder sb, String digits, int pos, List<String> res){
-        if(pos == sb.length()){
+        if(pos == digits.length()){
             res.add(sb.toString());
             return;
         }
-        String chars = dict[pos];
-        for(int i = 0; i < chars.length; i++){
+        String chars = dict[Integer.valueOf(digits.charAt(pos))];
+        for(int i = 0; i < chars.length(); i++){
             int len = sb.length();
             sb.append(chars.charAt(i));
             DFS(dict, sb, digits, pos + 1, res);
