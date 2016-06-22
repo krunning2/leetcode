@@ -26,7 +26,7 @@ public class TicTacToe {
         cols[col] += add;
         rows[row] += add;
         diagnoal += col == row ? add : 0;
-        anti_diagnoal = row = n - col - 1 ? add : 0;
+        anti_diagnoal += row = n - col - 1 ? add : 0;
         if( cols[col] == n - 1 || rows[row] == n - 1 || diagnoal == n - 1 || anti_diagnoal == n - 1 ) return 1;
         if(cols[col] == 1 - n || rows[row] == 1 - n || diagnoal == 1 - n || anti_diagnoal == 1 - n) return 2;
         return 0;
