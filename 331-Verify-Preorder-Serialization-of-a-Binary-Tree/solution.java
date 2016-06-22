@@ -1,7 +1,7 @@
 public class Solution {
     public boolean isValidSerialization(String preorder) {
         String[] nodes = preorder.split(",");
-        diff = 1;
+        int diff = 1;
         for(String node : nodes){
             diff--;
             if(diff < 0) return false;
@@ -9,6 +9,6 @@ public class Solution {
                 diff += 2;
             }
         }
-        return diff == 1;
+        return diff == 0;
     }
 }
