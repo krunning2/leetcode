@@ -19,6 +19,6 @@ public class Solution {
         return res;
     }
     private String print(int a, int b){
-        return a >= b ? String.valueOf(a) : a + "->" + b;
+        return a == b ? String.valueOf(a) : a + "->" + b;
     }
 }
