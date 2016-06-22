@@ -1,0 +1,1 @@
+Keep two pointers, one is to record the beginning of the range, another is to store the end of the ranges.
