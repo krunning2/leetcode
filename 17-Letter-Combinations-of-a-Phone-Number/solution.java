@@ -11,7 +11,7 @@ public class Solution {
             res.add(sb.toString());
             return;
         }
-        String chars = dict[Integer.valueOf(digits.charAt(pos))];
+        String chars = dict[digits.charAt(pos) - '0'];
         for(int i = 0; i < chars.length(); i++){
             int len = sb.length();
             sb.append(chars.charAt(i));
