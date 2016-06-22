@@ -16,7 +16,7 @@ public class Solution {
     }
     private void helper(TreeNode root, int sum, List<List<Integer>>res, List<Integer>list){
         if(root.left == null && root.right == null && root.val == sum){
-            list.add(sum)
+            list.add(sum);
             res.add(new ArrayList<Integer>(list));
             list.remove(list.size() - 1);
             return;
