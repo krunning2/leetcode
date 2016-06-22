@@ -1,1 +1,1 @@
-Need to return branch max
+Need to return branch max, three cases: 
