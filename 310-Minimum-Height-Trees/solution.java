@@ -24,8 +24,8 @@ public class Solution {
                     indegree[x] --;
                     if(indegree[x] == 1) {
                         queue.offer(x);
-                        n--;
                     }
+                    n--;
                 }
             }
         }
