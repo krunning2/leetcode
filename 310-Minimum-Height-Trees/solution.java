@@ -2,6 +2,7 @@ public class Solution {
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
         List<Integer> res = new ArrayList<>();
         if(n <= 0) return res;
+        if (n == 1) return {0};
         int[] indegree = new int[n];
         Map<Integer, List<Integer>> graph = new HashMap<Integer, List<Integer>>();
         for(int i = 0; i < edges.length; i++){
@@ -9,6 +10,8 @@ public class Solution {
             indegree[edges[i][1]]++;
             graph.putIfAbsent(edges[i][0], new ArrayList<Integer>());
             graph.get(edges[i][0]).add(edges[i][1]);
+            graph.putIfAbsent(edges[i][1], new ArrayList<Integer>());
+            graph.get(edges[i][1]).add(edges[i][0]);
         }
         Queue<Integer> queue = new LinkedList<Integer>();
         for(int i = 0; i < indegree.length; i++){
