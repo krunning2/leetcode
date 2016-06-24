@@ -26,7 +26,7 @@ public class Solution {
                         queue.offer(x);
                         n--;
                     }
-                });
+                }
             }
         }
         while(!queue.isEmpty()) res.add(queue.poll());
