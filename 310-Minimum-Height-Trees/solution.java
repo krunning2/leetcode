@@ -11,9 +11,9 @@ public class Solution {
             graph.get(edges[i][0]).add(edges[i][1]);
         }
         Queue<Integer> queue = new LinkedList<Integer>();
-        for(int x : indegree){
-            if(x == 1){
-                queue.offer(x);
+        for(int i = 0; i < indegree.length; i++){
+            if(indegree[i] == 1){
+                queue.offer(i);
             }
         }
         while(n > 2){
