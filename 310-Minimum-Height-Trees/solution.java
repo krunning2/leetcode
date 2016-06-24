@@ -2,7 +2,10 @@ public class Solution {
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
         List<Integer> res = new ArrayList<>();
         if(n <= 0) return res;
-        if (n == 1) return {0};
+        if (n == 1){
+            res.add(0);
+            return res;
+        }
         int[] indegree = new int[n];
         Map<Integer, List<Integer>> graph = new HashMap<Integer, List<Integer>>();
         for(int i = 0; i < edges.length; i++){
@@ -28,8 +31,8 @@ public class Solution {
                     if(indegree[x] == 1) {
                         queue.offer(x);
                     }
-                    n--;
                 }
+                n--;
             }
         }
         while(!queue.isEmpty()) res.add(queue.poll());
