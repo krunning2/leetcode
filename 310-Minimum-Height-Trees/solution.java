@@ -20,7 +20,7 @@ public class Solution {
             int size = queue.size();
             for(int i = 0; i < size; i++){
                 int cur = queue.poll();
-                graph.get(cur).forEach(x ->{
+                for(int x : graph.get(cur)){
                     indegree[x] --;
                     if(indegree[x] == 1) {
                         queue.offer(x);
