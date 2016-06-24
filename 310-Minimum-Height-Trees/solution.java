@@ -22,7 +22,10 @@ public class Solution {
                 int cur = queue.poll();
                 graph.get(cur).forEach(x ->{
                     indegree[x] --;
-                    if(indegree[x] == 1) queue.offer(x);
+                    if(indegree[x] == 1) {
+                        queue.offer(x);
+                        n--;
+                    }
                 });
             }
         }
