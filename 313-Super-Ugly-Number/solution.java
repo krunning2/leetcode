@@ -13,7 +13,7 @@ public class Solution {
         for(int i = 1; i < primes.length; i++){
             Node cur = queue.peek();
             list[i] = cur.val;
-            while(!queue.isEmpty() && cur.val == queue.peek()){
+            while(!queue.isEmpty() && cur.val == queue.peek().val){
                 Node tmp = queue.poll();
                 tmp.index ++;
                 tmp.val = list[tmp.index] * tmp.prime;
