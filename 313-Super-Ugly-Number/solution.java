@@ -6,7 +6,7 @@ public class Solution {
         list.add(1);
         while(list.size() < n){
             int min = Integer.MAX_VALUE;
-            for(int i : index){
+            for(int i = 0; i < index.length; i++){
                 min = Math.min(min, list.get(index[i]) * primes[i]);
             }
             list.add(min);
