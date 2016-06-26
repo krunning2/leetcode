@@ -10,7 +10,7 @@ public class Solution {
                 min = Math.min(min, list.get(index[i]) * primes[i]);
             }
             list.add(min);
-            for(int i : index){
+            for(int i = 0; i < index.length; i++){
                 if(min == list.get(index[i]) * primes[i]){
                     index[i]++;
                 }
