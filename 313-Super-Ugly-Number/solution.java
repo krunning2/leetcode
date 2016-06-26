@@ -1,21 +1,36 @@
 public class Solution {
-    //2 4 7 8 13 14 16  19 2*7 
     public int nthSuperUglyNumber(int n, int[] primes) {
-        List<Integer> list = new ArrayList<Integer>();
-        int[] index = new int[primes.length];
-        list.add(1);
-        while(list.size() < n){
-            int min = Integer.MAX_VALUE;
-            for(int i = 0; i < index.length; i++){
-                min = Math.min(min, list.get(index[i]) * primes[i]);
+        PriorityQueue<Node> queue = new PriorityQueue<Node>(primes.length, new Comparator<Node>(){
+            public int compare(Node n1, Node n2){
+                return n1.val - n2.val;
             }
-            list.add(min);
-            for(int i = 0; i < index.length; i++){
-                if(min == list.get(index[i]) * primes[i]){
-                    index[i]++;
-                }
+        });
+        int[] list = new int[n];
+        list[0] = 1;
+        for(int i = 0; i < primes.length; i++){
+            queue.offer(new Node(primes[i], 0, primes[i]));
+        }
+        for(int i = 1; i < primes.length; i++){
+            Node cur = queue.peek();
+            list[i] = cur.val;
+            while(!queue.isEmpty() && cur.val == queue.peek()){
+                Node tmp = queue.poll();
+                tmp.index ++;
+                tmp.val = list[tmp.index] * tmp.prime;
+                queue.offer(tmp);
             }
         }
-        return list.get(n - 1);
+        return list[n - 1];
+    }
+    
+    class Node{
+        int index;
+        int prime;
+        int val;
+        Node(int val, int index, int prime){
+            this.val = val;
+            this.index = index;
+            this.prime = prime;
+        }
     }
 }
