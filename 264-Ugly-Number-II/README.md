@@ -1,2 +1,2 @@
 All these numbers are coming from the smaller ugly number times 2 , 3, 5;
-So we can have list l1, l2, l3 which represent the number times 2
+So we can assume there are three ordered lists, l2, l3, l5, all the elements from them are coming from l2 * 2, l3 * 3, l5 * 5 respectively. So each time, we find the minimum element from each of them, and time 2, 3, or 5 and add back to the lists.
