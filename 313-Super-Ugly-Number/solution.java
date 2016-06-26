@@ -4,7 +4,7 @@ public class Solution {
         List<Integer> list = new ArrayList<Integer>();
         int[] index = new int[primes.length];
         list.add(1);
-        while(list.size < n){
+        while(list.size() < n){
             int min = Integer.MAX_VALUE;
             for(int i : index){
                 min = Math.min(min, list.get(index[i]) * primes[i]);
