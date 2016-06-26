@@ -10,7 +10,7 @@ public class Solution {
         for(int i = 0; i < primes.length; i++){
             queue.offer(new Node(primes[i], 0, primes[i]));
         }
-        for(int i = 1; i < primes.length; i++){
+        for(int i = 1; i < n; i++){
             Node cur = queue.peek();
             list[i] = cur.val;
             while(!queue.isEmpty() && cur.val == queue.peek().val){
