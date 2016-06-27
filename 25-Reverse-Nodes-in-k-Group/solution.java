@@ -18,10 +18,10 @@ public class Solution {
         }
         ListNode pre = dummy;
         p = head;
+        ListNode h = dummy;
+        ListNode n = head;
         for(int i = 0; i < len / k; i++){
-            ListNode h = pre;
-            ListNode n = p;
-            for(int i = 0; i < k; i++){
+            for(int j = 0; j < k; j++){
                 ListNode next = p.next;
                 p.next = pre;
                 pre = p;
@@ -29,6 +29,8 @@ public class Solution {
             }
             h.next = pre;
             n.next = p;
+            h = n;
+            n = p;
         }
         return dummy.next;
     }
