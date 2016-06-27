@@ -11,7 +11,7 @@ public class Solution {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         ListNode p = head;
-        int count = 0;
+        int len = 0;
         while(p != null){
             len ++;
             p = p.next;
