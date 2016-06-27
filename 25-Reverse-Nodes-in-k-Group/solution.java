@@ -17,7 +17,7 @@ public class Solution {
             p = p.next;
         }
         ListNode pre = dummy;
-        ListNode p = head;
+        p = head;
         for(int i = 0; i < len / k; i++){
             ListNode h = pre;
             ListNode n = p;
