@@ -1,7 +1,10 @@
 public class Solution {
     public List<String> removeInvalidParentheses(String s) {
         List<String> res = new ArrayList<String>();
-        if(s == null || s.length() == 0) return res;
+        if(s == null || s.length() == 0){
+            res.add("");
+            return res;
+        } 
         Queue<String> queue = new LinkedList<String>();
         queue.offer(s);
         Set<String> set = new HashSet<String>();
@@ -23,7 +26,7 @@ public class Solution {
                 }
             }
         }
-        
+        return res;
     }
     private boolean isValid(String s){
         int count = 0;
