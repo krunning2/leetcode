@@ -1,0 +1,1 @@
+// Defind LsatR as the Minimum cost that paint current house as Red and including the cost of painting previous house
