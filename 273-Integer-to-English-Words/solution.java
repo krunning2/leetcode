@@ -19,6 +19,6 @@ public class Solution {
         if(num == 0) return "";
         if(num < 20) return LESS_THAN_20[num];
         if(num < 100) return TENS[num / 10] + " " + helper(num % 10);
-        if(num < 1000) return LESS_THAN_20[num / 100] + "Hundred" + " "+ helper(num % 100);
+        return LESS_THAN_20[num / 100] + "Hundred" + " "+ helper(num % 100);
     }
 }
