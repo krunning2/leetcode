@@ -1,0 +1,2 @@
+divide the problem: find q or p in both left and right children.
+conquer:  if left and right subtree both contain p and q accordingly, then root is the result. if q and p only locate in single branch : left/right subtree, then q or q is the result, otherwise return null.
