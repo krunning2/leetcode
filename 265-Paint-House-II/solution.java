@@ -20,7 +20,7 @@ public class Solution {
                 }
             }
             for(int j = 0; j < n; j ++){
-                dp[i][j] = dp[i][j - 1] == min1 ? min2 + costs[i][j] : min1 + costs[i][j];
+                dp[i][j] = dp[i-1][j] == min1 ? min2 + costs[i][j] : min1 + costs[i][j];
             }
         }
         int res = Integer.MAX_VALUE;
