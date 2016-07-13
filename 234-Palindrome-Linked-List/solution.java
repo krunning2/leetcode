@@ -12,15 +12,21 @@ public class Solution {
         ListNode fast = head;
         ListNode slow = head;
         Stack<Integer> stack = new Stack<Integer>();
+        stack.push(head.val);
+        int count = 0;
         while(true){
             fast = fast.next;
+            count ++;
             if(fast == null) break;
+            count ++;
             fast = fast.next;
             if(fast == null) break;
-            stack.push(slow.val);
             slow = slow.next;
+            stack.push(slow.val);
         }
         ListNode p = slow.next;
+        if(count % 2 != 0) stack.pop();
+        if(stack.size())
         while(p != null){
             if(stack.pop() != p.val) return false;
             p = p.next;
