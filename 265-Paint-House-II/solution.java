@@ -1,5 +1,6 @@
 public class Solution {
     public int minCostII(int[][] costs) {
+        if(costs == null || costs.length == 0) return 0;
         int m = costs.length;
         int n = costs[0].length;
         int[][] dp = new int[m][n];
