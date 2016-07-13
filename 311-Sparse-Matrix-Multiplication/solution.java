@@ -1,6 +1,6 @@
 public class Solution {
     public int[][] multiply(int[][] A, int[][] B) {
-        int[][] res = new int[A.length][A[0].length];
+        int[][] res = new int[A.length][B[0].length];
         int m = A.length;
         int n = A[0].length;
         for(int i = 0; i < m; i++){
