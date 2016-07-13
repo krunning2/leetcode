@@ -3,7 +3,7 @@ public class Solution {
         if(costs == null || costs.length == 0) return 0;
         int m = costs.length;
         int n = costs[0].length;
-        int[][] dp = new int[m][n];
+        int[][] dp = new int[2][n];
         for(int i = 0; i < n; i++){
             dp[0][i] = costs[0][i];
         }
@@ -11,7 +11,7 @@ public class Solution {
             int min2 = Integer.MAX_VALUE;
             int min1 = Integer.MAX_VALUE;
             for(int j = 0; j < n; j ++){
-                int cur = dp[i - 1][j];
+                int cur = dp[(i - 1) % 2][j];
                 if(cur < min1){
                     min2 = min1;
                     min1 = cur;
@@ -20,12 +20,12 @@ public class Solution {
                 }
             }
             for(int j = 0; j < n; j ++){
-                dp[i][j] = dp[i-1][j] == min1 ? min2 + costs[i][j] : min1 + costs[i][j];
+                dp[i % 2][j] = dp[(i-1) % 2][j] == min1 ? min2 + costs[i][j] : min1 + costs[i][j];
             }
         }
         int res = Integer.MAX_VALUE;
         for(int i = 0; i < n; i++){
-            res = Math.min(res, dp[m - 1][i]);
+            res = Math.min(res, dp[(m - 1) % 2][i]);
         }
         return res;
     }
