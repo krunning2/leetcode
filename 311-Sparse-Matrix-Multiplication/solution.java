@@ -7,7 +7,7 @@ public class Solution {
             for(int k = 0; k < n; k++){
                 if(A[i][k] != 0){
                     for(int j = 0; j < n; j++){
-                        res[i][j] += A[i][j] * B[j][i];
+                        res[i][j] += A[i][k] * B[k][j];
                     }
                 }
             }
