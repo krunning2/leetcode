@@ -26,7 +26,6 @@ public class Solution {
         }
         ListNode p = slow.next;
         if(count % 2 != 0) stack.pop();
-        if(stack.size())
         while(p != null){
             if(stack.pop() != p.val) return false;
             p = p.next;
