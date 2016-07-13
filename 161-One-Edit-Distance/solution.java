@@ -23,7 +23,7 @@ public class Solution {
         return flag;
     }
     private boolean isDeleted(String longer, String shorter){
-        for(int i = 0; i < longer.length(); i++){
+        for(int i = 0; i < shorter.length(); i++){
             if(longer.charAt(i) != shorter.charAt(i)){
                 return longer.substring(i + 1).equals(shorter.substring(i));
             }
