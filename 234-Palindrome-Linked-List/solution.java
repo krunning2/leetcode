@@ -11,21 +11,19 @@ public class Solution {
         if(head == null) return true;
         ListNode fast = head;
         ListNode slow = head;
+        Stack<Integer> stack = new Stack<Integer>();
         while(true){
             fast = fast.next;
             if(fast == null) break;
             fast = fast.next;
             if(fast == null) break;
+            stack.push(slow.val);
             slow = slow.next;
         }
-        ListNode p = reverse(slow.next);
-        ListNode p2 = head;
+        ListNode p = slow.next;
         while(p != null){
-            if(p.val != p2.val){
-                return false;
-            }
+            if(stack.pop() != p.val) return false;
             p = p.next;
-            p2 = p2.next;
         }
         return true;
     }
