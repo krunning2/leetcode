@@ -5,13 +5,9 @@ public class Solution {
         int nb = B[0].length;
         int[][] res = new int[A.length][nb];
         for(int i = 0; i < m; i++){
-            for(int k = 0; k < n; k++){
-                if(A[i][k] != 0){
-                    for(int j = 0; j < nb; j++){
-                        res[i][j] += A[i][k] * B[k][j];
-                    }
-                }
-            }
+            for(int j = 0; j < nb; j++)
+                for(int k = 0; k < n; k++)
+                    res[i][j] += A[i][k] * B[k][j];
         }
         return res;
     }
