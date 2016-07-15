@@ -11,8 +11,8 @@ public class Solution {
             dp[0][i % 2] = matrix[0][i];
         }
         int max = 0;
-        for(int i = 0; i < m; i++){
-            for(int j = 0; j < n; j++){
+        for(int i = 1; i < m; i++){
+            for(int j = 1; j < n; j++){
                 if(matrix[i][j] == 0){
                     dp[i % 2][j] = 0;
                 }else{
