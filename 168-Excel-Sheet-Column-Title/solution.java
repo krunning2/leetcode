@@ -1,10 +1,10 @@
 public class Solution {
     public String convertToTitle(int n) {
-        String res="";
-        while(n>0){
-    		res=(char)('A'+(n-1)%26)+res;
-    		n=(n-1)/26;
-    	}
-    	return res;
+        StringBuilder sb = new StringBuilder();
+        while(n != 0){
+            sb.insert(0, ((char)((n - 1) % 26 + 'A')));
+            n = (n - 1) / 26;
+        }
+        return sb.toString();
     }
 }
