@@ -3,7 +3,7 @@
 
 public class Solution extends Relation {
     public int findCelebrity(int n) {
-        int res = -1;
+        int res = 0;
         for(int i = 0; i < n; i++){
             if(!knows(i, res)){
                 res = i;
