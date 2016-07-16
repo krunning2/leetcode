@@ -1,0 +1,1 @@
+Keep two mins, the smallest number so far, the second smallest number so far, if we can find any number greater than both mins, we will get the sequence, else no.
