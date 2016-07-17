@@ -13,17 +13,16 @@ public class Solution {
         if(p.right != null){
             return findLeftMost(p.right);
         }
-        TreeNode cur = root;
-        while(cur != null){
-            if(cur.val > p.val && cur.left != null && cur.left > p.val){
-                cur = cur.left;
-            }else if(cur.val > p.val && cur.left != null && cur.left < p.val){
-                return cur;
-            }else{
-                cur = cur.right;
+        TreeNode res = null;
+        while(root != null){
+            if(root.val > p.val){
+                res = root;
+                root = root.left;
+            } else {
+              root = root.right;  
             }
         }
-        return null;
+        return res;
     }
     
     private TreeNode findLeftMost(TreeNode node){
