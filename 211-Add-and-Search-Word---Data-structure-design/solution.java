@@ -19,7 +19,7 @@ public class WordDictionary {
         public void addWord(String word){
             Node cur = root;
             for(char c : word.toCharArray()){
-                if(!cur.map.contansKey(c)){
+                if(!cur.map.containsKey(c)){
                     cur.map.put(c, new Node());
                 }
                 cur = cur.map.get(c);
