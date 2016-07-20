@@ -8,7 +8,7 @@ public class Solution {
             }
             while(sum >= s){
                 res = Math.min(res, right - left);
-                sum -= nums[left --];
+                sum -= nums[left++];
             }
         }
         return res == nums.length + 1 ? 0 : res;
