@@ -13,7 +13,7 @@ public class WordDictionary {
     class Trie{
         Node root;
         Trie(){
-            root = new Node;
+            root = new Node();
         }
         
         public void addWord(String word){
