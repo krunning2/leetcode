@@ -38,7 +38,7 @@ public class WordDictionary {
             if(pos >= word.length() && !node.isString){
                 return false;
             }
-            char c = s.charAt(pos);
+            char c = word.charAt(pos);
             if(c == '.'){
                 for(Node child : c.map.values){
                     if(searchHelper(word, pos + 1, child)) return true;
