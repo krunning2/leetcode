@@ -1,0 +1,1 @@
+Keep a moving window to satisfy the the constrains with two pointers.
