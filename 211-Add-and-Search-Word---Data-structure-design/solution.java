@@ -40,18 +40,16 @@ public class WordDictionary {
             }
             char c = word.charAt(pos);
             if(c == '.'){
-                for(Node child : node.map.values){
+                for(Node child : node.map.values()){
                     if(searchHelper(word, pos + 1, child)) return true;
                 }
                 return false;
-            }else if(c.map.containsKey(c)){
+            }else if(node.map.containsKey(c)){
                 return searchHelper(word, pos + 1, node.map.get(c));
             }else{
                 return false;
             }
         }
-        
-        
         
         class Node{
             HashMap<Character, Node> map;
