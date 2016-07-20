@@ -35,7 +35,7 @@ public class WordDictionary {
             if(pos == word.length() && node.isString){
                 return true;
             }
-            if(pos >= s.length() && !node.isString){
+            if(pos >= word.length() && !node.isString){
                 return false;
             }
             char c = s.charAt(pos);
