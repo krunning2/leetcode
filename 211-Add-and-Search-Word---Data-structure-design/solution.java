@@ -40,7 +40,7 @@ public class WordDictionary {
             }
             char c = s.charAt(pos);
             if(c == '.'){
-                for(Node child : c.map.values{
+                for(Node child : c.map.values){
                     if(searchHelper(word, pos + 1, child)) return true;
                 }
                 return false;
