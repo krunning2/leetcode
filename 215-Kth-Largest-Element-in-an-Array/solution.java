@@ -1,11 +1,11 @@
 public class Solution {
     public int findKthLargest(int[] nums, int k) {
         if(nums == null || nums.length == 0 || k < 0) return 0;
-        return helper(nums, 0, nums.length - 1, k);
+        return find(nums, 0, nums.length - 1, k);
     }
     
     private int find(int[] nums, int left, int right, int k){
-        if(left <= right){
+        if(left >= right){
             return nums[left];
         }
         int index = partition(nums, left, right);
