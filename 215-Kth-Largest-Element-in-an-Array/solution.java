@@ -1,26 +1,25 @@
 public class Solution {
     public int findKthLargest(int[] nums, int k) {
-        if(nums == null || nums.length == 0 || k < 0) return 0;
-        return find(nums, 0, nums.length - 1, k);
+        return quickSelect(nums, 0, nums.length - 1, k);
     }
     
-    private int find(int[] nums, int left, int right, int k){
-        if(left >= right){
-            return nums[left];
-        }
-        int index = partition(nums, left, right);
+    private int quickSelect(int[] nums, int l, int r, int k){
+        if(l >= r) return nums[l];
+        int index = partition(nums, l, r);
         if(index + 1 == k){
             return nums[index];
-        } else if(index + 1 < k){
-            return find(nums, index + 1, right, k);
-        }else{
-            return find(nums, left, index - 1, k);
+        }else if(index + 1 < k){
+            return quickSelect(nums, index + 1, r, k);
+        }else {
+            return quickSelect(nums, l, index - 1, k);
         }
     }
-    private int partition(int[] nums, int left, int right){
-        int pivot = nums[right];
-        int index = left;
-        for(int i = left; i < right; i ++){
+    
+    //descending order
+    private partition(int[] nums, int l, int r){
+        int pivot = nums[r];
+        int index = l;
+        for(int i = l; i < r; i++){
             if(nums[i] >= pivot){
                 int tmp = nums[index];
                 nums[index++] = nums[i];
@@ -28,38 +27,8 @@ public class Solution {
             }
         }
         int tmp = nums[index];
-        nums[index] = nums[right];
-        nums[right] = tmp;
-        return index;
-    }
-    
-    private int helper(int[] nums, int left, int right, int k){
-        if(left >= right){
-            return nums[left];
-        }
-        int index = partition(left, right, nums);
-        if(index + 1 == k){
-            return nums[index];
-        }else if(index + 1 < k){
-            return helper(nums, index + 1, right, k);
-        }else{
-            return helper(nums, left, index - 1, k);
-        }
-    }
-    private int partition(int left, int right, int[] nums){
-        int index = left;
-        int pivot = nums[right];
-        for(int i = left; i < right; i++){
-            if(nums[i] >= pivot){
-                int tmp = nums[index];
-                nums[index] = nums[i];
-                nums[i] = tmp;
-                index ++;
-            }
-        }
-        int tmp = nums[index];
-        nums[index] = nums[right];
-        nums[right] = tmp;
+        nums[index] = nums[r];
+        nums[r] = tmp;
         return index;
     }
 }
