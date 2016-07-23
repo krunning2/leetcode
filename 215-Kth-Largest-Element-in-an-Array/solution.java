@@ -11,7 +11,7 @@ public class Solution {
         }else if(index + 1 < k){
             return quickSelect(nums, index + 1, r, k);
         }else {
-            return quickSelect(nums, l, index - 1, k);
+            return quickSelect(nums, l, index, k);
         }
     }
     
