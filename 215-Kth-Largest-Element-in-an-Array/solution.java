@@ -9,7 +9,7 @@ public class Solution {
         if(l >= r){
             return;
         }
-        int index = partition(int[] nums, int l, int r);
+        int index = partition(nums, l, r);
         quickSort(nums, l, index - 1);
         quickSort(nums, index + 1, r);
     }
