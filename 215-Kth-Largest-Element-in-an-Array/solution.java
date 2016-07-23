@@ -9,9 +9,9 @@ public class Solution {
         if(index + 1 == k){
             return nums[index];
         }else if(index + 1 < k){
-            return quickSelect(nums, index + 1, r, k);
+            return quickSelect(nums, index, r, k);
         }else {
-            return quickSelect(nums, l, index, k);
+            return quickSelect(nums, l, index - 1, k);
         }
     }
     
