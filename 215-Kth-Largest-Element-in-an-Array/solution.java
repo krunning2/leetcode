@@ -16,7 +16,7 @@ public class Solution {
     }
     
     //descending order
-    private partition(int[] nums, int l, int r){
+    private int partition(int[] nums, int l, int r){
         int pivot = nums[r];
         int index = l;
         for(int i = l; i < r; i++){
