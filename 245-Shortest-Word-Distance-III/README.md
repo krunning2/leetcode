@@ -1,0 +1,1 @@
+only difference is that need to flip the p1 and p2 when p1 == -1( first time) or p2 > p1 e.g: A B C A B A. 
