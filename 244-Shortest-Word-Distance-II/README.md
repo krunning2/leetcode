@@ -1,0 +1,1 @@
+for each word, keep a list of its positions.
