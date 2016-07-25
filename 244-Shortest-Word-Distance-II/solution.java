@@ -1,7 +1,7 @@
 public class WordDistance {
     Map<String, List<Integer>> map;
     public WordDistance(String[] words) {
-        map = new HashMap<String, List<String>>();
+        map = new HashMap<String, List<Integer>>();
         for(int i = 0; i < words.length; i++){
             String s = words[i];
             if(!map.containsKey(s)){
