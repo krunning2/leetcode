@@ -1,26 +1,22 @@
 public class TwoSum {
-    Map<Integer, Integer> map;
+    Map<Integer, Integer> map = new HashMap<Integer, Integer>();
     // Add the number to an internal data structure.
 	public void add(int num) {
-	    map = new HashMap<Integer, Integer>();
-	    map.putIfAbsent(num, 1);
-	    map.put(num, map.get(num) + 1);
+	    if(map.containsKey(num)){
+	        map.put(num, 2);
+	    }else{
+	        map.put(num, 1);
+	    }
 	}
 
     // Find if there exists any pair of numbers which sum is equal to the value.
 	public boolean find(int value) {
 	    Iterator<Integer> it = map.keySet().iterator();
 	    while(it.hasNext()){
-	        int cur = it.next();
-	        int val = map.get(cur);
-	        int target = value - val;
-	        if(!map.containsKey(target)){
-	            return false;
-	        } else {
-	          if(cur == map.get(target) && map.get(target) > 1 || cur != map.get(target)){
+	        int num1 = it.next();
+	        int num2 = value - num1;
+	        if(map.containsKey(num2) && (map.get(num2) > 1 || num1 != num2)){
 	              return true;
-	          }  
-	          return false;
 	        }
 	    }
 	    return false;
