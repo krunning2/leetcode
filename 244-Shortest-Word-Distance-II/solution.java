@@ -5,7 +5,7 @@ public class WordDistance {
         for(int i = 0; i < words.length; i++){
             String s = words[i];
             if(!map.containsKey(s)){
-                map.put(s, new ArrayList<String>());
+                map.put(s, new ArrayList<Integer>());
             }
             map.get(s).add(i);
         }
