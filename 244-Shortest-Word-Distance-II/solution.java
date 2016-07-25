@@ -2,7 +2,8 @@ public class WordDistance {
     Map<String, List<String>> map;
     public WordDistance(String[] words) {
         map = new HashMap<String, List<String>>();
-        for(int i = 0; i < s.length(); i++){
+        for(int i = 0; i < words.length(); i++){
+            String s = words[i];
             if(!map.containsKey(s)){
                 map.put(s, new ArrayList<String>());
             }
