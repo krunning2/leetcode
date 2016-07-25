@@ -11,7 +11,7 @@ public class TwoSum {
 	public boolean find(int value) {
 	    Iterator<Integer> it = map.keySet().iterator();
 	    while(it.hasNext()){
-	        int cur = it.next;
+	        int cur = it.next();
 	        int val = map.get(cur);
 	        int target = value - val;
 	        if(!map.containsKey(target)){
