@@ -8,9 +8,11 @@ public class Solution {
             int end = nums.length - 1;
             while(start < end){
                 if(nums[start] + nums[end] + cur == 0){
-                    res.add(i);
-                    res.add(start);
-                    res.add(end);
+                    List<Integer> tmp = new ArrayList<Integer>();
+                    tmp.add(cur);
+                    tmp.add(nums[start]);
+                    tmp.add(nums[end]);
+                    res.add(tmp);
                     start ++;
                     end --;
                     while(start < end && nums[start] == nums[start - 1]){
