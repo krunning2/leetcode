@@ -15,9 +15,9 @@ public class Solution {
         TreeNode node = root;
         while(node != null){
             l = node.left;
-            r = node.right;
             node.left = r;
-            node.r = p;
+            r = node.right;
+            node.right = p;
             p = node;
             node = l;
         }
