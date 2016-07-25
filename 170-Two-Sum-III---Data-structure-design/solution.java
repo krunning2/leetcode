@@ -11,11 +11,10 @@ public class TwoSum {
 
     // Find if there exists any pair of numbers which sum is equal to the value.
 	public boolean find(int value) {
-	    Iterator<Integer> it = map.keySet().iterator();
-	    while(it.hasNext()){
-	        int num1 = it.next();
+	    for(Entry<Integer, Integer> entry : map.entrySet()){
+	        int num1 = entry.getKey();
 	        int num2 = value - num1;
-	        if(map.containsKey(num2) && (map.get(num2) > 1 || num1 != num2)){
+	        if(map.containsKey(num2) && (entry.getValue() > 1 || num1 != num2)){
 	              return true;
 	        }
 	    }
