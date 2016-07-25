@@ -1,0 +1,1 @@
+The last appeared position should be same
