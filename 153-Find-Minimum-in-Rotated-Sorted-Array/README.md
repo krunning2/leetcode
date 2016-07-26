@@ -1,0 +1,1 @@
+Compare the nums[mid] to nums[end]
