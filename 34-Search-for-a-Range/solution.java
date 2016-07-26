@@ -21,7 +21,7 @@ public class Solution {
         }
         
         s = res[0];
-        int e = nums.length - 1;
+        e = nums.length - 1;
         while(s + 1 < e){
             int mid = s - (s - end) / 2;
             if(nums[mid] > target){
