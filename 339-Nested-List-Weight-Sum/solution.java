@@ -28,8 +28,8 @@ public class Solution {
             for(int i = 0; i < size; i++){
                 List<NestedInteger> cur = q.poll();
                 for(NestedInteger nt : cur){
-                    if(nv.isInteger()){
-                        res += level * nv.getInteger();
+                    if(nt.isInteger()){
+                        res += level * nt.getInteger();
                     }else{
                         q.offer(nv.getList());
                     }
