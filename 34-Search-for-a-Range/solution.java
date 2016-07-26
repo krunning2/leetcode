@@ -14,7 +14,7 @@ public class Solution {
         }
         if(nums[s] == target){
             res[0] = s;
-        }else if(nums[s] == target){
+        }else if(nums[e] == target){
             res[0] = e;
         }else{
             return res;
@@ -23,7 +23,7 @@ public class Solution {
         s = res[0];
         e = nums.length - 1;
         while(s + 1 < e){
-            int mid = s - (s - end) / 2;
+            int mid = s - (s - e) / 2;
             if(nums[mid] > target){
                 e = mid;
             }else{
