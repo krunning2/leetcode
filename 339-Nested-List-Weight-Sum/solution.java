@@ -31,7 +31,7 @@ public class Solution {
                     if(nt.isInteger()){
                         res += level * nt.getInteger();
                     }else{
-                        q.offer(nv.getList());
+                        q.offer(nt.getList());
                     }
                 }
             }
