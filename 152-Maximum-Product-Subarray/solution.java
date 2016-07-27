@@ -2,7 +2,7 @@ public class Solution {
     public int maxProduct(int[] nums) {
         long min = Integer.MAX_VALUE;
         long max =Integer.MIN_VALUE;
-        long res = Integer.MIN_VALUE;
+        int res = Integer.MIN_VALUE;
         for(int i = 0; i < nums.length; i++){
             if(nums[i] < 0){
                 res = Math.max(res, nums[i] * min);
