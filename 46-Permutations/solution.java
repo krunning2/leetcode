@@ -6,8 +6,8 @@ public class Solution {
     }
     
     private void helper(int[] nums, boolean[] visited, List<List<Integer>> res, List<Integer> cur){
-        if(cur.size == nums.length){
-            res.add(cur);
+        if(cur.size() == nums.length){
+            res.add(new ArrayList(cur));
             return;
         }
         for(int i = 0; i < nums.length; i++){
