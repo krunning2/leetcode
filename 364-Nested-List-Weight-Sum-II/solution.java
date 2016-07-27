@@ -16,23 +16,29 @@
  * }
  */
 public class Solution {
-    public int depthSumInverse(List<NestedInteger> nestedList) {
-        int unweighted = 0, weighted = 0;
-        Queue<List<NestedInteger>> queue = new LinkedList<List<NestedInteger>>();
-        queue.offer(nestedList);
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                List<NestedInteger> list = queue.poll();
-                for(NestedInteger ni : list){
-                    if (ni.isInteger())
-                        unweighted += ni.getInteger();
-                    else
-                        queue.offer(ni.getList());
-                }
+    public int depthSumInverse(List<NestedInteger> list) {
+        if(list == null || lise.size() == 0) return 0;
+        int depth = getDepth(1, list);
+        return getSum(depth, list);
+    }
+    private int getDepth(int curDepth, List<NestedInteger> list){
+        int res = 0;
+        for(NestedInteger ni : list){
+            if(!ni.isInteger()){
+                res = Math.max(res, getDepth(curDepth + 1, ni.getList()));
             }
-            weighted += unweighted;
         }
-        return weighted;
+        return Math.max(res, curDepth);
+    }
+    private int getSum(int depth, List<NestedInteger> list){
+        int res = 0;
+        for(NestedInteger ni : list){
+            if(!ni.isInteger()){
+                res += getSum(depth - 1, ni.getList());
+            }else{
+                res += ni.getInteger() * depth;
+            }
+        }
+        return res;
     }
 }
