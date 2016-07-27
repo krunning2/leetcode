@@ -18,16 +18,18 @@
 public class Solution {
     public int depthSumInverse(List<NestedInteger> nestedList) {
         int unweighted = 0, weighted = 0;
-        while (!nestedList.isEmpty()) {
+        Queue<NestedInteger> queue = new LinkedList<NestedInteger>();
+        while (!queue.isEmpty()) {
             List<NestedInteger> nextLevel = new ArrayList<>();
-            for (NestedInteger ni : nestedList) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                NestedInteger ni = queue.poll();
                 if (ni.isInteger())
                     unweighted += ni.getInteger();
                 else
-                    nextLevel.addAll(ni.getList());
+                    queue.offer(ni.getList());
             }
             weighted += unweighted;
-            nestedList = nextLevel;
         }
         return weighted;
     }
