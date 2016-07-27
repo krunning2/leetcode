@@ -13,7 +13,7 @@ public class Solution {
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
         if(root == null) return res;
         queue.offer(root);
-        boolean flag = ture;
+        boolean flag = true;
         while(! queue.isEmpty()){
             int size = queue.size();
             List<Integer> tmp = new ArrayList<Integer>();
