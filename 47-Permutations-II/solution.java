@@ -11,7 +11,7 @@ public class Solution {
             return;
         }
         for(int i = 0; i < nums.length; i++){
-            if(visited[i] || i != 0 && visited[i - 1] && nums[i] == nums[i - 1]) continue;
+            if(visited[i] || i != 0 && !visited[i - 1] && nums[i] == nums[i - 1]) continue;
                 cur.add(nums[i]);
                 visited[i] = true;
                 helper(nums, visited, res, cur);
