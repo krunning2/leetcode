@@ -22,13 +22,13 @@ public class Solution {
         return getSum(depth, list);
     }
     private int getDepth(int curDepth, List<NestedInteger> list){
-        int res = 0;
+        int res = curDepth;
         for(NestedInteger ni : list){
             if(!ni.isInteger()){
                 res = Math.max(res, getDepth(curDepth + 1, ni.getList()));
             }
         }
-        return Math.max(res, curDepth);
+        return res;
     }
     private int getSum(int depth, List<NestedInteger> list){
         int res = 0;
