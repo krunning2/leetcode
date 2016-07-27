@@ -6,12 +6,12 @@ public class Solution {
         return Math.max(helper(nums, 1, nums.length - 1), helper(nums, 0, nums.length - 2));
     }
     private int helper(int[] nums, int s, int e){
-        int[] dp = new int[e + 1];
+        int[] dp = new int[3];
         dp[0] = nums[s];
         dp[1] = Math.max(nums[s], nums[s + 1]);
         for(int i = 2; i <= e - s; i++){
-            dp[i] = Math.max(dp[(i - 2)] + nums[i + s], dp[(i - 1)]);
+            dp[i % 3] = Math.max(dp[(i - 2) % 3] + nums[i + s], dp[(i - 1) % 3]);
         }
-        return dp[e - s];
+        return dp[(e - s) % 3];
     }
 }
