@@ -17,7 +17,7 @@
  */
 public class Solution {
     public int depthSumInverse(List<NestedInteger> list) {
-        if(list == null || lise.size() == 0) return 0;
+        if(list == null || list.size() == 0) return 0;
         int depth = getDepth(1, list);
         return getSum(depth, list);
     }
