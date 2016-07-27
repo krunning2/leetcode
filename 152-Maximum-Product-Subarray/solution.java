@@ -9,10 +9,13 @@ public class Solution {
                 int tmp = min;
                 min = max * nums[i];
                 max = tmp * nums[i];
-            } else {
+            } else if(nums[i] > 0){
                 res = Math.max(res, nums[i] * max);
                 max = nums[i] * max;
                 min = nums[i] * min;
+            }else{
+                max = 0;
+                min = 0;
             }
         }
         return res;
