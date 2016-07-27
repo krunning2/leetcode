@@ -13,7 +13,7 @@ public class Solution {
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
         if(root == null) return res;
         queue.offer(root);
-        boolean flag = true;
+        boolean flag = false;
         while(! queue.isEmpty()){
             int size = queue.size();
             List<Integer> tmp = new ArrayList<Integer>();
@@ -24,9 +24,9 @@ public class Solution {
                 if(node.right != null) queue.offer(node.right);
             }
             if(flag){
-                Arrays.reverse(tmp);
-                flag = !flag;
+                Collections.reverse(tmp);
             }
+            flag = !flag;
             res.add(tmp);
         }
         return res;
