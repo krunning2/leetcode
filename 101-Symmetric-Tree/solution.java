@@ -16,7 +16,8 @@ public class Solution {
         if(left == null || right == null) return left == null && right == null;
         if(left.val != right.val) return false;
         if(left.left == null && right.right != null || right.right == null && left.left != null) return false;
-        if(left.left != null && right.right != null && (left.left.val != right.right.val || left.right.val != right.left.val)) return false;
+        if(left.left != null && right.right != null && (left.left.val != right.right.val) return false;
+        if(left.right != null && right.left != null && (left.right.val != right.left.val) return false;
         return true;
     }
 }
