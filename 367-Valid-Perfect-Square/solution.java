@@ -1,8 +1,8 @@
 public class Solution {
     public boolean isPerfectSquare(int num) {
         int s = 1;
-        int e = num / 2;
-        if(nums == 1) return true;
+        int e = num;
+        if(num == 1) return true;
         while(s <= e){
             int mid = s - (s - e) / 2;
             int t = mid * mid;
