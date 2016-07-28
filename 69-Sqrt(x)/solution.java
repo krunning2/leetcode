@@ -14,9 +14,10 @@ public class Solution {
               return mid;
             }
         }
-        if(left * left == num) return left;
-        if(right * right == num) return right;
-        if(right * right < num) return right;
-        if(left * left < num) return left;
+        if(right  <= x / right){
+            return right;
+        }else{
+            return left;
+        }
     }
 }
