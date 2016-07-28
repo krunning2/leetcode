@@ -15,7 +15,7 @@ public class Solution {
     }
     private int getDepth(TreeNode root, List<List<Integer>> res){
         if(root == null) return -1;
-        int level = 1 + Math.max(getDepth(root.left), getDepth(root.right));
+        int level = 1 + Math.max(getDepth(root.left, res), getDepth(root.right, res));
         if(res.size() <= level){
             res.add(new ArrayList());
         }
