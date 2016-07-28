@@ -6,7 +6,7 @@ public class Solution {
             if("+-*/".contains(cur)){
                 int d1 = Integer.valueOf(stack.pop());
                 int d2 = Integer.valueOf(stack.pop());
-                stack.push(cal(d1, d2, cur));
+                stack.push(String.valueOf(cal(d1, d2, cur)));
             }else{
                 stack.push(cur);
             }
