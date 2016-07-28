@@ -1,18 +1,22 @@
 public class Solution {
     public int mySqrt(int num) {
-        long left = 1, right = num / 2 + 1;// long type to avoid 2147483647 case
+        if(num == 0 || num == 1) return num;
+        int left = 1, right = num / 2;
         
-        while (left <= right) {
+        while (left + 1 < right) {
             int mid = left + (right - left) / 2;
             long t = mid * mid;
             if (t > num) {
-              right = mid - 1;
+              right = mid;
             } else if (t < num) {
-              left = mid + 1;
+              left = mid;
             } else {
               return mid;
             }
         }
-        return 0;
+        if(left * left == num) return left;
+        if(right * right == num) return right;
+        if(right * right < num) return right;
+        if(left * left < num) return left;
     }
 }
