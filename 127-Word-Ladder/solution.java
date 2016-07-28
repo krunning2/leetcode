@@ -6,7 +6,7 @@ public class Solution {
         Queue<String> queue = new LinkedList<String>();
         queue.offer(beginWord);
         Set<String> set = new HashSet();
-        set.add(start);
+        set.add(beginWord);
         while(!queue.isEmpty()){
             int size = 0;
             level ++;
