@@ -11,12 +11,7 @@ public class Solution {
                 stack.push(cur);
             }
         }
-        if(!stack.isEmpty()){
-            int d1 = Integer.valueOf(stack.pop());
-            int d2 = Integer.valueOf(stack.pop());
-            return cal(d1, d2, op);
-        }
-        return 0;
+        return Integer.valueOf(stack.pop());
     }
     private int cal(int d1, int d2, String op){
         switch(op){
