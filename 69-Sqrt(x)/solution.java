@@ -1,6 +1,5 @@
 public class Solution {
     public int mySqrt(int num) {
-        if (num < 1) return false;
         long left = 1, right = num / 2 + 1;// long type to avoid 2147483647 case
         
         while (left <= right) {
