@@ -1,7 +1,7 @@
 public class Solution {
     public boolean isPerfectSquare(int num) {
-        if (num < 1) return false;
-        long left = 1, right = num / 2 + 1;// long type to avoid 2147483647 case
+        if (num == 1) return true;
+        long left = 1, right = num / 2 ;// long type to avoid 2147483647 case
         
         while (left <= right) {
             long mid = left + (right - left) / 2;
@@ -14,6 +14,6 @@ public class Solution {
               return true;
             }
         }
-            return false;
+        return false;
     }
 }
