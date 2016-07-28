@@ -21,7 +21,7 @@ public class Solution {
             val += helper(node.left.left, map) + helper(node.left.right, map);
         }
         if(node.right != null){
-            val += helper(node.right.left) + helper(node.right.right);
+            val += helper(node.right.left, map) + helper(node.right.right, map);
         }
         val = Math.max(val + node.val, helper(node.left, map) + helper(node.right, map));
         map.put(node, val);
