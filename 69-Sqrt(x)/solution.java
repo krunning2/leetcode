@@ -1,23 +1,24 @@
 public class Solution {
-    public int mySqrt(int num) {
-        if(num == 0 || num == 1) return num;
-        int left = 1, right = num / 2;
+    public int sqrt(int x) {
+        // write your code here
+        if(x == 0 || x == 1) return x;
+        int end = x / 2;
+        int start = 1;
         
-        while (left + 1 < right) {
-            int mid = left + (right - left) / 2;
-            long t = mid * mid;
-            if (t > num) {
-              right = mid;
-            } else if (t < num) {
-              left = mid;
-            } else {
-              return mid;
+        while(start + 1 < end){
+            int mid = start - (start - end) / 2;
+            if(mid < x / mid){
+                start = mid;
+            }else if(mid > x / mid){
+                end = mid;
+            }else{
+                return mid;
             }
         }
-        if(right  <= x / right){
-            return right;
+        if(end  <= x / end){
+            return end;
         }else{
-            return left;
+            return start;
         }
     }
 }
