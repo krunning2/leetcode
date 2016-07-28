@@ -1,5 +1,5 @@
 public class Solution {
-    public int sqrt(int x) {
+    public int mySqrt(int x) {
         // write your code here
         if(x == 0 || x == 1) return x;
         int end = x / 2;
