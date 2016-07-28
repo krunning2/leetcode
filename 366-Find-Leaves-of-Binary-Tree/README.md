@@ -1,0 +1,1 @@
+get depth meanwhile post traversal then add the node to correspond level list
