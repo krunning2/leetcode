@@ -18,7 +18,7 @@ public class Solution {
         if(map.containsKey(node)) return map.get(node);
         int val = 0;
         if(node.left != null){
-            val += helper(node.left.left) + helper(node.left.right);
+            val += helper(node.left.left, map) + helper(node.left.right, map);
         }
         if(node.right != null){
             val += helper(node.right.left) + helper(node.right.right);
