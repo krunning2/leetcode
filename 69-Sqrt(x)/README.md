@@ -1,0 +1,1 @@
+use divide to avoid overflow
