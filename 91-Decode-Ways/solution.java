@@ -25,7 +25,5 @@ public class Solution {
     private int check1(char c){
         return c == '0' ? 0 : 1;
     }
-    private int check2(char c1, char c2){
-        return c1 == '1' || c1 == '2' && c2 <= '6' ? 1 : 0;
-    }
+    
 }
