@@ -6,7 +6,7 @@ public class Solution {
         map['T' - 'A'] = 3;
         HashMap<Integer, Integer> counter = new HashMap();
         List<String> res = new ArrayList<String>();
-        for(int i = 0; i < s.length(); i++){
+        for(int i = 0; i < s.length() - 9; i++){
             int v = 0;
             for(int j = i; j < i + 10; j++){
                 v = v << 2;
@@ -15,7 +15,7 @@ public class Solution {
             if(counter.containsKey(v) && counter.get(v) == 1){
                 res.add(s.substring(i, i + 10));
                 counter.put(v, 2);
-            }else{
+            }else if(!counter.containsKey(v)){
                 counter.put(v, 1);
             }
         }
