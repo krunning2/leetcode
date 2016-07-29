@@ -6,7 +6,7 @@ public class Solution {
             int start = i;
             int sum = 0;
             while(i < words.length && sum <= L){
-                sum += words[i];
+                sum += words[i].length();
                 i ++;
             }
             if(sum - 1 > L){
