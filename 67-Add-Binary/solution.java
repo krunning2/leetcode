@@ -5,8 +5,8 @@ public class Solution {
         int l2 = b.length() - 1;
         StringBuilder sb = new StringBuilder();
         while(l1 >= 0 && l2 >= 0){
-            int d1 = Integer.valueOf(a.charAt(l1));
-            int d2 = Integer.valueOf(b.charAt(l2));
+            int d1 = a.charAt(l1) - '0';
+            int d2 = b.charAt(l2) - '0';
             int cur = d1 + d2 + carry;
             sb.append(cur % 2);
             carry = cur / 2;
@@ -14,20 +14,22 @@ public class Solution {
             l2 --;
         }
         while(l1 >= 0){
-            int d1 = Integer.valueOf(a.charAt(l1));
+            int d1 = a.charAt(l1) - '0';
             int cur = d1 + carry;
             sb.append(cur % 2);
             carry = cur / 2;
             l1 --;
         }
         while(l2 >= 0){
-            int d2 = Integer.valueOf(b.charAt(21));
+            int d2 = b.charAt(l2) - '0';
             int cur = d2 + carry;
             sb.append(cur % 2);
             carry = cur / 2;
             l2 --;
         }
-        if(carry > 0) sb.append(1);
+        if(carry > 0){
+            sb.append(1);
+        }
         return sb.reverse().toString();
     }
 }
