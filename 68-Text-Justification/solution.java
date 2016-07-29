@@ -6,7 +6,7 @@ public class Solution {
             int start = i;
             int sum = 0;
             while(i < words.length && sum <= L){
-                sum += words[i].length();
+                sum += words[i].length() + 1;
                 i ++;
             }
             if(sum - 1 > L){
@@ -14,13 +14,13 @@ public class Solution {
                 sum -= words[i].length() + 1;
             }
             boolean isLast = i == words.length;
-            int end = i-1;
+            int end = i - 1;
             int interval = end - start;
             int aveS = 0;
             int leftS = 0;
             if(interval > 0){
-                aveS = (L - sum - interval + 1) / interval;
-                leftS = (L - sum - interval + 1) % interval;
+                aveS = (L - sum + interval + 1) / interval;
+                leftS = (L - sum + interval + 1) % interval;
             }
             StringBuilder sb = new StringBuilder();
             for(int j = start; j < end; j++){
@@ -38,7 +38,7 @@ public class Solution {
                 }
             }
             sb.append(words[end]);
-            size = sb.length();
+            int size = sb.length();
             for(int j = 0; j < L - size; j ++){
                 sb.append(" ");
             }
