@@ -11,7 +11,7 @@ public class Solution {
             }
             if(sum - 1 > L){
                 i --;
-                sum -= words[i] + 1;
+                sum-= words[i] + 1;
             }
             boolean isLast = i == words.length;
             int end = i-1;
