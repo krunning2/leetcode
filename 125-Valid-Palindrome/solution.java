@@ -7,10 +7,10 @@ public class Solution {
             if(check(s.charAt(start)) && check(s.charAt(end)) && s.charAt(start) != s.charAt(end)){
                 return false;
             }
-            if(check(s.charAt(start))){
+            if(!check(s.charAt(start))){
                 start ++;
             }
-            if(check(s.charAt(end))){
+            if(!check(s.charAt(end))){
                 end --;
             }
         }
