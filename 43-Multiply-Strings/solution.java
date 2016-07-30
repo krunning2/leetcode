@@ -14,11 +14,11 @@ public class Solution {
             }
         }
         StringBuilder sb = new StringBuilder();
-        for(int n : res){
-            if(n == 0 && sb.length() == 0){
+        for(int r : res){
+            if(r == 0 && sb.length() == 0){
                 continue;
             }
-            sb.append(n);
+            sb.append(r);
         }
         return sb.length() == 0 ? "0" : sb.toString();
     }
