@@ -1,7 +1,7 @@
 public class Solution {
     public String countAndSay(int n) {
        String res = "1";
-       while(n > 0){
+       while(--n > 0){
            char same = res.charAt(0);
            int count = 0;
            StringBuilder sb = new StringBuilder();
