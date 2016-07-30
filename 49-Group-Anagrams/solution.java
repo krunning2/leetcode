@@ -13,6 +13,6 @@ public class Solution {
         for(List<String> list : map.values()){
             Collections.sort(list);
         }
-        return map.values();
+        return new ArrayList<List<String>>(map.values());
     }
 }
