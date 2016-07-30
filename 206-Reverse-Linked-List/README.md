@@ -1,0 +1,1 @@
+recursive solution: same idea that keep two pointers head and newHead, reverse one by one
