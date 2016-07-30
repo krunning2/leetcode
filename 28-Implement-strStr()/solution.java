@@ -1,46 +1,21 @@
 public class Solution {
-    public int strStr(String haystack, String needle) {
-        if(haystack == null || needle == null){
-            return -1;
-        }
-        if(needle.length() == 0){
+    public int strStr(String h, String n) {
+        if(n == null){
             return 0;
         }
-        int[] next = getNext(needle);
-        int j = 0;
-        int i = 0;
-        while(i < haystack.length()){
-            if(j == -1 || haystack.charAt(i) == needle.charAt(j)){
-                j ++;
-                i++;
-                if(j == needle.length()){
-                    return i - j;
+        if(h == null){
+            return -1;
+        }
+        for(int i = 0; i < h.length(); i++){
+            for(int j = 0; j < n.length(); j++){
+                if(h.charAt(i + j) != n.charAt(j)){
+                    break;
                 }
-            }else{
-                j = next[j];
+                if(j == n.length() - 1){
+                    return i;
+                }
             }
         }
         return -1;
-    }
-    
-    private int[] getNext(String s){
-        int[] next = new int[s.length()];
-        int j = 0;
-        int k = -1;
-        next[0] = -1;
-        while(j < s.length() - 1){
-            if(k == -1 || s.charAt(j) == s.charAt(k)){
-                j ++;
-                k++;
-                if(s.charAt(k) == s.charAt(j)){
-                    next[j] = next[k];
-                }else{
-                    next[j] = k;
-                }
-            }else{
-                k = next[k];
-            }
-        }
-        return next;
     }
 }
