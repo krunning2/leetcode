@@ -9,14 +9,16 @@ public class Solution {
             }
             if(!check(s.charAt(start))){
                 start ++;
-            }
-            if(!check(s.charAt(end))){
+            }else if(!check(s.charAt(end))){
+                end --;
+            }else{
+                start ++;
                 end --;
             }
         }
         return true;
     }
     private boolean check(char c){
-        return c <= 'z' && c >= 'a';
+        return c <= 'z' && c >= 'a' || c >= '0'&& c <= '9';
     }
 }
