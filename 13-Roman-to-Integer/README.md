@@ -1,0 +1,1 @@
+check current number and previous number, if cur > previous, then we should minus 2 * previous since we already plused previous 
