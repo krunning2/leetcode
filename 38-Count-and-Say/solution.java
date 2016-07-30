@@ -6,7 +6,7 @@ public class Solution {
            int count = 0;
            StringBuilder sb = new StringBuilder();
            for(int i = 0; i < res.length(); i++){
-               if(smae == res.charAt(i)){
+               if(same == res.charAt(i)){
                    count ++;
                }else{
                    sb.append(count);
