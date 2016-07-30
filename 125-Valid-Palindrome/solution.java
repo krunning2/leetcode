@@ -4,7 +4,7 @@ public class Solution {
         int start = 0;
         int end = s.length() - 1;
         while(start <= end){
-            if(check(s.charAt(start)) && check(s.charAt(end)) && s.charAt(start) != s.chatAt(end)){
+            if(check(s.charAt(start)) && check(s.charAt(end)) && s.charAt(start) != s.charAt(end)){
                 return false;
             }
             if(check(s.charAt(start))){
