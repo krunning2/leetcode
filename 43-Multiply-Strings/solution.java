@@ -9,8 +9,8 @@ public class Solution {
                 int p2 = i + j + 1;
                 int mul = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
                 int sum = mul + res[p2];
-                res[p1] += tmp / 10;
-                res[p2] = tmp % 10;
+                res[p1] += sum / 10;
+                res[p2] = sum % 10;
             }
         }
         StringBuilder sb = new StringBuilder();
