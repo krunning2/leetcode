@@ -1,0 +1,1 @@
+Should be careful on while ( p <= e ), since we have to compare the last element
