@@ -9,7 +9,7 @@ public class Solution {
             if(p + 1 < nums.length && cur == nums[p + 1]){
                 int cur = nums[p];
                 while(p < nums.length){
-                    nums[p] == cur;
+                    nums[p] = cur;
                     p++;
                 }
                 nums[start++] = cur;
