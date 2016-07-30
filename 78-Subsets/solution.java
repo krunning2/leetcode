@@ -12,7 +12,7 @@ public class Solution {
         }
         for(int i = pos; i < nums.length; i++){
             cur.add(nums[i]);
-            helper(nums, i + 1, res cur);
+            helper(nums, i + 1, res, cur);
             cur.remove(cur.size() - 1);
         }
     }
