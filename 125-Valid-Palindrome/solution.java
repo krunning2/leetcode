@@ -1,6 +1,6 @@
 public class Solution {
     public boolean isPalindrome(String s) {
-        String tirmed = s.trim().toLowerCase();
+        s = s.trim().toLowerCase();
         int start = 0;
         int end = s.length() - 1;
         while(start <= end){
