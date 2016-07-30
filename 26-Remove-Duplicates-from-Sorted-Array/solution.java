@@ -6,10 +6,9 @@ public class Solution {
         int p = 0;
         int start = 0;
         while(p < nums.length){
-            if(p + 1 < nums.length && cur == nums[p + 1]){
+            if(p + 1 < nums.length && nums[p] == nums[p + 1]){
                 int cur = nums[p];
-                while(p < nums.length){
-                    nums[p] = cur;
+                while(p < nums.length && cur == nums[p]){
                     p++;
                 }
                 nums[start++] = cur;
