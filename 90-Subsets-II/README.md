@@ -1,0 +1,1 @@
+by checking the ( i != pos && nums[i] == nums[i - 1]) can guarantee the no duplicates because we only need to add the first appearance of element.
