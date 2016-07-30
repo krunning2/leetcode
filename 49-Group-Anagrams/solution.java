@@ -4,7 +4,9 @@ public class Solution {
         if(strs == null || strs.length == 0) return res;
         Map<String, List<String>> map = new HashMap();
         for(String s : strs){
-            String key = String.valueOf(Arrays.sort(s.toCharArray()));
+            char tmp = s.toCharArray();
+            Arrays.sort(tmp)
+            String key = String.valueOf(tmp);
             map.putIfAbsent(key, new ArrayList());
             map.get(key).add(s);
         }
