@@ -2,6 +2,7 @@ public class Solution {
     public int myAtoi(String str) {
         if(str == null || str.length() == 0){
             //throw new Exception("invalid input");
+            return 0;
         }
         str = str.trim();
         int p = 0;
@@ -25,7 +26,7 @@ public class Solution {
         if(res > Integer.MAX_VALUE || res < Integer.MIN_VALUE){
             //throw new Exception("invalid input"); 
         }
-        return (int) res;
+        return (int) (res * sign);
     }
     private boolean isValid(char c){
         return c <= '9' && c >= '0';
