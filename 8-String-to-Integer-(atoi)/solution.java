@@ -21,10 +21,12 @@ public class Solution {
                 p++;
             }else{
                //throw new Exception("invalid input"); 
+               (int) (res * sign);
             }
         }
         if(res > Integer.MAX_VALUE || res < Integer.MIN_VALUE){
             //throw new Exception("invalid input"); 
+            return 0;
         }
         return (int) (res * sign);
     }
