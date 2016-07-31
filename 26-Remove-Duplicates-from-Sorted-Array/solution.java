@@ -8,6 +8,7 @@ public class Solution {
         while(p < nums.length){
             if(p + 1 < nums.length && nums[p] == nums[p + 1]){
                 int cur = nums[p];
+                int count = 1;
                 while(p < nums.length && cur == nums[p]){
                     if(count <= 1){
                         nums[start++] = cur;
