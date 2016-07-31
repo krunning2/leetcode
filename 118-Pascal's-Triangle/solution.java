@@ -1,6 +1,7 @@
 public class Solution {
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
+        if(numRows == 0) return res;
         List<Integer> one = new ArrayList<Integer>();
         one.add(1);
         res.add(one);
@@ -14,13 +15,13 @@ public class Solution {
         if(numRows == 2){
             return res;
         }
-        for(int i = 3; i <= 5; i++){
+        for(int i = 3; i <= numRows; i++){
             List<Integer> cur = new ArrayList<Integer>();
             for(int j = 0; j < i; j++){
                 if(j == 0 || j == i - 1){
                     cur.add(1);
                 }else{
-                    cur.add(res.get(i - 1).get(j - 1) + res.get(i - 1).get(j));
+                    cur.add(res.get(i - 2).get(j - 1) + res.get(i - 2).get(j));
                 }
             }
             res.add(cur);
