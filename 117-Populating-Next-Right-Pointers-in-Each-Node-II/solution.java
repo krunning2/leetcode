@@ -9,8 +9,8 @@
 public class Solution {
     public void connect(TreeLinkNode root) {
         TreeLinkNode cur = root;
-        TreeLinkNode left = null;
         while(cur != null){
+            TreeLinkNode left = null;
             TreeLinkNode p = cur;
             while(p != null){
                 if(p.left != null){
