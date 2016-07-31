@@ -5,23 +5,19 @@ public class Solution {
         }
         int p = 0;
         int start = 0;
-        boolean twice = false;
         while(p < nums.length){
             if(p + 1 < nums.length && nums[p] == nums[p + 1]){
-                if(!twice){
-                    twice = true;
-                    continue;
-                }else{
                     int cur = nums[p];
+                    int count = 1;
                     while(p < nums.length && cur == nums[p]){
+                        if(count <= 2){
+                            nums[start++] = cur;
+                        }
+                        count ++;
                         p++;
                     }
-                }
-                nums[start++] = cur;
             }else{
-                twice = false;
-                nums[start ++] = nums[p];
-                p++;
+                nums[start ++] = nums[p++];
             }
         }
         return start;
