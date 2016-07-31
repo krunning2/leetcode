@@ -3,11 +3,11 @@ public class Solution {
         if(matrix == null || matrix.length == 0){
             return;
         }
-        if(matrix.length < 3){
-            rotate1(matrix)
-        }else{
-            rotate2(matrix);
-        }
+        // if(matrix.length < 4){
+            rotate1(matrix);
+        // }else{
+        //     rotate2(matrix);
+        // }
     }
     
     private void rotate1(int[][] matrix){
