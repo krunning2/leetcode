@@ -38,11 +38,11 @@ public class Solution {
         while(next != null){
             if(next.left != null){
                 return next.left;
-            }else if(next.right != null){
-                return next.right;
-            }else{
-                next = next.next;
             }
+            if(next.right != null){
+                return next.right;
+            }
+            next = next.next;
         }
         return null;
     }
