@@ -27,7 +27,7 @@ public class Solution {
             l1 = l1.next;
         }
         while(l2 != null){
-            int cur = l1.val + carry;
+            int cur = l2.val + carry;
             p.next = new ListNode(cur % 10);
             p = p.next;
             carry = cur / 10;
