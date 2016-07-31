@@ -1,0 +1,1 @@
+// CATCH: for last digit, don't shift!
