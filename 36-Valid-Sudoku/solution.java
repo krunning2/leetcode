@@ -26,14 +26,12 @@ public class Solution {
         }
         return true;
     }
-    private boolean validate(boolean[] visited, char digit){
-        if(digit == '.'){
-            return true;
-        }
-        if(digit - '1' < 0 || digit - '9' > 0 || visited[digit - '1']){
+    private boolean validate(boolean[] visited, char c){
+        if(c == '.') return true;
+        if(c > '9' || c < '1' || visited[c - '1']){
             return false;
         }
-        visited[digit - '1'] = true;
+        visited[c - '1'] = true;
         return true;
     }
 }
