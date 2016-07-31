@@ -9,9 +9,12 @@ public class Solution {
             if(p + 1 < nums.length && nums[p] == nums[p + 1]){
                 int cur = nums[p];
                 while(p < nums.length && cur == nums[p]){
+                    if(count <= 1){
+                        nums[start++] = cur;
+                    }
+                    count ++;
                     p++;
                 }
-                nums[start++] = cur;
             }else{
                 nums[start ++] = nums[p];
                 p++;
