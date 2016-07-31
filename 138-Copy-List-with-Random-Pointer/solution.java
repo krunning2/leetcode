@@ -21,7 +21,7 @@ public class Solution {
         p = head;
         while(p != null){
             if(p.random != null){
-                p.next.randomp = p.random.next;
+                p.next.random = p.random.next;
             }
             p = p.next.next;
         }
