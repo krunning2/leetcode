@@ -1,0 +1,1 @@
+col row each 9 grids
