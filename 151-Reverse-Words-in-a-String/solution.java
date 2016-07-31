@@ -5,10 +5,11 @@ public class Solution {
         }
         String[] splits = s.split(" ");
         StringBuilder sb = new StringBuilder();
-        for(String s : splits){
-            if(!s.equals(""))
-                sb.append(s).append(" ");
+        for(int i = splits.length - 1; i >= 0; i--){
+            String ss = splits[i];
+            if(!ss.equals(""))
+                sb.append(ss).append(" ");
         }
-        return sb.toString();
+        return sb.length() == 0 ? "" : sb.substring(0, sb.length() - 1).toString(); 
     }
 }
