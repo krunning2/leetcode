@@ -1,7 +1,7 @@
 public class Solution {
     public int myAtoi(String str) {
         if(str == null || str.length() == 0){
-            throw new Exception("invalid input");
+            //throw new Exception("invalid input");
         }
         str = str.trim();
         int p = 0;
@@ -19,11 +19,11 @@ public class Solution {
                 res = res * 10 + (str.charAt(p) - '0');
                 p++;
             }else{
-               throw new Exception("invalid input"); 
+               //throw new Exception("invalid input"); 
             }
         }
         if(res > Integer.MAX_VALUE || res < Integer.MIN_VALUE){
-            throw new Exception("invalid input"); 
+            //throw new Exception("invalid input"); 
         }
         return (int) res;
     }
