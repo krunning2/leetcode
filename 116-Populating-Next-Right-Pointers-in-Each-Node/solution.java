@@ -15,7 +15,7 @@ public class Solution {
                 if(p.left != null){
                     p.left.next = p.right;
                 }
-                if(p.next != null){
+                if(p.next != null && p.right != null){
                     p.right.next = p.next.left;
                 }
                 p = p.next;
