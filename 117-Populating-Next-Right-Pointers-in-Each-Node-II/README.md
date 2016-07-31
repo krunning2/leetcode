@@ -1,0 +1,1 @@
+need to find the next node and keep a pointer to the leftmost child
