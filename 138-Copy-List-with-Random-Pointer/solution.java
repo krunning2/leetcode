@@ -13,7 +13,7 @@ public class Solution {
         //copy nodes
         while(p != null){
             RandomListNode next = p.next;
-            p.next = new RandomListNode(p.val);
+            p.next = new RandomListNode(p.label);
             p.next.next = next;
             p = next;
         }
