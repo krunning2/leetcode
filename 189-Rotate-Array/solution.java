@@ -11,6 +11,8 @@ public class Solution {
             int tmp = nums[s];
             nums[s] = nums[e];
             nums[e] = tmp;
+            s++;
+            e--;
         }
     }
 }
