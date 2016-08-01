@@ -1,6 +1,6 @@
 public class Solution {
     public List<Integer> grayCode(int n) {
-        List<Integer> res = 0;
+        List<Integer> res = new ArrayList();
         res.add(0);
         if(n == 0) return res;
         for(int i = 1; i <= n; i++){
