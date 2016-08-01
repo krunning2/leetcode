@@ -9,7 +9,7 @@ public class Solution {
             }
         }
         for(int i = 0; i < matrix[0].length; i++){
-            if(matrix[0][i]){
+            if(matrix[0][i] == 0){
                 col = true;
                 break;
             }
