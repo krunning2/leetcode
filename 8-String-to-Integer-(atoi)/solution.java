@@ -19,14 +19,17 @@ public class Solution {
             if(isValid(str.charAt(p))){
                 res = res * 10 + (str.charAt(p) - '0');
                 p++;
+                if(res>Integer.MAX_VALUE)return sign==1?Integer.MAX_VALUE:Integer.MIN_VALUE;
             }else{
                //throw new Exception("invalid input"); 
-               (int) (res * sign);
+               break;
             }
         }
-        if(res > Integer.MAX_VALUE || res < Integer.MIN_VALUE){
+        if(res * sign > Integer.MAX_VALUE){
             //throw new Exception("invalid input"); 
-            return 0;
+            return Integer.MAX_VALUE;
+        }else if( res * sign < Integer.MIN_VALUE){
+            return Integer.MIN_VALUE;
         }
         return (int) (res * sign);
     }
