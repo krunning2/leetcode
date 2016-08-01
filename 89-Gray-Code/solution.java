@@ -7,7 +7,7 @@ public class Solution {
             int size = res.size();
             int x = 1 << (i - 1);
             for(int j = size - 1; j >= 0; j--){
-                res.add(res.get(i) + x);
+                res.add(res.get(j) + x);
             }
         }
         return res;
