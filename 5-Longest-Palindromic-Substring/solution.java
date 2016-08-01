@@ -1,6 +1,6 @@
 public class Solution {
     public String longestPalindrome(String s) {
-        if(s == null || s.length() <= 1) return true;
+        if(s == null || s.length() <= 1) return s;
         int size = s.length();
         boolean[][] map = new boolean[size][size];
         for(int i = 0; i < size; i++){
