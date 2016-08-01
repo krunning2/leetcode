@@ -11,7 +11,7 @@ public class Solution {
                 if(set.contains(s.charAt(p))){
                     break;
                 }else{
-                    set.add(s.charAt(j));
+                    set.add(s.charAt(p));
                     p++;
                 }
             }
