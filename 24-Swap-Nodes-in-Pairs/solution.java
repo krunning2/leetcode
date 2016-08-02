@@ -21,7 +21,7 @@ public class Solution {
             next.next = cur;
             pre = cur;
             cur = tmp;
-            next = tmp == null ? null tmp.next;
+            next = tmp == null ? null : tmp.next;
         }
         return dummy.next;
     }
