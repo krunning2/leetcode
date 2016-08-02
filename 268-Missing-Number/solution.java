@@ -2,7 +2,7 @@ public class Solution {
     public int missingNumber(int[] nums) {
         Arrays.sort(nums);
         int s = 0;
-        int e = nums.length;
+        int e = nums.length - 1;
         while(s + 1 < e){
             int m = s - (s - e) / 2;
             if(nums[m] > m){
