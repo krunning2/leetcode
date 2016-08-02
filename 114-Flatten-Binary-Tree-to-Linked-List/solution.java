@@ -10,15 +10,18 @@
 public class Solution {
     public void flatten(TreeNode root) {
         if(root == null) return;
-        if(root.left == null) flatten(root.right);
-        TreeNode left = root.left;
-        TreeNode rightMost = left;
-        while(rightMost.left != null){
-            rightMost = rightMost.right;
+        while(root != null){
+            if(root.left != null){
+                TreeNode pre = root.left;
+                while(pre != null && pre.right != null){
+                    pre = pre.right;
+                }
+                TreeNode tmp = root.right;
+                root.right = root.left;
+                root.left = null;
+                pre.right = tmp;
+            }
+            root = root.right;
         }
-        TreeNode right = root.right;
-        rightMost.right = right;
-        root.right = left;
-        
     }
 }
