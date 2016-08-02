@@ -10,7 +10,8 @@ public class Solution {
         }
         for(int i = 0; i < n; i++){
             int index = Math.abs(nums[i]) - 1;
-            nums[index] = -Math.abs(nums[index]);
+            if(index < n)
+                nums[index] = -Math.abs(nums[index]);
         }
         if(!zero) return 0;
         for(int i = 0; i < n; i++){
