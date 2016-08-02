@@ -1,0 +1,1 @@
+Arguments: In mathematics we have learnt that any number that is divisible by 9, the sum of the digits in the number is also divisible by 9. Also, here we know that the result of the problem is an integer lying in the range [0,9] .
