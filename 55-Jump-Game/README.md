@@ -1,0 +1,1 @@
+Greedy : keep the max index where we can reach, if the current step couldn't reach, then update cur-> max, if still couldn't reach, failed
