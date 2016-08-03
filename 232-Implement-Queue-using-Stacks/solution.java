@@ -24,7 +24,7 @@ class MyQueue {
 
     // Return whether the queue is empty.
     public boolean empty() {
-        
+        return stack1.isEmpty() && stack2.isEmpty();
     }
     private void dump(){
         while(!stack1.isEmpty()){
