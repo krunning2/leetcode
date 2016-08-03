@@ -1,5 +1,5 @@
 public class Solution {
-    public boolean canJump(int[] nums) {
+    public boolean canJump(int[] A) {
         int cur = 0;
         int next = 0;
         for(int i = 0; i < A.length; i++){
