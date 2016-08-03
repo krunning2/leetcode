@@ -22,7 +22,7 @@ public class Solution {
         root.right = build(inorder, postorder, index + 1, inE, pS + len, pE);
         return root;
     }
-    private int find(int inS, intE, int[] inorder, int target){
+    private int find(int inS, int intE, int[] inorder, int target){
         for(int i = inS; i <= inE; i++){
             if(inorder[i] == target) return i;
         }
