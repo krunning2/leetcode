@@ -19,7 +19,7 @@ public class Solution {
         int index = find(inS, inE, inorder, postorder[pE]);
         int len = index - inS;
         root.left = build(inorder, postorder, inS, index - 1, pS, pS + len - 1);
-        root.right = build(inorder, postorder, index + 1, inE, pS + len, pE);
+        root.right = build(inorder, postorder, index + 1, inE, pS + len, pE - 1);
         return root;
     }
     private int find(int inS, int inE, int[] inorder, int target){
