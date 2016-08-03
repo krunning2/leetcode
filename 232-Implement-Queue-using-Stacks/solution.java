@@ -11,7 +11,7 @@ class MyQueue {
         if(stack2.isEmpty()){
             dump();
         }
-        return stack2.pop();
+        stack2.pop();
     }
 
     // Get the front element.
