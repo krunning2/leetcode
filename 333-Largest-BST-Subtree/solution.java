@@ -27,14 +27,14 @@ public class Solution {
     }
     
     private Result find(TreeNode root){
-        if(root == null) return new Result(0, 0, Integer.MAX_VALUE, Integer.MIN_VALUE);
+        if(root == null) return new Result(0, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
         Result left = find(root.left);
         Result right = find(root.right);
         if(left.size == -1 || right.size == -1 || root.val <= left.upper || root.val >= right.lower){
-            return Result(-1, Math.max(left.max, right.max), Integer.MAX_VALUE, Integer.MIN_VALUE);
+            return new Result(-1, Math.max(left.max, right.max), Integer.MIN_VALUE, Integer.MAX_VALUE);
         }
         int size = left.size + right.size + 1;
-        return new Result(size, Math.max(size, Math.max(left.max, right.max)), Math.min(root.val, left.lower), Math.max(root.val, right.upper));
+        return new Result(size, Math.max(size, Math.max(left.max, right.max)), Math.max(root.val, right.upper), Math.min(root.val, left.lower));
     }
 
 }
