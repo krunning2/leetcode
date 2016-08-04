@@ -19,7 +19,7 @@ public class Solution {
         TreeNode root = new TreeNode(pre[pS]);
         int index = find(in, inS, inE, pre[pS]);
         int len = index - inS;
-        root.left = build(pre, in, pS, pS + len - 1, inS, index - 1);
+        root.left = build(pre, in, pS + 1, pS + len, inS, index - 1);
         root.right = build(pre, in, pS + len + 1, pE, index + 1, inE);
         return root;
     }
