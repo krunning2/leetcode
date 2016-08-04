@@ -1,7 +1,7 @@
 public class Solution {
     public void reverseWords(char[] s) {
         if(s == null) return;
-        Arrays.reverse(s);
+        reverse(s, 0, s.length - 1);
         int p1 = 0, p2 = 0;
         while(p2 != null){
             if(s[p2] == ' '){
