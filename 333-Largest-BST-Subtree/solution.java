@@ -31,7 +31,7 @@ public class Solution {
         Result left = find(root.left);
         Result right = find(root.right);
         if(left.size == -1 || right.size == -1 || root.val <= left.upper || root.val >= right.lower){
-            return new Result(-1, Math.max(left.max, right.max), Integer.MIN_VALUE, Integer.MAX_VALUE);
+            return new Result(-1, Math.max(left.max, right.max), 0, 0);
         }
         int size = left.size + right.size + 1;
         return new Result(size, Math.max(size, Math.max(left.max, right.max)), Math.max(root.val, right.upper), Math.min(root.val, left.lower));
