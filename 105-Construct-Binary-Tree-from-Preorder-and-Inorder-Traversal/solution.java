@@ -20,7 +20,7 @@ public class Solution {
         int index = find(in, inS, inE, pre[pS]);
         int len = index - inS;
         root.left = build(pre, in, pS, pS + len - 1, inS, index - 1);
-        root.right = build(pre, in, pS + len, pE, index + 1, inE);
+        root.right = build(pre, in, pS + len + 1, pE, index + 1, inE);
         return root;
     }
     private int find(int[] in, int inS, int inE, int target){
