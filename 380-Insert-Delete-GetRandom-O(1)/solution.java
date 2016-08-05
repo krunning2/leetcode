@@ -26,9 +26,9 @@ public class RandomizedSet {
         if(index != list.size() - 1){
             int last = list.get(list.size() - 1);
             list.set(index, last);
-            map.put(index, last);
+            map.put(last, index);
         }
-        map.remove(list.size()-1);
+        map.remove(val);
         list.remove(list.size()-1);
         return true;
     }
