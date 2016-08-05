@@ -30,6 +30,7 @@ public class RandomizedSet {
         }
         map.remove(list.size()-1);
         list.remove(list.size()-1);
+        return true;
     }
     
     /** Get a random element from the set. */
