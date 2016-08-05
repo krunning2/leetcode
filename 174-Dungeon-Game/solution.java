@@ -15,7 +15,7 @@ public class Solution {
         }
         for(int i = m - 1; i >= 0; i--){
             for(int j = n - 1; j >= 0; j--){
-                dpdungeon[j] = Math.max(1, Math.min(dungeon[i + 1][j], dungeon[i][j + 1]) - dungeon[i][j]);
+                dungeon[j] = Math.max(1, Math.min(dungeon[i + 1][j], dungeon[i][j + 1]) - dungeon[i][j]);
             }
         }
         return dungeon[0][0];
