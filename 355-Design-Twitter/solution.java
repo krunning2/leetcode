@@ -12,6 +12,7 @@ public class Twitter {
         public User(int uId){
             this.uId = uId;
             followed = new HashSet<Integer>();
+            follow(uId);
             head = null;
         }
         
