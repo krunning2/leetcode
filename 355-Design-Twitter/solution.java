@@ -21,7 +21,7 @@ public class Twitter {
             followed.remove(id);
         }
         
-        pubilc void post(int id){
+        public void post(int id){
             Tweet t = new Tweet(id, counter++);
             t.next = head;
             head = t;
