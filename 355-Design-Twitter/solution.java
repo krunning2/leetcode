@@ -55,7 +55,7 @@ public class Twitter {
     public List<Integer> getNewsFeed(int userId) {
         User u = u_map.get(userId);
         Set<Integer> users = u.followed;
-        PriorityQueue<Tweet> queue = new PriorityQueue<Tweet>(users.szie(), (t1, t2) -> (t2.time - t1.time));
+        PriorityQueue<Tweet> queue = new PriorityQueue<Tweet>(users.size(), (t1, t2) -> (t2.time - t1.time));
         users.foreach(uId ->{
             if(u_map.get(uId).head != null){
                 queue.offer(head);
