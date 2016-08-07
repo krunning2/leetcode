@@ -1,6 +1,6 @@
 public class Twitter {
     
-    public static long counter = 0;
+    public static int counter = 0;
     private static Map<Integer, User> u_map;
     class User {
         int uId;
