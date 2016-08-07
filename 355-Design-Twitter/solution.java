@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Twitter {
     
     public static int counter = 0;
@@ -42,7 +44,7 @@ public class Twitter {
     
     /** Initialize your data structure here. */
     public Twitter() {
-        u_map = new HashMap();
+        u_map = new HashMap<>();
     }
     
     /** Compose a new tweet. */
@@ -56,12 +58,13 @@ public class Twitter {
         User u = u_map.get(userId);
         Set<Integer> users = u.followed;
         PriorityQueue<Tweet> queue = new PriorityQueue<Tweet>(users.size(), (t1, t2) -> (t2.time - t1.time));
-        users.foreach(uId ->{
-            if(u_map.get(uId).head != null){
+        users.forEach(uId ->{
+        	Tweet head = u_map.get(uId).head;
+            if(head != null){
                 queue.offer(head);
             }
         });
-        List<Integer> res = new ArrayList();
+        List<Integer> res = new ArrayList<>();
         int n = 0;
         while(!queue.isEmpty() && n < 10){
             Tweet cur = queue.poll();
