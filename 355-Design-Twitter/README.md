@@ -1,0 +1,1 @@
+keynote: use linkList to reduce the time complexity of get latest tweets 
