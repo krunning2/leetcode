@@ -13,8 +13,8 @@ public class Solution {
         }else{
             ListNode newHead = new ListNode(1);
             newHead.next = head;
+            return newHead;
         }
-        return newHead;
     }
     private int DFS(ListNode head){
         if(head == null) return 1;
