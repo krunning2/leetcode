@@ -23,20 +23,20 @@ public class Solution {
         for(int i = 0; i < 9; i++){
             Arrays.fill(visited, false);
             for(int j = 0; j < 9; j++){
-                if(visited[j] || !isValid(board[i][j])){
+                if(visited[board[i][j] - '1'] || !isValid(board[i][j])){
                     return false;
                 }
-                visited[j] = true;
+                visited[board[i][j] - '1'] = true;
             }
         }
         
         for(int i = 0; i < 9; i++){
             Arrays.fill(visited, false);
             for(int j = 0; j < 9; j++){
-                if(visited[j] || !isValid(board[j][i])){
+                if(visited[board[i][j] - '1'] || !isValid(board[j][i])){
                     return false;
                 }
-                visited[j] = true;
+                visited[board[i][j] - '1'] = true;
             }
         }
         
@@ -44,14 +44,14 @@ public class Solution {
             for(int j = 0; j < 0; j = j + 3){
                 Arrays.fill(visited, false);
                 for(int k = 0; k < 9; k ++){
-                    if(visited[k] || !isValid(board[i / 3 + k][j / 3 + k])){
+                    if(visited[board[i / 3 + k][j / 3 + k] - '1'] || !isValid(board[i / 3 + k][j / 3 + k])){
                         return false;
                     }
-                    visited[k] = true;
+                    visited[board[i / 3 + k][j / 3 + k] - '1'] = true;
                 }
             }
         }
-        
+        return true;
     }
     
     private boolean isValid(char c){
