@@ -10,6 +10,7 @@ public class Solution {
                     for(char c = '0'; c <= '9'; c++){
                         board[i][j] = c;
                         if(isSudoku(board) && solve(board)) return true;
+                        board[i][j] = '.';
                     }
                     return false;
                 }
@@ -38,11 +39,11 @@ public class Solution {
             }
         }
         
-        for(int i = 0; i < 0; i = i + 3){
-            for(int j = 0; j < 0; j = j + 3){
+        for(int i = 0; i < 9; i = i + 3){
+            for(int j = 0; j < 9; j = j + 3){
                 Arrays.fill(visited, false);
                 for(int k = 0; k < 9; k ++){
-                    if(!isValid(board[i / 3 + k][j / 3 + k], visited)){
+                    if(!isValid(board[i + k / 3][j + k % 3], visited)){
                         return false;
                     }
                 }
@@ -53,7 +54,7 @@ public class Solution {
     
     private boolean isValid(char c, boolean visited[]){
         if(c == '.') return true;
-        if(c < '0' || c > '9' || visited[c - '1']) return false;
+        if(c < '1' || c > '9' || visited[c - '1']) return false;
         visited[c - '1'] = true;
         return true;
     }
