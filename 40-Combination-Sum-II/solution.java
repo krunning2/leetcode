@@ -13,7 +13,6 @@ public class Solution {
             return;
         }
         for(int i = pos; i < nums.length; i++){
-            if(i != 0 && nums[i] == nums[i - 1] && !visited[i - 1]) continue;
             sum += nums[i];
             cur.add(nums[i]);
             helper(nums, target, sum, i + 1, res, cur);
