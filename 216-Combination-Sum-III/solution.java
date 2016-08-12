@@ -12,8 +12,10 @@ public class Solution {
         if(cur.size() >= k) return;
         for(int i = pos; i <= 9; i ++){
             cur.add(i);
-            helper(n, k, res, cur, i + 1);
+            sum += i;
+            helper(n, k, res, cur, i + 1, sum);
             cur.remove(cur.size() - 1);
+            sum -= i;
         }
     }
 }
