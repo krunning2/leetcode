@@ -1,14 +1,16 @@
 public class Solution {
     public List<List<Integer>> getFactors(int n) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        if(n <= 1) return res;
         List<Integer> set = new ArrayList<>();
         for(int i = 2; i < n; i++){
             if(n % i == 0) set.add(i);
         }
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
-        helper(set, res, new ArrayList<>(), 0, n, 1);
+        
+        helper(set, res, new ArrayList<>(), 0, n, 1L);
         return res;
     }
-    private void helper(List<Integer> set, List<List<Integer>> res, List<Integer> cur, int pos, int n, int fac){
+    private void helper(List<Integer> set, List<List<Integer>> res, List<Integer> cur, int pos, int n, long fac){
         if(fac == n){
             res.add(new ArrayList<>(cur));
             return;
