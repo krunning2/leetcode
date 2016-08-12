@@ -5,12 +5,9 @@ public class Solution {
             if(map.containsKey(nums[i])){
                 if(i - map.get(nums[i]) <= k){
                     return true;
-                }else{
-                    map.put(nums[i], i);
                 }
-            }else{
-                map.put(nums[i], i);
             }
+            map.put(nums[i], i);
         }
         return false;
     }
