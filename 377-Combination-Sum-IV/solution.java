@@ -1,8 +1,8 @@
 public class Solution {
     public int combinationSum4(int[] nums, int target) {
         List<List<Integer>> res = new ArrayList<>();
-        Arrays.sort(candidates);
-        helper(candidates, target, 0, res, new ArrayList<>(), 0);
+        Arrays.sort(nums);
+        helper(nums, target, 0, res, new ArrayList<>(), 0);
         return res;
     }
     private void helper(int[] nums, int target, int pos, List<List<Integer>> res, List<Integer> cur, int sum){
