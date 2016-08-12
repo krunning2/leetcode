@@ -16,7 +16,7 @@ public class Solution {
             if(i != 0 && nums[i] == nums[i - 1] && !visited[i - 1]) continue;
             sum += nums[i];
             cur.add(nums[i]);
-            helper(nums, target, sum, i + 1, res, cur, visited);
+            helper(nums, target, sum, i + 1, res, cur);
             sum -= nums[i];
             cur.remove(cur.size() - 1);
             while(i < nums.length - 1 && nums[i] == nums[i + 1]){
