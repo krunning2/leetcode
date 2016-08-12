@@ -1,0 +1,1 @@
+Should keep a pos pointer, because we shouldn't check back again e.g. (2,2,3) (3,2,2) 
