@@ -14,13 +14,13 @@ public class Solution {
         }
         for(int i = pos; i < nums.length; i++){
             if(i != 0 && nums[i] == nums[i - 1] && !visited[i - 1]) continue;
-            visited[i - 1] = true;
+            visited[i] = true;
             sum += nums[i];
             cur.add(nums[i]);
             helper(nums, target, sum, i + 1, res, cur, visited);
             sum -= nums[i];
             cur.remove(cur.size() - 1);
-            visited[i - 1] = false;
+            visited[i] = false;
         }
     }
 }
