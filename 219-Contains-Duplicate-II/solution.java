@@ -8,6 +8,7 @@ public class Solution {
                 }
             }
             map.put(nums[i], i);
+            if(i > k) map.remove(nums[i - k]);
         }
         return false;
     }
