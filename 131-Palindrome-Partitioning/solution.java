@@ -8,7 +8,7 @@ public class Solution {
     }
     
     private void helper(List<List<String>> res, String s, int start, List<String> cur, boolean[][] dp){
-        if(pos == s.length()){
+        if(start == s.length()){
             res.add(new ArrayList<>(cur));
             return;
         }
