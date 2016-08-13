@@ -11,7 +11,7 @@ public class Solution {
         
         //sort the points in ascending order by x coordinator
         // if the x is same, the lower height comes first
-        Collections.sort(res, new Comparator<int[]>(){
+        Collections.sort(heights, new Comparator<int[]>(){
             public int compare(int[] a, int[] b){
                 if(a[0] != b[0]){
                     return a[0] - b[0];
@@ -21,7 +21,7 @@ public class Solution {
             }
         });
         
-        PriorityQueue<Integer> queue = new PriorityQueue<Integer>(heights.size(), (a,b) ->(b - a));
+        PriorityQueue<Integer> queue = new PriorityQueue<Integer>((a,b) ->(b - a));
         int pre = 0;
         queue.offer(0);
         for(int i = 0; i < heights.size(); i++){
