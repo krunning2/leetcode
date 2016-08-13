@@ -3,15 +3,13 @@ public class Solution {
         if(height == null || height.length < 2) return 0;
         int max = 0;
         int start = 0;
-        int end = height.length - 1;
+        int end = heights.length - 1;
         while(start < end){
-            int min = Math.min(height[start], height[end]);
-            int len = end - start;
-            max = Math.max(max, len * min);
-            if(height[start] > height[end]){
-                end --;
+            max = Math.max(max, Math.min(heights[end], heights[start]) * (end - start));
+            if(heights[start] <= heights[end]){
+                start++;
             }else{
-                start ++;
+                end --;
             }
         }
         return max;
