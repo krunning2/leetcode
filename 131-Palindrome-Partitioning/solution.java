@@ -1,6 +1,6 @@
 public class Solution {
     public List<List<String>> partition(String s) {
-        List<List<String>> res new ArrayList<List<String>> ();
+        List<List<String>> res = new ArrayList<List<String>> ();
         if(s == null || s.length() == 0) return res;
         boolean[][] dp = get(s);
         helper(res, s, 0, new ArrayList<>(), dp);
