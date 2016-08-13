@@ -6,17 +6,16 @@ public class Solution {
         if(s == null || s.length() == 0) return 0;
         while(pos < s.length()){
             char cur = s.charAt(pos);
+            pos ++;
             if(isOpt(cur)){
-                if(priority(ops.peek()) >= priority(cur)){
+                while(!ops.isEmpty() && priority(ops.peek()) >= priority(cur)){
                     int c2 = ints.pop();
                     int c1 = ints.pop();
                     char op = ops.pop();
                     ints.push(cal(c1, c2, op));
                 }
                 ops.push(cur);
-                pos ++;
             }else if(cur == ' '){
-                pos ++;
                 continue;
             }else{
                 int tmp = cur - '0';
