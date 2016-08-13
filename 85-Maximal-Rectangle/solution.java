@@ -2,8 +2,8 @@ public class Solution {
     public int maximalRectangle(char[][] matrix) {
         if(matrix == null) return 0;
         int[][] height = new int[matrix.length][matrix[0].length];
-        for(int i = 0; i < m; i++){
-            for(int j = 0; j < n; j++) {
+        for(int i = 0; i < matrix.length; i++){
+            for(int j = 0; j < matrix[0].length; j++) {
                 if(matrix[i][j] == '0'){
                     height[i][j] = 0;
                 }else {
