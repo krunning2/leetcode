@@ -11,7 +11,7 @@ public class Solution {
                 queue.offer(new Cell(cur.row + 1, cur.col, matrix[cur.row + 1][cur.col]));
             }
         }
-        return queue.peek();
+        return queue.peek().val;
     }
     
     class Cell{
