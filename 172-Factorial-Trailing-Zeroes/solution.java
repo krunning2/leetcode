@@ -3,7 +3,7 @@ public class Solution {
         int count = 0;
         for(int i = 5; i <= n; i+=5){
             int cur = i;
-            while(cur % 5 == 0){
+            while(cur != 0 && cur % 5 == 0){
                 count ++;
                 cur /= 5;
             }
