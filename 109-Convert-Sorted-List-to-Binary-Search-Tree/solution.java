@@ -16,28 +16,36 @@
  * }
  */
 public class Solution {
-    ListNode head;
-    public TreeNode sortedListToBST(ListNode head) {
+    public TreeNode sortedListToBST(ListNode head) {  
         if(head == null) return null;
-        ListNode[] heads = {head};
-        ListNode p = head;
-        int len = 0;
-        while(p != null){
-            len ++;
-            p = p.next;
-        }
-        return build(0, len - 1, heads);
+        int len = getLen(head);
+        return build(0, len - 1, new Pointer(head));
     }
-
-    private TreeNode build(int s, int e, ListNode[] heads){
-        if(s > e) return null;
-        int mid = s - (s - e) / 2;
-        TreeNode left = build(s, mid - 1, heads);
-        TreeNode root = new TreeNode(head.val);
-        heads[0] = heads[0].next;
-        TreeNode right = build(mid + 1, e, heads);
+    private int getLen(ListNode head){
+        int count = 0;
+        while(head != null){
+            count ++;
+            head = head.next;
+        }
+        return count;
+    }
+    private TreeNode build(int start, int end, Pointer p){
+        if(start > end){
+            return null;
+        }
+        int mid = start - (start - end) / 2;
+        TreeNode left = build(start, mid - 1, p);
+        TreeNode root = new TreeNode(p.cur.val);
+        p.cur = p.cur.next;
+        TreeNode right = build(mid + 1, end, p);
         root.left = left;
         root.right = right;
         return root;
+    }
+    class Pointer {
+        ListNode cur;
+        Pointer(ListNode cur){
+            this.cur = cur;
+        }
     }
 }
