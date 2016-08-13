@@ -6,7 +6,7 @@ public class Solution {
         for(int i = 0; i < Math.min(k, nums1.length); i++){
             queue.offer(new int[]{nums1[i], nums2[0], 0});
         }
-        for(int i = 0; i < k; i++){
+        for(int i = 0; i < Math.min(k, nums1.length * nums2.length); i++){
             int[] cur = queue.poll();
             res.add(new int[] {cur[0], cur[1]});
             if(cur[2] < nums2.length - 1){
