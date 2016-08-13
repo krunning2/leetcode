@@ -34,8 +34,8 @@ public class Solution {
         int mid = s - (s - e) / 2;
         TreeNode root = new TreeNode(head.val);
         heads[0] = heads[0].next;
-        root.left = build(s, mid - 1);
-        root.left = build(mid + 1, e);
+        root.left = build(s, mid - 1, heads);
+        root.left = build(mid + 1, e, heads);
         return root;
     }
 }
