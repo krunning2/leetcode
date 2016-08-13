@@ -3,3 +3,6 @@
 3. push the next element( get the index from min pair of current nums2 ) from nums2 combined with nums1 into queue
 
 klogk
+
+similar question
+https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/
