@@ -1,5 +1,6 @@
 public class Solution {
-    if(matrix == null || k <= 0){
+    public int kthSmallest(int[][] matrix, int k) {
+        if(matrix == null || k <= 0){
             return 0;
         }
         PriorityQueue<Cell> queue = new PriorityQueue<Cell>(k, new Comparator<Cell>(){
