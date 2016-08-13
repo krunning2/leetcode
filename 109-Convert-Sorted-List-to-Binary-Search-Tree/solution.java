@@ -20,7 +20,7 @@ public class Solution {
     public TreeNode sortedListToBST(ListNode head) {
         ListNode[] heads = {head};
         ListNode p = head;
-        len = 0;
+        int len = 0;
         while(p != null){
             len ++;
             p = p.next;
