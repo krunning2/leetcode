@@ -32,10 +32,12 @@ public class Solution {
     private TreeNode build(int s, int e, ListNode[] heads){
         if(s > e) return null;
         int mid = s - (s - e) / 2;
+        TreeNode left = build(s, mid - 1, heads);
         TreeNode root = new TreeNode(head.val);
         heads[0] = heads[0].next;
-        root.left = build(s, mid - 1, heads);
-        root.left = build(mid + 1, e, heads);
+        TreeNode right = build(mid + 1, e, heads);
+        root.left = left;
+        root.right = right;
         return root;
     }
 }
