@@ -32,7 +32,7 @@ public class Solution {
         if(s > e) return null;
         int mid = s - (s - e) / 2;
         TreeNode root = head;
-        head = head.next;
+        heads[0] = heads[0].next;
         root.left = build(s, mid - 1);
         root.left = build(mid + 1, e);
         return root;
