@@ -1,20 +1,18 @@
 public class Solution {
-    // Try to find the left first element and right element which are less than current element, so we can get the max area.
-    // So we can maintain a increasing stack
+    
     public int largestRectangleArea(int[] heights) {
         if(heights == null || heights.length == 0) return 0;
         Stack<Integer> stack = new Stack<Integer>();
-        int max = 0;
-        for(int i = 0; i <= heights.length; i++){
-            int cur = i == heights.length ? -1 : heights[i];
-            while(!stack.isEmpty() && heights[stack.peek()] >= cur){
-                int index = stack.pop();
-                int h = heights[index];
-                int len = stack.isEmpty() ? i : i - stack.peek() - 1;
-                max = Math.max(max, h * len);
-            }
-            stack.push(i);
-        }
-        return max;
+         int i = 0;
+         int maxArea = 0;
+         while(i < height.length){
+             if(stack.isEmpty() || height[stack.peek()] <= height[i]){
+                 stack.push(i++);
+             }else {
+                 int t = stack.pop();
+                 maxArea = Math.max(maxArea, height[t] * (stack.isEmpty() ? i : i - stack.peek() - 1));
+             }
+         }
+         return maxArea;
     }
 }
