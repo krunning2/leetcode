@@ -36,7 +36,7 @@ public class Solution {
         return res;
     }
     
-    private isValid(int row, int col, int[] queen){
+    private boolean isValid(int row, int col, int[] queen){
         for(int preR = 0; preR < row; preR++){
             int preC = queen[preR];
             if(preC == col || Math.abs(preR - row) == Math.abs(preC - col)){
