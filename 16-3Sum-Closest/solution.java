@@ -16,8 +16,11 @@ public class Solution {
                         res = nums[start] + nums[end] + cur;
                         diff = Math.abs(nums[start] + nums[end] + cur - target);
                     }
-                    if(nums[start] + nums[end] + cur > target) end --;
-                    else(nums[start] + nums[end] + cur > target) start ++;
+                    if(nums[start] + nums[end] + cur > target){
+                        end --;
+                    }else{
+                        start ++;
+                    }
                 }
             }
         }
