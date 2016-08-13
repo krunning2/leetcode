@@ -1,11 +1,11 @@
 public class Solution {
     
-    public int largestRectangleArea(int[] heights) {
-        if(heights == null || heights.length == 0) return 0;
+    public int largestRectangleArea(int[] height) {
+        if(height == null || height.length == 0) return 0;
         Stack<Integer> stack = new Stack<Integer>();
          int i = 0;
          int maxArea = 0;
-         while(i < height.length){
+         while(i <= height.length){
              if(stack.isEmpty() || height[stack.peek()] <= height[i]){
                  stack.push(i++);
              }else {
