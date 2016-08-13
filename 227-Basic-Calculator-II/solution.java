@@ -1,26 +1,35 @@
 public class Solution {
     public int calculate(String s) {
         Stack<Character> ops = new Stack<>();
-        Stack<Character> ints = new Stack<>();
+        Stack<Integer> ints = new Stack<>();
         int pos = 0;
         if(s == null || s.length() == 0) return 0;
         while(pos < s.length()){
             char cur = s.charAt(pos);
             if(isOpt(cur)){
                 if(priority(ops.peek()) >= priority(cur)){
-                    char c2 = ints.pop();
-                    char c1 = ints.pop();
+                    int c2 = ints.pop();
+                    int c1 = ints.pop();
                     char op = ops.pop();
                     ints.push(cal(c1, c2, op));
                 }
                 ops.push(cur);
+                pos ++;
+            }else if(c == ' '){
+                pos ++;
+                continue;
             }else{
-                ints.push(cur);
+                int tmp = c - '0';
+                while(pos < s.length() && Character.isDigit(s.charAt(pos))){
+                    tmp = tmp * 10 + (s.charAt(pos) - '0');
+                    pos ++;
+                }
+                ints.push(tmp);
             }
         }
         while(!ops.isEmpty()){
-            char c2 = ints.pop();
-            char c1 = ints.pop();
+            int c2 = ints.pop();
+            int c1 = ints.pop();
             char op = ops.pop();
             ints.push(cal(c1, c2, op));
         }
@@ -36,12 +45,12 @@ public class Solution {
         if(c1 == '*' || c1 == '/') return 2;
         return 0;
     }
-    private int cal(char i1, char i2, char ops){
+    private int cal(int i1, int i2, char ops){
         switch(ops){
-            case '+' : return (i1 - '0') + (i2 - '0');
-            case '-' : return (i1 - '0') - (i2 - '0');
-            case '*' : return (i1 - '0') * (i2 - '0');
-            case '/' : return (i1 - '0') / (i2 - '0');
+            case '+' : return i1 + i2;
+            case '-' : return i1 - i2;
+            case '*' : return i1 * i2;
+            case '/' : return i1 / i2;
         }
         return 0;
     }
