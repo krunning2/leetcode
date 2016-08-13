@@ -18,6 +18,7 @@
 public class Solution {
     ListNode head;
     public TreeNode sortedListToBST(ListNode head) {
+        if(head == null) return null;
         ListNode[] heads = {head};
         ListNode p = head;
         int len = 0;
@@ -31,7 +32,7 @@ public class Solution {
     private TreeNode build(int s, int e, ListNode[] heads){
         if(s > e) return null;
         int mid = s - (s - e) / 2;
-        TreeNode root = head;
+        TreeNode root = new TreeNode(head.val);
         heads[0] = heads[0].next;
         root.left = build(s, mid - 1);
         root.left = build(mid + 1, e);
