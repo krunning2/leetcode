@@ -2,7 +2,7 @@ public class Solution {
     public int kthSmallest(int[][] matrix, int k) {
         if(matrix == null || matrix.length == 0) return 0;
         PriorityQueue<Cell> queue = new PriorityQueue<>((a, b)-> (a.val - b.val));
-        for(int i = 0; i < Math.min(k, matrix[0].length); i++){
+        for(int i = 0; i < matrix[0].length; i++){
             queue.offer(new Cell(0, i, matrix[0][i]));
         }
         for(int i = 0; i < k - 1; k++){
