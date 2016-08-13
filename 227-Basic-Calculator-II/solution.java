@@ -15,7 +15,7 @@ public class Solution {
                 }
                 ops.push(cur);
                 pos ++;
-            }else if(c == ' '){
+            }else if(cur == ' '){
                 pos ++;
                 continue;
             }else{
