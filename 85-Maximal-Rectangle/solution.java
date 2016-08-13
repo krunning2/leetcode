@@ -1,6 +1,6 @@
 public class Solution {
     public int maximalRectangle(char[][] matrix) {
-        if(matrix == null) return 0;
+        if(matrix == null || matrix.length == 0) return 0;
         int[][] height = new int[matrix.length][matrix[0].length];
         for(int i = 0; i < matrix.length; i++){
             for(int j = 0; j < matrix[0].length; j++) {
@@ -27,6 +27,7 @@ public class Solution {
                 int len = stack.isEmpty() ? i : i - stack.peek() - 1;
                 max = Math.max(max, h * len);
             }
+            stack.push(i);
         }
         return max;
     }
