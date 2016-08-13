@@ -8,6 +8,7 @@ public class Solution {
             char cur = s.charAt(pos);
             pos ++;
             if(isOpt(cur)){
+                // because once lower/equal priority operation comes, all the calculation should be done.
                 while(!ops.isEmpty() && priority(ops.peek()) >= priority(cur)){
                     int c2 = ints.pop();
                     int c1 = ints.pop();
