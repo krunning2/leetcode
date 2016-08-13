@@ -19,7 +19,7 @@ public class Solution {
                 pos ++;
                 continue;
             }else{
-                int tmp = c - '0';
+                int tmp = cur - '0';
                 while(pos < s.length() && Character.isDigit(s.charAt(pos))){
                     tmp = tmp * 10 + (s.charAt(pos) - '0');
                     pos ++;
