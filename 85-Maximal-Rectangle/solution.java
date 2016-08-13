@@ -12,8 +12,8 @@ public class Solution {
             }
         }
         int res = 0;
-        for(int i = 0; i < matrix.length; i++){
-            res = Math.max(res, getMax(matrix[i]));
+        for(int i = 0; i < height.length; i++){
+            res = Math.max(res, getMax(height[i]));
         }
         return res;
     }
