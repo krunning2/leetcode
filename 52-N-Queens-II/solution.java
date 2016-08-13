@@ -8,7 +8,7 @@ public class Solution {
     private void search(int row, int n, int[] queen){
         if(row == n){
             sum ++;
-            reutrn;
+            return;
         }
         for(int i = 0; i < n; i++){
             if(isValid(row, i, queen)){
