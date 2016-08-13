@@ -25,7 +25,7 @@ public class Solution {
             len ++;
             p = p.next;
         }
-        return build(0, len - 1);
+        return build(0, len - 1, heads);
     }
 
     private TreeNode build(int s, int e, ListNode[] heads){
