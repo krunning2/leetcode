@@ -21,7 +21,7 @@ public class Solution {
     
     private List<String> build(int[] queen){
         List<String> res = new ArrayList<String>();
-        StringBuilder sb = new StirngBuilder();
+        StringBuilder sb = new StringBuilder();
         for(int i = 0; i < queen.length; i++){
             for(int j = 0; j < queen.length; j++){
                 if(queen[i] == j){
