@@ -18,7 +18,11 @@ public class Solution {
             p = p.next;
             p2 = p2.next;
         }
-        if(p2 != null) p2.next = p2.next.next;
+        if(p2 != null && p2.next != null){
+            p2.next = p2.next.next;
+        } else {
+            p2.next = null;
+        }
         return dummy.next;
     }
 }
