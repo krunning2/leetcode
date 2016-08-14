@@ -4,9 +4,6 @@ public class Solution {
         if (dividend == Integer.MIN_VALUE && divisor == -1) {
             return Integer.MAX_VALUE;
         }
-        if (dividend == Integer.MIN_VALUE && divisor == 1) {
-            return Integer.MIN_VALUE;
-        }
         int sign = 1;
         if(dividend < 0) sign *= -1;
         if(divisor < 0) sign *= -1;
