@@ -5,7 +5,7 @@ public class Solution {
         for(int i = 0; i < nums.length; i++){
             s_nums[i] = String.valueOf(nums[i]);
         }
-        Arrays.sort(nums.length, (a, b) -> (b+a).compareTo(a+b));
+        Arrays.sort(s_nums, (a, b) -> (b+a).compareTo(a+b));
         if(nums[0].equals("0")) return "0";
         StringBuilder sb = new StringBuilder();
         for(String s : s_nums){
