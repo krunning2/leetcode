@@ -3,7 +3,7 @@ public class Solution {
         if(s == null || s.length() == 0) return s;
         char chars[] = s.toCharArray();
         int start = 0;
-        int end = s.length();
+        int end = s.length() - 1;
         while(start < end){
             char tmp = chars[start];
             chars[start] = chars[end];
