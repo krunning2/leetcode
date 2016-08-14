@@ -9,7 +9,8 @@ public class Solution {
             sbs[index].append(s.charAt(i));
             if(index == 0){
                 incre = 1;
-            }else if(index == numRows - 1){
+            }
+            if(index == numRows - 1){
                 incre = -1;
             }
             index += incre;
