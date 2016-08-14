@@ -13,8 +13,8 @@ public class Solution {
         }
         ListNode mid = findMid(head);
         ListNode right = sortList(mid.next);
-        mid.next = null;
         ListNode left = sortList(head);
+        mid.next = null;
         return merge(left, right);
     }
     
