@@ -19,6 +19,6 @@ Write the code that will take a string and make this conversion given a number o
 
 <div>
 
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[String](/tag/string/)</span></div>
+<span class="hidebutton">[String](/tag/string/)</span></div>
