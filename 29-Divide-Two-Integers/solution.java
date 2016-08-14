@@ -7,20 +7,16 @@ public class Solution {
         int sign = 1;
         if(dividend < 0) sign *= -1;
         if(divisor < 0) sign *= -1;
-        long l_dividend = Math.abs((long) dividend);
-        long l_divisor = Math.abs((long) divisor);
-        long s = 0, e = l_dividend;
-        while(s + 1 < e){
-            long m = s - (s - e) / 2;
-            if(m * l_divisor == dividend){
-                return (int) m *  sign;
-            }else if(m * l_divisor > l_dividend){
-                e = m;
-            }else{
-                s = m;
-            }
+        long dvd = (long) Math.abs((long) dividend);
+        long dis = (long) Math.abs((long) divisor);
+        int res = 0;
+        while(dis <= dvd){
+            int shift = 0;
+            while(dvd >= (dis << shift)) shift++;
+            shift --;
+            res += 1 << shift;
+            dvd -= dis << shift;
         }
-        if(e * l_divisor <= l_dividend) return (int)(sign * e);
-        return (int)(sign * s);
+        return sign * res;
     }
 }
