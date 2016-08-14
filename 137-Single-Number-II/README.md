@@ -1,0 +1,2 @@
+use a bit map to store the bits for each number.
+because every number appears 3 times except one. so we sum up all bits for each number, and when iterating the map, if the value % 3 != 0, we add this bit into the result.
