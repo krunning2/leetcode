@@ -38,7 +38,7 @@ public class Solution {
             int size = queue.size();
             for(int i = 0; i < size; i++){
                 String cur = queue.poll();
-                for(String neighbor : getNeighbors(cur, wordList)){
+                for(String neighbor : getNeighbors(cur, dict)){
                     graph.get(word).add(neighbor);
                     if(!dis.containsKey(neighbor)){
                         dis.put(neighbor, len);
