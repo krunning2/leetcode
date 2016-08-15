@@ -56,7 +56,7 @@ public class Solution {
         List<String> words = new ArrayList<String>();
         for(int i = 0; i < w.length; i++){
             char cur = w[i];
-            for(char next = 'a' ; <= 'z'; next++){
+            for(char next = 'a' ;next <= 'z'; next++){
                 if(cur != next){
                     w[i] = next;
                     String s = new String(w);
