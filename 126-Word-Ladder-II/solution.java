@@ -60,7 +60,7 @@ public class Solution {
                 if(cur != next){
                     w[i] = next;
                     String s = new String(w);
-                    if(!wordList.contains(s){
+                    if(!wordList.contains(s)){
                         words.add(s);
                     }
                     w[i] = cur;
