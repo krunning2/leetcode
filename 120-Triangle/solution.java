@@ -1,6 +1,6 @@
 public class Solution {
     public int minimumTotal(List<List<Integer>> triangle) {
-        if(size == 0 || triangle == null) return 0;
+        if(triangle == null || triangle.size() == 0) return 0;
         int size = triangle.size();
         int[] dp = new int[size];
         dp[0] = triangle.get(0).get(0);
