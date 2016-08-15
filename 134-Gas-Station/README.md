@@ -7,3 +7,6 @@ Approval:
 1. gas[i + 1] - cost[i + 1] > 0 (if sum < 0 then sum - positive integer is also < 0)
 2. gas[i + 1] - cost[i + 1] < 0 (start with negative)
 for the first one, if [i..k] >= 0 but [i .. k + 1] < 0, then for both cases, i+1 can't be the start. so far so on....
+
+
+is sum = 0, should be fine
