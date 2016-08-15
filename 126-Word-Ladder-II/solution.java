@@ -39,7 +39,7 @@ public class Solution {
             for(int i = 0; i < size; i++){
                 String cur = queue.poll();
                 for(String neighbor : getNeighbors(cur, dict)){
-                    graph.get(word).add(neighbor);
+                    graph.get(cur).add(neighbor);
                     if(!dis.containsKey(neighbor)){
                         dis.put(neighbor, len);
                         queue.offer(neighbor);
