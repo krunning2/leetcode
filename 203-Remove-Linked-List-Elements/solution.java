@@ -15,10 +15,11 @@ public class Solution {
         while(p != null){
             if(p.val == val){
                 p = p.next;
+                pre.next = p;
+            }else{
+                pre = p;
+                p = p.next;
             }
-            pre.next = p;
-            pre = p;
-            p = p.next;
         }
         return dummy.next;
     }
