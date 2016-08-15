@@ -7,8 +7,10 @@ public class Solution {
         for(int i = 1; i < size; i++){
             List<Integer> cur = triangle.get(i);
             for(int j = cur.size() - 1; j >= 0; j--){
-                if(j == 0 || j == cur.size() - 1){
+                if(j == cur.size() - 1){
                     dp[j] = dp[j - 1] + cur.get(j);
+                }else if(j == 0){
+                    dp[j] = dp[j] + cur.get(j);
                 }else{
                     dp[j] = Math.min(dp[j], dp[j - 1]) + cur.get(j);
                 }
