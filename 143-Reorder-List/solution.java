@@ -23,7 +23,7 @@ public class Solution {
             p.next = l1;
             l1 = l1.next;
             p = p.next;
-            p.next = l2.next;
+            p.next = l2;
             l2 = l2.next;
             p = p.next;
         }
