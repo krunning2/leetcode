@@ -13,19 +13,21 @@ public class Solution {
         ListNode next = mid.next;
         mid.next = null;
         ListNode newHead = reverse(next);
-        boolean flag = true;
-        while(head != null && newHead != null){
-            if(flag){
-                ListNode tmp = head.next;
-                head.next = newHead;
-                head = tmp;
-            }else{
-                ListNode tmp = newHead.next;
-                newHead.next = head;
-                newHead = tmp;
-            }
-            flag = !flag;
+        merge(head, newHead);
+    }
+    
+    private void merge(ListNode l1, ListNode l2){
+        ListNode dummy = new ListNode(-1);
+        ListNode p = dummy;
+        while(l1 != null && l2 != null){
+            p.next = l1;
+            l1 = l1.next;
+            p = p.next;
+            p.next = l2;
+            l2 = l2.next;
+            p = p.next;
         }
+        if(l1 != null) p.next = l1;
     }
     
     private ListNode reverse(ListNode head){
