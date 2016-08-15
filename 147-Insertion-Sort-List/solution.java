@@ -22,7 +22,7 @@ public class Solution {
     private ListNode findInsertLocation(ListNode node, int val){
         ListNode pre = null;
         ListNode cur = node;
-        while(cur != null && cur.val >= val){
+        while(cur != null && cur.val <= val){
             pre = cur;
             cur = cur.next;
         }
