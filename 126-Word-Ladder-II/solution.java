@@ -4,7 +4,7 @@ public class Solution {
         HashMap<String, List<String>> graph = new HashMap<String, List<String>> ();
         wordList.add(beginWord);
         wordList.add(endWord);
-        BFS(endWord, beginWord, wordList, dis, graph);
+        BFS(beginWord, endWord, wordList, dis, graph);
         List<List<String>> res = new ArrayList<List<String>>();
         DFS(beginWord, endWord, wordList, dis, graph, res, new ArrayList<>());
         return res;
@@ -17,7 +17,7 @@ public class Solution {
             res.add(new ArrayList<>(path));
         }
         for(String n : graph.get(cur)){
-            if(dis.get(cur) == dis.get(n) + 1){
+            if(dis.get(cur) == dis.get(n) - 1){
                 DFS(n, end, dict, dis, graph, res, path);
             }
         }
