@@ -6,6 +6,7 @@ public class Solution {
         while(p < s.length()){
             int cur = s.charAt(p) - 'A' + 1;
             res = res * 26 + cur;
+            p++;
         }
         return res;
     }
