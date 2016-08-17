@@ -8,17 +8,16 @@
  */
 public class Solution {
     public RandomListNode copyRandomList(RandomListNode head) {
-        if(head == null) return null;
-        Map<RandomListNode, RandomListNode> map = new HashMap();
+        if(head == null) return head;
         RandomListNode p = head;
-        //copy nodes
+        // copy
         while(p != null){
-            RandomListNode next = p.next;
-            p.next = new RandomListNode(p.label);
-            p.next.next = next;
-            p = next;
+            RandomListNode n = new RandomListNode(p.label);
+            n.next = p.next;
+            p.next = n;
+            p = p.next.next;
         }
-        // copy random pointers
+        // copy pointer
         p = head;
         while(p != null){
             if(p.random != null){
