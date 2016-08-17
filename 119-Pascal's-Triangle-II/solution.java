@@ -1,8 +1,12 @@
 public class Solution {
     public List<Integer> getRow(int k) {
-        List<Integer> res = new ArrayList<Integer>();
-        if(k < 0) return res;
+        
+        if(k < 0){
+            List<Integer> res = new ArrayList<Integer>();
+            return res;
+        } 
         if(k == 0){
+            List<Integer> res = new ArrayList<Integer>();
             res.add(1);
             return res;
         }
