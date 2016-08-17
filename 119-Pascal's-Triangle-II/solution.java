@@ -10,7 +10,7 @@ public class Solution {
             res.add(1);
             return res;
         }
-        Integer[] res = new int[k + 1];
+        Integer[] res = new Integer[k + 1];
         res[0] = 1;
         for(int i = 1; i <= k; i++){
             for(int j = i; j >= 0; j--){
