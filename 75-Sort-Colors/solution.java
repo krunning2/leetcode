@@ -9,7 +9,7 @@ public class Solution {
                 p++;
             }else if(nums[p] == 2){
                 nums[p] = nums[right];
-                nums[right] = 2;
+                nums[right--] = 2;
             }else{
                 p++;
             }
