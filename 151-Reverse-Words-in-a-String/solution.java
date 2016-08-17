@@ -3,7 +3,7 @@ public class Solution {
         String[] parts = s.split(" ");
         Arrays.reverse(parts);
         StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < parts.length(); i++){
+        for(int i = parts.length() - 1; i >= 0; i--){
             String s = parts[i];
             if(! "".equals(s)){
                 sb.append(s).append(" ");;
