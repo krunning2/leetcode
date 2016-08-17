@@ -21,6 +21,6 @@ public class Solution {
                 }
             }
         }
-        return Arrays.asList(res);
+        return new ArrayList<Integer>(Arrays.asList(res));
     }
 }
