@@ -4,8 +4,8 @@ public class Solution {
         int left = 0, right = nums.length - 1, p = 0;
         while(p <= right){
             if(nums[p] == 0){
-                nums[p] = nums[start];
-                nums[start++] = 0;
+                nums[p] = nums[left];
+                nums[left++] = 0;
                 p++;
             }else if(nums[p] == 2){
                 nums[p] = nums[right];
