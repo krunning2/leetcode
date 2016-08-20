@@ -39,7 +39,7 @@ public class Solution {
         int index = start;
         Pair pivot = pairs[end];
         for(int i = start; i < end; i++){
-            if(pairs[i] >= pivot.freq){
+            if(pairs[i].freq >= pivot.freq){
                 Pair tmp = pairs[i];
                 pairs[i] = pairs[index];
                 pairs[index] = tmp;
