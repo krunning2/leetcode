@@ -1,0 +1,1 @@
+should set ListNode dummy = new ListNode(Integer.MIN_VALUE);
