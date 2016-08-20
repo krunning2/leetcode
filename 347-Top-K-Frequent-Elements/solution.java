@@ -38,7 +38,7 @@ public class Solution {
     private int partition(Pair[] pairs, int start, int end){
         int index = start;
         Pair pivot = pairs[end];
-        for(int i = start; i < end; i++){
+        for(int i = start; i <= end; i++){
             // if satisfy the order, then fill in the element 
             if(pairs[i].freq >= pivot.freq){
                 Pair tmp = pairs[i];
@@ -47,10 +47,10 @@ public class Solution {
                 index++;
             }
         }
-        Pair tmp = pairs[end];
-        pairs[end] = pairs[index];
-        pairs[index] = tmp;
-        return index;
+        // Pair tmp = pairs[end];
+        // pairs[end] = pairs[index];
+        // pairs[index] = tmp;
+        return --index;
     }
     
     
