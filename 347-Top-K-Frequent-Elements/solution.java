@@ -39,6 +39,7 @@ public class Solution {
         int index = start;
         Pair pivot = pairs[end];
         for(int i = start; i < end; i++){
+            // if satisfy the order, then fill in the element 
             if(pairs[i].freq >= pivot.freq){
                 Pair tmp = pairs[i];
                 pairs[i] = pairs[index];
