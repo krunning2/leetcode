@@ -25,7 +25,7 @@ public class Solution {
         if(start > end){
             return;
         }
-        int index = partition(pairs, start, end, k);
+        int index = partition(pairs, start, end);
         if(index == k - 1){
             return;
         } else if(index > k - 1){
