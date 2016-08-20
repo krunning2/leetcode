@@ -2,7 +2,7 @@ public class Solution {
     public List<Integer> topKFrequent(int[] nums, int k) {
         List<Integer> res = new ArrayList<Integer>();
         HashMap<Integer, Integer> map = new HashMap<>();
-        List<Integer>[] bucket = new List<Integer>[nums.length];
+        List<Integer>[] bucket = new List[nums.length];
         for(int n : nums){
             if(map.containsKey(n)){
                 map.put(n, map.get(n) + 1);
