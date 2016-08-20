@@ -1,0 +1,1 @@
+should count bull first then cow
