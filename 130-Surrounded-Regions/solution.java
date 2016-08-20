@@ -40,7 +40,7 @@ public class Solution {
     }
     
     private boolean isValid(int row, int col, char[][] b){
-        if(col < 0 || row < 0 || col >= b[0].length || row >= b.length || b[p.row][p.col] != PASS){
+        if(col < 0 || row < 0 || col >= b[0].length || row >= b.length || b[row][col] != PASS){
             return false;
         }
         return true;
