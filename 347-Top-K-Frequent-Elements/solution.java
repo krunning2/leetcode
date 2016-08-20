@@ -37,7 +37,7 @@ public class Solution {
     
     private int partition(Pair[] pairs, int start, int end){
         int index = start;
-        Pair pivot = pairs[random(start, end)];
+        Pair pivot = pairs[end];
         for(int i = start; i <= end; i++){
             // if satisfy the order, then fill in the element 
             if(pairs[i].freq >= pivot.freq){
@@ -48,10 +48,6 @@ public class Solution {
             }
         }
         return --index;
-    }
-    
-    private int random(int max, int min){
-        return new Random().nextInt((max - min) + 1) + min;
     }
     
     
