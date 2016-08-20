@@ -1,6 +1,6 @@
 public class Solution {
     public String getHint(String secret, String guess) {
-        HashTable<Character> table = new HashTable<>();
+        Hashtable<Character> table = new Hashtable<>();
         int cow = 0;
         int bull = 0;
         for(char c : secret){
