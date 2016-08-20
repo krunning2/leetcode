@@ -51,8 +51,7 @@ public class Solution {
     }
     
     private int random(int max, int min){
-        Random rn = new Random();
-        return rand.nextInt((max - min) + 1) + min;
+        return new Random().nextInt((max - min) + 1) + min;
     }
     
     
