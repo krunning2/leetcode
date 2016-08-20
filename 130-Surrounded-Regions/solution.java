@@ -22,10 +22,10 @@ public class Solution {
             int size = queue.size();
             for(int i = 0; i < size; i++){
                 Point p = queue.poll();
-                for(int i = 0;i < 4; i++){
-                    if(isValid(p.row + dx[i], p.col + dy[i], board)){
-                        queue.offer(new Point(p.row + dx[i], p.col + dy[i]));
-                        board[p.row + dx[i]][p.col + dy[i]] = GATE;
+                for(int k = 0; k < 4; k++){
+                    if(isValid(p.row + dx[k], p.col + dy[k], board)){
+                        queue.offer(new Point(p.row + dx[k], p.col + dy[k]));
+                        board[p.row + dx[k]][p.col + dy[k]] = GATE;
                     }
                 }
             }
