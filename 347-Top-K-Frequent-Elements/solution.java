@@ -15,7 +15,7 @@ public class Solution {
             pairs[i++] = new Pair(entry.getKey(), entry.getValue());
         }
         quickSelect(0, pairs.length - 1, pairs, k);
-        for(int i = 0; i < k; i++){
+        for(i = 0; i < k; i++){
             res.add(pairs[i].val);
         }
         return res;
