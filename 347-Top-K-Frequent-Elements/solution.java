@@ -2,6 +2,7 @@ public class Solution {
     public List<Integer> topKFrequent(int[] nums, int k) {
         List<Integer> res = new ArrayList<Integer>();
         HashMap<Integer, Integer> map = new HashMap<>();
+        List<Integer>[] bucket = new List<Integer>[nums.length];
         for(int n : nums){
             if(map.containsKey(n)){
                 map.put(n, map.get(n) + 1);
@@ -9,54 +10,20 @@ public class Solution {
                 map.put(n, 1);
             }
         }
-        Pair[] pairs = new Pair[map.size()];
-        int i = 0;
         for(Map.Entry<Integer, Integer> entry : map.entrySet()){
-            pairs[i++] = new Pair(entry.getKey(), entry.getValue());
+            if(bucket[entry.getValue()] == null){
+                bucket[entry.getValue()] = new ArrayList<>();
+            }
+            bucket[entry.getValue()].add(entry.getKey());
         }
-        quickSelect(0, pairs.length - 1, pairs, k);
-        for(i = 0; i < k; i++){
-            res.add(pairs[i].val);
-        }
-        return res;
-    }
-    
-    private void quickSelect(int start, int end, Pair[] pairs, int k){
-        if(start > end){
-            return;
-        }
-        int index = partition(pairs, start, end);
-        if(index == k - 1){
-            return;
-        } else if(index > k - 1){
-            quickSelect(start, index - 1, pairs, k);
-        } else {
-            quickSelect(index + 1, end, pairs, k - index - 1);
-        }
-    }
-    
-    private int partition(Pair[] pairs, int start, int end){
-        int index = start;
-        Pair pivot = pairs[end];
-        for(int i = start; i <= end; i++){
-            // if satisfy the order, then fill in the element 
-            if(pairs[i].freq >= pivot.freq){
-                Pair tmp = pairs[i];
-                pairs[i] = pairs[index];
-                pairs[index] = tmp;
-                index++;
+        
+        for(int i = bucket.length - 1; i >= 0; i--){
+            if(bucket[i] != null){
+                for(int n : bucket[i]){
+                    res.add(n);
+                }
             }
         }
-        return --index;
-    }
-    
-    
-    class Pair{
-        int val;
-        int freq;
-        Pair(int val, int freq){
-            this.val = val;
-            this.freq = freq;
-        }
+        return res;
     }
 }
