@@ -1,5 +1,6 @@
 public class Solution {
     public List<Integer> topKFrequent(int[] nums, int k) {
+        List<Integer> res = new ArrayList<Integer>();
         HashMap<Integer, Integer> map = new HashMap<>();
         for(int n : nums){
             if(map.containsKey(n)){
@@ -13,7 +14,10 @@ public class Solution {
             queue.offer(new Pair(entry.getKey(), entry.getValue()));
             if(queue.size() > k) queue.poll();
         }
-        return new ArrayList<Integer>(queue);
+        for(Pair p : queue){
+            res.add(p.val);
+        }
+        return res;
     }
     class Pair{
         int val;
