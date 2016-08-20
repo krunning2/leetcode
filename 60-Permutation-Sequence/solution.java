@@ -11,7 +11,7 @@ public class Solution {
         for(int i = n; i >= 1; i--){
             fac /= i;
             int index = k / fac;
-            sb.append(nums.get(i));
+            sb.append(nums.get(index));
             nums.remove(index);
             k %= fac;
         }
