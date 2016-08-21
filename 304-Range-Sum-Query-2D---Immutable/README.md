@@ -1,0 +1,1 @@
+remember i - 1 and j - 1 when return the sum
