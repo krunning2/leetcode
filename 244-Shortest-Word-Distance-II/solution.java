@@ -19,10 +19,10 @@ public class WordDistance {
             if(l1.get(p1) == l2.get(p2)){
                 return 0;
             }else if(l1.get(p1) > l2.get(p2)){
-                res = Math.min(l1.get(p1) - l2.get(p2));
+                res = Math.min(res, l1.get(p1) - l2.get(p2));
                 p2++;
             }else{
-                res = Math.min(l2.get(p2) - l1.get(p1));
+                res = Math.min(res, l2.get(p2) - l1.get(p1));
                 p1++;
             }
         }
