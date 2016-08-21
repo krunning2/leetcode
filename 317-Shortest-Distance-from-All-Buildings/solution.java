@@ -1,37 +1,36 @@
 public class Solution {
     public int shortestDistance(int[][] grid) {
-        if (grid==null || grid.length==0 || grid[0].length==0) return -1;
+        int num = 0;
         int m = grid.length;
         int n = grid[0].length;
-        int[][] dist = new int[m][n];
+        int[][] dis = new int[m][n];
         int[][] reach = new int[m][n];
-        int houseNum = 0;
+        
         int[] dx = {1, -1, 0, 0};
         int[] dy = {0, 0, -1, 1};
-        
-        for (int i=0; i<m; i++) {
-            for (int j=0; j<n; j++) {
-                if (grid[i][j] == 1) {
-                    houseNum++;
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(grid[i][j] == 1){
+                    num++;
                     int level = 0;
+                    Queue<Integer> q = new LinkedList<>();
+                    q.offer(i * n + j);
                     boolean[][] visited = new boolean[m][n];
-                    LinkedList<Integer> queue = new LinkedList<Integer>();
-                    queue.offer(i*n+j);
                     visited[i][j] = true;
-                    while (!queue.isEmpty()) {
-                        int size = queue.size();
-                        for (int t=0; t<size; t++) {
-                            int cur = queue.poll();
-                            int x = cur/n;
-                            int y = cur%n;
-                            for (int k = 0; k < 4; k++) {
-                                int xnew = x + dx[k];
-                                int ynew = y + dy[k];
-                                if (xnew>=0 && xnew<m && ynew>=0 && ynew<n && !visited[xnew][ynew] && grid[xnew][ynew]==0) {
-                                    queue.offer(xnew*n+ynew);
-                                    visited[xnew][ynew] = true;
-                                    dist[xnew][ynew] += level+1;
-                                    reach[xnew][ynew]++;
+                    while(! q.isEmpty()){
+                        int size = q.size();
+                        for(int k = 0; k < size; k++){
+                            int cur = q.poll();
+                            int row = cur / n;
+                            int col = cur % n;
+                            for(int l = 0; l < 4; l++){
+                                int x = row + dx[l];
+                                int y = col + dy[l];
+                                if(x >= 0 && y >= 0 && x < m && y < n && !visited[x][y] && grid[x][y] == 0){
+                                    q.offer(x * n + y);
+                                    dis[x][y] += level + 1;
+                                    visited[x][y] = true;
+                                    reach[x][y]++;
                                 }
                             }
                         }
@@ -40,15 +39,14 @@ public class Solution {
                 }
             }
         }
-        
         int minDist = Integer.MAX_VALUE;
-        for (int i=0; i<m; i++) {
-            for (int j=0; j<n; j++) {
-                if (grid[i][j]==0 && reach[i][j] == houseNum) {
-                    minDist = Math.min(minDist, dist[i][j]);
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(grid[i][j] == 0 && reach[i][j] == num){
+                    minDist = Math.min(minDist, dis[i][j]);
                 }
             }
         }
-        return minDist==Integer.MAX_VALUE? -1 : minDist;
+        return minDist == Integer.MAX_VALUE ? -1 : minDist;
     }
 }
