@@ -19,9 +19,9 @@ public class Solution {
         }
     }
     private boolean isValid(Map<Character, String> map, Set<String> set, char c, String s){
-        if(map.containsKey(c) && !map.get(c).equals(s[i])){
+        if(map.containsKey(c) && !map.get(c).equals(s)){
             return false;
-        }else if(!map.containsKey(c) && set.contains(s[i])){
+        }else if(!map.containsKey(c) && set.contains(s)){
             return false;
         }
         return true;
