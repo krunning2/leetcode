@@ -19,13 +19,13 @@ public class Solution {
                     visited[i][j] = true;
                     while(! q.isEmpty()){
                         int size = 0;
-                        for(int i = 0; i < size; i++){
+                        for(int k = 0; k < size; k++){
                             int cur = q.poll();
                             int row = cur / n;
                             int col = cur % n;
-                            for(int i = 0; i < 4; i++){
-                                int x = row + dx[i];
-                                int y = col + dy[i];
+                            for(int l = 0; l < 4; l++){
+                                int x = row + dx[l];
+                                int y = col + dy[l];
                                 if(isValid(x, y, visited)){
                                     q.offer(x * n + y);
                                     dis[x][y] += level + 1;
