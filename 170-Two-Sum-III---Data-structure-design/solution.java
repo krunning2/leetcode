@@ -1,11 +1,11 @@
 public class TwoSum {
-    Map<Integer, Integer> map = new HashMap<>();
+    Map<Integer, Integer> map = new HashMap<Integer, Integer>();
     // Add the number to an internal data structure.
-	public void add(int number) {
-	    if(map.containsKey(number)){
-	        map.put(number, 2);
+	public void add(int num) {
+	    if(map.containsKey(num)){
+	        map.put(num, 2);
 	    }else{
-	        map.put(number, 1);
+	        map.put(num, 1);
 	    }
 	}
 
@@ -14,8 +14,8 @@ public class TwoSum {
 	    for(Map.Entry<Integer, Integer> entry : map.entrySet()){
 	        int num1 = entry.getKey();
 	        int num2 = value - num1;
-	        if(map.containsKey(num2) && (num2 != num1 || entry.getValue() == 2)){
-	            return true;
+	        if(map.containsKey(num2) && (entry.getValue() > 1 || num1 != num2)){
+	              return true;
 	        }
 	    }
 	    return false;
