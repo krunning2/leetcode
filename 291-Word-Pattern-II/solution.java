@@ -11,10 +11,10 @@ public class Solution {
             String sub = str.substring(pos2, i + 1);
             if(isValid(map, set, cur, sub)){
                 map.put(cur, sub);
-                set.add(cur);
+                set.add(sub);
                 helper(pattern, str, pos1 + 1, i + 1, map, set);
                 map.remove(cur);
-                set.remove(cur);
+                set.remove(sub);
             }
         }
     }
