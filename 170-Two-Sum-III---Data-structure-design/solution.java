@@ -1,28 +1,25 @@
 public class TwoSum {
-    Set<Integer> sum;
-        Set<Integer> num;
-        
-        TwoSum(){
-            sum = new HashSet<Integer>();
-            num = new HashSet<Integer>();
-        }
-        // Add the number to an internal data structure.
-    	public void add(int number) {
-    	    if(num.contains(number)){
-    	        sum.add(number * 2);
-    	    }else{
-    	        Iterator<Integer> iter = num.iterator();
-    	        while(iter.hasNext()){
-    	            sum.add(iter.next() + number);
-    	        }
-    	        num.add(number);
-    	    }
-    	}
-    
-        // Find if there exists any pair of numbers which sum is equal to the value.
-    	public boolean find(int value) {
-    	    return sum.contains(value);
-    	}
+    Map<Integer, Integer> map;
+    // Add the number to an internal data structure.
+	public void add(int number) {
+	    map = new HashMap<>();
+	    if(map.containsKey(number)){
+	        map.put(number, 2);
+	    }else{
+	        map.put(number, 1);
+	    }
+	}
+
+    // Find if there exists any pair of numbers which sum is equal to the value.
+	public boolean find(int value) {
+	    for(Map.Entry<Integer, Integer> entry : map.entrySet()){
+	        int cur = entry.getKey();
+	        if(map.containsKey(value - cur) && (map.get(value - cur) != cur || map.get(value - cur) == 2 && map.get(value - cur) == cur)){
+	            return true;
+	        }
+	    }
+	    return false;
+	}
 }
 
 
