@@ -1,8 +1,7 @@
 public class TwoSum {
-    Map<Integer, Integer> map;
+    Map<Integer, Integer> map = new HashMap<>();
     // Add the number to an internal data structure.
 	public void add(int number) {
-	    map = new HashMap<>();
 	    if(map.containsKey(number)){
 	        map.put(number, 2);
 	    }else{
@@ -13,8 +12,9 @@ public class TwoSum {
     // Find if there exists any pair of numbers which sum is equal to the value.
 	public boolean find(int value) {
 	    for(Map.Entry<Integer, Integer> entry : map.entrySet()){
-	        int cur = entry.getKey();
-	        if(map.containsKey(value - cur) && (map.get(value - cur) != cur || map.get(value - cur) == 2 && map.get(value - cur) == cur)){
+	        int num1 = entry.getKey();
+	        int num2 = value - num1;
+	        if(map.containsKey(num2) && (num2 != num1 || entry.getValue() == 2)){
 	            return true;
 	        }
 	    }
