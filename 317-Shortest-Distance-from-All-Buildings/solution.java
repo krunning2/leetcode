@@ -18,7 +18,7 @@ public class Solution {
                     boolean[][] visited = new boolean[m][n];
                     visited[i][j] = true;
                     while(! q.isEmpty()){
-                        int size = 0;
+                        int size = q.size();
                         for(int k = 0; k < size; k++){
                             int cur = q.poll();
                             int row = cur / n;
@@ -49,8 +49,8 @@ public class Solution {
         }
         return minDist == Integer.MAX_VALUE ? -1 : minDist;
     }
-    private boolean isValid(int x, int y, boolean[][] visited){
-        if(x < 0 || y < 0 || y >= visited[0].length || x >= visited.length || visited[x][y]) return false;
+    private boolean isValid(int x, int y, boolean[][] visited, int[][] grid){
+        if(x < 0 || y < 0 || y >= visited[0].length || x >= visited.length || visited[x][y] || grid[x][y] != 0) return false;
         return true;
     }
 }
