@@ -1,17 +1,13 @@
 public class Solution {
-    public double myPow(double x, int m) {
-        long n = m;
+    public double myPow(double x, int n) {
+       return helper(x, n);
+    }
+    private double helper(double x, long n){
+        if(n == 0) return 1.0;
         if(n < 0){
-            n = -n;
-            x = 1 / x;
+           x = 1/x;
+           n = -n;
         }
-        double res = 1;
-        for(double f = x; n > 0; n = n >> 1){
-            if((n & 1) == 1){
-                res *= f;
-            }
-            f *= f;
-        }
-        return res;
+        return n % 2 == 0 ? helper(x * x, n / 2) : x * helper(x * x, n / 2);
     }
 }
