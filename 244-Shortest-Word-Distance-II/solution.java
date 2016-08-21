@@ -1,5 +1,5 @@
 public class WordDistance {
-    Map<String, List<String>> map;
+    Map<String, List<Integer>> map;
     public WordDistance(String[] words) {
         map = new HashMap<>();
         for(int i = 0; i < words.length; i++){
