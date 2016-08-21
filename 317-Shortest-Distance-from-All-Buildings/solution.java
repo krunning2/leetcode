@@ -6,7 +6,8 @@ public class Solution {
         int[][] dist = new int[m][n];
         int[][] reach = new int[m][n];
         int houseNum = 0;
-        int[][] directions = {{-1,0},{1,0},{0,-1},{0,1}};
+        int[] dx = {1, -1, 0, 0};
+        int[] dy = {0, 0, -1, 1};
         
         for (int i=0; i<m; i++) {
             for (int j=0; j<n; j++) {
@@ -23,9 +24,9 @@ public class Solution {
                             int cur = queue.poll();
                             int x = cur/n;
                             int y = cur%n;
-                            for (int[] dir : directions) {
-                                int xnew = x + dir[0];
-                                int ynew = y + dir[1];
+                            for (int k = 0; k < 4; k++) {
+                                int xnew = x + dx[k];
+                                int ynew = y + dy[k];
                                 if (xnew>=0 && xnew<m && ynew>=0 && ynew<n && !visited[xnew][ynew] && grid[xnew][ynew]==0) {
                                     queue.offer(xnew*n+ynew);
                                     visited[xnew][ynew] = true;
