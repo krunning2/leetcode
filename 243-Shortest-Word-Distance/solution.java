@@ -6,10 +6,9 @@ public class Solution {
             if(words[i].equals(word1) && map.containsKey(word2)){
                 res = Math.min(res, i - map.get(word2));
             }else if(words[i].equals(word2) && map.containsKey(word1)){
-                res = Math.min(res, i - map.get(word1)):
-            }else{
-                map.put(words[i], i);
+                res = Math.min(res, i - map.get(word1));
             }
+            map.put(words[i], i);
         }
         return res;
     }
