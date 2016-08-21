@@ -14,14 +14,14 @@ public class Solution {
         char cur = pattern.charAt(pos1);
         for(int i = pos2; i < str.length(); i++){
             String sub = str.substring(pos2, i + 1);
-            if(!map.containsKey(c) && !map.get(c).equals(s)){
+            if(!map.containsKey(cur) && !set.contains(sub)){
                 map.put(cur, sub);
                 set.add(sub);
                 boolean res = helper(pattern, str, pos1 + 1, i + 1, map, set);
                 if(res) return true;
                 map.remove(cur);
                 set.remove(sub);
-            }else if(map.containsKey(c) && map.get(c).equals(s)){
+            }else if(map.containsKey(cur) && map.get(cur).equals(sub)){
                 if(helper(pattern, str, pos1 + 1, i + 1, map, set)) return true;
             }
         }
