@@ -17,6 +17,7 @@ public class Solution {
                 set.remove(sub);
             }
         }
+        return false;
     }
     private boolean isValid(Map<Character, String> map, Set<String> set, char c, String s){
         if(map.containsKey(c) && !map.get(c).equals(s)){
