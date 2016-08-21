@@ -5,8 +5,8 @@ public class Solution {
         int sum = 0;
         for(int i = 0; i < nums.length; i++){
             sum += nums[i];
-            max = Math.max(sum - min);
-            min = Math.min(nums[i], min);
+            max = Math.max(sum - min, max);
+            min = Math.min(sum, min);
         }
         return max;
     }
