@@ -5,7 +5,7 @@ public class Solution {
         int n = grid[0].length;
         int[][] dis = new int[m][n];
         int[][] reach = new int[m][n];
-        boolean[][] visited = new boolean[m][n];
+        
         int[] dx = {1, -1, 0, 0};
         int[] dy = {0, 0, -1, 1};
         for(int i = 0; i < m; i++){
@@ -15,7 +15,7 @@ public class Solution {
                     int level = 0;
                     Queue<Integer> q = new LinkedList<>();
                     q.offer(i * n + j);
-                    Arrays.fill(visited, false);
+                    boolean[][] visited = new boolean[m][n];
                     visited[i][j] = true;
                     while(! q.isEmpty()){
                         int size = 0;
