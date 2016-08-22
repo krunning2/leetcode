@@ -16,8 +16,8 @@ public class Solution {
         switch(op){
             case "+" : return d1 + d2;
             case "*" : return d1 * d2;
-            case "/" : return d2 - d1;
-            case "-" : return d2 / d1;
+            case "/" : return d2 / d1;
+            case "-" : return d2 - d1;
             default: return 0;
         }
     }
