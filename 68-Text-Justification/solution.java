@@ -1,25 +1,25 @@
 public class Solution {
     public List<String> fullJustify(String[] words, int L) {
         List<String> res = new ArrayList<String>();
-        int i = 0;
+        int  i = 0;
         while(i < words.length){
             int start = i;
             int sum = 0;
             while(i < words.length && sum <= L){
                 sum += words[i].length() + 1;
-                i ++;
+                i++;
             }
             if(sum - 1 > L){
-                i --;
+                i--;
                 sum -= words[i].length() + 1;
             }
             boolean isLast = i == words.length;
             int end = i - 1;
             int interval = end - start;
-            int aveS = 0;
+            int avgS = 0;
             int leftS = 0;
             if(interval > 0){
-                aveS = (L - sum + interval + 1) / interval;
+                avgS = (L - sum + interval + 1) / interval;
                 leftS = (L - sum + interval + 1) % interval;
             }
             StringBuilder sb = new StringBuilder();
@@ -28,7 +28,7 @@ public class Solution {
                 if(isLast){
                     sb.append(" ");
                 }else{
-                    for(int k = 0; k < aveS; k++){
+                    for(int k = 0; k < avgS; k++){
                         sb.append(" ");
                     }
                     if(leftS > 0){
@@ -39,7 +39,7 @@ public class Solution {
             }
             sb.append(words[end]);
             int size = sb.length();
-            for(int j = 0; j < L - size; j ++){
+            for(int k = 0; k < L - size; k++){
                 sb.append(" ");
             }
             res.add(sb.toString());
