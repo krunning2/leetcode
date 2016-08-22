@@ -2,6 +2,11 @@
  * // This is the interface that allows for creating nested lists.
  * // You should not implement it, or speculate about its implementation
  * public interface NestedInteger {
+ *     // Constructor initializes an empty nested list.
+ *     public NestedInteger();
+ *
+ *     // Constructor initializes a single integer.
+ *     public NestedInteger(int value);
  *
  *     // @return true if this NestedInteger holds a single integer, rather than a nested list.
  *     public boolean isInteger();
@@ -10,34 +15,45 @@
  *     // Return null if this NestedInteger holds a nested list
  *     public Integer getInteger();
  *
+ *     // Set this NestedInteger to hold a single integer.
+ *     public void setInteger(int value);
+ *
+ *     // Set this NestedInteger to hold a nested list and adds a nested integer to it.
+ *     public void add(NestedInteger ni);
+ *
  *     // @return the nested list that this NestedInteger holds, if it holds a nested list
  *     // Return null if this NestedInteger holds a single integer
  *     public List<NestedInteger> getList();
  * }
  */
 public class Solution {
-    public int depthSumInverse(List<NestedInteger> list) {
-        if(list == null || list.size() == 0) return 0;
-        int depth = getDepth(1, list);
-        return getSum(depth, list);
-    }
-    private int getDepth(int curDepth, List<NestedInteger> list){
-        int res = curDepth;
-        for(NestedInteger ni : list){
-            if(!ni.isInteger()){
-                res = Math.max(res, getDepth(curDepth + 1, ni.getList()));
+    public int depthSumInverse(List<NestedInteger> nestedList) {
+        if(nestedList == null){
+            return 0;
+        }
+        Queue<NestedInteger> queue = new LinkedList<>();
+        int res = 0;
+        for(NestedInteger ni : nestedList){
+            if(ni.isInteger()){
+                res += ni.getInteger();
+            }else{
+                queue.offer(ni);
             }
         }
-        return res;
-    }
-    private int getSum(int depth, List<NestedInteger> list){
-        int res = 0;
-        for(NestedInteger ni : list){
-            if(!ni.isInteger()){
-                res += getSum(depth - 1, ni.getList());
-            }else{
-                res += ni.getInteger() * depth;
+        int sum = res;
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            for(int i = 0; i < size; i++){
+                NestedInteger cur = queue.poll();
+                for(NestedInteger ni : cur.getList()){
+                    if(ni.isInteger()){
+                        sum += ni.getInteger();
+                    }else{
+                        queue.offer(ni);
+                    }
+                }
             }
+            res = res + sum;
         }
         return res;
     }
