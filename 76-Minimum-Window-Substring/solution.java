@@ -1,44 +1,40 @@
 public class Solution {
-    public String minWindow(String source, String target) {
+    public String minWindow(String s, String t) {
+        Map<Character, Integer> map = new HashMap<>();
+        int total = 0;
+        int len = Integer.MAX_VALUE;
         String res = "";
-        if(source == "" || source == null || target == "" || target == null){
-            return res;
+        for(char c : t.toCharArray()){
+            if(!map.containsKey(c)){
+                map.put(c, 1);
+            }else{
+                map.put(c, map.get(c) + 1);
+            }
+            total++;
         }
-        char[] targetMap = new char[256];
-        char[] sourceMap = new char[256];
-        int j = 0;
-        int min = -1;
-        int count = 0;
-        init(target, targetMap);
-        for(int i = 0 ; i < source.length(); i++){
-            while(j < source.length() && count < target.length()){
-                char cur = source.charAt(j);
-                if(sourceMap[cur] < targetMap[cur]){
-                    count++;
-                }
-                if(targetMap[cur] > 0){
-                    sourceMap[cur]++;
+        
+        for(int i = 0; i < s.length(); i++){
+            int j = 0;
+            while(total > 0 && j < s.length()){
+                char cur = s.charAt(j);
+                if(map.containsKey(cur) && map.get(cur) > 0){
+                    total --;
+                    map.put(cur, map.get(cur) - 1);
                 }
                 j++;
             }
-            if(count == target.length() && (min > j - i || min == -1)){
-                min = j - i;
-                res = source.substring(i, j);
+            if(total == 0){
+                if(j - i < len){
+                    len = j - i;
+                    res = s.substring(i, j);
+                }
             }
-            char cur = source.charAt(i);
-            if(targetMap[cur] > 0 && sourceMap[cur] == targetMap[cur]){
-                count--;
-            }
-            if(targetMap[cur] > 0){
-                sourceMap[cur] --;
+            char cur = s.charAt(i);
+            if(map.containsKey(cur)){
+                total ++;
+                map.put(cur, map.get(cur) + 1);
             }
         }
         return res;
-    }
-    
-    private void init(String target, char[] targetMap){
-        for(int i = 0; i < target.length(); i++){
-            targetMap[target.charAt(i)]++;
-        }
     }
 }
