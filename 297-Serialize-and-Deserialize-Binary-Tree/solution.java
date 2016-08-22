@@ -8,47 +8,38 @@
  * }
  */
 public class Codec {
-    private static String NULL = "#";
-    private static String DELIMITER = ",";
-    
+    private static String DELIMETER = ",";
+    private static String NULL = "N";
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
-        return serializeHelper(new StringBuilder(), root).toString();
+        StringBuilder sb = new StringBuilder();
+        serializeHelper(root, sb);
+        return sb.toString();
     }
-    private StringBuilder serializeHelper(StringBuilder sb, TreeNode root){
+    
+    private void serializeHelper(TreeNode root, StringBuilder sb){
         if(root == null){
-            sb.append(NULL).append(DELIMITER);
-            return sb;
+            sb.append(NULL).append(DELIMETER);
+            return;
         }
-        sb.append(root.val).append(DELIMITER);
-        sb = serializeHelper(sb, root.left);
-        sb = serializeHelper(sb, root.right);
-        return sb;
+        serializeHelper(root.left, sb);
+        sb.append(root.val).append(NULL);
+        serializeHelper(root.right, sb);
     }
 
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
-        String[] nodes = data.split(DELIMITER);
-        return deserializeHelper(nodes, new Pointer(0));
+        String[] parts = data.split(DELIMETER);
+        return deserializeHelper(0, parts.length - 1, parts);
     }
-    private TreeNode deserializeHelper(String[] nodes, Pointer p){
-        if(p.cur >= nodes.length){
-            return null;
-        }
-        String value = nodes[p.cur++];
-        if(value.equals(NULL)){
-            return null;
-        }
-        TreeNode root = new TreeNode(Integer.valueOf(value));
-        root.left = deserializeHelper(nodes, p);
-        root.right = deserializeHelper(nodes, p);
+    private TreeNode deserializeHelper(int start, int end, String[] parts){
+        if(start > end) return null;
+        int mid = start - (start - end) / 2;
+        if(parts[mid].equals(NULL)) return null;
+        TreeNode root = new TreeNode(Integer.valueOf(parts[mid]));
+        root.left = deserializeHelper(start, mid - 1, parts);
+        root.right = deserializeHelper(mid + 1, end, parts);
         return root;
-    }
-    private class Pointer{
-        int cur;
-        Pointer(int cur){
-            this.cur = cur;
-        }
     }
 }
 
