@@ -1,39 +1,37 @@
 public class Solution {
     public int[] searchRange(int[] nums, int target) {
-        int[] res = {-1, -1};
-        if(nums == null || nums.length <= 0) return res;
-        int s = 0;
-        int e = nums.length - 1;
-        while(s + 1 < e){
-            int mid = s - (s - e) / 2;
+        int[] res = new int[]{-1, -1};
+        int start = 0;
+        int end = nums.length - 1;
+        while(start + 1< end){
+            int mid = start - (start - end) / 2;
             if(nums[mid] >= target){
-                e = mid;
+                end = mid;
             }else{
-                s = mid;
+                start = mid;
             }
         }
-        if(nums[s] == target){
-            res[0] = s;
-        }else if(nums[e] == target){
-            res[0] = e;
+        if(nums[start] == target){
+            res[0] = start;
+        }else if(nums[end] == target){
+            res[0] = end;
         }else{
             return res;
         }
-        
-        s = res[0];
-        e = nums.length - 1;
-        while(s + 1 < e){
-            int mid = s - (s - e) / 2;
+        start = res[0];
+        end = nums.length - 1;
+        while(start + 1< end){
+            int mid = start - (start - end) / 2;
             if(nums[mid] > target){
-                e = mid;
-            }else{
-                s = mid;
+                end = mid;
+            } else {
+                start = mid;
             }
         }
-        if(nums[e] == target){
-            res[1] = e;
-        }else if(nums[s] == target){
-            res[1] = s;
+        if(nums[end] == target){
+            res[1] = end;
+        }else if(nums[start] == target){
+            res[1] = start;
         }
         return res;
     }
