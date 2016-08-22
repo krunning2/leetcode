@@ -34,11 +34,13 @@ public class Solution {
             depth ++;
             int size = queue.size();
             for(int i = 0; i < size; i++){
-                NestedInteger ni = queue.poll();
-                if(ni.isInteger()){
-                    res += depth * ni.getInteger();
-                }else{
-                    queue.offer(ni);
+                NestedInteger cur = queue.poll();
+                for(NestedInteger ni : cur.getList()){
+                    if(ni.isInteger()){
+                        res += depth * ni.getInteger();
+                    }else{
+                        queue.offer(ni);
+                    }
                 }
             }
         }
