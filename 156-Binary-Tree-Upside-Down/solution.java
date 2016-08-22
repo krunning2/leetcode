@@ -14,7 +14,6 @@ public class Solution {
         TreeNode p = null;
         TreeNode node = root;
         while(node != null){
-        //node.left should point to the last right leaf
             l = node.left;
             node.left = r;
             r = node.right;
