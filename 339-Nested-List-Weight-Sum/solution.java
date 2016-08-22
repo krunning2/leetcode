@@ -17,22 +17,28 @@
  */
 public class Solution {
     public int depthSum(List<NestedInteger> nestedList) {
-        if(nestedList == null || nestedList.size() == 0) return 0;
+        if(nestedList == null){
+            return 0;
+        }
+        Queue<NestedInteger> queue = new LinkedList<>();
         int res = 0;
-        int level = 0;
-        Queue<List<NestedInteger>> q = new LinkedList<List<NestedInteger>>();
-        q.offer(nestedList);
-        while(!q.isEmpty()){
-            int size = q.size();
-            level++;
+        int depth = 1;
+        for(NestedInteger ni : nestedList){
+            if(ni.isInteger()){
+                res += depth * ni.getInteger();
+            }else{
+                queue.offer(ni);
+            }
+        }
+        while(!queue.isEmpty()){
+            depth ++;
+            int size = queue.size();
             for(int i = 0; i < size; i++){
-                List<NestedInteger> cur = q.poll();
-                for(NestedInteger nt : cur){
-                    if(nt.isInteger()){
-                        res += level * nt.getInteger();
-                    }else{
-                        q.offer(nt.getList());
-                    }
+                NestedInteger ni = queue.poll();
+                if(ni.isInteger()){
+                    res += depth * ni.getInteger();
+                }else{
+                    queue.offer(ni);
                 }
             }
         }
