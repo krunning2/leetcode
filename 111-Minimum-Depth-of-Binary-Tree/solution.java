@@ -12,11 +12,11 @@ public class Solution {
         if(root == null) return 0;
         int left = minDepth(root.left);
         int right = minDepth(root.right);
-        if(root.left != null && root.right == null){
-            right = Integer.MAX_VALUE;
-        }
-        if(root.right != null && root.left == null){
+        if(root.left == null && root.right != null){
             left = Integer.MAX_VALUE;
+        }
+        if(root.right == null && root.left != null){
+            right = Integer.MAX_VALUE;
         }
         return Math.min(left, right) + 1;
     }
