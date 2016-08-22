@@ -20,26 +20,19 @@ public class Solution {
         if(nestedList == null){
             return 0;
         }
-        Queue<NestedInteger> queue = new LinkedList<>();
+        Queue<List<NestedInteger>> queue = new LinkedList<>();
         int res = 0;
-        int depth = 1;
-        for(NestedInteger ni : nestedList){
-            if(ni.isInteger()){
-                res += depth * ni.getInteger();
-            }else{
-                queue.offer(ni);
-            }
-        }
+        int depth = 0;
+        queue.offer(nestedList);
         while(!queue.isEmpty()){
             depth ++;
             int size = queue.size();
             for(int i = 0; i < size; i++){
-                NestedInteger cur = queue.poll();
-                for(NestedInteger ni : cur.getList()){
+                for(NestedInteger ni : queue.poll()){
                     if(ni.isInteger()){
                         res += depth * ni.getInteger();
                     }else{
-                        queue.offer(ni);
+                        queue.offer(ni.getList());
                     }
                 }
             }
