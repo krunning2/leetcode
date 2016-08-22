@@ -29,8 +29,3 @@ public class WordDistance {
         return res;
     }
 }
-
-// Your WordDistance object will be instantiated and called as such:
-// WordDistance wordDistance = new WordDistance(words);
-// wordDistance.shortest("word1", "word2");
-// wordDistance.shortest("anotherWord1", "anotherWord2");
