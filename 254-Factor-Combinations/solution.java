@@ -3,7 +3,7 @@ public class Solution {
         List<List<Integer>> res = new ArrayList<List<Integer>> ();
         if(n <= 1) return res;
         List<Integer> set = new ArrayList<Integer>();
-        for(int i = 2; i < n; i++){
+        for(int i = 2; i < n / 2 + 1; i++){
             if(n % i == 0){
                 set.add(i);
             }
@@ -11,7 +11,7 @@ public class Solution {
         DFS(set, 0, 1, n, res, new ArrayList<>());
         return res;
     }
-    private void DFS(List<Integer> set, int start, int fac, int n, List<List<Integer>> res, List<Integer> list){
+    private void DFS(List<Integer> set, int start, long fac, int n, List<List<Integer>> res, List<Integer> list){
         if(fac > n){
             return;
         }
@@ -21,7 +21,9 @@ public class Solution {
         }
         for(int i = start; i < set.size(); i++){
             fac *= set.get(i);
+            list.add(set.get(i));
             DFS(set, i, fac, n, res, list);
+            list.remove(list.size() - 1);
             fac /= set.get(i);
         }
     }
