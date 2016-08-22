@@ -10,7 +10,7 @@ public class Solution {
         dp[0] = nums[s];
         dp[1] = Math.max(nums[s + 1], nums[s]);
         for(int i = 2; i <= e; i++){
-            dp[i % 3] = Math.max(dp[(i - 2) % 3] + nums[s + i], dp[i - 1]);
+            dp[i % 3] = Math.max(dp[(i - 2) % 3] + nums[s + i], dp[(i - 1) % 3]);
         }
         return dp[(e - s) % 3];
     }
