@@ -12,13 +12,15 @@ public class Solution {
             }
             total++;
         }
-        
+        int j = 0;
         for(int i = 0; i < s.length(); i++){
-            int j = 0;
+            
             while(total > 0 && j < s.length()){
                 char cur = s.charAt(j);
-                if(map.containsKey(cur) && map.get(cur) > 0){
-                    total --;
+                if(map.containsKey(cur)){
+                    if(map.get(cur) > 0){
+                        total --;
+                    }
                     map.put(cur, map.get(cur) - 1);
                 }
                 j++;
@@ -31,7 +33,9 @@ public class Solution {
             }
             char cur = s.charAt(i);
             if(map.containsKey(cur)){
-                total ++;
+                if(map.get(cur) >= 0){
+                    total ++;
+                }
                 map.put(cur, map.get(cur) + 1);
             }
         }
