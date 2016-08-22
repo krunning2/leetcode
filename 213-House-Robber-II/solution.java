@@ -8,9 +8,9 @@ public class Solution {
     private int helper(int[] nums, int s, int e){
         int[] dp = new int[3];
         dp[0] = nums[s];
-        dp[1] = Math.max(nums[s], nums[s + 1]);
-        for(int i = 2; i <= e - s; i++){
-            dp[i % 3] = Math.max(dp[(i - 2) % 3] + nums[i + s], dp[(i - 1) % 3]);
+        dp[1] = Math.max(nums[s + 1], nums[s]);
+        for(int i = 2; i <= e; i++){
+            dp[i % 3] = Math.max(dp[(i - 2) % 3] + nums[s + i], dp[i - 1]);
         }
         return dp[(e - s) % 3];
     }
