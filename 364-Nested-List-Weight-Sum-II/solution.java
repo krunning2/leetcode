@@ -31,30 +31,23 @@ public class Solution {
         if(nestedList == null){
             return 0;
         }
-        Queue<NestedInteger> queue = new LinkedList<>();
-        int res = 0;
-        for(NestedInteger ni : nestedList){
-            if(ni.isInteger()){
-                res += ni.getInteger();
-            }else{
-                queue.offer(ni);
-            }
-        }
-        int sum = res;
+        Queue<List<NestedInteger>> queue = new LinkedList<>();
+        int weighted = 0;
+        int unweighted = 0;
+        queue.offer(nestedList);
         while(!queue.isEmpty()){
             int size = queue.size();
             for(int i = 0; i < size; i++){
-                NestedInteger cur = queue.poll();
-                for(NestedInteger ni : cur.getList()){
+                for(NestedInteger ni : queue.poll()){
                     if(ni.isInteger()){
-                        sum += ni.getInteger();
+                        unweighted += ni.getInteger();
                     }else{
-                        queue.offer(ni);
+                        queue.offer(ni.getList());
                     }
                 }
             }
-            res = res + sum;
+            weighted += unweighted;
         }
-        return res;
+        return weighted;
     }
 }
