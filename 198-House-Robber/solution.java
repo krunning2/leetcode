@@ -10,6 +10,6 @@ public class Solution {
         for(int i = 2; i < nums.length; i++){
             dp[i % 3] = Math.max(nums[i] + dp[(i - 2) % 3], dp[(i - 1) % 3]); 
         }
-        return dp[(nums.length - 1) % 3];
+        return dp[(nums.length - 1) % 3]; 
     }
 }
