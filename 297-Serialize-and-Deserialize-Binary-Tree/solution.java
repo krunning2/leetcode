@@ -22,24 +22,33 @@ public class Codec {
             sb.append(NULL).append(DELIMETER);
             return;
         }
+        sb.append(root.val).append(DELIMETER);
         serializeHelper(root.left, sb);
-        sb.append(root.val).append(NULL);
         serializeHelper(root.right, sb);
     }
 
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
         String[] parts = data.split(DELIMETER);
-        return deserializeHelper(0, parts.length - 1, parts);
+        return deserializeHelper(new Pointer(0), parts);
     }
-    private TreeNode deserializeHelper(int start, int end, String[] parts){
-        if(start > end) return null;
-        int mid = start - (start - end) / 2;
-        if(parts[mid].equals(NULL)) return null;
-        TreeNode root = new TreeNode(Integer.valueOf(parts[mid]));
-        root.left = deserializeHelper(start, mid - 1, parts);
-        root.right = deserializeHelper(mid + 1, end, parts);
+    private TreeNode deserializeHelper(Pointer p, String[] parts){
+        if(p.cur >= parts.length) return null;
+        String value = parts[p.cur ++];
+        if(value.equals(NULL)){
+            return null;
+        }
+        
+        TreeNode root = new TreeNode(Integer.valueOf(value));
+        root.left = deserializeHelper(p, parts);
+        root.right = deserializeHelper(p, parts);
         return root;
+    }
+    private class Pointer{
+        int cur;
+        Pointer(int cur){
+            this.cur = cur;
+        }
     }
 }
 
