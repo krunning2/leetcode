@@ -9,36 +9,35 @@
  */
 public class Solution {
     public int maxPoints(Point[] points) {
-        if(points == null || points.length == 0) return 0;
-        HashMap<Double, Integer> map = new HashMap();
-        int max = 0;
+        HashMap<Double, Integer> map = new HashMap<>();
+        int res = 0;
         for(int i = 0; i < points.length; i++){
             map.clear();
-            int samePoint = 0;
-            Point p1 = points[i];
-            int curMax = 1;
-            for(int j = i + 1; j < points.length; j++){
-                double k = 0.0;
+            int same = 0;
+            int local = 1;
+            for(int j =  i + 1; j < points.length; j++){
+                Point p1 = points[i];
                 Point p2 = points[j];
-                if(p2.x == p1.x && p2.y == p1.y){
-                    samePoint ++;
+                double slope = 0.0;
+                if(p1.x == p2.x && p1.y == p2.y){
+                    same ++;
                     continue;
-                }else if(p2.y == p1.y){
-                    k = 0.0;
-                }else if(p2.x == p1.x){
-                    k = Double.MAX_VALUE;
+                }else if(p1.x == p2.x){
+                    slope = Double.MAX_VALUE;
+                }else if(p1.y == p2.y){
+                    slope = 0.0;    
                 }else{
-                    k = (p1.y - p2.y) * 1.0 / (p1.x - p2.x);
+                    slope = (p1.y - p2.y) * 1.0 / (p1.x - p2.x);
                 }
-                if(map.containsKey(k)){
-                    map.put(k , map.get(k) + 1);
+                if(map.containsKey(slope)){
+                    map.put(slope, map.get(slope) + 1);
                 }else{
-                    map.put(k, 2);
+                    map.put(slope, 2);
                 }
-                curMax = Math.max(curMax, map.get(k));
+                local = Math.max(local, map.get(slope));
             }
-            max = Math.max(max, curMax + samePoint);
+            res = Math.max(local + same, res);
         }
-        return max;
+        return res;
     }
 }
