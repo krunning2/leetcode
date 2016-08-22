@@ -10,11 +10,11 @@
 public class Solution {
     public boolean isSymmetric(TreeNode root) {
         if(root == null) return true;
-        return helper(root.left, root.right);
+        return isValid(root.left, root.right);
     }
-    private boolean helper(TreeNode left, TreeNode right){
+    private boolean isValid(TreeNode left, TreeNode right){
         if(left == null || right == null) return left == null && right == null;
-        if(left != null && right != null && left.val == right.val) return helper(left.left, right.right) && helper(left.right, right.left);
-        return false;
+        if(left.val != right.val) return false;
+        return isValid(left.right, right.left) && isValid(left.left, right.right);
     }
 }
