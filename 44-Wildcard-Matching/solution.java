@@ -10,9 +10,8 @@ public class Solution {
                 seen_star = true;
                 p2 = p1;
                 s2 = s1;
-                p2++;
-//                if(p2 >= p.length()) return true;
-                p1 = p2;
+                // p2++;
+                // p1 = p2;
             }else if(p1 == p.length() || p.charAt(p1) != s.charAt(s1)){
                 if(!seen_star) return false;
                 s2++;
