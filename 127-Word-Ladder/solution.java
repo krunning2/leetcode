@@ -6,15 +6,15 @@ public class Solution {
         queue.offer(beginWord);
         HashSet<String> set = new HashSet<>();
         set.add(beginWord);
-        int level = 0;
+        int level = 1;
         while(! queue.isEmpty()){
             int size = queue.size();
             level ++;
             for(int i = 0; i < size; i++){
                 String cur = queue.poll();
-                if(endWord.equals(cur)) return level;
                 for(int j = 0; j < cur.length(); j++){
                     for(String s : getList(cur, j, wordList, set)){
+                        if(endWord.equals(s)) return level;
                         queue.offer(s);
                     }
                 }
@@ -33,6 +33,7 @@ public class Solution {
                 String ss = new String(chars);
                 if(!set.contains(ss) && wordList.contains(ss)){
                     res.add(ss);
+                    set.add(ss);
                 }
                 chars[pos] = tmp;
             }
