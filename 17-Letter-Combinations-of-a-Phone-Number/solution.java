@@ -1,6 +1,6 @@
 public class Solution {
     public List<String> letterCombinations(String digits) {
-        String[] letters = {"", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        String[] letters = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
         List<String> res = new ArrayList<String>();
         if(digits == null || digits.length() == 0){
             return res;
