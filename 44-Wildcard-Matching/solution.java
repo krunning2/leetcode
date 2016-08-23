@@ -13,6 +13,7 @@ public class Solution {
                 while(p2 < p.length() && p.charAt(p2) == '*'){
                     p2++;
                 }
+                p2++;
                 if(p2 == p.length()) return true;
                 p1 = p2;
             }else if(p1 == p.length() || p.charAt(p1) != s.charAt(s1)){
