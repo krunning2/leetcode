@@ -1,14 +1,17 @@
 public class Solution {
     public boolean isPerfectSquare(int num) {
-        int num2 = num;
-        for(int i = 1; i <= num2; i=i+2){
-            num -= i;
-            if(num == 0){
+        long start = 1;
+        long end = num / 2 + 1;
+        while(start + 1 < end){
+            long mid = start - (start - end) / 2;
+            if(mid * mid == num){
                 return true;
-            }else if(num < 0){
-                return false;
+            }else if(mid * mid < num){
+                start = mid;
+            }else{
+                end = mid;
             }
         }
-        return false;
+        return start * start == num || end * end == num;
     }
 }
