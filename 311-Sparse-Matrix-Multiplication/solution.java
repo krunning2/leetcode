@@ -5,7 +5,7 @@ public class Solution {
         int[][] res = new int[m][n];
         for(int i = 0; i < m; i++){
             for(int j = 0; j < m; i++){
-                for(int k = 0; i < m; k++){
+                for(int k = 0; i < A[0].length; k++){
                     res[i][j] += A[i][k] * B[k][j];
                 }
             }
