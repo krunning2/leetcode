@@ -8,23 +8,23 @@ public class Solution {
             int end = nums.length - 1;
             while(start < end){
                 if(nums[start] + nums[end] + cur == 0){
-                    List<Integer> tmp = new ArrayList<Integer>();
+                    List<Integer> tmp = new ArrayList<>();
                     tmp.add(cur);
                     tmp.add(nums[start]);
                     tmp.add(nums[end]);
                     res.add(tmp);
-                    start ++;
-                    end --;
+                    start++;
+                    end--;
                     while(start < end && nums[start] == nums[start - 1]){
-                        start ++;
+                        start++;
                     }
                     while(start < end && nums[end] == nums[end + 1]){
-                        end --;
+                        end--;
                     }
                 }else if(nums[start] + nums[end] + cur > 0){
-                    end --;
+                    end--;
                 }else{
-                    start ++;
+                    start++;
                 }
             }
             while(i < nums.length - 3 && nums[i] == nums[i + 1]){
