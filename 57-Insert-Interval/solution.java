@@ -9,17 +9,16 @@
  */
 public class Solution {
     public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
-        List<Interval> res = new ArrayList<Interval> ();
-        if(intervals == null || newInterval == null) return intervals;
-        for(Interval i : intervals){
-            if(newInterval.end < i.start){
+        List<Interval> res = new ArrayList<Interval>();
+        for(Interval cur : intervals){
+            if(newInterval.start > cur.end){
+                res.add(cur);
+            }else if(newInterval.end < cur.start){
                 res.add(newInterval);
-                newInterval = i;
-            }else if(newInterval.start > i.end){
-                res.add(i);
+                newInterval = cur;
             }else{
-                newInterval.start = Math.min(newInterval.start, i.start);
-                newInterval.end = Math.max(newInterval.end, i.end);
+                newInterval.start = Math.min(newInterval.start, cur.start);
+                newInterval.end = Math.max(newInterval.end, cur.end);
             }
         }
         res.add(newInterval);
