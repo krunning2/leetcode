@@ -9,15 +9,17 @@
  */
 public class Solution {
     public List<List<Integer>> findLeaves(TreeNode root) {
-        List<List<Integer>> res = new ArrayList();
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
         getDepth(root, res);
         return res;
     }
     private int getDepth(TreeNode root, List<List<Integer>> res){
         if(root == null) return -1;
-        int level = 1 + Math.max(getDepth(root.left, res), getDepth(root.right, res));
+        int left = getDepth(root.left, res);
+        int right = getDepth(root.right, res);
+        int level = Math.max(left, right) + 1;
         if(res.size() <= level){
-            res.add(new ArrayList());
+            res.add(new ArrayList<>());
         }
         res.get(level).add(root.val);
         return level;
