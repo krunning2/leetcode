@@ -9,11 +9,10 @@ public class Solution {
             res.add(sb.substring(0, sb.length() - 1).toString());
             return true;
         }
-        if(mem[pos] != 0 && mem[pos] != 1) return false;
         boolean flag = false;
         for(int i = pos; i < s.length(); i++){
             String sub = s.substring(pos, i + 1);
-            if(wordDict.contains(sub)){
+            if(wordDict.contains(sub) && (mem[pos] == 0 || mem[pos] == 1)){
                 int size = sb.length();
                 sb.append(sub).append(" ");
                 if(DFS(s, i + 1, wordDict, sb, res, mem)){
