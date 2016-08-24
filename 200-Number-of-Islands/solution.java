@@ -18,14 +18,14 @@ public class Solution {
         return count;
     }
     private void DFS(char[][] grid, boolean[][] visited, int row, int col){
-        if(row < 0 || row >= grid.length || col < 0 || col >= grid[0].length || visited[row][col] || grid[row][col] == '0'){
+        if(row < 0 || col < 0 || row > grid.length || col > grid[0].length || visited[row][col] ||grid[row][col] == '0'){
             return;
         }
         visited[row][col] = true;
-        DFS(grid, visited, row + 1, col);
-        DFS(grid, visited, row - 1, col);
-        DFS(grid, visited, row, col + 1);
-        DFS(grid, visited, row, col - 1);
+        int[] dx = {0, 0, -1, 1};
+        int[] dy = {1, -1, 0, 0};
+        for(int i = 0; i < 4; i++){
+            DFS(grid, visited, row + dx[i], col + dy[i]);
+        }
     }
-    
 }
