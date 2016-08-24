@@ -34,7 +34,7 @@ public class Solution {
                 father.put(tmp, fa);
                 cur = tmp;
             }
-            father.put(cur, fa);
+            father.put(x, fa);
             return fa;
         }
     }
