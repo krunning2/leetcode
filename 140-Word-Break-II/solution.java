@@ -1,19 +1,21 @@
 public class Solution {
     public List<String> wordBreak(String s, Set<String> wordDict) {
-        List<String> res = new ArrayList<String>();
-        helper(s, wordDict, 0, res, "", new boolean[s.length()]);
+        List<String> res = new ArrayList<String> ();
+        DFS(s, 0, wordDict, new StringBuilder(), res);
         return res;
     }
-    private void helper(String s, Set<String> dict, int pos, List<String> res, String cur, boolean[] visited){
-        if(pos == s.length()) {
-            res.add(cur);
+    private void DFS(String s, int pos, Set<String> wordDict, StringBuilder sb, List<String> res){
+        if(pos == s.length()){
+            res.add(sb.substring(0, sb.length() - 1).toString());
+            return;
         }
         for(int i = pos; i < s.length(); i++){
-            if(!visited[i] && dict.contains(s.substring(pos, i + 1))){
-                String tmp = pos == 0 ? s.substring(pos, i + 1) : cur + " "+ s.substring(pos, i + 1);
-                int size = res.size();
-                helper(s, dict, i+1, res, tmp, visited);
-                if(size == res.size()) visited[i] = true;
+            String sub = s.substring(pos, i + 1);
+            if(wordDict.contains(sub)){
+                int size = sb.length();
+                sb.append(sub).append(" ");
+                DFS(s, i + 1, wordDict, sb, res);
+                sb.setLength(size);
             }
         }
     }
