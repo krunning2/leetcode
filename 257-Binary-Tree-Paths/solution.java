@@ -14,20 +14,19 @@ public class Solution {
         DFS(root, res, new StringBuilder());
         return res;
     }
-    
     private void DFS(TreeNode node, List<String> res, StringBuilder sb){
         int len = sb.length();
-        sb.append(node.val);
+        sb.append(node.val).append("->");
         if(node.left == null && node.right == null){
-            res.add(sb.toString());
-        }else{
-            sb.append("->");
-            if(node.left != null){
-                DFS(node.left, res, sb);
-            }
-            if(node.right != null){
-                DFS(node.right, res, sb);
-            }
+            res.add(sb.toString().substring(0, sb.length() - 2));
+            sb.setLength(len);
+            return;
+        }
+        if(node.left != null){
+            DFS(node.left, res, sb);
+        }
+        if(node.right != null){
+            DFS(node.right, res, sb);
         }
         sb.setLength(len);
     }
