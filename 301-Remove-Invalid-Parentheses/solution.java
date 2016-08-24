@@ -1,30 +1,31 @@
 public class Solution {
     public List<String> removeInvalidParentheses(String s) {
         List<String> res = new ArrayList<String>();
-        if(s == null || s.length() == 0){
-            res.add("");
-            return res;
-        } 
-        Queue<String> queue = new LinkedList<String>();
-        queue.offer(s);
-        Set<String> set = new HashSet<String>();
+        if(s == null) return res;
+        Set<String> set = new HashSet<>();
         set.add(s);
+        Queue<String> queue = new LinkedList<>();
+        queue.offer(s);
         boolean found = false;
-        while(!queue.isEmpty()){
-            String cur = queue.poll();
-            if(isValid(cur)){
-                found = true;
-                res.add(cur);
-            }
-            if(found) continue;
-            for(int i = 0; i < cur.length(); i++){
-                if(cur.charAt(i) != '(' && cur.charAt(i) != ')') continue;
-                String removed = cur.substring(0, i) + cur.substring(i + 1);
-                if(!set.contains(removed)){
-                    set.add(removed);
-                    queue.offer(removed);
+        while(! queue.isEmpty()){
+            int size = queue.size();
+            for(int i = 0; i < size; i++){
+                String cur = queue.poll();
+                if(isValid(cur)){
+                    res.add(cur);
+                    found = true;
+                }else{
+                    for(int j = 0; j < cur.length(); j++){
+                        if(cur.charAt(j) != '(' && cur.charAt(j) != ')') continue;
+                        String tmp = cur.substring(0, j) + cur.substring(j + 1);
+                        if(!set.contains(tmp)){
+                            set.add(tmp);
+                            queue.offer(tmp);
+                        }
+                    }
                 }
             }
+            if(found) break;
         }
         return res;
     }
