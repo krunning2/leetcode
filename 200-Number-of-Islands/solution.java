@@ -18,7 +18,7 @@ public class Solution {
         return count;
     }
     private void DFS(char[][] grid, boolean[][] visited, int row, int col){
-        if(row < 0 || col < 0 || row > grid.length || col > grid[0].length || visited[row][col] ||grid[row][col] == '0'){
+        if(row < 0 || col < 0 || row >= grid.length || col >= grid[0].length || visited[row][col] ||grid[row][col] == '0'){
             return;
         }
         visited[row][col] = true;
