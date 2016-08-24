@@ -19,8 +19,6 @@ public class Solution {
         sb.append(node.val).append("->");
         if(node.left == null && node.right == null){
             res.add(sb.toString().substring(0, sb.length() - 2));
-            sb.setLength(len);
-            return;
         }
         if(node.left != null){
             DFS(node.left, res, sb);
