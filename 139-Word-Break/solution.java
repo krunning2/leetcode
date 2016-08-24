@@ -1,23 +1,18 @@
 public class Solution {
     public boolean wordBreak(String s, Set<String> wordDict) {
-        boolean[] dp = new boolean[s.length() + 1];
-        int max = getMaxLength(wordDict);
-        dp[0] = true;
-        for(int i = 1; i <= s.length(); i++){
-            for(int j = Math.max(0, i - max); j < i; j++){
-                if(dp[j] && wordDict.contains(s.substring(j, i))){
-                    dp[i] = true;
-                    break;
-                }
+        if(s == null) return false;
+        return DFS(s, 0, wordDict);
+    }
+    private boolean DFS(String s, int pos, Set<String> wordDict){
+        if(pos == s.length()){
+            return true;
+        }
+        for(int i = pos; i < s.length(); i++){
+            String sub = s.substring(pos, i + 1);
+            if(wordDict.contains(sub)){
+                if(DFS(s, i + 1, wordDict)) return true;
             }
         }
-        return dp[s.length()];
-    }
-    private int getMaxLength(Set<String> wordDict){
-        int max = 0;
-        for(String s : wordDict){
-            max = Math.max(s.length(), max);
-        }
-        return max;
+        return false;
     }
 }
