@@ -22,7 +22,7 @@ public class Solution {
                 sb.setLength(size);
             }
         }
-        mem[pos] = flag ? 1 : -1;
+        //mem[pos] = flag ? 1 : -1;
         return flag;
     }
 }
