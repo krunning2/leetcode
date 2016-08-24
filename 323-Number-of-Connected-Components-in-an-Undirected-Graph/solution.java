@@ -28,13 +28,11 @@ public class Solution {
             while(fa != father.get(fa)){
                 fa = father.get(fa);
             }
-            int cur = father.get(x);
-            while(cur != father.get(cur)){
-                int tmp = father.get(cur);
-                father.put(tmp, fa);
-                cur = tmp;
+            while(x != father.get(x)){
+                int tmp = father.get(x);
+                father.put(x, fa);
+                x = tmp;
             }
-            father.put(x, fa);
             return fa;
         }
     }
