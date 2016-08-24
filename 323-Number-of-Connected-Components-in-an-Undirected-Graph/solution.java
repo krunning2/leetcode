@@ -1,47 +1,41 @@
 public class Solution {
     public int countComponents(int n, int[][] edges) {
-        if (n <= 1) {
-            return n;
-        }
-        int res = n;
+        if(n <= 1) return n;
         UnionFind uf = new UnionFind(n);
         for(int i = 0; i < edges.length; i++){
             int n0 = edges[i][0];
             int n1 = edges[i][1];
-            if(uf.find(n0) != uf.find(n1)){
-                res --;
+            if(uf.find(n1) != uf.find(n0)){
                 uf.union(n0, n1);
+                n--;
             }
         }
-        return res;
+        return n;
     }
     class UnionFind{
-        Map<Integer, Integer> father;
+        HashMap<Integer, Integer> father;
         UnionFind(int n){
-            father = new HashMap<Integer, Integer>();
-            for(int i = 0; i < n; i++)
-                father.put(i, i);
+            father = new HashMap<>();
+            for(int i = 0; i < n; i++) father.put(i, i);
         }
-        public int find(int key){
-            int f = father.get(key);
-            while(f != father.get(f)){
-                f = father.get(f);
-            }
-            int p = father.get(key);
-            int tmp = -1;
-            while(p != father.get(p)){
-                tmp = father.get(p);
-                father.put(p, f);
-                p = tmp;
-            }
-            return f;
+        void union(int x, int y){
+            int f1 = find(x);
+            int f2 = find(y);
+            father.put(f1, f2);
         }
-        public void union(int key1, int key2){
-            int f1 = find(key1);
-            int f2 = find(key2);
-            if(f1 != f2){
-                father.put(f1, f2);
+        int find(int x){
+            int fa = father.get(x);
+            while(fa != father.get(fa)){
+                fa = father.get(fa);
             }
+            int cur = father.get(x);
+            while(cur != father.get(cur)){
+                int tmp = father.get(cur);
+                father.put(tmp, fa);
+                cur = tmp;
+            }
+            father.put(cur, fa);
+            return fa;
         }
     }
 }
