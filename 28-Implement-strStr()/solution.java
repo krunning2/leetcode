@@ -19,15 +19,15 @@ public class Solution {
     }
     private int[] getNext(String p){
         int[] next = new int[p.length() + 1];
-        int j = 0, k = -1;
+        int i = 0, j = -1;
         next[0] = -1;
-        while(j < p.length()){
-            if(k == -1 || p.charAt(j) == p.charAt(k)){
-                k++;
+        while(i < p.length()){
+            if(j == -1 || p.charAt(i) == p.charAt(j)){
                 j++;
-                next[j] = k;
+                i++;
+                next[i] = j;
             }else{
-                k = next[k];
+                j = next[j];
             }
         }
         return next;
