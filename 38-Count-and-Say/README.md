@@ -1,0 +1,1 @@
+convert it to find the duplicate char in a string
