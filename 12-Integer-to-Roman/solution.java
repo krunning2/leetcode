@@ -1,28 +1,30 @@
 public class Solution {
     public String intToRoman(int num) {
+        String[] set = {"I", "V", "X", "L", "C", "D", "M"};
+        int pos = 0;
         int scale = 1000;
-        char[] map = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
         StringBuilder sb = new StringBuilder();
-        for(int i = 6; i >=0; i -= 2){
-            int d = num / scale;
-            if(d > 0){
-                if(d <= 3){
-                    for(int j = 0; j < d; j++) sb.append(map[i]);
-                }else if(d == 4){
-                    sb.append(map[i]);
-                    sb.append(map[i + 1]);
-                }else if(d == 5){
-                    sb.append(map[i + 1]);
-                }else if(d > 5 && d <= 8){
-                    sb.append(map[i + 1]);
-                    for(int j = 0; j < d - 5; j++)
-                        sb.append(map[i]);
-                }else if(d == 9){
-                    sb.append(map[i]);
-                    sb.append(map[i + 2]);
+        for(int i = 6; i >= 0; i = i-2){
+            int cur = num / scale;
+            if(cur > 0){
+                if(cur >= 1 && cur <= 3){
+                    for(int j = 0; j < cur; j++) sb.append(set[i]);
+                }else if(cur == 4){
+                    sb.append(set[i]);
+                    sb.append(set[i + 1]);
+                }else if(cur == 5){
+                    sb.append(set[i + 1]);
+                }else if(cur > 5 && cur <=8){
+                    sb.append(set[i + 1]);
+                    for(int j = 6; j <= cur; j++){
+                        sb.append(set[i]);
+                    }
+                }else if(cur == 9){
+                    sb.append(set[i]);
+                    sb.append(set[i + 2]);
                 }
             }
-            num = num % scale;
+            num %= scale;
             scale /= 10;
         }
         return sb.toString();
