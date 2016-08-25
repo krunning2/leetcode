@@ -11,53 +11,42 @@ public class WordDictionary {
         return t.search(word);
     }
     class Trie{
-        Node root;
-        Trie(){
-            root = new Node();
-        }
-        
-        public void addWord(String word){
-            Node cur = root;
-            for(char c : word.toCharArray()){
-                if(!cur.map.containsKey(c)){
-                    cur.map.put(c, new Node());
+        TrieNode root = new TrieNode(false, ' ');
+        public void addWord(String word) {
+            TrieNode cur = root;
+            for(char ch : word.toCharArray()){
+                if(!cur.map.containsKey(ch)){
+                    cur.map.put(ch, new TrieNode(false, ch));
                 }
-                cur = cur.map.get(c);
+                cur = cur.map.get(ch);
             }
-            cur.isString = true;
+            cur.is_end = true;
         }
-        
         public boolean search(String word){
-            return searchHelper(word, 0, root);
+            return search(word, 0, root);
         }
-        
-        private boolean searchHelper(String word, int pos, Node node){
-            if(pos == word.length() && node.isString){
-                return true;
-            }
-            if(pos >= word.length() && !node.isString){
-                return false;
-            }
-            char c = word.charAt(pos);
-            if(c == '.'){
-                for(Node child : node.map.values()){
-                    if(searchHelper(word, pos + 1, child)) return true;
+        private boolean search(String word, int pos, TrieNode node) {
+            if(pos == word.length() && node.is_end) return true;
+            if(pos == word.length() && !node.is_end) return false;
+            char ch = word.charAt(pos);
+            if(ch == '.'){
+                for(Map.Entry<Character, TrieNode> entry : node.map.entrySet()){
+                    if(search(word, pos + 1, entry.getValue())) return true;
                 }
-                return false;
-            }else if(node.map.containsKey(c)){
-                return searchHelper(word, pos + 1, node.map.get(c));
-            }else{
-                return false;
+            }else if(node.map.containsKey(ch)){
+                return search(word, pos + 1, node.map.get(ch));
             }
+            return false;
         }
-        
-        class Node{
-            HashMap<Character, Node> map;
-            boolean isString;
-            Node(){
-                map = new HashMap<Character, Node>();
-                isString = false;
-            }
+    }
+    class TrieNode{
+        char c;
+        Map<Character, TrieNode> map;
+        boolean is_end;
+        TrieNode(boolean is_end, char c){
+            map = new HashMap<>();
+            this.is_end = is_end;
+            this.c = c;
         }
     }
 }
