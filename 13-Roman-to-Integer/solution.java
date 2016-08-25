@@ -5,9 +5,10 @@ public class Solution {
         for(int i = 0; i < s.length(); i++){
             int cur = get(s.charAt(i));
             if(i > 0 && cur > get(s.charAt(i - 1))){
-                cur -= 2 * get(s.charAt(i - 1));
+                res += cur - 2 * get(s.charAt(i - 1));
+            }else{
+                res += cur;
             }
-            res += cur;
         }
         return res;
     }
