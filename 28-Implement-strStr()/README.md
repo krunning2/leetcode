@@ -15,6 +15,9 @@ Keep moving i, if A[i] == B[j] then move both pointers to next, else then don't 
 
 3. Optimization.
 
+step 1. preprocess the pattern string to get next array which stores the longest prefix and suffix and move them to right by 1. next[0] is -1;
+step 2. match the source string to pattern string, if miss matched, so only move pattern pointer to next[j]
+
 When creating the next array, we should check whether T[j+1] == T[k+1]. if yes, then next[j] = next[k]; else next[j] = k; To avoid abab = -1 0 0 1. abcabab. It should be -1 0 -1 1.
 
 Ex.
