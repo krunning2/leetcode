@@ -1,24 +1,24 @@
 public class Solution {
     public boolean isPalindrome(String s) {
+        if(s == null || s.length() == 0) return true;
         s = s.trim().toLowerCase();
-        int start = 0;
-        int end = s.length() - 1;
+        int start = 0, end = s.length() - 1;
         while(start <= end){
-            if(check(s.charAt(start)) && check(s.charAt(end)) && s.charAt(start) != s.charAt(end)){
+            if(!isValid(s.charAt(start))){
+                start++;
+            }else if(!isValid(s.charAt(end))){
+                end--;
+            }else if(s.charAt(end) != s.charAt(start)){
                 return false;
-            }
-            if(!check(s.charAt(start))){
-                start ++;
-            }else if(!check(s.charAt(end))){
-                end --;
             }else{
-                start ++;
-                end --;
+                start++;
+                end--;
             }
         }
         return true;
     }
-    private boolean check(char c){
-        return c <= 'z' && c >= 'a' || c >= '0'&& c <= '9';
+    private boolean isValid(char c){
+        if(c >= 'a' && c <= 'z' || c >= '0' && c <= '9') return true;
+        return false;
     }
 }
