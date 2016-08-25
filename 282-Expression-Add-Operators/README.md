@@ -1,2 +1,3 @@
+Keep last val, and current val. if multiply we should - last val then + last val * cur val
 //if it starts with "0", this digit should only be 0, not 05,0005.....
             if(i != pos && num.charAt(pos) == '0') break;
