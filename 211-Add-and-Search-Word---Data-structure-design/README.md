@@ -1,0 +1,1 @@
+Use recursion to check the rest of char with all possible keys in the map if we see '.' 
