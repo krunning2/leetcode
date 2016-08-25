@@ -1,63 +1,67 @@
 public class LRUCache {
     
-    private int capacity;
-    private Map<Integer, Node> map;
-    Node head;
-    Node tail;
-    
+    HashMap<Integer, DoubleLinkedList> map;
+    DoubleLinkedList head;
+    DoubleLinkedList tail;
+    int capacity;
     public LRUCache(int capacity) {
-        this.capacity = capacity;
-        map = new HashMap<Integer, Node>();
-        head = new Node(0, 0);
-        tail = new Node(0, 0);
+        map = new HashMap<>();
+        head = new DoubleLinkedList(-1, -1);
+        tail = new DoubleLinkedList(-1, -1);
         head.next = tail;
         tail.pre = head;
+        this.capacity = capacity;
     }
     
     public int get(int key) {
         if(map.containsKey(key)){
-            Node cur = map.get(key);
-            cur.pre.next = cur.next;
-            cur.next.pre = cur.pre;
-            moveToTail(cur);
-            return cur.val;
+            DoubleLinkedList val = map.get(key);
+            moveToTail(val);
+            return val.val;
         }
         return -1;
     }
     
     public void set(int key, int value) {
         if(map.containsKey(key)){
-           get(key);
-           map.get(key).val = value; 
-           return;
-        }
-        if(map.size() == capacity){
-            map.remove(head.next.key);
-            head.next.next.pre = head;
-            head.next = head.next.next;
-        }
-        if(!map.containsKey(key)){
-            Node n = new Node(key, value);
-            map.put(key, n);
-            moveToTail(n);
+            DoubleLinkedList cur = map.get(key);
+            cur.val = value;
+            moveToTail(cur);
+        }else{
+            if(map.size() < capacity){
+                DoubleLinkedList node = new DoubleLinkedList(key, value);
+                map.put(key, node);
+                moveToTail(node);
+            }else{
+                map.remove(head.next.key);
+                head.next.next.pre = head;
+                head.next = head.next.next;
+                DoubleLinkedList node = new DoubleLinkedList(key, value);
+                map.put(key, node);
+                moveToTail(node);
+            }
         }
     }
     
-    private void moveToTail(Node cur){
-        cur.pre = tail.pre;
-        tail.pre.next = cur;
-        cur.next = tail;
-        tail.pre = cur;
+    private void moveToTail(DoubleLinkedList node){
+        if(node.pre != null) node.pre.next = node.next;
+        if(node.next != null) node.next.pre = node.pre;
+        tail.pre.next = node;
+        node.pre = tail.pre;
+        node.next = tail;
+        tail.pre = node;
     }
     
-    class Node{
-        Node pre;
-        Node next;
-        int key;
+    class DoubleLinkedList{
+        DoubleLinkedList next;
+        DoubleLinkedList pre;
         int val;
-        Node(int key, int val){
-            this.key = key;
+        int key;
+        DoubleLinkedList(int key, int val){
             this.val = val;
+            this.key = key;
+            next = null;
+            pre = null;
         }
     }
 }
