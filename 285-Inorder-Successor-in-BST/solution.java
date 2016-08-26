@@ -9,26 +9,29 @@
  */
 public class Solution {
     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
-        if(root == null || p == null) return null;
-        if(p.right != null){
-            return findLeftMost(p.right);
+        if(p == null || root == null){
+            return null;
         }
+        if(p.right != null) return findLeftMost(p.right);
         TreeNode res = null;
         while(root != null){
             if(root.val > p.val){
                 res = root;
                 root = root.left;
-            } else {
-              root = root.right;  
+            }else if(root == p){
+                break;
+            }else{
+                root = root.right;
             }
         }
         return res;
     }
-    
     private TreeNode findLeftMost(TreeNode node){
-        while(node != null && node.left != null){
-            node = node.left;
+        TreeNode pre = null, cur = node;
+        while(cur != null){
+            pre = cur;
+            cur = cur.left;
         }
-        return node;
+        return pre;
     }
 }
