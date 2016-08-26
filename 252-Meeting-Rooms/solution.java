@@ -9,19 +9,33 @@
  */
 public class Solution {
     public boolean canAttendMeetings(Interval[] intervals) {
-        if(intervals == null || intervals.length == 0){
-            return true;
+        List<Time> times = new ArrayList<>();
+        for(Interval i : intervals){
+            times.add(new Time(i.start, true));
+            times.add(new Time(i.end, false));
         }
-        Arrays.sort(intervals, new Comparator<Interval>(){
-            public int compare(Interval i1, Interval i2){
-                return i1.start - i2.start;
-            }
+        Collections.sort(times, (t1, t2) -> {
+            if(t1.time != t2.time) return t1.time - t2.time;
+            return t1.is_start ? 1 : -1;
         });
-        for(int i = 0; i < intervals.length - 1; i++){
-            if(intervals[i].end > intervals[i + 1].start){
-                return false;
+        int count = 0;
+        for(int i = 0; i < times.size(); i++){
+            Time t = times.get(i);
+            if(t.is_start){
+                count ++;
+            }else{
+                count--;
             }
+            if(count > 1) return false;
         }
         return true;
+    }
+    class Time{
+        int time;
+        boolean is_start;
+        Time(int time, boolean is_start){
+            this.time = time;
+            this.is_start = is_start;
+        }
     }
 }
