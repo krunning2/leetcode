@@ -3,15 +3,15 @@ public class Solution {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
         if(nums == null || nums.length == 0) return res;
         Arrays.sort(nums);
-        DFS(nums, 0, new ArrayList<>(), res, new boolean[nums.length]);
+        DFS(nums, 0, new ArrayList<>(), res);
         return res;
     }
-    private void DFS(int[] nums, int pos, List<Integer> cur, List<List<Integer>> res, boolean[] visited){
+    private void DFS(int[] nums, int pos, List<Integer> cur, List<List<Integer>> res){
         res.add(new ArrayList<>(cur));
         for(int i = pos; i < nums.length; i++){
-            if(i != pos && !visited[i - 1] && nums[i] == nums[i - 1]) continue;
+            if(i != pos && nums[i] == nums[i - 1]) continue;
             cur.add(nums[i]);
-            DFS(nums, i + 1, cur, res, visited);
+            DFS(nums, i + 1, cur, res);
             cur.remove(cur.size() - 1);
         }
     }
