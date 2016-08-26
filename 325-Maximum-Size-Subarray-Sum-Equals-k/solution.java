@@ -9,6 +9,7 @@ public class Solution {
             if(map.containsKey(sum - k)){
                 max = Math.max(max, i - map.get(sum - k));
             }
+            //because we want max, so if we see the same sum again, we should update the index
             map.putIfAbsent(sum, i);
         }
         return max;
