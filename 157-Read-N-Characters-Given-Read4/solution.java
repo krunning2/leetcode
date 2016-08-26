@@ -7,24 +7,22 @@ public class Solution extends Reader4 {
      * @param n   Maximum number of characters to read
      * @return    The number of characters read
      */
-    private int p_buff = 0;
-    private int buffCnt = 0;
-    private char[] buff = new char[4];
+    char[] buffer = new char[4];
+    int bufferPointer = 0;
+    int bufferCount = 0;
     public int read(char[] buf, int n) {
         int p = 0;
         while(p < n){
-            if(p_buff == 0){
-                buffCnt = read4(buff);
+            if(bufferPointer == 0){
+                bufferCount = read4(buffer);
             }
-            while(p < n && p_buff < buffCnt){
-                buf[p++] = buff[p_buff++];
+            while(p < n && bufferPointer < bufferCount){
+                buf[p++] = buffer[bufferPointer++];
             }
-            if(p_buff == buffCnt){
-                p_buff = 0;
+            if(bufferPointer == bufferCount){
+                bufferPointer = 0;
             }
-            if(buffCnt < 4){
-                break;
-            }
+            if(bufferCount < 4) break;
         }
         return p;
     }
