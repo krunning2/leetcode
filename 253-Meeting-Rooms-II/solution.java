@@ -9,25 +9,21 @@
  */
 public class Solution {
     public int minMeetingRooms(Interval[] intervals) {
-        List<Pair> list = new ArrayList<Pair>();
+        List<Time> times = new ArrayList<>();
         for(Interval i : intervals){
-            list.add(new Pair(i.start, true));
-            list.add(new Pair(i.end, false));
+            times.add(new Time(i.start, true));
+            times.add(new Time(i.end, false));
         }
-        Collections.sort(list, new Comparator<Pair>(){
-            public int compare(Pair i1, Pair i2){
-                if(i1.t == i2.t){
-                    return i1.is_start ? 1 : -1;
-                } else {
-                    return i1.t - i2.t;
-                }
-            }
+        Collections.sort(times, (t1, t2) -> {
+            if(t1.time != t2.time) return t1.time - t2.time;
+            return t1.is_start ? 1 : -1;
         });
         int count = 0;
         int max = 0;
-        for(Pair p : list){
-            if(p.is_start){
-                count++;
+        for(int i = 0; i < times.size(); i++){
+            Time t = times.get(i);
+            if(t.is_start){
+                count ++;
             }else{
                 count--;
             }
@@ -35,11 +31,11 @@ public class Solution {
         }
         return max;
     }
-    class Pair{
-        int t;
+    class Time{
+        int time;
         boolean is_start;
-        Pair(int t, boolean is_start){
-            this.t = t;
+        Time(int time, boolean is_start){
+            this.time = time;
             this.is_start = is_start;
         }
     }
