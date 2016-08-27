@@ -3,10 +3,10 @@ public class Solution {
         if(citations == null || citations.length == 0){
             return 0;
         }
-        if(citations.length == 1){
-            if(citations[0] == 0) return 0;
-            if(citations[0] > 0) return 1;
-        }
+        // if(citations.length == 1){
+        //     if(citations[0] == 0) return 0;
+        //     if(citations[0] > 0) return 1;
+        // }
         int len = citations.length;
         int start = 0, end = len - 1;
         while(start + 1 < end){
