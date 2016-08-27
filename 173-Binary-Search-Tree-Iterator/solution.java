@@ -17,6 +17,11 @@ public class BSTIterator {
         cur = root;
     }
 
+    /** @return the next smallest number */
+    public int next() {
+        return res.val;
+    }
+    
     /** @return whether we have a next smallest number */
     public boolean hasNext() {
         while(cur != null || !stack.isEmpty()){
@@ -29,11 +34,6 @@ public class BSTIterator {
             return true;
         }
         return false;
-    }
-
-    /** @return the next smallest number */
-    public int next() {
-        return res.val;
     }
 }
 
