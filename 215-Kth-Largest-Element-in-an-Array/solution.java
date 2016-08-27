@@ -33,6 +33,7 @@ public class Solution {
                 nums[i] = tmp;
             }
         }
+        //be be careful of the index position
         return index - 1;
     }
 }
