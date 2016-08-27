@@ -8,11 +8,7 @@ public class Solution {
         for(int i = 0; i < m; i++){
             for(int j = 0; j < n; j++){
                 if(matrix[i][j] == '1'){
-                    if(i == 0){
-                        height[j] = 1;
-                    }else{
-                        height[j] = height[j] + 1;
-                    }
+                    height[j] = height[j] + 1;
                 }else{
                     height[j] = 0;
                 }
