@@ -1,1 +1,2 @@
 凡是用到stack 的都要在hasNext 函数里面完成逻辑
+因为stack可能存放了空的iterator
