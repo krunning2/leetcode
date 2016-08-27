@@ -1,1 +1,1 @@
-similar as  Largest Rectangle in Histogram
+similar as  Largest Rectangle in Histogram but for each row, we have to calculate the height
