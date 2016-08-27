@@ -9,38 +9,47 @@
 public class Solution {
     public boolean isPalindrome(ListNode head) {
         if(head == null) return true;
+        ListNode mid = findMid(head);
+        ListNode newHead = mid.next;
+        mid.next = null;
+        ListNode reversed = reverse(newHead);
+        ListNode head2 = reversed;
+        boolean flag = true;
+        while(head2 != null){
+            if(head2.val != head.val){
+                flag = false;
+                break;
+            }
+            head = head.next;
+            head1 = head1.next;
+        }
+        head2 = reverse(reversed);
+        mid.next = head2;
+        return flag;
+    }
+    
+    
+    
+    private ListNode reverse(ListNode node){
+        ListNode pre = null;
+        ListNode cur = node;
+        while(cur != null){
+            ListNode next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+        return pre;
+    }
+    private ListNode findMid(ListNode head){
         ListNode fast = head;
         ListNode slow = head;
-        Stack<Integer> stack = new Stack<Integer>();
-        stack.push(head.val);
-        int count = 0;
         while(true){
             fast = fast.next;
-            count ++;
-            if(fast == null) break;
-            count ++;
+            if(fast == null) return slow;
             fast = fast.next;
-            if(fast == null) break;
+            if(fast == null) return slow;
             slow = slow.next;
-            stack.push(slow.val);
         }
-        ListNode p = slow.next;
-        if(count % 2 != 0) stack.pop();
-        while(p != null){
-            if(stack.pop() != p.val) return false;
-            p = p.next;
-        }
-        return true;
-    }
-    private ListNode reverse(ListNode head){
-        ListNode p1 = null;
-        ListNode p2 = head;
-        while(p2 != null){
-            ListNode tmp = p2.next;
-            p2.next = p1;
-            p1 = p2;
-            p2 = tmp;
-        }
-        return p1;
     }
 }
