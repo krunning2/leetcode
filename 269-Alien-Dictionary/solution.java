@@ -1,55 +1,61 @@
 public class Solution {
     public String alienOrder(String[] words) {
-        HashMap<Character, Integer> degree = new HashMap<Character, Integer>();
-        HashMap<Character, Set<Character>> map = new HashMap<Character, Set<Character>>();
+        Map<Character, Set<Character>> map = new HashMap<>();
+        int[] indegree = new int[26];
+        Arrays.fill(indegree, -1);
+        int minLen = Integer.MAX_VALUE;
+        int total = 0;
+        StringBuilder sb = new StringBuilder();
+        // init
         for(String s : words){
             for(char c : s.toCharArray()){
-                degree.put(c, 0);
+                if(!map.containsKey(c)){
+                    map.put(c, new HashSet<>());
+                    indegree[c - 'a'] = 0;
+                    total++;
+                }
             }
         }
-        for(int i = 0; i < words.length - 1; i ++){
-            String cur = words[i];
-            String next = words[i + 1];
-            int len = Math.min(cur.length(), next.length());
-            for(int j = 0; j < len; j++){
-                if(cur.charAt(j) != next.charAt(j)){
-                    Set<Character> set=new HashSet<Character>();
-                    if(map.containsKey(cur.charAt(j))){
-                        set = map.get(cur.charAt(j));
-                    }else{
-                        map.put(cur.charAt(j), set);
-                    }
-                    if(!set.contains(next.charAt(j))){
-                        degree.put(next.charAt(j), degree.get(next.charAt(j))+1);
-                        set.add(next.charAt(j));
+        // build edge, only compare the current string and next string
+        for(int j = 0; j < words.length - 1; j++){
+            String cur = words[j];
+            String next = words[j + 1];
+            int len = Math.min(cur.length() , next.length());
+            for(int i = 0; i < len; i++){
+                if(cur.charAt(i) != next.charAt(i)){
+                    Set<Character> set = map.get(cur.charAt(i));
+                    if(!set.contains(next.charAt(i))){
+                        indegree[next.charAt(i) - 'a']++;
+                        set.add(next.charAt(i));
                     }
                     // because we are not able to compare rest after this
                     break;
                 }
             }
         }
-        Queue<Character> queue = new LinkedList<Character>();
-        for(char c : degree.keySet()){
-            if(degree.get(c) == 0){
-                queue.offer(c);
+        // BFS
+        
+        Queue<Character> queue = new LinkedList<>();
+        for(int i = 0; i < indegree.length; i++){
+            if(indegree[i] == 0){
+                queue.offer((char)(i + 'a'));
+                sb.append((char)(i + 'a'));
+                total --;
             }
         }
-        StringBuilder res = new StringBuilder();
-        while(!queue.isEmpty()){
-            char c = queue.poll();
-            res.append(c);
-            if(map.containsKey(c)){
-                for(char cur : map.get(c)){
-                    degree.put(cur, degree.get(cur) - 1);
-                    if(degree.get(cur) == 0){
-                        queue.offer(cur);
+        while(! queue.isEmpty()){
+            int size = queue.size();
+            for(int i = 0; i < size; i++){
+                for(char c : map.get(queue.poll())){
+                    indegree[c - 'a']--;
+                    if(indegree[c - 'a'] == 0){
+                        total--;
+                        sb.append(c);
+                        queue.offer(c);
                     }
                 }
             }
         }
-        if(degree.size() != res.length()){
-            return "";
-        }
-        return res.toString();
+        return total == 0 ? sb.toString() : "";
     }
 }
