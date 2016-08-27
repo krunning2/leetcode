@@ -10,31 +10,27 @@ public class Solution {
     public void connect(TreeLinkNode root) {
         TreeLinkNode cur = root;
         while(cur != null){
-            TreeLinkNode left = null;
-            TreeLinkNode p = cur;
-            while(p != null){
-                if(p.left != null){
-                    p.left.next = getNext(p, true);
-                    if(left == null){
-                        left = p.left;
-                    }
+            TreeLinkNode leftMost = null;
+            TreeLinkNode next = cur;
+            while(next != null){
+                if(next.left != null){
+                    next.left.next = findNext(next, true);
+                    if(leftMost == null) leftMost = next.left;
                 }
-                if(p.right != null){
-                    p.right.next = getNext(p, false);
-                    if(left == null){
-                        left = p.right;
-                    }
+                if(next.right != null){
+                    next.right.next = findNext(next, false);
+                    if(leftMost == null) leftMost = next.right;
                 }
-                p = p.next;
+                next = next.next;
             }
-            cur = left;
+            cur = leftMost;
         }
     }
-    private TreeLinkNode getNext(TreeLinkNode parent, boolean isLeft){
-        if(parent.right != null && isLeft){
-            return parent.right;
+    private TreeLinkNode findNext(TreeLinkNode node, boolean is_left){
+        if(is_left && node.right != null){
+            return node.right;
         }
-        TreeLinkNode next = parent.next;
+        TreeLinkNode next = node.next;
         while(next != null){
             if(next.left != null){
                 return next.left;
