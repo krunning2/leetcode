@@ -1,15 +1,17 @@
 public class NumArray {
-    int[] nums;
+    HashMap<Integer, Integer> map;
     public NumArray(int[] nums) {
-        this.nums = nums;
-        for(int i = 1; i < nums.length; i++){
-            nums[i] += nums[i - 1];
+        map = new HashMap<>();
+        int sum = 0;
+        map.put(-1, 0);
+        for(int i = 0; i < nums.length; i++){
+            sum += nums[i];
+            map.put(i, sum);
         }
     }
 
     public int sumRange(int i, int j) {
-        if(i == 0) return nums[j];
-        return nums[j] - nums[i - 1];
+        return map.get(j) - map.get(i - 1);
     }
 }
 
