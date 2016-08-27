@@ -1,31 +1,36 @@
 public class Solution {
     public int maximalRectangle(char[][] matrix) {
-        if(matrix == null || matrix.length == 0) return 0;
-        int[][] height = new int[matrix.length][matrix[0].length];
-        for(int i = 0; i < matrix.length; i++){
-            for(int j = 0; j < matrix[0].length; j++) {
-                if(matrix[i][j] == '0'){
-                    height[i][j] = 0;
-                }else {
-                    height[i][j] = i == 0 ? 1 : height[i - 1][j] + 1;
+        if(matrix == null || matrix.length == 0 || matrix[0].length == 0) return 0;
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int[] height = new int[n];
+        int res = 0;
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(matrix[i][j] == '1'){
+                    if(i == 0){
+                        height[j] = 1;
+                    }else{
+                        height[j] = height[j] + 1;
+                    }
+                }else{
+                    height[j] = 0;
                 }
             }
-        }
-        int res = 0;
-        for(int i = 0; i < height.length; i++){
-            res = Math.max(res, getMax(height[i]));
+            res = Math.max(res, getMaxRec(height));
         }
         return res;
     }
-    private int getMax(int[] height){
-        Stack<Integer> stack = new Stack<Integer>();
+    
+    private int getMaxRec(int[] height){
+        Stack<Integer> stack = new Stack<>();
         int max = 0;
         for(int i = 0; i <= height.length; i++){
             int cur = i == height.length ? -1 : height[i];
-            while(!stack.isEmpty() && height[stack.peek()] >= cur){
+            while(!stack.isEmpty() && cur <= height[stack.peek()]){
                 int h = height[stack.pop()];
                 int len = stack.isEmpty() ? i : i - stack.peek() - 1;
-                max = Math.max(max, h * len);
+                max = Math.max(max, len * h);
             }
             stack.push(i);
         }
