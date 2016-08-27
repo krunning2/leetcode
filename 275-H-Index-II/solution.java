@@ -3,15 +3,23 @@ public class Solution {
         if(citations == null || citations.length == 0){
             return 0;
         }
-        int start = 0, end = citations.length - 1, len = citations.length;
-        while(start <= end){
-            int mid = start + (end - start) / 2;
-            if(citations[mid] < len - mid){
-                start = mid + 1;
+        if(citations.length == 1){
+            if(citations[0] == 0) return 0;
+            if(citations[0] > 0) return 1;
+        }
+        int len = citations.length;
+        int start = 0, end = len - 1;
+        while(start + 1 < end){
+            int mid = start - (start - end) / 2;
+            if(citations[mid] <= len - mid){
+                start = mid;
             }else{
-                end = mid - 1;
+                end = mid;
             }
         }
-        return len - start;
+        if(citations[start] >= len - start) return len - start;
+        if(citations[end] >= len - end) return len - end;
+        
+        return 0;
     }
 }
