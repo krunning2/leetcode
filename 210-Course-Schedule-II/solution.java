@@ -1,32 +1,36 @@
 public class Solution {
-    public int[] findOrder(int numCourses, int[][] prerequisites) {
-        Map<Integer, List<Integer>> map = new HashMap<Integer, List<Integer>>();
-        int indegree[] = new int[numCourses];
-        for(int i = 0; i < numCourses; i++){
-            map.put(i, new ArrayList<Integer>());
-        }
-        for(int i = 0; i < prerequisites.length; i++){
-            map.get(prerequisites[i][1]).add(prerequisites[i][0]);
-            indegree[prerequisites[i][0]]++;
-        }
-        Queue<Integer> q = new LinkedList<Integer>();
+    public int[] findOrder(int numCourses, int[][] pre) {
         int[] res = new int[numCourses];
-        int p = 0;
-        for(int i = 0; i < indegree.length; i++){
+        int[] indegree = new int[numCourses];
+        Map<Integer, List<Integer>> map = new HashMap<>();
+        for(int i = 0; i < numCourses; i++){
+            map.put(i, new ArrayList<>());
+        }
+        for(int i = 0; i < pre.length; i++){
+            map.get(pre[i][1]).add(pre[i][0]);
+            indegree[pre[i][0]]++;
+        }
+        int count = 0;
+        Queue<Integer> queue = new LinkedList<>();
+        for(int i = 0; i < numCourses; i++){
             if(indegree[i] == 0){
-                q.offer(i);
-                res[p++] = i;
+                queue.offer(i);
+                res[count++] = i;
             }
         }
-        while(!q.isEmpty()){
-            int cur = q.poll();
-            for(int i : map.get(cur)){
-                if(--indegree[i] == 0){
-                    res[p++] = i;
-                    q.offer(i);
+        while(! queue.isEmpty()){
+            int size = queue.size();
+            for(int i = 0; i < size; i++){
+                int cur = queue.poll();
+                for(int n : map.get(cur)){
+                    indegree[n]--;
+                    if(indegree[n] == 0){
+                        res[count++] = n;
+                        queue.offer(n);
+                    }
                 }
             }
         }
-        return p == numCourses ? res : new int[0];
+        return count == numCourses ? res : new int[]{};
     }
 }
