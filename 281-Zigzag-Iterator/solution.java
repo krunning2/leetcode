@@ -19,7 +19,7 @@ public class ZigzagIterator {
     }
 
     public boolean hasNext() {
-        if(!readV1 && !i2.hasNext() || readV1 && !i1.hasNext()){
+        if(readV1 && !i1.hasNext() || !readV1 && !i2.hasNext()){
             readV1 = !readV1;
         }
         return i1.hasNext() || i2.hasNext();
