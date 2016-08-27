@@ -1,10 +1,10 @@
 class TrieNode {
-    // Initialize your data structure here.
-    TrieNode children[];
-    String word;
+    Map<Character, TrieNode> map;
+    boolean is_end;
+    char c;
     public TrieNode() {
-        children = new TrieNode[26];
-        word = "";
+        map = new HashMap<>();
+        is_end = false;
     }
 }
 
@@ -17,38 +17,38 @@ public class Trie {
 
     // Inserts a word into the trie.
     public void insert(String word) {
-        TrieNode node = root;
+        TrieNode cur = root;
         for(char c : word.toCharArray()){
-            if(node.children[c - 'a'] == null){
-                node.children[c - 'a'] = new TrieNode();
+            if(!cur.map.containsKey(c)){
+                cur.map.put(c, new TrieNode());
             }
-            node = node.children[c - 'a'];
+            cur = cur.map.get(c);
         }
-        node.word = word;
+        cur.is_end = true;
     }
 
     // Returns if the word is in the trie.
     public boolean search(String word) {
-        TrieNode node = root;
+        TrieNode cur = root;
         for(char c : word.toCharArray()){
-            if(node.children[c - 'a'] != null){
-                node = node.children[c - 'a'];
-            }else{
+            if(!cur.map.containsKey(c)){
                 return false;
+            }else{
+                cur = cur.map.get(c);
             }
         }
-        return node.word.equals(word);
+        return cur.is_end;
     }
 
     // Returns if there is any word in the trie
     // that starts with the given prefix.
     public boolean startsWith(String prefix) {
-        TrieNode node = root;
+        TrieNode cur = root;
         for(char c : prefix.toCharArray()){
-            if(node.children[c - 'a'] != null){
-                node = node.children[c - 'a'];
-            }else{
+            if(!cur.map.containsKey(c)){
                 return false;
+            }else{
+                cur = cur.map.get(c);
             }
         }
         return true;
