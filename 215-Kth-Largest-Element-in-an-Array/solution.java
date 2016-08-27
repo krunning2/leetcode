@@ -2,6 +2,16 @@ public class Solution {
     public int findKthLargest(int[] nums, int k) {
         return quickSelect(nums, 0, nums.length - 1, k);
     }
+    
+    private void quickSort(int[] nums, int l, int r){
+        if(l >= r){
+            return;
+        }
+        int index = partition(nums, l, r);
+        quickSort(nums, l, index - 1);
+        quickSort(nums, index + 1, r);
+    }
+    
     private int quickSelect(int[] nums, int start, int end, int k){
         if(start >= end) return nums[start];
         int index = partition(nums, start, end);
