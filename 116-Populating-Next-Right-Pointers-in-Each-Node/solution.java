@@ -10,15 +10,13 @@ public class Solution {
     public void connect(TreeLinkNode root) {
         TreeLinkNode cur = root;
         while(cur != null){
-            TreeLinkNode p = cur;
-            while(p != null){
-                if(p.left != null){
-                    p.left.next = p.right;
-                }
-                if(p.next != null && p.right != null){
-                    p.right.next = p.next.left;
-                }
-                p = p.next;
+            TreeLinkNode next = cur;
+            while(next != null){
+                if(next.left != null)
+                    next.left.next = next.right;
+                if(next.right != null)
+                    next.right.next = next.next == null ? null : next.next.left;
+                next = next.next;
             }
             cur = cur.left;
         }
