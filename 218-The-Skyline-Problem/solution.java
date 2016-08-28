@@ -14,6 +14,7 @@ public class Solution {
             if(a[0] != b[0]){
                 return a[0] - b[0];
             }else{
+                //1. we want lower height point (including left point) comes first because we don't want end then start to mark, since we use right point to determine the end the current height
                 return a[1] - b[1];
             }
         });
@@ -23,8 +24,10 @@ public class Solution {
         for(int i = 0 ; i < heights.size(); i++){
             int[] cur = heights.get(i);
             if(cur[1] < 0){
+                // if left point, we need to add intot the queue, means start new height
                 queue.offer(-cur[1]);
             }else{
+                // if right points, that means we reach the end the current height, so remove it from the queue
                 queue.remove(cur[1]);
             }
             int h = queue.peek();
