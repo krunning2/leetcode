@@ -9,14 +9,14 @@ public class Solution {
             if(count == 0){
                 res.add(sb.toString());
             }else{
-                res.add(sb.toString() + count);
+                res.add(sb.append(count).toString());
             }
             return;
         }
         int len = sb.length();
         // continue to count
         helper(word, pos + 1, count + 1, res, sb);
-        
+        sb.setLength(len);
         // stop counting, but appending the number and chars
         if(count != 0){
             sb.append(count);
