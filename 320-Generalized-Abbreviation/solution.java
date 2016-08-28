@@ -16,6 +16,7 @@ public class Solution {
         int len = sb.length();
         // continue to count
         helper(word, pos + 1, count + 1, res, sb);
+        // because res.append(count);
         sb.setLength(len);
         // stop counting, but appending the number and chars
         if(count != 0){
