@@ -13,7 +13,7 @@ public class Solution {
             }
             if(count == 0){
                 candidate = nums[i];
-                count ++;
+                count = 1;
             }
         }
         return candidate;
