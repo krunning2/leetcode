@@ -14,7 +14,7 @@ public class Solution {
     /** Returns a random shuffling of the array. */
     public int[] shuffle() {
         int shuffled[] = nums.clone();
-        for(int i = 0; i < shuffled.length; i++){
+        for(int i = 1; i < shuffled.length; i++){
             int j = ran.nextInt(i + 1);
             int tmp = shuffled[j];
             shuffled[j] = shuffled[i];
