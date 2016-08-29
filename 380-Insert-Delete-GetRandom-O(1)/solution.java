@@ -1,12 +1,12 @@
 public class RandomizedSet {
-    List<Integer> list;
     Map<Integer, Integer> map;
     java.util.Random rand;
+    List<Integer> list;
     /** Initialize your data structure here. */
     public RandomizedSet() {
-        map = new HashMap();
-        list = new ArrayList();
+        map = new HashMap<>();
         rand = new java.util.Random();
+        list = new ArrayList<>();
     }
     
     /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
@@ -21,15 +21,17 @@ public class RandomizedSet {
     
     /** Removes a value from the set. Returns true if the set contained the specified element. */
     public boolean remove(int val) {
-        if(!map.containsKey(val)) return false;
+        if(!map.containsKey(val)){
+            return false;
+        }
         int index = map.get(val);
         if(index != list.size() - 1){
             int last = list.get(list.size() - 1);
             list.set(index, last);
             map.put(last, index);
         }
+        list.remove(list.size() - 1);
         map.remove(val);
-        list.remove(list.size()-1);
         return true;
     }
     
