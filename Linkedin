@@ -1,0 +1,543 @@
+
+1， power(a, b) 这个是leetcode原题， 一遍bug free写完了也没问followup
+2， 版上常见的那个interval题目， 要实现一个接口，实现addInterval和getTotalCoverage两个函数。 基本算是leetcode的两个interval题目的变种， 第一遍bug free写了一个add O(n)和get O(1)的方法， 然后交流了一下之后做了些小优化。 followup是问有没有让add方法更efficient的写法, 然后我说了下add O(1), get O(nlogn)的方法， 然后又讨论了一些优化的问题。
+1） maxsum sunarry LC53
+2)  shortest word distance II LC244
+假设a == b，什么情况下 ++a != ++b，只考虑single thread。
+在往disk写数据时，一般prefer把small IO整合成big IO然后读写，为什么？
+两道算法题，很简单，都是鸡精原题。
+Mirror Tree
+TopK
+
+1. write a query to pull user who have event_date on 2000-01-01 and 2000-05-10 both.
+userid     event_date.1point3acres缃�
+1000        2000-01-01
+2000        2000-05-10
+2000        2000-01-01
+
+
+
+
+2. when you do Insert overwrite table table_1 from  table_2. how mapper reducer work?. 
+3. bracket match.
+
+1). Isomorphic string (leetcode): 
+2). Roman to integer (leetcode): 
+3). Find smallest 100 numbers from a very long input: 
+
+3. System Design （应该是中东大哥和印度大哥）：linkedin有很多server在做很多不同的事情，设计一个系统，监测24小时之内top 500的exceptions。。。似乎是这样，因为是半路出家转码工，之前没见过也没准备这个题。。。整个过程一团糟。。。果然这是导致挂了的原因之一。
+ 知道什么是tree吗？写个tree 的class。然后问Inorder traversal。先递归，然后问time/space complexity。完了之后说如果不用递归如何实现。我说用栈，写了code，和以下这个基本一模一样（只是没有pushAllleft独立一个函数，但请允许我继续用这个来解释说明），然后国人大哥说你在while loop外和里分别call了“pushAllleft”， 这是不简洁的，现在只允许在while loop里调用一次pushAllLeft，当时比较紧张，给出了两种方案，不过需要在while loop里做一些特殊判断，他一直不满意，虽然有提示他的思路但是我到最后也没有给出他想要的。大概总共20分钟左右说换下一题。
+
+2). Single Valid Tree，https://www.careercup.com/question?id=5103530547347456
+
+1). Convex hull： 
+2). Is all character in SringB appeared in StringA。这个似乎比较简单，然后问了time complexity，然后问能不能优化，然后他又给了一种算法，问我哪种更好.
+#1   给BT，每一轮所有叶子脱落，直到root最后脱落，要求打印所有轮
+#2  LC find min window in S that has every char in T
+
+1. write through/write back cache的区别
+
+Write-through- Write is done synchronously both to the cache and to the backing store. 
+Write-back (or Write-behind) – Writing is done only to the cache. A modified cache block is written back to the store, just before it is replaced. 
+Write-through（直写模式）在数据更新时，同时写入缓存Cache和后端存储。此模式的优点是操作简单；缺点是因为数据修改需要同时写入存储，数据写入速度较慢。 
+
+
+Write-back（回写模式）在数据更新时只写入缓存Cache。只在数据被替换出缓存时，被修改的缓存数据才会被写到后端存储。此模式的优点是数据写入速度快，因为不需要写存储；缺点是一旦更新后的数据未被写入存储时出现系统掉电的情况，数据将无法找回。 
+
+2. suppose a==b, explain when ++a != ++b
+
+a is long but b is integer and both are equal to Max_value of Integer
+
+3. give a string containing 'a' to 'z', sort lexicographically. Example " bbdda" - > "abbdd"
+bucket sort
+4. get influencer(celebrity)
+5. maximum sum subarray, product array 这个就说了一下
+
+
+
+
+public boolean canPlaceFlowers(List<Boolean> flowerbed, int numberToPlace)
+如果flowerbed当中为true，说明已经栽过花了，附近两个不能再栽花。numberToPlace代表想再栽多少花到flowerbed里。让return是不是还能栽那么多谢花进去。
+
+稍稍修正下，true false false false，第二个false就可以放。基本思路跟你差不多，我只是直接遍历，然后check上一个位置有没有种花。
+for (int i = 0; i < n; i++) {
+    if (i == 0 || (i > 0 && flowerbed[i-1] == false)) {
+        flower[i] = true;
+        num--;
+        if (num == 0) return true;
+    }
+}
+
+
+第二题：. 
+public int distance (List<String> words, String wordOne, String wordTwo).
+给一个string list，可能存在重复，给两个word，让return这两个word在list中的最短距离
+
+第三题：
+输入是一个array stream，在任何时候call你的method，给一个input value，让返回之前输入过的数字有没有两个加起来等于这个value的（2sum稍稍变形）.
+if (target - currentKey == currentKey && hashmap.get(currentKey) > 1)
+    return true;
+. more info on 1point3acres.com
+if (hashmap.containsKey(target - currentkey)) {
+    return true;
+}
+// else
+return false;
+
+
+Lowest Common Ancestor (和leetcode上稍微有点不一样，不提供root，然后互相比较的两个node有left，right，parent三个属性)
+Valid Parenthesis
+
+Insert Intervel/Merge Interval.
+
+1. maximum product subarray
+2. rotate array. 
+Repeated DNA Sequence
+
+设计一个generic class，要求支持add(T), remove(T), randomRemove(T)三个操作，并且必须保证都是O(1)。比如说add(cat), add(dog), add(pig), add(cat), remove(cat), remove(dog)等等，她还特意说必须要考虑重复，也就是说删掉一个cat后另一个cat必须还在，而且randomRemove()必须保证所有元素被删掉的概率均等。
+http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=156459&highlight=linkedin
+
+
+1. 有n个学生（编号为sid = [1..n]）依次走进有n个锁柜的房间（锁的编号为lockid = [1..n])，该学生将会打开或锁上lockid可以被sid整除的锁，写一个打印所有在第n个学生操作后处于打开的状态的lockid。2. Shortest Word Distance II，需要处理word1和word2相同的情况，并需要注意该情况下list中只有一个word1的case
+
+http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=192087&highlight=linkedin
+
+
+第一面东岸的国人gg
+1. implement singleton pattern，要注意constrctor是private
+2. binary tree level order print，我用queue bfs做的，follow up是还有其他解法么，我说了可以用dfs
+
+第二面mtv的两个香港gg
+1. search a number in a 2-d array，每行都是sorted的，每行第一个比前一行最后一个要大，转换成一维的array做 search就行了。面试官说size=row*column-1如果overflow怎么办，我说把int改成long就好了。.
+2. implement stack with pop(), push() and findmiddle() with O(1) time, 一开始我想用array做，面试官提醒resize的时候会有额外操作，就改用double linked list了。维护两个pointer，top和middle。follow up就是test case。
+
+
+
+3月底面的Linkedin的System Track的位置， 从早上9店面面到下午5点，人都快面虚脱了。大家一定要注意保持体力。下面是面试的具体情况
+
+第一轮是host manager（一个人）， host manager的问题主要针对自己做得项目提问；需要阐明做的是什么，怎么做的，为什么那么做；回头来看，需要做什么可以得到改进；然后问了一个比较general的问题： linkedin的页面load很慢，可能是哪些原因导致的？可以有什么办法来衡量，可以怎么解决etc？ host manager的角色比较重要，一般来说，最后的hiring review的时候，他的opinion 可以out weigh 其他人的opinion
+. From 1point 3acres bbs
+第二轮是算法面试（2个人），一个问题是寻找2个linkedlist的回合点。这个题目其实很简单，主要是需要把test case想全，容易遗忘的case是如果linkedlist有环的话，我们可能永远到不了终点。第二个算法题目是max points on a line. 这个题目也需要tricky的case，　比如说２点连线是水平的，或者垂直的，或者重合的；还有一点就是应该用gcd来化简和表示斜率，不能有double表示。
+
+第三轮是设计面试（２个人），问题是设计一个delay　queue。大概的意思是这样的：
+public　interface Runnable{
+public void run();
+}
+
+public interface delayTask{. 1point 3acres 璁哄潧
+public void delayRun(long timeInMillSecondsToDelay, Runnable task);
+}
+sample　calling　code　snippet：
+　　delayTask imp = new delayTaskImple();
+　　imp.delayRun(100, new RunnableImp());
+　　imp.delayRun(10, new RunnableImp());
+不可以用系统的concurrent　collections。需要用thread，condition和lock来实现上面的behavior；需要支持多线程；需要考虑到schedule的效率。谈不同的设计的trade　off。从hr的反馈来看，这一轮面的不好
+
+这里插入的是中午吃饭论，来得engineer是data　track的人，他们是利用infra的组来处理和分析数据的，吃饭的时候也说了好久关于工作的事情。
+
+第四轮是算法面试（２个人），一个问题是isomophic　string（leetcode上有）；第二个问题是upside-down a binary tree。这２个都是leetcode　linkedin　tag下面
+
+第五轮是设计面试（２个人），问题是设计一个monitor　service。题目的背景大概是这样的：. 1point 3acres 璁哄潧
+　　　你大概有１００个app　server，　现在需要设计一个monitor　service，需要回答下面２类问题
+（１）过去最今１分钟，５分钟，１个小时直到一周的的cpu，　memory，　disk的使用状况，最好可以用图形显示结果
+（２）支持任意组合不同的App　server来看使用情况；比如说我可以选择server　１，　３，　５，需要显示最大，最小和平均的使用情况. From 1point 3acres bbs
+这好像就是他们自己的monitor　service，中间当然需要kafka，如后就是如何设计subscriber和kv　store了。从最后的结果看，这一轮一般。
+
+第六轮是设计面试（２个人），这一轮设计一个buffer来支持读写，大概的背景是单机有一个４g的memory，现在需要设计APIs来进行多线程的读写。每次写的时候log会prefix　message　id；读的时候会指定从某个mesdage　id开始读，比如说：
+　append（int　messageid，　int　messageLength）
+读的时候：
+int　read（int　startMessageId，　int　readMessageLength）
+messageId是单调递增的。读的时候startMessageId不一定是需要出现的，比如说村的messgaeId是　１，５，８，２３.给的读得messageId是７的话，那么从messageId＝８的开始读起。最后的结果是把它抽象为single　producer，　multiple　reader。然后在读的时候，用的是binary　search　in　rotated　array的方法找到读得起始位置。从最后的结果来看，这一轮免得较好。
+
+1. print tree in level order， 秒杀
+
+2. retainedCache, 缓存满之后剔除最小rank的元素，类似于LRU cache，但是要简单一点，也是HashMap + list 搞定
+1. Isomorfic string
+2. Insert Interval and get totalCoverdLength.
+
+
+1. Process 和 thread 的区别。除了教科书上的答法，我还加了点从LInux Kernel 那本书里学的（10年前看的，嘿还没有忘记）。
+thread is a path of process. threads in same process shares the  address space, while different process has independent memory
+
+
+2. 什么是 RAID？我一口气给他整了raid1 －－》raid4 的区别，这兄弟很满意。还说我只想问啥是RAID。
+3. Implement HashMap 的put，get and remove。 还好平时上班的时候我喜欢读读Java 的source code。这道题就是轻松copy and paste。
+4. Follow up，如何让多个Threads access 这个 HashMap。还好ConcurrentHashMap的code 我也读过。lock slicing ＋ CAS 之类的。看起来他还挺满意。
+ Nested Integer, follow up: reverse nested integer.
+
+
+ r1: add/delete/random delete
+     leetcode DNA原题
+
+r2: K nearest points in 2D
+
+r3: tiny URL
+
+r4: mgr
+
+r5: tech communucation
+
+给了个排好序的数组, 找第一个比 target 大的数的数组的下标
+
+permutation、permutationII
+
+
+http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=171927&highlight=linkedin
+
+1, write Singleton class.
+
+public class CrunchifySingleton {
+ 
+	private static CrunchifySingleton instance = null;
+ 
+	private CrunchifySingleton() {
+	}
+ 
+	// Lazy Initialization (If required then only)
+	public static CrunchifySingleton getInstance() {
+		if (instance == null) {
+			// Thread Safe. Might be costly operation in some case
+			synchronized (CrunchifySingleton.class) {
+				if (instance == null) {
+					instance = new CrunchifySingleton();
+				}
+			}
+		}
+		return instance;
+	}
+}
+
+public class ThreadSafeSingleton {
+ 
+	private static final Object instance = new Object();
+ 
+	protected ThreadSafeSingleton() {
+	}
+ 
+	// Runtime initialization
+	// By defualt ThreadSafe
+	public static Object getInstance() {
+		return instance;
+	}
+}
+
+2, 
+/**
+     * Three segments of lengths A, B, C form a triangle if
+     *
+     *      A + B > C. 
+     *      B + C > A
+     *      A + C > B
+     *
+     * e.g.
+     *  6, 4, 5 can form a triangle.
+     * 10, 2, 7 can't
+     *
+     * Given a list of segments lengths algorithm should find at least one triplet of segments that form a triangle (if any).
+     * Method should return an array of either:
+     * - 3 elements: segments that form a triangle (i.e. satisfy the condition above)
+     * - empty array if there are no such segments
+     */
+
+
+/**
+     * Given a matrix of following relationships between N LinkedIn users (with ids from 0 to N-1):
+     * followingMatrix[i][j] == true iff user i is following user j
+     * thus followingMatrix[j] doesn't imply followingMatrix[j].
+     * Let's also agree that followingMatrix == false.
+     *
+     * An influencer is a user who is:
+     * - followed by everyone else and
+     * - not following anyone herself/himself
+     * This method should return the influencer's id in a given matrix of following relationships,
+     * or return -1 if there is no influencer in this group..
+     */
+    //input: boolean[][] followingMatrix
+
+Solution:
+   * If A knows B, then A can’t be celebrity. Discard A, and B may be celebrity.
+   * If A doesn’t know B, then B can’t be celebrity. Discard B, and A may be celebrity.
+   * Repeat above two steps till we left with only one person.
+   * Ensure the remained person is celebrity. (Why do we need this step? Maybe no one is celebrity)
+
+merge sort.
+
+比如说 ==和equals的区别；2者分别什么时候用；如果override equals的话，还要override什么其他方法吗？如果equals返回true，但是hashcode返回的int不一样，会有什么后果；接着问了一些OS的核心概念，比如说京城和线程的区别，2者的应用场景之类的；最后大哥问了2个问题
+ nested sum + two sum III, 做出来了, 二面 Lowest common ancestor 及其变种 + random number data structure design
+
+
+ valid parenthness.
+maximum subarray
+maximum product subarray
+
+
+二面
+union/intersection
+isomophic Strings 我一开始用的一个hash做的时间复杂度是平方，要求优化，就是用两个hash做
+
+valid number.
+
+Range Sum Query 2D - Immutable
+k Nearst Points
+
+
+
+1. 给一个二叉树 返回镜像 (Binary Tree Mirror)
+
+2. Implement a thread-safe blocking queue.
+
+http://tutorials.jenkov.com/java-concurrency/blocking-queues.html
+
+3. 一个嵌套Map， 就是一个HashMap, 它的value可以是一个element也可以是另外一个
+嵌套map或是空的map. 实现一个iterator来遍历这个map里面的所有element。 就是类
+似树遍历一样的方法
+
+4. 给你一个数组，其中一个数出现了大于N／３次，N是数组长度。怎么找？我先说
+HASHTABLE，他问我还有没有什么办法。想来想去只能SORT. 他就问下一题了。不知道
+还有没有什么最优解。我觉得那种针对一个数字出现过大于N／２的VOTING ALGORITHM
+好象不是很合适吧。
+
+5.后缀波兰表达式STRING转换为中缀表达式的STRING。
+这题本来很简单，但我可能算错了。纠结的地方是a,b,+,c,/ 
+到底是 (c/(a+b)) 还是 ((a+b)/c)
+
+6. Implement pow(double a, int b)
+  
+7. 接着给Amazon的favorite, 2-sum to fixed number, 我不喜欢写这个题。就直接告
+诉他：两种答案，hashtable, 2个指针，我都写过，你要哪种？他挺理解，说，既然你
+写过，给我讲一下性能差别，然后就放过了。
+
+8. 算逆波兰表达式。又是一个细节题，我知道会写错。小心翼翼地写，一边写一边解
+释，最后还是有小错。
+
+9. 判断一个input string是不是valid number
+
+10. Implement List Interface.
+
+11. Search a 2D sorted array
+
+12. coding就问了在数组中那个查找那个出现概率不小于1/2的数。后来做延伸到找K个
+这样的数，不过那个面试者显然搞错了，说要求找top K个出现次数>=N/K (N是数组大
+小)的数，这样唯一可能性就只有K个数每个都出现N/K次。开始被让晕了，后来发现这
+个问 题。 
+
+13. 给两个已排序数组，要求返回他们的交集和并集.我就用两个指针分别指向两个数
+组，从左向右扫一遍.我也说了hash的方法.对方又问能不能用merge的方法，我回答能
+，但是不觉得复杂度更低。 
+
+14. 题目描述起来很简单，就是给出一个数，找出所有Unique的组合。 比如： 2 ：　
+１＋１ 
+３：　　１＋２，　１＋１＋１　 
+４：　　１＋３，　１＋２，　１＋１＋１＋１，　２＋２ 
+
+15. 2. 数组连续最大和, 
+上面的都回答完后，还有不少时间，又让实现最大乘积，这个没做好。从来没写过，现
+写的时候出了不少问题，最后也只是写了个主体,我说 有些细节我没时间了，说说得了
+。感觉面试官也没什么idea，因为我问她0的情况你觉得怎么处理好，她也只说了些需
+要reset什么的。有空准备写一下这个。整体感觉还可以，如果因为这个题就悲剧了也
+没什么好说的。
+
+16. /** Compute the value of an expression in Reverse Polish order. 
+Supported operators are "+", "-", "*" and "/". 
+* Reverse Polish is a postfix mathematical notation in which each operator 
+immediately follows its operands. 
+* Each operand may be a number or another expression. 
+* For example, 3 + 4 in Reverse Polish is 3 4 + and 2 * (4 + 1) would be 
+written as 4 1 + 2 * or 2 4 1 + *
+Calculate value? we use stack to do
+
+17. search in transposed array 
+
+18. 两种方法写Singleton 
+
+19. 问了Mutex, Semaphore 
+
+20. implement memmove(void* src, void* dec, size_t num_bytes)
+
+21. 输入是个stream
+class input_stream
+{
+    // Character or -1
+    int read();
+}
+每次call read（），返回一个char，如果到头了就是返回-
+
+21. Roman To Integer
+
+22. Text Justification
+
+23. String to integer
+
+24. Insert interval
+
+25. Celebrity Problem
+http://www.mitbbs.com/article_t/JobHunting/32582287.html
+
+
+之后出coding题，第一道是triangle的，秒过，follow up：1. 输出array能组成triangle的数目。2. 输出所有的能组成的triangle。time complexity，优化等。
+第二道是新题，给multidimensional array，给一个function， 输入这个array以及各个dimension上的index，可以output这个位置上的数字。
+写一个function，input是multidimensional array，以及array的dimensions，只能调用上面给的那个function，输出这个array里面所有的数字的和。
+题不难，是我当时脑子懵了，一直在想怎么找这个array的各个dimension上的boundary，其实input就给了。和面试官一直在交流，但我没说好，十几分钟一直在纠结这个问题。
+后来面试官举了个例子，立刻反应过来了。但也没有什么时间，就草草的说了下pseudo code，用dfs做所有dimension上的不同index的combination，然后调用那个function求和。
+
+
+phone： two sum， words distance。
+
+onsite：
+
+1. 国人大哥和一个棒子
+设计一个key， value store。 value很大，不能存进内存。给一个append only file 
+system。
+
+2. 白人老头，估计是fail到这轮了。 delayed scheduler。 就是设计一个scheduler
+，然后schedule request。 request是一个payload和多久之后执行。 要写code。
+
+3. 老美和一个同胞。 设计一个系统，系统存储的是reverted index。系统可以找到任
+何多个word的instersection。
+
+4. 烙印，也有可能败在这轮。上来就打着瞌睡，完全没有听我在说什么。乱七八糟的
+问了几个问题，不知道想要知道什么。 然后问了我做过的project，如何设计的，如何
+scale的。 基本一路在打瞌睡。 非常rude，想吃Y的。
+
+5 小白。 find a range， insert interval。
+
+6 abc。 max point on a line， 两个linked list是否merge。 followup， what if
+每个list有环。
+
+
+1. 给一个integer list，返回只出现过一次的整数。秒过
+2. 给两个已经descending order sorted的数组，merge成一个descending order的数组。leetcode原题只不过次序变了一下，没啥好说的，秒了
+3. 给一数组，让判断是否有三个数可以组成一个三角形。三个数代表三角形三边长，三角形的定义是仍和两边长相加要大于第三边。此题类似3sum和sliding window的组合，只要考虑清楚了也是容易得到线性解。
+
+
+给你一个java interface, 实现两个method，一个是void add interval(int from, 
+int to), 另一个是int getTotalLength()返回已有interval的总时间，当然，要考虑
+overlapping。比如(1,5), (2, 6)的total length 是5. 
+http://www.mitbbs.com/article_t/JobHunting/33118445.html
+
+
+
+1. binary tree按行打印
+2. 最小的k个数。
+
+onsite:
+1.经理聊天
+
+2. 烙印, abc 设计。设计web based calander system. 这烙印很嚣张，进来走的时候
+我上去握手都不和我握手的。。
+烙印不知道hbase&cassandra 这些，感觉对牛弹琴。
+  
+3.  谈一个最近的project,两个国人，谈得很愉快
+
+4. 1. shuffle an array, 证明你的算法是正确地。
+
+    2. binary tree encode / decode
+
+
+5.  two linkedlists  intersection or not.  一个shadow故意挑刺。。
+
+     given an array and a target num, find the number of subsets whose sum 
+is target.
+
+
+2. 实现 BlockingQueue 的 take() 和 put()
+public interface BlockingQueue<T>
+{
+    /** Retrieve and remove the head of the queue, waiting if no elements 
+are present. */
+    T take();
+
+    /** Add the given element to the end of the queue, waiting if necessary 
+for space to become available. */
+    void put (T obj);
+}
+
+
+public class BlockingQueue {
+
+  private List queue = new LinkedList();
+  private int  limit = 10;
+
+  public BlockingQueue(int limit){
+    this.limit = limit;
+  }
+
+
+  public synchronized void enqueue(Object item)
+  throws InterruptedException  {
+    while(this.queue.size() == this.limit) {
+      wait();
+    }
+    if(this.queue.size() == 0) {
+      notifyAll();
+    }
+    this.queue.add(item);
+  }
+
+
+  public synchronized Object dequeue()
+  throws InterruptedException{
+    while(this.queue.size() == 0){
+      wait();
+    }
+    if(this.queue.size() == this.limit){
+      notifyAll();
+    }
+
+    return this.queue.remove(0);
+  }
+
+}
+
+
+3. 实现一共 TwoSum interface
+public interface TwoSum {
+    /**
+     * Stores @param input in an internal data structure.
+     */
+    void store(int input);
+
+    /**
+     * Returns true if there is any pair of numbers in the internal data 
+structure which
+     * have sum @param val, and false otherwise.
+     * For example, if the numbers 1, -2, 3, and 6 had been stored,
+     * the method should return true for 4, -1, and 9, but false for 10, 5, 
+and 0
+     */
+    boolean test(int val);
+}
+
+http://www.mitbbs.com/article_t/JobHunting/32802467.html
+
+
+“一个嵌套Map， 就是一个HashMap, 它的value可以是一个element也可以是另外一个
+嵌套map或是空的map. 实现一个iterator来遍历这个map里面的所有element。 就是类
+似树遍历一样的方法”
+
+请教大家这题应该怎么写？实在想不出来了。。各位哥帮忙写个呗。。。先谢了。。。
+
+http://stackoverflow.com/questions/29998898/implement-a-java-iterator-for-a-nested-hashmap-in-which-an-element-can-be-any-of
+
+
+1. hosting manager (working history, project)
+2. coding (serialize and deserialize binary tree）给了几种解法，被要求写类似
+preorder traversal 递归解法。
+3. lunch interview
+4. Technical communication
+5. Coding (minimum window substring and max points in a line)
+6. system design (tiny url)
+
+给一个string, 可以删除任意字符，求所有可以得到的palidrome字串集
+http://www.mitbbs.com/article_t/JobHunting/33053715.html
+http://www.mitbbs.com/article_t/JobHunting/33057021.html
+
+1. 给定2 threads, 每个thread相隔一个小时运行一次.他们运行时会调用myclass 里
+的doWork method. 这个method就是update myclass里的一个field.比如一个int filed
+.这个dowork method保证在2分钟之内完成. thread会在一开始运行时就call这个
+method. 请问对这个method我们需要synchronization吗?
+
+2. 如何implement 领英的social graph. 要求给定2个user,你能快速查出这2个user是
+不是直接connected或者间接connected.比如2nd connection, 3rd connection.
+
+3. 接2, 如果要求能查出某个user有多少个direct connections呢?
