@@ -1,6 +1,8 @@
 public class Solution {
     public int kthSmallest(int[][] matrix, int k) {
-        if(matrix == null || matrix.length == 0) return 0;
+        if(matrix == null || matrix.length == 0 || matrix[0].length == 0){
+            return 0;
+        }
         PriorityQueue<Cell> queue = new PriorityQueue<>((a, b)-> (a.val - b.val));
         for(int i = 0; i < Math.min(k, matrix.length); i++){
             queue.offer(new Cell(0, i, matrix[0][i]));
@@ -13,7 +15,6 @@ public class Solution {
         }
         return queue.peek().val;
     }
-    
     class Cell{
         int row;
         int col;
