@@ -9,18 +9,17 @@
  */
 public class Solution {
     public int closestValue(TreeNode root, double target) {
-        if(root == null){
-            throw new RuntimeException("Root can't be null");
+        int res = root.val;
+        while(root != null){
+            if(Math.abs(target - root.val) < Math.abs(target - res)){
+                res = root.val;
+            }
+            if(root.val > target){
+                root = root.left;
+            }else{
+                root = root.right;
+            }
         }
-        int cur = root.val;
-        int kid = cur;
-        if(root.val < target && root.right != null){
-            kid = closestValue(root.right, target);
-        }
-        if(root.val > target && root.left != null){
-            kid = closestValue(root.left, target);
-        }
-        return Math.abs(cur - target) < Math.abs(kid - target) ? cur : kid;
+        return res;
     }
-   
 }
