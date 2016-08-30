@@ -1,20 +1,26 @@
 public class Solution {
     public boolean isStrobogrammatic(String num) {
-        if(num == null || num.length() == 0){
-            return true;
-        }
-        int start = 0, end = num.length() - 1;
+        if(num == null) return false;
+        int start = 0;
+        int end = num.length() - 1;
         while(start <= end){
-            if(!check(num.charAt(start), num.charAt(end))){
+            if(validate(num.charAt(start), num.charAt(end))){
+                start ++;
+                end --;
+            }else{
                 return false;
             }
-            start++;
-            end--;
         }
-        //if(start == end) return (num.charAt(start) == '8' || num.charAt(start) == '1' || num.charAt(start) == '0');
         return true;
     }
-    private boolean check(char c1, char c2){
-        return (c1 == '6' && c2 == '9' || c1 == '9' && c2 == '6' || c1 == '1' && c2 == '1' || c1 == '8' && c2 == '8' || c1 == '0' && c2 == '0');
+    private boolean validate(char c1, char c2){
+        switch(c1){
+            case '6' : return c2 == '9';
+            case '8' : return c2 == '8';
+            case '1' : return c2 == '1';
+            case '0' : return c2 == '0';
+            case '9' : return c2 == '6';
+            default : return false;
+        }
     }
 }
