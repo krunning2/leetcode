@@ -9,17 +9,17 @@ public class Solution {
         if(m == 0){
             return new ArrayList<String>(Arrays.asList(""));
         }
-        List<String> list = helper(n, m - 2);
-        List<String> res = new ArrayList<String>();
+        List<String> list = helper(n , m - 2);
+        List<String> res = new ArrayList<>();
         for(int i = 0; i < list.size(); i++){
-             String s = list.get(i);
-             if(m != n){
-                 res.add("0" + s + "0");
-             }
-             res.add("1" + s + "1");
-             res.add("6" + s + "9");
-             res.add("8" + s + "8");
-             res.add("9" + s + "6");
+            String s = list.get(i);
+            if(m != n){
+                res.add("0" + s + "0");
+            }
+            res.add("1" + s + "1");
+            res.add("6" + s + "9");
+            res.add("8" + s + "8");
+            res.add("9" + s + "6");
         }
         return res;
     }
