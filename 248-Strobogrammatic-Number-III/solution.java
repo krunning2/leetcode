@@ -1,5 +1,5 @@
 public class Solution {
-    public int strobogrammaticInRange(String low, String high) {        
+    public int strobogrammaticInRange(String low, String high) {
         List<String> res = new ArrayList<String>();
         for(int i = low.length(); i <= high.length(); i++){
             res.addAll(helper(i, i));
@@ -7,21 +7,21 @@ public class Solution {
         int count = 0;
         for(String s : res){
             if(s.length() == low.length() && s.compareTo(low) < 0 || s.length() == high.length() && s.compareTo(high) > 0){
-                continue;    
+                continue;
             }
             count++;
         }
         return count;
     }
-    private List<String> helper(int m, int n){
+    private List<String> helper(int n, int m){
         if(m == 0){
             return new ArrayList<String>(Arrays.asList(""));
         }
         if(m == 1){
             return new ArrayList<String>(Arrays.asList("0", "1", "8"));
         }
-        List<String> list = helper(m - 2, n);
-        List<String> res = new ArrayList<String>();
+        List<String> list = helper(n, m - 2);
+        List<String> res = new ArrayList<>();
         for(int i = 0; i < list.size(); i++){
             String s = list.get(i);
             if(m != n){
