@@ -1,33 +1,32 @@
 public class Solution {
     public int nthSuperUglyNumber(int n, int[] primes) {
-        PriorityQueue<Node> queue = new PriorityQueue<Node>(primes.length, new Comparator<Node>(){
-            public int compare(Node n1, Node n2){
-                return n1.val - n2.val;
-            }
-        });
-        int[] list = new int[n];
-        list[0] = 1;
-        for(int i = 0; i < primes.length; i++){
-            queue.offer(new Node(primes[i], 0, primes[i]));
+        if(primes == null || primes.length == 0){
+            return 1;
+        }
+        PriorityQueue<Node> queue = new PriorityQueue<Node>((a,b) -> (a.val - b.val));
+        int[] num = new int[n];
+        num[0] = 1;
+        for(int prime : primes){
+            queue.offer(new Node(0, prime, prime));
         }
         for(int i = 1; i < n; i++){
             Node cur = queue.peek();
-            list[i] = cur.val;
-            while(!queue.isEmpty() && list[i] == queue.peek().val){
-                Node tmp = queue.poll();
-                tmp.index ++;
-                tmp.val = list[tmp.index] * tmp.prime;
-                queue.offer(tmp);
+            num[i] = cur.val;
+            int min = cur.val;
+            while(!queue.isEmpty() && queue.peek().val == min){
+                Node minNode = queue.poll();
+                minNode.index++;
+                minNode.val = num[minNode.index] * minNode.prime;
+                queue.offer(minNode);
             }
         }
-        return list[n - 1];
+        return num[n - 1];
     }
-    
     class Node{
         int index;
-        int prime;
         int val;
-        Node(int val, int index, int prime){
+        int prime;
+        Node(int index, int val, int prime){
             this.val = val;
             this.index = index;
             this.prime = prime;
