@@ -1,18 +1,16 @@
 public class Solution {
     public boolean canWin(String s) {
-        return helper(s, new HashMap<>());
+        return helper(s.toCharArray());
     }
-    private boolean helper(String s, Map<String, Boolean> map){
-        for(int i = 0; i < s.length() - 1; i++){
-            if(s.charAt(i) == '+' && s.charAt(i + 1) == '+'){
-                String substring = s.substring(0, i) + "--" + s.substring(i + 2);
-                if(!helper(substring, map)){
-                    map.put(substring, Boolean.TRUE);
-                    return true;
-                }
+    private boolean helper(char[] chars){
+        for(int i = 0; i < chars.length - 1; i++){
+            if(chars[i] == '+' && chars[i + 1] == '+'){
+                chars[i] = chars[i + 1] = '-';
+                boolean flag = helper(chars);
+                chars[i] = chars[i + 1] = '+';
+                if(!flag) return true;
             }
         }
-        map.put(s, Boolean.FALSE);
         return false;
     }
 }
