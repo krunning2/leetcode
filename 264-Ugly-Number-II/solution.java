@@ -1,20 +1,22 @@
 public class Solution {
     public int nthUglyNumber(int n) {
-        if(n <= 0) return -1;
-        List<Integer> list = new ArrayList<Integer>();
-        list.add(1);
-        int i2 = 0, i3 = 0, i5 = 0;
-        int m2 = 0, m3 = 0, m5 = 0;
-        while(list.size() < n){
-            m2 = list.get(i2) * 2;
-            m3 = list.get(i3) * 3;
-            m5 = list.get(i5) * 5;
-            int min = Math.min(m2, Math.min(m3, m5));
-            if(min == m2) i2 ++;
-            if(min == m3) i3 ++;
-            if(min == m5) i5 ++;
-            list.add(min);
+        if(n <= 0){
+            return 1;
         }
-        return list.get(n - 1);
+        int pos2 = 0, pos3 = 0, pos5 = 0;
+        List<Integer> num = new ArrayList<>();
+        num.add(1);
+        int f2 = 0, f3 = 0, f5 = 0;
+        for(int i = 1; i < n; i++){
+            f2 = num.get(pos2) * 2;
+            f3 = num.get(pos3) * 3;
+            f5 = num.get(pos5) * 5;
+            int min = Math.min(f2, Math.min(f3, f5));
+            if(min == f2) pos2++;
+            if(min == f3) pos3++;
+            if(min == f5) pos5++;
+            num.add(min);
+        }
+        return num.get(n - 1);
     }
 }
