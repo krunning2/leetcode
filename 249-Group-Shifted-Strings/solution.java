@@ -17,12 +17,6 @@ public class Solution {
         return res;
     }
     private String getKey(String s){
-        if(s.length () == 0){
-            return s;
-        }
-        if(s.length() == 1){
-            return "a";
-        }
         char first = s.charAt(0);
         int diff = first - 'a';
         StringBuilder sb = new StringBuilder();
