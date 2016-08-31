@@ -6,7 +6,7 @@ public class Solution {
         }
         HashMap<String, List<String>> map = new HashMap<String, List<String>>();
         for(String s : strings){
-            String key = getBitMap(s);
+            String key = getKey(s);
             map.putIfAbsent(key, new ArrayList<String>());
             map.get(key).add(s);
         }
@@ -16,11 +16,22 @@ public class Solution {
         }
         return res;
     }
-    private String getBitMap(String s){
+    private String getKey(String s){
+        if(s.length () == 0){
+            return s;
+        }
+        if(s.length() == 1){
+            return "a";
+        }
+        char first = s.charAt(0);
+        int diff = first - 'a';
         StringBuilder sb = new StringBuilder();
-        int dist = s.charAt(0) - 'a';
         for(int i = 0; i < s.length(); i++){
-            sb.append((s.charAt(i) - 'a' - dist + 26) % 26 + 'a');
+            if(s.charAt(i) - diff < 'a'){
+                sb.append((char)(s.charAt(i) - diff + 26));
+            }else{
+                sb.append((char)(s.charAt(i) - diff));
+            }
         }
         return sb.toString();
     }
