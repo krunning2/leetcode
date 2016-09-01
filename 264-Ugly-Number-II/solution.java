@@ -6,16 +6,17 @@ public class Solution {
         int pos2 = 0, pos3 = 0, pos5 = 0;
         List<Integer> num = new ArrayList<>();
         num.add(1);
-        int f2 = 0, f3 = 0, f5 = 0;
+        int f2 = 2, f3 = 3, f5 = 5;
+        int min = Math.min(f2, Math.min(f3, f5));
         for(int i = 1; i < n; i++){
-            f2 = num.get(pos2) * 2;
-            f3 = num.get(pos3) * 3;
-            f5 = num.get(pos5) * 5;
-            int min = Math.min(f2, Math.min(f3, f5));
+            num.add(min);
             if(min == f2) pos2++;
             if(min == f3) pos3++;
             if(min == f5) pos5++;
-            num.add(min);
+            f2 = num.get(pos2) * 2;
+            f3 = num.get(pos3) * 3;
+            f5 = num.get(pos5) * 5;
+            min = Math.min(f2, Math.min(f3, f5));
         }
         return num.get(n - 1);
     }
