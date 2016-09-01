@@ -2,28 +2,29 @@ public class Solution {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int m = nums1.length;
         int n = nums2.length;
-        if((n + m) % 2 == 0){
-            return (find(nums1, nums2, 0, 0, (n + m) / 2 + 1) + find(nums1, nums2, 0, 0, (n + m) / 2) )/ 2.0;
+        if((m + n) % 2 == 0){
+            return (findKth(nums1, 0, nums2, 0, (m + n) / 2) + findKth(nums1, 0, nums2, 0, (m + n) /2 + 1)) / 2.0;
         }else{
-            return find(nums1, nums2, 0, 0 , (n + m) / 2 + 1);
+            return findKth(nums1, 0, nums2, 0, (m + n) / 2 + 1);
         }
     }
-    private int find(int[] A, int[] B, int startA, int startB, int k){
-        if(startA >= A.length){
-            return B[startB + k - 1];
+    private int findKth(int[] nums1, int start1, int[] nums2, int start2, int k){
+        
+        if(start1 >= nums1.length){
+            return nums2[start2 + k - 1];
         }
-        if(startB >= B.length){
-            return A[startA + k - 1];
+        if(start2 >= nums2.length){
+            return nums1[start1 + k - 1];
         }
         if(k == 1){
-            return Math.min(A[startA], B[startB]);
+            return Math.min(nums1[start1], nums2[start2]);
         }
-        int keyA = k/2 + startA - 1 >= A.length ? Integer.MAX_VALUE : A[k/2 + startA - 1];
-        int keyB = k/2 + startB - 1 >= B.length ? Integer.MAX_VALUE : B[k/2 + startB - 1];
-        if(keyA < keyB){
-            return find(A, B, startA + k/2, startB, k- k / 2);
+        int key1 = start1 + k/2 - 1 >= nums1.length ? Integer.MAX_VALUE : nums1[start1 + k/2 - 1]; 
+        int key2 = start2 + k/2 - 1 >= nums2.length ? Integer.MAX_VALUE : nums2[start2 + k/2 - 1]; 
+        if(key1 < key2){
+            return findKth(nums1, start1 + k / 2, nums2, start2, k - k / 2);
         }else{
-            return find(A, B, startA, startB + k/2, k - k / 2);
+            return findKth(nums1, start1, nums2, start2 + k / 2, k - k / 2);
         }
     }
 }
