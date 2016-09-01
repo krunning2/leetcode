@@ -1,20 +1,14 @@
 public class Solution {
     public boolean canPermutePalindrome(String s) {
-        Map<Character, Integer> map = new HashMap<Character, Integer>();
-        for(int i = 0; i < s.length(); i++){
-            if(map.containsKey(s.charAt(i))){
-                map.put(s.charAt(i), 1 + map.get(s.charAt(i)));
-            }else{
-                map.put(s.charAt(i), 1);
-            }
+        Map<Character, Integer> map = new HashMap<>();
+        for(char c : s.toCharArray()){
+            if(map.containsKey(c)) map.put(c, map.get(c) + 1);
+            else map.put(c, 1);
         }
-        boolean flag = false;
-        for(int i : map.values()){
-            if(i % 2 != 0 && !flag){
-                flag = true;
-            }else if(i % 2 != 0 && flag){
-                return false;
-            }
+        boolean odd = false;
+        for(int v : map.values()){
+            if(v % 2 == 1 && odd) return false;
+            if(v % 2 == 1) odd = true;
         }
         return true;
     }
