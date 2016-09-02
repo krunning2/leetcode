@@ -1,8 +1,7 @@
 public class Solution {
     public void gameOfLife(int[][] board) {
-        if(board == null || board.length == 0 || board[0].length == 0){
-            return;
-        }
+        if(board == null || board.length == 0 || board[0].length == 0) return;
+        
         for(int i = 0; i < board.length; i++){
             for(int j = 0; j < board[0].length; j++){
                 int lives = getLives(board, i, j);
@@ -20,7 +19,6 @@ public class Solution {
             }
         }
     }
-    
     private int getLives(int[][] board, int x, int y){
         int m = board.length - 1;
         int n = board[0].length - 1;
