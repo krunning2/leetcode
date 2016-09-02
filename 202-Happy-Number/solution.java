@@ -8,8 +8,8 @@ public class Solution {
                 sum += (n % 10) * (n % 10);
                 n /= 10;
             }
-            if(sum == 1) return true;
             n = sum;
+            if(n == 1) return true;
         }
         return false;
     }
