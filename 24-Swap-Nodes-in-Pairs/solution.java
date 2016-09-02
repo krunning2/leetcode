@@ -11,14 +11,12 @@ public class Solution {
         if(head == null || head.next == null) return head;
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        ListNode pre = dummy;
-        ListNode cur = head;
-        ListNode next= head.next;
+        ListNode pre = dummy, cur = head, next = head.next;
         while(next != null){
-            pre.next = next;
             ListNode tmp = next.next;
-            cur.next = tmp;
             next.next = cur;
+            cur.next = tmp;
+            pre.next = next;
             pre = cur;
             cur = tmp;
             next = tmp == null ? null : tmp.next;
