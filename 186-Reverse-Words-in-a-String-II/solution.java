@@ -1,6 +1,5 @@
 public class Solution {
     public void reverseWords(char[] s) {
-        if(s == null) return;
         reverse(s, 0, s.length - 1);
         int p1 = 0, p2 = 0;
         while(p2 <= s.length){
@@ -13,13 +12,13 @@ public class Solution {
             }
         }
     }
-    private void reverse(char[] c, int s, int e){
-        while(s <= e){
-            char tmp = c[s];
-            c[s] = c[e];
-            c[e] = tmp;
-            s++;
-            e--;
+    private void reverse(char[] s, int l, int r){
+        while(l < r){
+            char c = s[l];
+            s[l] = s[r];
+            s[r] = c;
+            l++;
+            r--;
         }
     }
 }
