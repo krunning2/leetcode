@@ -9,7 +9,7 @@ public class Solution {
     }
     
     private void helper(int n, int l, int r, List<String> res, StringBuilder sb){
-        if(sb.length() == 2 * n){
+        if(l == n && r == n){
             res.add(sb.toString());
             return;
         }
