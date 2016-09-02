@@ -1,15 +1,16 @@
 public class Solution {
     public void solveSudoku(char[][] board) {
-        solve(board);
+        resolve(board);
     }
-    
-    private boolean solve(char[][] board){
+    private boolean resolve(char[][] board){
         for(int i = 0; i < 9; i++){
             for(int j = 0; j < 9; j++){
                 if(board[i][j] == '.'){
-                    for(char c = '0'; c <= '9'; c++){
+                    for(char c = '1'; c <= '9'; c++){
                         board[i][j] = c;
-                        if(isSudoku(board) && solve(board)) return true;
+                        if(isValid(board) && resolve(board)){
+                            return true;
+                        }
                         board[i][j] = '.';
                     }
                     return false;
@@ -19,7 +20,7 @@ public class Solution {
         return true;
     }
     
-    private boolean isSudoku(char[][] board){
+    private boolean isValid(char[][] board){
         boolean[] visited = new boolean[9];
         for(int i = 0; i < 9; i++){
             Arrays.fill(visited, false);
