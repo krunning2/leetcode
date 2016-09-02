@@ -8,7 +8,7 @@ public class Solution {
                 if(board[i][j] == '.'){
                     for(char c = '1'; c <= '9'; c++){
                         board[i][j] = c;
-                        if(isValid(board) && resolve(board)){
+                        if(isSudoku(board) && resolve(board)){
                             return true;
                         }
                         board[i][j] = '.';
@@ -20,7 +20,7 @@ public class Solution {
         return true;
     }
     
-    private boolean isValid(char[][] board){
+    private boolean isSudoku(char[][] board){
         boolean[] visited = new boolean[9];
         for(int i = 0; i < 9; i++){
             Arrays.fill(visited, false);
@@ -39,7 +39,6 @@ public class Solution {
                 }
             }
         }
-        
         for(int i = 0; i < 9; i = i + 3){
             for(int j = 0; j < 9; j = j + 3){
                 Arrays.fill(visited, false);
