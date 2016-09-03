@@ -10,7 +10,7 @@ public class Solution {
         String res = "";
         // len 表示加上的长度，并非总长度
         for(int len = 1; len < size; len ++){
-            for(int start = 0; start + len < size; start ++){
+            for(int start = 0; start + len < size; start++){
                 if(s.charAt(start) == s.charAt(start + len) && (map[start + 1][start + len - 1] || len == 1)){
                     map[start][start + len] = true;
                     if(max < len + 1){
@@ -18,10 +18,8 @@ public class Solution {
                         res = s.substring(start, start + len + 1);
                     }
                 }
-                
             }
         }
         return res;
     }
-    
 }
