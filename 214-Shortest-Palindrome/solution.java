@@ -1,8 +1,6 @@
 public class Solution {
     public String shortestPalindrome(String s) {
-        if(s == null || s.length() == 0){
-            return "";
-        }
+        if(s == null || s.length() <= 1) return s;
         StringBuilder sb = new StringBuilder(s);
         StringBuilder sb_rev = new StringBuilder(s).reverse();
         sb.append("#");
@@ -10,19 +8,20 @@ public class Solution {
         int index = getNext(sb);
         return sb_rev.substring(0, sb_rev.length() - index - 1) + s;
     }
-    private int getNext(StringBuilder sb){
-        int[] next = new int[sb.length()];
-        int j = 0, k = -1;
+    private int getNext(StringBuilder s){
+        int i = 0;
+        int j = -1;
+        int[] next = new int[s.length()];
         next[0] = -1;
-        while(j < sb.length() - 1){
-            if(k == -1 || sb.charAt(j) == sb.charAt(k)){
-                k ++;
-                j ++;
-                next[j] = k;
+        while(i < s.length() - 1){
+            if(j == -1 || s.charAt(i) == s.charAt(j)){
+                j++;
+                i++;
+                next[i] = j;
             }else{
-                k = next[k];
+                j = next[j];
             }
         }
-        return next[sb.length() - 1];
+        return next[s.length() - 1];
     }
 }
