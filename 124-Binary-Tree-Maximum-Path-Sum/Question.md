@@ -18,18 +18,18 @@ Return `6`.
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Microsoft](/company/microsoft/)</span></div>
-
-<div>
-
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
-
-<span class="hidebutton" style="display: inline;">[Tree](/tag/tree/) [Depth-first Search](/tag/depth-first-search/)</span></div>
+<span class="hidebutton">[Microsoft](/company/microsoft/)</span></div>
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[(E) Path Sum](/problems/path-sum/) [(M) Sum Root to Leaf Numbers](/problems/sum-root-to-leaf-numbers/)</span></div>
+<span class="hidebutton">[Tree](/tag/tree/) [Depth-first Search](/tag/depth-first-search/)</span></div>
+
+<div>
+
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
+
+<span class="hidebutton">[(E) Path Sum](/problems/path-sum/) [(M) Sum Root to Leaf Numbers](/problems/sum-root-to-leaf-numbers/)</span></div>
