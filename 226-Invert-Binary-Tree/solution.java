@@ -9,7 +9,7 @@
  */
 public class Solution {
     public TreeNode invertTree(TreeNode root) {
-        if(root == null) return root;
+        if(root == null) return null;
         TreeNode left = root.left;
         root.left = root.right;
         root.right = left;
