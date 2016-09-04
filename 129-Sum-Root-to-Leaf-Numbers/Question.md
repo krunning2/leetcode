@@ -22,12 +22,12 @@ Return the sum = 12 + 13 = `25`.
 
 <div>
 
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Tree](/tag/tree/) [Depth-first Search](/tag/depth-first-search/)</span></div>
+<span class="hidebutton">[Tree](/tag/tree/) [Depth-first Search](/tag/depth-first-search/)</span></div>
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
 
-<span class="hidebutton" style="display: inline;">[(E) Path Sum](/problems/path-sum/) [(H) Binary Tree Maximum Path Sum](/problems/binary-tree-maximum-path-sum/)</span></div>
+<span class="hidebutton">[(E) Path Sum](/problems/path-sum/) [(H) Binary Tree Maximum Path Sum](/problems/binary-tree-maximum-path-sum/)</span></div>
