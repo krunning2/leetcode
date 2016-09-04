@@ -16,18 +16,18 @@ Given _n_ = 3, there are a total of 5 unique BST's.
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Snapchat](/company/snapchat/)</span></div>
-
-<div>
-
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
-
-<span class="hidebutton" style="display: inline;">[Tree](/tag/tree/) [Dynamic Programming](/tag/dynamic-programming/)</span></div>
+<span class="hidebutton">[Snapchat](/company/snapchat/)</span></div>
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[(M) Unique Binary Search Trees II](/problems/unique-binary-search-trees-ii/)</span></div>
+<span class="hidebutton">[Tree](/tag/tree/) [Dynamic Programming](/tag/dynamic-programming/)</span></div>
+
+<div>
+
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
+
+<span class="hidebutton">[(M) Unique Binary Search Trees II](/problems/unique-binary-search-trees-ii/)</span></div>
