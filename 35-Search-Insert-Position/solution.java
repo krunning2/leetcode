@@ -1,5 +1,6 @@
 public class Solution {
     public int searchInsert(int[] nums, int target) {
+        if(nums == null || nums.length <= 0) return 0;
         int start = 0;
         int end = nums.length - 1;
         while(start + 1 < end){
@@ -16,7 +17,7 @@ public class Solution {
             return start;
         }else if(nums[end] >= target){
             return end;
-        } else{
+        }else{
             return nums.length;
         }
     }
