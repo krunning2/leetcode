@@ -9,25 +9,25 @@
 public class Solution {
     public ListNode partition(ListNode head, int x) {
         ListNode dummy = new ListNode(Integer.MIN_VALUE);
-        if(head == null || head.next == null) return head;
         dummy.next = head;
-        ListNode pre = dummy;
         ListNode p = dummy;
+        ListNode pre = p;
         while(p != null && p.val < x){
             pre = p;
             p = p.next;
         }
-        ListNode p2 = p;
+        
+        ListNode p2 = pre;
         while(p != null){
-            if(p.val < x){
+            if(p.val >= x){
+                p2 = p;
+                p = p.next;
+            }else{
                 p2.next = p.next;
                 p.next = pre.next;
                 pre.next = p;
-                pre = p;
+                pre = pre.next;
                 p = p2.next;
-            }else{
-                p2 = p;
-                p = p.next;
             }
         }
         return dummy.next;
