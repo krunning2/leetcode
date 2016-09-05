@@ -9,20 +9,17 @@
  */
 public class Solution {
     public int sumNumbers(TreeNode root) {
-        if(root == null) return 0;
-        int[] sum = {0};
-        DFS(root, 0, sum);
+        int[] sum = new int[1];
+        getSum(root, 0, sum);
         return sum[0];
     }
-    private void DFS(TreeNode root, int pre, int[] sum){
-        if(root == null){
-            return;
-        }
+    private void getSum(TreeNode root, int pre, int[] sum){
+        if(root == null) return;
         int cur = pre * 10 + root.val;
         if(root.left == null && root.right == null){
             sum[0] += cur;
         }
-        DFS(root.left, cur, sum);
-        DFS(root.right, cur, sum);
+        getSum(root.left, cur, sum);
+        getSum(root.right, cur, sum);
     }
 }
