@@ -9,52 +9,21 @@
  */
 public class Solution {
     public List<Integer> closestKValues(TreeNode root, double target, int k) {
-        Stack<TreeNode> predecessor = new Stack<TreeNode>();
-        Stack<TreeNode> successor = new Stack<TreeNode>();
-        List<Integer> res = new ArrayList<Integer>();
-        while(root != null){
-            if(root.val <= target){
-                predecessor.push(root);
-                root = root.right;
-            }else{
-                successor.push(root);
-                root = root.left;
-            }
-        }
-        while(k > 0){
-            if(predecessor.isEmpty() && successor.isEmpty()){
-                break;
-            }
-            if(predecessor.isEmpty()){
-                res.add(getSuccessor(successor));
-            } else if(successor.isEmpty()){
-                res.add(getPredecessor(predecessor));
-            } else if(Math.abs(successor.peek().val - target) < Math.abs(predecessor.peek().val - target)){
-                res.add(getSuccessor(successor));
-            }else{
-                res.add(getPredecessor(predecessor));
-            }
-            k--;
-        }
+        LinkedList<Integer> res = new LinkedList<>();
+        helper(root, target, k, res);
         return res;
     }
-    private int getPredecessor(Stack<TreeNode> predecessor){
-        TreeNode top = predecessor.pop();
-        TreeNode cur = top.left;
-        while(cur != null){
-            predecessor.push(cur);
-            cur = cur.right;
+    private void helper(TreeNode root, double target, int k, LinkedList<Integer> res){
+        if(root == null) return;
+        helper(root.left, target, k, res);
+        if(res.size() == k){
+            if(Math.abs(res.getFirst() - target) > Math.abs(root.val - target)){
+                res.removeFirst();
+            }else{
+                return;
+            }
         }
-        return top.val;
-    }
-    
-    private int getSuccessor(Stack<TreeNode> successor){
-        TreeNode top = successor.pop();
-        TreeNode cur = top.right;
-        while(cur != null){
-            successor.push(cur);
-            cur = cur.left;
-        }
-        return top.val;
+        res.add(root.val);
+        helper(root.right, target, k, res);
     }
 }
