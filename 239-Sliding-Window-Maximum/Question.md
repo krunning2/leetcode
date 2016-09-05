@@ -41,12 +41,12 @@ Could you solve it in linear time?
 
 <div>
 
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Heap](/tag/heap/)</span></div>
+<span class="hidebutton">[Heap](/tag/heap/)</span></div>
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
 
-<span class="hidebutton" style="display: inline;">[(H) Minimum Window Substring](/problems/minimum-window-substring/) [(E) Min Stack](/problems/min-stack/) [(H) Longest Substring with At Most Two Distinct Characters](/problems/longest-substring-with-at-most-two-distinct-characters/) [(H) Paint House II](/problems/paint-house-ii/)</span></div>
+<span class="hidebutton">[(H) Minimum Window Substring](/problems/minimum-window-substring/) [(E) Min Stack](/problems/min-stack/) [(H) Longest Substring with At Most Two Distinct Characters](/problems/longest-substring-with-at-most-two-distinct-characters/) [(H) Paint House II](/problems/paint-house-ii/)</span></div>
