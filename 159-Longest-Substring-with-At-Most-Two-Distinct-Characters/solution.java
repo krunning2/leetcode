@@ -1,33 +1,24 @@
 public class Solution {
     public int lengthOfLongestSubstringTwoDistinct(String s) {
-        if(s == null || s.length() == 0){
-            return 0;
-        }
-        Map<Character, Integer> map = new HashMap<Character, Integer>();
-        int res = 0;
+        Map<Character, Integer> map = new HashMap<>();
         int j = 0;
+        int max = 0;
         for(int i = 0; i < s.length(); i++){
-            while(j < s.length()){
-                char tmp = s.charAt(j);
-                if(map.size() < 2 || map.containsKey(tmp)){
-                    if(map.containsKey(tmp)){
-                        map.put(tmp, 1 + map.get(tmp));
-                    }else{
-                        map.put(tmp, 1);
-                    }
-                    j++;
+            while(j < s.length() && (map.size() == 2 && map.containsKey(s.charAt(j)) || map.size() < 2)){
+                if(map.containsKey(s.charAt(j))){
+                    map.put(s.charAt(j), 1 + map.get(s.charAt(j)));
                 }else{
-                    break;
+                    map.put(s.charAt(j), 1);
                 }
+                j++;
             }
-            res = Math.max(res, j - i);
-            char tmp = s.charAt(i);
-            if(map.containsKey(tmp) && map.get(tmp) <=1){
-                map.remove(tmp);
-            }else if(map.containsKey(tmp) && map.get(tmp) > 1){
-                map.put(tmp, map.get(tmp) - 1);
+            max = Math.max(max, j - i);
+            if(map.get(s.charAt(i)) == 1){
+                map.remove(s.charAt(i));
+            }else{
+                map.put(s.charAt(i), map.get(s.charAt(i)) - 1);
             }
         }
-        return res;
+        return max;
     }
 }
