@@ -9,7 +9,7 @@
  */
 public class Solution {
     public List<Integer> rightSideView(TreeNode root) {
-        List<Integer> res = new ArrayList<Integer>();
+         List<Integer> res = new ArrayList<Integer>();
         if(root == null) return res;
         Queue<TreeNode> queue = new LinkedList();
         queue.offer(root);
