@@ -9,19 +9,21 @@
  */
 public class Solution {
     public void flatten(TreeNode root) {
-        if(root == null) return;
         while(root != null){
+            TreeNode right = root.right;
             if(root.left != null){
-                TreeNode pre = root.left;
-                while(pre != null && pre.right != null){
-                    pre = pre.right;
-                }
-                TreeNode tmp = root.right;
+                TreeNode rightMost = findRightMost(root.left);
+                rightMost.right = right;
                 root.right = root.left;
                 root.left = null;
-                pre.right = tmp;
             }
             root = root.right;
         }
+    }
+    private TreeNode findRightMost(TreeNode node){
+        while(node != null && node.right != null){
+            node = node.right;
+        }
+        return node;
     }
 }
