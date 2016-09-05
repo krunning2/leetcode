@@ -10,7 +10,7 @@
  * }
  */
 public class Solution {
-    public boolean hasCycle(ListNode head) {
+     public boolean hasCycle(ListNode head) {
         ListNode fast = head;
         ListNode slow = head;
         while(true){
