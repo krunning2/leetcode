@@ -33,9 +33,9 @@ As an added challenge, try to code it using only [iterators in C++](http://www.c
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Google](/company/google/) [Airbnb](/company/airbnb/) [Twitter](/company/twitter/) [Zenefits](/company/zenefits/)</span></div>
+<span class="hidebutton">[Google](/company/google/) [Airbnb](/company/airbnb/) [Twitter](/company/twitter/) [Zenefits](/company/zenefits/)</span></div>
 
 <div>
 
