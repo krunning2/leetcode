@@ -9,18 +9,25 @@
  */
 public class Solution {
     public int maxPathSum(TreeNode root) {
-        if(root == null) return Integer.MIN_VALUE;
-        int[] max = {Integer.MIN_VALUE};
-        find(root, max);
-        return max[0];
+        Result res = new Result();
+        getMaxPathSum(root, res);
+        return res.val;
     }
-    private int find(TreeNode node, int[] max){
-        if(node == null) return 0;
-        int left = find(node.left, max);
-        int right = find(node.right, max);
-        int branchMax = Math.max(Math.max(left, right) + node.val, node.val);
-        int crossMax = Math.max(branchMax, left + right + node.val);
-        max[0] = Math.max(max[0], crossMax);
-        return branchMax;
+    private int getMaxPathSum(TreeNode root, Result res){
+        if(root == null){
+            return 0;
+        }
+        int left = getMaxPathSum(root.left, res);
+        int right = getMaxPathSum(root.right, res);
+        int singlePath = Math.max(root.val, Math.max(left, right) + root.val);
+        res.val = Math.max(res.val, Math.max(singlePath, root.val + left + right));
+        return singlePath;
     }
+    class Result{
+        int val;
+        Result(){
+            val = Integer.MIN_VALUE;
+        }
+    }
+    
 }
