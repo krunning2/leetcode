@@ -10,12 +10,12 @@ return `4->5->1->2->3->NULL`.
 
 <div>
 
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Linked List](/tag/linked-list/) [Two Pointers](/tag/two-pointers/)</span></div>
+<span class="hidebutton">[Linked List](/tag/linked-list/) [Two Pointers](/tag/two-pointers/)</span></div>
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
 
-<span class="hidebutton" style="display: inline;">[(E) Rotate Array](/problems/rotate-array/)</span></div>
+<span class="hidebutton">[(E) Rotate Array](/problems/rotate-array/)</span></div>
