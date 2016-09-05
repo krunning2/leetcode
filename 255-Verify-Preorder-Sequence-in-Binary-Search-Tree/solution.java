@@ -1,15 +1,15 @@
 public class Solution {
     public boolean verifyPreorder(int[] preorder) {
-        Stack<Integer> stack = new Stack<>();
+        int p = -1;
         int min = Integer.MIN_VALUE;
         for(int x : preorder){
             if(x < min){
                 return false;
             }
-            while(!stack.isEmpty() && x > stack.peek()){
-                min = stack.pop();
+            while(p >= 0 && x > preorder[p]){
+                min = preorder[p--];
             }
-            stack.push(x);
+            preorder[++p] = x;
         }
         return true;
     }
