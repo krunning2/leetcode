@@ -9,9 +9,9 @@
  */
 public class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<TreeNode> ();
-        TreeNode cur = root;
         List<Integer> res = new ArrayList<Integer>();
+        TreeNode cur = root;
+        Stack<TreeNode> stack = new Stack<>();
         while(cur != null || !stack.isEmpty()){
             while(cur != null){
                 stack.push(cur);
