@@ -1,10 +1,11 @@
 public class NumMatrix {
-    private int[][] sum;
+    int[][] sum;
     public NumMatrix(int[][] matrix) {
-        if(matrix == null || matrix.length == 0) return;
-        int m = matrix.length;
-        int n = matrix[0].length;
-        sum = new int[m + 1][n + 1];
+        if(matrix == null || matrix.length == 0 || matrix[0].length == 0){
+            sum = null;
+            return;
+        }
+        sum = new int[matrix.length + 1][matrix[0].length + 1];
         for(int i = 1; i <= matrix.length; i++){
             for(int j = 1; j <= matrix[0].length; j++){
                 sum[i][j] = sum[i - 1][j] + sum[i][j - 1] - sum[i - 1][j - 1] + matrix[i - 1][j - 1];
