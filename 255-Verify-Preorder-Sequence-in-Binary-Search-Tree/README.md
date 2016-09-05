@@ -1,1 +1,1 @@
-Keep push elements to the stack if next element is smaller than peek of stack, which means it is on the left side of the tree. If find a larger element, it means it goes to the right side of one node, then stars pop up, it will follow the order.
+Keep push elements to the stack if next element is smaller than peek of stack, which means it is on the left side of the tree. If find a larger element, it means it goes to the right side of one node, update the min number, then stars pop up, it will follow the order.
