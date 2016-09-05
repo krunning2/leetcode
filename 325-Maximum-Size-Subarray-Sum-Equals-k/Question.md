@@ -25,12 +25,12 @@ Can you do it in O(_n_) time?
 
 <div>
 
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Hash Table](/tag/hash-table/)</span></div>
+<span class="hidebutton">[Hash Table](/tag/hash-table/)</span></div>
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
 
-<span class="hidebutton" style="display: inline;">[(M) Minimum Size Subarray Sum](/problems/minimum-size-subarray-sum/) [(E) Range Sum Query - Immutable](/problems/range-sum-query-immutable/)</span></div>
+<span class="hidebutton">[(M) Minimum Size Subarray Sum](/problems/minimum-size-subarray-sum/) [(E) Range Sum Query - Immutable](/problems/range-sum-query-immutable/)</span></div>
