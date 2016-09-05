@@ -1,33 +1,25 @@
 public class Solution {
     public int lengthOfLongestSubstringKDistinct(String s, int k) {
-        if(s == null || s.length() == 0){
-            return 0;
-        }
-        Map<Character, Integer> map = new HashMap<Character, Integer>();
-        int res = 0;
+        if(k <= 0) return 0;
+        Map<Character, Integer> map = new HashMap<>();
         int j = 0;
+        int max = 0;
         for(int i = 0; i < s.length(); i++){
-            while(j < s.length()){
-                char cur = s.charAt(j);
-                if(map.size() < k || map.containsKey(cur)){
-                    if(map.containsKey(cur)){
-                        map.put(cur, map.get(cur) + 1);
-                    }else{
-                        map.put(cur, 1);
-                    }
-                    j++;
+            while(j < s.length() && (map.size() == k && map.containsKey(s.charAt(j)) || map.size() < k)){
+                if(map.containsKey(s.charAt(j))){
+                    map.put(s.charAt(j), 1 + map.get(s.charAt(j)));
                 }else{
-                    break;
+                    map.put(s.charAt(j), 1);
                 }
+                j++;
             }
-            res = Math.max(res, j - i);
-            char tmp = s.charAt(i);
-            if(map.containsKey(tmp) && map.get(tmp) > 1){
-                map.put(tmp, map.get(tmp) - 1);
-            }else if(map.containsKey(tmp) && map.get(tmp) <= 1){
-                map.remove(tmp);
+            max = Math.max(max, j - i);
+            if(map.get(s.charAt(i)) == 1){
+                map.remove(s.charAt(i));
+            }else{
+                map.put(s.charAt(i), map.get(s.charAt(i)) - 1);
             }
         }
-        return res;
+        return max;
     }
 }
