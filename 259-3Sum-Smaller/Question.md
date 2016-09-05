@@ -23,9 +23,9 @@ Could you solve it in _O_(_n_<sup>2</sup>) runtime?
 
 <div>
 
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Array](/tag/array/) [Two Pointers](/tag/two-pointers/)</span></div>
+<span class="hidebutton">[Array](/tag/array/) [Two Pointers](/tag/two-pointers/)</span></div>
 
 <div>
 
