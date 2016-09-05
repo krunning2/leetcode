@@ -9,15 +9,14 @@
  */
 public class Solution {
     public TreeNode sortedArrayToBST(int[] nums) {
-        if(nums == null || nums.length == 0) return null; 
-        return build(nums, 0, nums.length - 1);
+        return helper(0, nums.length - 1, nums);
     }
-    private TreeNode build(int[] nums, int s, int e){
-        if(s > e) return null;
-        int mid = s - (s - e) / 2;
+    private TreeNode helper(int start, int end, int[] nums){
+        if(start > end) return null;
+        int mid = start - (start - end) / 2;
         TreeNode root = new TreeNode(nums[mid]);
-        root.left = build(nums, s, mid - 1);
-        root.right = build(nums, mid + 1, e);
+        root.left = helper(start, mid - 1, nums);
+        root.right = helper(mid + 1, end, nums);
         return root;
     }
 }
