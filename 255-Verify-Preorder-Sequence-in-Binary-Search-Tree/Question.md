@@ -11,18 +11,18 @@ Could you do it using only constant space complexity?
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Zenefits](/company/zenefits/)</span></div>
-
-<div>
-
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
-
-<span class="hidebutton" style="display: inline;">[Tree](/tag/tree/) [Stack](/tag/stack/)</span></div>
+<span class="hidebutton">[Zenefits](/company/zenefits/)</span></div>
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[(M) Binary Tree Preorder Traversal](/problems/binary-tree-preorder-traversal/)</span></div>
+<span class="hidebutton">[Tree](/tag/tree/) [Stack](/tag/stack/)</span></div>
+
+<div>
+
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
+
+<span class="hidebutton">[(M) Binary Tree Preorder Traversal](/problems/binary-tree-preorder-traversal/)</span></div>
