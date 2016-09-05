@@ -26,9 +26,9 @@ It should return `[1,4,8,2,5,9,3,6,7]`.
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Google](/company/google/)</span></div>
+<span class="hidebutton">[Google](/company/google/)</span></div>
 
 <div>
 
@@ -38,6 +38,6 @@ It should return `[1,4,8,2,5,9,3,6,7]`.
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
 
-<span class="hidebutton" style="display: inline;">[(M) Binary Search Tree Iterator](/problems/binary-search-tree-iterator/) [(M) Flatten 2D Vector](/problems/flatten-2d-vector/) [(M) Peeking Iterator](/problems/peeking-iterator/) [(M) Flatten Nested List Iterator](/problems/flatten-nested-list-iterator/)</span></div>
+<span class="hidebutton">[(M) Binary Search Tree Iterator](/problems/binary-search-tree-iterator/) [(M) Flatten 2D Vector](/problems/flatten-2d-vector/) [(M) Peeking Iterator](/problems/peeking-iterator/) [(M) Flatten Nested List Iterator](/problems/flatten-nested-list-iterator/)</span></div>
