@@ -9,23 +9,22 @@
  */
 public class Solution {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        if(preorder == null || inorder == null) return null;
-        return build(preorder, inorder, 0, preorder.length - 1, 0, inorder.length - 1);
+        return helper(inorder, preorder, 0, inorder.length - 1, 0, preorder.length - 1);
     }
-    private TreeNode build(int[] pre, int[] in, int pS, int pE, int inS, int inE){
-        if(pS > pE){
+    private TreeNode helper(int[] inorder, int[] preorder, int inS, int inE, int preS, int preE){
+        if(inS > inE){
             return null;
         }
-        TreeNode root = new TreeNode(pre[pS]);
-        int index = find(in, inS, inE, pre[pS]);
+        int index = find(preorder[preS], inorder);
         int len = index - inS;
-        root.left = build(pre, in, pS + 1, pS + len, inS, index - 1);
-        root.right = build(pre, in, pS + len + 1, pE, index + 1, inE);
+        TreeNode root = new TreeNode(preorder[preS]);
+        root.left = helper(inorder, preorder, inS, index - 1, preS + 1, preS + len);
+        root.right = helper(inorder, preorder, index + 1, inE, preS + len + 1, preE);
         return root;
     }
-    private int find(int[] in, int inS, int inE, int target){
-        for(int i = inS; i <= inE; i++){
-            if(in[i] == target) return i;
+    private int find(int target, int[] inorder){
+        for(int i = 0; i < inorder.length; i++){
+            if(target == inorder[i]) return i;
         }
         return 0;
     }
