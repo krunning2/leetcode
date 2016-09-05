@@ -14,10 +14,10 @@ public class Solution {
         }
         int j = 0;
         for(int i = 0; i < s.length(); i++){
-            
             while(total > 0 && j < s.length()){
                 char cur = s.charAt(j);
                 if(map.containsKey(cur)){
+                    // only decrease the total counter when there is no redundent chars
                     if(map.get(cur) > 0){
                         total --;
                     }
@@ -33,9 +33,11 @@ public class Solution {
             }
             char cur = s.charAt(i);
             if(map.containsKey(cur)){
+                // means no redundent chars in the window
                 if(map.get(cur) >= 0){
                     total ++;
                 }
+                // remove one from the map
                 map.put(cur, map.get(cur) + 1);
             }
         }
