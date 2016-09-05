@@ -1,17 +1,16 @@
 public class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        int  p1 = 0;
-        int p2 = nums.length - 1;
-        while(p1 < p2){
-            int sum = nums[p1] + nums[p2];
-            if(sum == target){
-                return new int[] {p1 + 1, p2 + 1};
-            }else if(sum < target){
-                p1++;
+    public int[] twoSum(int[] numbers, int target) {
+        int start = 0;
+        int end = numbers.length - 1;
+        while(start < end){
+            if(numbers[start] + numbers[end] == target){
+                return new int[]{start + 1, end + 1};
+            }else if(numbers[start] + numbers[end] > target){
+                end--;
             }else{
-                p2--;
+                start++;
             }
         }
-        return new int[] {0, 0};
+        return new int[]{-1, -1};
     }
 }
