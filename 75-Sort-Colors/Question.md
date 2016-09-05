@@ -11,7 +11,7 @@ You are not suppose to use the library's sort function for this problem.
 
 [click to show follow up.](#)
 
-<div class="spoilers" style="display: block;">
+<div class="spoilers" style="display: none;">
 
 **Follow up:**  
 A rather straight forward solution is a two-pass algorithm using counting sort.  
@@ -35,6 +35,6 @@ Could you come up with an one-pass algorithm using only constant space?
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
 
-<span class="hidebutton" style="display: inline;">[(M) Sort List](/problems/sort-list/) [(M) Wiggle Sort](/problems/wiggle-sort/) [(M) Wiggle Sort II](/problems/wiggle-sort-ii/)</span></div>
+<span class="hidebutton">[(M) Sort List](/problems/sort-list/) [(M) Wiggle Sort](/problems/wiggle-sort/) [(M) Wiggle Sort II](/problems/wiggle-sort-ii/)</span></div>
