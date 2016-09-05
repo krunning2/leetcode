@@ -23,6 +23,7 @@ public class Solution {
             if(cur.val <= preNode.val){
                 if(!foundFirst){
                     p1 = preNode;
+                    // to avoid the root is the wrong node
                     p2 = cur;
                     foundFirst = true;
                 }else{
