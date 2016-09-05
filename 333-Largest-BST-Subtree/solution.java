@@ -8,33 +8,34 @@
  * }
  */
 public class Solution {
+    
     class Result{
-        int size;
+        int val;
         int max;
         int upper;
         int lower;
-        Result(int s, int m, int u, int l){
-            size = s;
-            max = m;
-            upper = u;
-            lower = l;
+        Result(int val, int max, int upper, int lower){
+            this.val = val;
+            this.max = max;
+            this.upper = upper;
+            this.lower = lower;
         }
     }
+    
     
     public int largestBSTSubtree(TreeNode root) {
         Result res = find(root);
         return res.max;
     }
     
-    private Result find(TreeNode root){
+    public Result find(TreeNode root){
         if(root == null) return new Result(0, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
         Result left = find(root.left);
         Result right = find(root.right);
-        if(left.size == -1 || right.size == -1 || root.val <= left.upper || root.val >= right.lower){
-            return new Result(-1, Math.max(left.max, right.max), 0, 0);
+        if(left.val == -1 || right.val == -1 || root.val <= left.upper || root.val >= right.lower){
+            return new Result(-1, Math.max(right.max, left.max), 0, 0);
         }
-        int size = left.size + right.size + 1;
+        int size = left.val + right.val + 1;
         return new Result(size, Math.max(size, Math.max(left.max, right.max)), Math.max(root.val, right.upper), Math.min(root.val, left.lower));
     }
-
 }
