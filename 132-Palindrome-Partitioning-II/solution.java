@@ -1,21 +1,20 @@
 public class Solution {
     public int minCut(String s) {
-        //define dp[i] as the min cut for [0...i)
-        int[] dp = new int[s.length() + 1];
-        boolean[][] m = getMatrix(s);
+        if(s == null) return 0;
+        int dp[] = new int[s.length() + 1];
         for(int i = 0; i <= s.length(); i++){
             dp[i] = i - 1;
         }
+        boolean[][] matrix = getMatrix(s);
         for(int i = 1; i <= s.length(); i++){
             for(int j = 0; j < i; j++){
-                if(m[j][i - 1]){
+                if(matrix[j][i - 1]){
                     dp[i] = Math.min(dp[i], dp[j] + 1);
                 }
             }
         }
         return dp[s.length()];
     }
-    
     private boolean[][] getMatrix(String s){
         boolean[][] m = new boolean[s.length()][s.length()];
         for(int i = 0; i < s.length(); i++){
@@ -29,5 +28,4 @@ public class Solution {
         }
         return m;
     }
-    
 }
