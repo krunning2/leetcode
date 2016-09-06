@@ -1,33 +1,32 @@
 public class Solution {
     public int minCut(String s) {
-        if(s == null) return 0;
-        int dp[] = new int[s.length() + 1];
+        //define dp[i] as the min cut for [0...i)
+        int[] dp = new int[s.length() + 1];
+        boolean[][] m = getMatrix(s);
         for(int i = 0; i <= s.length(); i++){
             dp[i] = i - 1;
         }
-        boolean[][] matrix = getMatrix(s);
         for(int i = 1; i <= s.length(); i++){
             for(int j = 0; j < i; j++){
-                if(matrix[j][i - 1]){
+                if(m[j][i - 1]){
                     dp[i] = Math.min(dp[i], dp[j] + 1);
                 }
             }
         }
         return dp[s.length()];
     }
+    
     private boolean[][] getMatrix(String s){
-        int l = s.length();
-        boolean[][] matrix = new boolean[l][l];
-        for(int i = 0; i < l; i++){
-            matrix[i][i] = true;
+        boolean[][] m = new boolean[s.length()][s.length()];
+        for(int i = 0; i < s.length(); i++){
+            m[i][i] = true;
         }
-        for(int len = 1; len < l; len++){
-            for(int i = 0; i + len < l; i++){
-                if(s.charAt(i) == s.charAt(i + len) && (len == 1 || matrix[i + 1][i + len - 1])){
-                    matrix[i][i + len] = true;
-                }
+        // the length is increasing 表示start 加上 的长度，并非总长度。
+        for(int len = 1; len < s.length(); len ++){
+            for(int start = 0; start + len < s.length(); start++){
+                m[start][start + len] = (m[start + 1][start + len - 1] || len == 1)&& s.charAt(start) == s.charAt(start + len);
             }
         }
-        return matrix;
+        return m;
     }
 }
