@@ -1,8 +1,6 @@
 public class Solution {
+    //dp[i] = dp[i - 1] + dp[i - 2]
     public int climbStairs(int n) {
-        if(n <= 2){
-            return n;
-        }
         int[] dp = new int[3];
         dp[0] = 0;
         dp[1] = 1;
