@@ -1,16 +1,15 @@
 public class Solution {
     public int jump(int[] nums) {
         int step = 0;
-        int next = 0;
-        int res = 0;
+        int maxStep = 0;
+        int cur = 0;
         for(int i = 0; i < nums.length; i++){
-            
-            if(step < i){
-                res ++;
-                step = next;
+            if(cur < i){
+                cur = maxStep;
+                step++;
             }
-            next = Math.max(next, nums[i] + i);
+            maxStep = Math.max(maxStep, nums[i] + i);
         }
-        return res;
+        return step;
     }
 }
