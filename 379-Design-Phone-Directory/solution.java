@@ -1,38 +1,43 @@
 public class PhoneDirectory {
-
-    Queue<Integer> queue;
-    Set<Integer> set;
+    int counter;
+    int max;
+    LinkedList<Integer> recycledNumber;
+    Set<Integer> usedNumber;
     /** Initialize your data structure here
         @param maxNumbers - The maximum numbers that can be stored in the phone directory. */
     public PhoneDirectory(int maxNumbers) {
-        queue = new LinkedList<Integer>();
-        for(int i = 0; i < maxNumbers; i++){
-            queue.offer(i);
-        }
-        set = new HashSet<Integer>();
+        max = maxNumbers;
+        recycledNumber = new LinkedList<>();
+        usedNumber = new HashSet<>();
+        counter = 0;
     }
     
     /** Provide a number which is not assigned to anyone.
         @return - Return an available number. Return -1 if none is available. */
     public int get() {
-        if(queue.isEmpty()){
+        if(recycledNumber.size() == 0 && counter >= max){
             return -1;
         }
-        int res = queue.poll();
-        set.add(res);
-        return res;
+        if(recycledNumber.size() == 0){
+            usedNumber.add(counter);
+            return counter ++;
+        }else{
+            int removed = recycledNumber.removeFirst();
+            usedNumber.add(removed);
+            return removed;
+        }
     }
     
     /** Check if a number is available or not. */
     public boolean check(int number) {
-        return !set.contains(number);
+        return !usedNumber.contains(number) && number < max;
     }
     
     /** Recycle or release a number. */
     public void release(int number) {
-        if(set.contains(number)){
-            set.remove(number);
-            queue.offer(number);
+        if(usedNumber.contains(number)){
+            usedNumber.remove(number);
+            recycledNumber.addLast(number);
         }
     }
 }
