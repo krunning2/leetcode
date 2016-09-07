@@ -1,34 +1,37 @@
 public class HitCounter {
-    int[] hits;
-    int[] ts;
+    Tuple[] tuples;
     /** Initialize your data structure here. */
     public HitCounter() {
-        hits = new int[300];
-        ts = new int[300];
+        tuples = new Tuple[300];
     }
     
     /** Record a hit.
         @param timestamp - The current timestamp (in seconds granularity). */
     public void hit(int timestamp) {
-        int i = timestamp % 300;
-        if(ts[i] != timestamp){
-            hits[i] = 1;
-            ts[i] = timestamp;
-        }else{
-            hits[i]++;
+        int index = timestamp % 300;
+        if(tuples[index] == null || tuples[index].ts != timestamp){
+            tuples[index] = new Tuple(1, timestamp);
+        }else {
+            tuples[index].counter++;
         }
     }
     
     /** Return the number of hits in the past 5 minutes.
         @param timestamp - The current timestamp (in seconds granularity). */
     public int getHits(int timestamp) {
-        int count = 0;
+        int res = 0;
         for(int i = 0; i < 300; i++){
-            if(timestamp - ts[i] < 300){
-                count += hits[i];
-            }
+            res += tuples[i] != null && timestamp - tuples[i].ts < 300 ? tuples[i].counter : 0;
         }
-        return count;
+        return res;
+    }
+    class Tuple{
+        int counter;
+        int ts;
+        Tuple(int counter, int ts){
+            this.ts = ts;
+            this.counter = counter;
+        }
     }
 }
 
