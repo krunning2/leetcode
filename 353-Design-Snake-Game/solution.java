@@ -1,20 +1,21 @@
 public class SnakeGame {
-    int width, height, len;
-	int[][] food;
     LinkedList<Pair> snake;
-    
+    int width;
+    int height;
+    int[][] food;
+    int len;
     /** Initialize your data structure here.
         @param width - screen width
         @param height - screen height 
         @param food - A list of food positions
         E.g food = [[1,1], [1,0]] means the first food is positioned at [1,1], the second is at [1,0]. */
     public SnakeGame(int width, int height, int[][] food) {
-        snake = new LinkedList<Pair>();
+        snake = new LinkedList<>();
         this.width = width;
         this.height = height;
         this.food = food;
-        this.len = 0;
-        snake.add(new Pair(0,0));
+        len = 0;
+        snake.addFirst(new Pair(0, 0));
     }
     
     /** Moves the snake.
@@ -23,29 +24,42 @@ public class SnakeGame {
         Game over when snake crosses the screen boundary or bites its body. */
     public int move(String direction) {
         Pair head = snake.getFirst();
-        Pair cur = new Pair(head.x, head.y);
+        Pair newHead = new Pair(head.x, head.y);
         switch(direction){
-            case "U" : cur.x--; break;
-            case "D" : cur.x++; break;
-            case "L" : cur.y--; break;
-            case "R" : cur.y++; break;
+            case "U" : newHead.x --; break;
+            case "D" : newHead.x ++; break;
+            case "L" : newHead.y --; break;
+            case "R" : newHead.y ++; break;
         }
-        if(cur.x < 0 || cur.x >= height || cur.y < 0 || cur.y >= width) return -1;
+        if(newHead.x < 0 || newHead.x >= height || newHead.y < 0 || newHead.y >= width) return -1;
+        
         for(int i = 1; i < snake.size() - 1; i++){
-            if(cur.x == snake.get(i).x && cur.y == snake.get(i).y){
+            if(newHead.x == snake.get(i).x && newHead.y == snake.get(i).y){
                 return -1;
             }
         }
-        snake.addFirst(cur);
-        Pair tail = snake.removeLast(); 
+        
+        Pair tail = snake.removeLast();
+        // Iterator<Pair> iterator = snake.iterator();
+        // //ignore the first
+        // if(iterator.hasNext())
+        //     iterator.next();
+        // while(iterator.hasNext()){
+        //     Pair cur = iterator.next();
+        //     if(cur.x == head.x && cur.y == head.y){
+        //         return -1;
+        //     }
+        // }
+        snake.addFirst(newHead);
         if(len < food.length){
-            if(food[len][0] == cur.x && food[len][1] == cur.y){
+            if(food[len][0] == newHead.x && food[len][1] == newHead.y){
                 len++;
                 snake.addLast(tail);
             }
         }
         return len;
     }
+    
     class Pair{
         int x;
         int y;
