@@ -56,9 +56,9 @@ Can you do it in time complexity O(k log mn), where k is the length of the `posi
 
 <div>
 
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Union Find](/tag/union-find/)</span></div>
+<span class="hidebutton">[Union Find](/tag/union-find/)</span></div>
 
 <div>
 
