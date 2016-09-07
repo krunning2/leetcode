@@ -24,6 +24,7 @@ public class SnakeGame {
         Game over when snake crosses the screen boundary or bites its body. */
     public int move(String direction) {
         Pair head = snake.getFirst();
+        // need to clone the pointer
         Pair newHead = new Pair(head.x, head.y);
         switch(direction){
             case "U" : newHead.x --; break;
@@ -33,12 +34,7 @@ public class SnakeGame {
         }
         if(newHead.x < 0 || newHead.x >= height || newHead.y < 0 || newHead.y >= width) return -1;
         
-        // for(int i = 1; i < snake.size() - 1; i++){
-        //     if(newHead.x == snake.get(i).x && newHead.y == snake.get(i).y){
-        //         return -1;
-        //     }
-        // }
-        
+        // need to remove the last first, because we don't want to compare the tail to the next new head
         Pair tail = snake.removeLast();
         Iterator<Pair> iterator = snake.iterator();
         //ignore the first
