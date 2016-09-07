@@ -45,6 +45,6 @@ Special thanks to [@elmirap](https://discuss.leetcode.com/user/elmirap) for addi
 
 <div>
 
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Dynamic Programming](/tag/dynamic-programming/) [Backtracking](/tag/backtracking/)</span></div>
+<span class="hidebutton">[Dynamic Programming](/tag/dynamic-programming/) [Backtracking](/tag/backtracking/)</span></div>
