@@ -33,23 +33,23 @@ public class SnakeGame {
         }
         if(newHead.x < 0 || newHead.x >= height || newHead.y < 0 || newHead.y >= width) return -1;
         
-        for(int i = 1; i < snake.size() - 1; i++){
-            if(newHead.x == snake.get(i).x && newHead.y == snake.get(i).y){
-                return -1;
-            }
-        }
-        
-        Pair tail = snake.removeLast();
-        // Iterator<Pair> iterator = snake.iterator();
-        // //ignore the first
-        // if(iterator.hasNext())
-        //     iterator.next();
-        // while(iterator.hasNext()){
-        //     Pair cur = iterator.next();
-        //     if(cur.x == head.x && cur.y == head.y){
+        // for(int i = 1; i < snake.size() - 1; i++){
+        //     if(newHead.x == snake.get(i).x && newHead.y == snake.get(i).y){
         //         return -1;
         //     }
         // }
+        
+        Pair tail = snake.removeLast();
+        Iterator<Pair> iterator = snake.iterator();
+        //ignore the first
+        if(iterator.hasNext())
+            iterator.next();
+        while(iterator.hasNext()){
+            Pair cur = iterator.next();
+            if(cur.x == newHead.x && cur.y == newHead.y){
+                return -1;
+            }
+        }
         snake.addFirst(newHead);
         if(len < food.length){
             if(food[len][0] == newHead.x && food[len][1] == newHead.y){
