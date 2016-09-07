@@ -1,16 +1,16 @@
 public class TicTacToe {
-    int[] cols;
-    int[] rows;
+    int[] row;
+    int[] col;
     int diagonal;
-    int anti_diagonal;
-    int n;
+    int antiDiagonal;
+    int size;
     /** Initialize your data structure here. */
     public TicTacToe(int n) {
-        cols = new int[n];
-        rows = new int[n];
+        row = new int[n];
+        col = new int[n];
         diagonal = 0;
-        anti_diagonal = 0;
-        this.n = n;
+        antiDiagonal = 0;
+        size = n;
     }
     
     /** Player {player} makes a move at ({row}, {col}).
@@ -22,13 +22,21 @@ public class TicTacToe {
                 1: Player 1 wins.
                 2: Player 2 wins. */
     public int move(int row, int col, int player) {
-        int add = player == 1 ? 1 : -1;
-        cols[col] += add;
-        rows[row] += add;
-        diagonal += col == row ? add : 0;
-        anti_diagonal += row == n - col - 1 ? add : 0;
-        if( cols[col] == n || rows[row] == n || diagonal == n || anti_diagonal == n) return 1;
-        if(cols[col] == -n || rows[row] == -n || diagonal == -n || anti_diagonal == -n) return 2;
+        int counter = player == 1 ? 1 : -1;
+        this.row[row] += counter;
+        this.col[col] += counter;
+        if(row == col){
+            diagonal += counter;
+        }
+        if(size - col - 1 == row){
+            antiDiagonal += counter;
+        }
+        if(Math.abs(this.row[row]) == size 
+        || Math.abs(this.col[col]) == size
+        || Math.abs(diagonal) == size
+        || Math.abs(antiDiagonal) == size){
+            return player;
+        }
         return 0;
     }
 }
