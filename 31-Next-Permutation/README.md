@@ -3,7 +3,7 @@
 3. Reverse rest of the elements.
 
 tips:
-
+before, we should just think how to convert 321 to 123,  then thinking how to convert 2321 to 3122
 1. p should be -1 to get the number 6, 
 2. reverse  p  -> end -1, in other words, we should reverse the descending order of the numbers
 
