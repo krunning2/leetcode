@@ -10,8 +10,10 @@ public class Solution {
         Stack<String> stack = new Stack<>();
         stack.push("JFK");
         while(!stack.isEmpty()){
-            while(map.get(stack.peek()) != null && !map.get(stack.peek()).isEmpty()){
-                stack.push(map.get(stack.peek()).poll());
+            PriorityQueue<String> arrivals = map.get(stack.peek());
+            while(arrivals != null && !arrivals.isEmpty()){
+                stack.push(arrivals.poll());
+                arrivals = map.get(stack.peek());
             }
             res.addFirst(stack.pop());
         }
