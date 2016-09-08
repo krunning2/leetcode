@@ -13,6 +13,7 @@ public class Solution {
             PriorityQueue<String> arrivals = map.get(stack.peek());
             while(arrivals != null && !arrivals.isEmpty()){
                 stack.push(arrivals.poll());
+                // need to update the next arrivals
                 arrivals = map.get(stack.peek());
             }
             res.addFirst(stack.pop());
