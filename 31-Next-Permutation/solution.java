@@ -15,10 +15,7 @@ public class Solution {
     
     private void swap(int[] nums, int p){
         int end = nums.length - 1;
-        while(end > p){
-            if(nums[end] > nums[p]){
-                break;
-            }
+        while(end > p && nums[end] <= nums[p]){
             end --;
         }
         int tmp = nums[end];
