@@ -25,7 +25,7 @@ The input prerequisites is a graph represented by **a list of edges**, not adjac
 
 [click to show more hints.](#)
 
-<div class="spoilers" style="display: block;">**Hints:**
+<div class="spoilers" style="display: none;">**Hints:**
 
 1.  This problem is equivalent to finding the topological order in a directed graph. If a cycle exists, no topological ordering exists and therefore it will be impossible to take all courses.
 2.  [Topological Sort via DFS](https://class.coursera.org/algo-003/lecture/52) - A great video tutorial (21 minutes) on Coursera explaining the basic concepts of Topological Sort.
@@ -35,9 +35,9 @@ The input prerequisites is a graph represented by **a list of edges**, not adjac
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Facebook](/company/facebook/) [Zenefits](/company/zenefits/)</span></div>
+<span class="hidebutton">[Facebook](/company/facebook/) [Zenefits](/company/zenefits/)</span></div>
 
 <div>
 
@@ -47,6 +47,6 @@ The input prerequisites is a graph represented by **a list of edges**, not adjac
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
 
-<span class="hidebutton" style="display: inline;">[(M) Course Schedule](/problems/course-schedule/) [(H) Alien Dictionary](/problems/alien-dictionary/) [(M) Minimum Height Trees](/problems/minimum-height-trees/)</span></div>
+<span class="hidebutton">[(M) Course Schedule](/problems/course-schedule/) [(H) Alien Dictionary](/problems/alien-dictionary/) [(M) Minimum Height Trees](/problems/minimum-height-trees/)</span></div>
