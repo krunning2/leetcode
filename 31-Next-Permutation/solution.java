@@ -1,20 +1,17 @@
 public class Solution {
     public void nextPermutation(int[] nums) {
-        if(nums == null || nums.length == 0){
-            return;
-        }
         int p = nums.length - 1;
-        while(p > 0){
-            if(nums[p - 1] < nums[p]){
-                break;
-            }
+        while(p > 0 && nums[p] <= nums[p - 1]){
             p--;
         }
-        if(p > 0){
+        if(p == 0){
+            reverse(nums, 0, nums.length - 1);
+        }else{
             swap(nums, p - 1);
+            reverse(nums, p, nums.length - 1);
         }
-        reverse(nums, p);
     }
+    
     
     private void swap(int[] nums, int p){
         int end = nums.length - 1;
@@ -29,15 +26,13 @@ public class Solution {
         nums[p] = tmp;
     }
     
-    private void reverse(int[] nums, int p){
-        int end = nums.length - 1;
-        while(p <= end){
-            int tmp = nums[p];
-            nums[p] = nums[end];
+    private void reverse(int[] nums, int start, int end){
+        while(start <= end){
+            int tmp = nums[start];
+            nums[start] = nums[end];
             nums[end] = tmp;
-            p ++;
-            end --;
+            start++;
+            end--;
         }
     }
-    
 }
