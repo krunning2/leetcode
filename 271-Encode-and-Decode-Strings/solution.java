@@ -11,15 +11,15 @@ public class Codec {
 
     // Decodes a single string to a list of strings.
     public List<String> decode(String s) {
-        List<String> list = new ArrayList<String>();
         int i = 0;
+        List<String> res = new ArrayList<>();
         while(i < s.length()){
             int slash = s.indexOf("/", i);
             int len = Integer.valueOf(s.substring(i, slash));
-            list.add(s.substring(slash + 1, slash + len + 1));
-            i =  slash + len + 1;
+            res.add(s.substring(slash + 1, slash + 1 + len));
+            i = slash + 1 + len;
         }
-        return list;
+        return res;
     }
 }
 
