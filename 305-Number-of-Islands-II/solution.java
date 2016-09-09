@@ -1,28 +1,25 @@
 public class Solution {
     public List<Integer> numIslands2(int m, int n, int[][] positions) {
-        List<Integer> res = new ArrayList<Integer> ();
-        if(positions == null || positions.length == 0){
-            return res;
-        }
+        int[][] islands = new int[m][n];
+        UF uf = new UF(m, n);
+        int[] dx = {0, 0, 1, -1};
+        int[] dy = {1, -1, 0, 0};
         int count = 0;
-        UnionFind uf = new UnionFind(m, n);
-        int[][] matrix = new int[m][n];
+        List<Integer> res = new ArrayList<Integer>();
         for(int i = 0; i < positions.length; i++){
             int row = positions[i][0];
             int col = positions[i][1];
-            matrix[row][col] = 1;
-            int[] dr = {0, 0, -1, 1};
-            int[] dc = {1, -1, 0, 0};
-            count++;
-            for(int j = 0; j < 4; j++){
-                int nextR = row + dr[j];
-                int nextC = col + dc[j];
-                if(nextR >= 0 && nextR < m && nextC >= 0 && nextC < n && matrix[nextR][nextC] == 1){
-                    int f1 = uf.find(convertToId(row, col, n));
-                    int f2 = uf.find(convertToId(nextR, nextC, n));
+            islands[row][col] = 1;
+            count ++;
+            for(int k = 0; k < 4; k++){
+                int x = dx[k] + row;
+                int y = dy[k] + col;
+                if(x >= 0 && y >=0 && x < m && y < n && islands[x][y] == 1){
+                    int f1 = uf.find(row * n + col);
+                    int f2 = uf.find(x * n + y);
                     if(f1 != f2){
+                        uf.union(f1, f2);
                         count--;
-                        uf.union(convertToId(row, col, n), convertToId(nextR, nextC, n));
                     }
                 }
             }
@@ -30,40 +27,27 @@ public class Solution {
         }
         return res;
     }
-    private int convertToId(int row, int col, int n){
-        return row * n + col;
-    }
-    class UnionFind{
-        Map<Integer, Integer> father;
-        UnionFind(int m, int n){
-            father = new HashMap<Integer, Integer>();
+    class UF{
+        Map<Integer, Integer> fa = new HashMap<>();
+        UF(int m, int n){
             for(int i = 0; i < m; i++){
                 for(int j = 0; j < n; j++){
-                    father.put(convertToId(i, j, n),convertToId(i, j, n));
+                    fa.put(i * n + j, i * n + j);
                 }
             }
         }
-        
-        public int find(int key){
-            int f = father.get(key);
-            while(f != father.get(f)){
-                f = father.get(f);
-            }
-            int c = father.get(key);
-            int tmp = c;
-            while(c != father.get(c)){
-                tmp = father.get(c);
-                father.put(c, f);
-                c = tmp;
-            }
-            return f;
+        void union(int x, int y){
+            int f1 = find(x);
+            int f2 = find(y);
+            fa.put(f1, f2);
         }
         
-        public void union(int key1, int key2){
-            int f1 = find(key1);
-            int f2 = find(key2);
-            if(f1 != f2)
-                father.put(f1, f2);
+        int find(int x){
+            while(x != fa.get(x)){
+                fa.put(x, fa.get(fa.get(x)));
+                x = fa.get(x);
+            }
+            return x;
         }
     }
 }
