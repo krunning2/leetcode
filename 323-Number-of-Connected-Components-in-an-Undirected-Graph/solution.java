@@ -24,16 +24,18 @@ public class Solution {
             father.put(f1, f2);
         }
         int find(int x){
-            int fa = father.get(x);
-            while(fa != father.get(fa)){
-                fa = father.get(fa);
-            }
+            //int fa = father.get(x);
             while(x != father.get(x)){
-                int tmp = father.get(x);
-                father.put(x, fa);
-                x = tmp;
+                father.put(x, father.get(father.get(x)));
+                x = father.get(x);
             }
-            return fa;
+            return x;
+            // while(x != father.get(x)){
+            //     int tmp = father.get(x);
+            //     father.put(x, fa);
+            //     x = tmp;
+            // }
+            // return fa;
         }
     }
 }
