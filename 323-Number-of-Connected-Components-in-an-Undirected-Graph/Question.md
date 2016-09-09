@@ -27,18 +27,18 @@ You can assume that no duplicate edges will appear in `edges`. Since all edges a
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Google](/company/google/)</span></div>
-
-<div>
-
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
-
-<span class="hidebutton" style="display: inline;">[Depth-first Search](/tag/depth-first-search/) [Breadth-first Search](/tag/breadth-first-search/) [Graph](/tag/graph/) [Union Find](/tag/union-find/)</span></div>
+<span class="hidebutton">[Google](/company/google/) [Twitter](/company/twitter/)</span></div>
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[(M) Number of Islands](/problems/number-of-islands/) [(M) Graph Valid Tree](/problems/graph-valid-tree/)</span></div>
+<span class="hidebutton">[Depth-first Search](/tag/depth-first-search/) [Breadth-first Search](/tag/breadth-first-search/) [Union Find](/tag/union-find/) [Graph](/tag/graph/)</span></div>
+
+<div>
+
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
+
+<span class="hidebutton">[(M) Number of Islands](/problems/number-of-islands/) [(M) Graph Valid Tree](/problems/graph-valid-tree/)</span></div>
