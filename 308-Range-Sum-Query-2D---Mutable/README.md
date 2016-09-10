@@ -1,5 +1,7 @@
 http://www.cnblogs.com/yrbbest/p/5058571.html
 
+http://blog.csdn.net/ljd4305/article/details/10101535
+
 Define C[i] = A[i - 2^k + 1] + ....A[i] where k is the total count of 0 on the tail. e.g. i = 11000 -> k = 3, C[0] = 0;
 so C[i] = A[11001] + .... + A[11000]
 so use lowbit to calculate 2^k where lobit = i & -i 
