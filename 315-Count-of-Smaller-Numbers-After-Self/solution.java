@@ -1,24 +1,26 @@
 public class Solution {
     public List<Integer> countSmaller(int[] nums) {
-        List<Integer> res = new ArrayList<Integer>();
+        List<Integer> res = new ArrayList<>();
         if(nums == null || nums.length == 0){
             return res;
         }
         res.add(0);
-        if(nums.length == 1) return res;
-        Node root = new Node(nums[nums.length - 1]);
-        for(int i = nums.length - 2; i >= 0; i--){
-            int count = insert(root, nums[i]);
-            res.add(count);
+        int end = nums.length - 1;
+        Node root = new Node(nums[end]);
+        for(int i = end - 1; i >= 0; i--){
+            res.add(insert(root, nums[i]));
         }
         Collections.reverse(res);
         return res;
     }
+    
     private int insert(Node root, int val){
-        int cur = 0;
+        int count = 0;
         while(true){
+            // put same val into the left child, because we only count the smaller number not inclusive.
             if(val <= root.val){
-                root.count ++;
+                // increase the count 
+                root.count++;
                 if(root.left == null){
                     root.left = new Node(val);
                     break;
@@ -26,7 +28,8 @@ public class Solution {
                     root = root.left;
                 }
             }else{
-                cur += root.count;
+                // count the numbers who are greater than current number
+                count += root.count;
                 if(root.right == null){
                     root.right = new Node(val);
                     break;
@@ -35,18 +38,19 @@ public class Solution {
                 }
             }
         }
-        return cur;
+        return count;
     }
-}
-class Node{
-    Node left;
-    Node right;
-    int val;
-    int count;
-    Node(int val){
-        left = null;
-        right = null;
-        this.val = val;
-        count = 1;
+    
+    
+    class Node{
+        Node left, right;
+        int count;
+        int val;
+        Node(int val){
+            left = null;
+            right = null;
+            count = 1;
+            this.val = val;
+        }
     }
 }
