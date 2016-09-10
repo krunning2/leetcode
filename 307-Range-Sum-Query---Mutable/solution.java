@@ -1,7 +1,7 @@
 public class NumArray {
     int[] BIT;
-    int n;
     int[] nums;
+    int n;
     public NumArray(int[] nums) {
         n = nums.length;
         BIT = new int[n + 1];
@@ -9,22 +9,6 @@ public class NumArray {
             updateBIT(i, nums[i]);
         }
         this.nums = nums;
-    }
-    private void updateBIT(int i, int val){
-        i++;
-        while(i <= n){
-            BIT[i] += val;
-            i += (i & -i);
-        }
-    }
-    private int getSum(int i){
-        i++;
-        int sum = 0;
-        while(i > 0){
-            sum += BIT[i];
-            i -= (i & -i);
-        }
-        return sum;
     }
 
     void update(int i, int val) {
@@ -35,6 +19,27 @@ public class NumArray {
 
     public int sumRange(int i, int j) {
         return getSum(j) - getSum(i - 1);
+    }
+    
+    private int getSum(int i){
+        i++;
+        int sum = 0;
+        while(i > 0){
+            sum += BIT[i];
+            i = i - lowbit(i);
+        }
+        return sum;
+    }
+    
+    private void updateBIT(int i, int val){
+        i++;
+        while(i <= n){
+            BIT[i] += val;
+            i = lowbit(i) + i;
+        }
+    }
+    private int lowbit(int i){
+        return i & -i;
     }
     
 }
