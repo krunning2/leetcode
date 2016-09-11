@@ -31,6 +31,7 @@ public class Solution {
                     num = num * 10 + s.charAt(p) - '0';
                     p++;
                 }
+                // need to go back
                 p--;
                 ints.push(num);
             }
