@@ -1,7 +1,8 @@
 public class Solution {
     public String convert(String s, int numRows) {
-        if(s == null || s.length() == 0 || numRows <= 1) return s;
         StringBuilder[] sbs = new StringBuilder[numRows];
+        if(numRows <= 1 || s == null || s.length() <= 1) return s;
+        //don't use fill, because it will fill same object
         for(int i = 0; i < sbs.length; i++){
             sbs[i] = new StringBuilder();
         }
