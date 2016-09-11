@@ -2,26 +2,23 @@ public class Solution {
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
         if(numRows == 0) return res;
-        List<Integer> one = new ArrayList<Integer>();
-        one.add(1);
-        res.add(one);
+       
+        
+        res.add(new ArrayList<Integer>(){
+            {
+                add(1);
+            }
+        });
         if(numRows == 1){
             return res;
-        }
-        ArrayList<Integer> two = new ArrayList<Integer>();
-        two.add(1);
-        two.add(1);
-        res.add(two);
-        if(numRows == 2){
-            return res;
-        }
-        for(int i = 3; i <= numRows; i++){
-            List<Integer> cur = new ArrayList<Integer>();
+         }
+        for(int i = 2; i <= numRows; i++){
+            List<Integer> cur = new ArrayList<>();
             for(int j = 0; j < i; j++){
                 if(j == 0 || j == i - 1){
                     cur.add(1);
                 }else{
-                    cur.add(res.get(i - 2).get(j - 1) + res.get(i - 2).get(j));
+                    cur.add(res.get(i - 2).get(j) + res.get(i - 2).get(j - 1));
                 }
             }
             res.add(cur);
