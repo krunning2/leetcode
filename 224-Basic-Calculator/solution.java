@@ -9,9 +9,9 @@ public class Solution {
         int p = 0;
         while(p < s.length()){
             char cur = s.charAt(p);
-            
+            // need to self-increamental here, not after because when converting string to integer, we have to decrease p
+            p++;
             if(cur == ' '){
-                p++;
                 continue;
             }else if(cur == '+' || cur == '-'){
                 while(!ops.isEmpty() && (ops.peek() == '+' || ops.peek() == '-')){
@@ -26,16 +26,13 @@ public class Solution {
                 }
                 if(!ops.isEmpty()) ops.pop();
             }else{
-                int num = 0;
+                int num = cur - '0';
                 while(p < s.length() && Character.isDigit(s.charAt(p))){
                     num = num * 10 + s.charAt(p) - '0';
                     p++;
                 }
-                // need to go back
-                p--;
                 ints.push(num);
             }
-            p++;
         }
         while(!ops.isEmpty()){
             ints.push(cal(ints.pop(), ints.pop(), ops.pop()));
