@@ -12,18 +12,18 @@ Special thanks to [@fujiaozhu](https://discuss.leetcode.com/user/fujiaozhu) for 
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Hulu](/company/hulu/)</span></div>
-
-<div>
-
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
-
-<span class="hidebutton" style="display: inline;">[Bit Manipulation](/tag/bit-manipulation/)</span></div>
+<span class="hidebutton">[Hulu](/company/hulu/)</span></div>
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[(M) Add Two Numbers](/problems/add-two-numbers/)</span></div>
+<span class="hidebutton">[Bit Manipulation](/tag/bit-manipulation/)</span></div>
+
+<div>
+
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
+
+<span class="hidebutton">[(M) Add Two Numbers](/problems/add-two-numbers/)</span></div>
