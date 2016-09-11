@@ -14,9 +14,6 @@ public class Solution {
         mid.next = null;
         ListNode left = sortList(head);
         ListNode right = sortList(next);
-        
-        
-        
         return merge(left, right);
     }
     
