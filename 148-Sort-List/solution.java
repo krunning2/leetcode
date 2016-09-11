@@ -8,17 +8,17 @@
  */
 public class Solution {
     public ListNode sortList(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode mid = findMid(head);
+        if(head == null || head.next == null) return head;
+        ListNode mid = getMid(head);
         ListNode right = sortList(mid.next);
-        ListNode left = sortList(head);
         mid.next = null;
+        ListNode left = sortList(head);
+        
         return merge(left, right);
     }
     
-    private ListNode findMid(ListNode head){
+    
+    private ListNode getMid(ListNode head){
         ListNode fast = head;
         ListNode slow = head;
         while(true){
