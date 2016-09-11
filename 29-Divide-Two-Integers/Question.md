@@ -8,6 +8,6 @@ If it is overflow, return MAX_INT.
 
 <div>
 
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Math](/tag/math/) [Binary Search](/tag/binary-search/)</span></div>
+<span class="hidebutton">[Math](/tag/math/) [Binary Search](/tag/binary-search/)</span></div>
