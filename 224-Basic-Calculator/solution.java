@@ -1,46 +1,49 @@
 public class Solution {
     public int calculate(String s) {
-        Stack<Integer> ints = new Stack<Integer>();
-        Stack<Character> opts = new Stack<Character>();
+        if(s == null || s.length() == 0){
+            return 0;
+        }
+        s = s.trim();
+        Stack<Character> ops = new Stack<>();
+        Stack<Integer> ints = new Stack<>();
         int p = 0;
         while(p < s.length()){
-            char c = s.charAt(p);
-            p++;
-            if(c == ' '){
+            char cur = s.charAt(p);
+            
+            if(cur == ' '){
+                p++;
                 continue;
-            }else if(c == '+' || c == '-'){
-                while(!opts.isEmpty() &&( opts.peek() == '-' || opts.peek() == '+') ){
-                    ints.push(cal(ints.pop(), ints.pop(), opts.pop()));
+            }else if(cur == '+' || cur == '-'){
+                while(!ops.isEmpty() && (ops.peek() == '+' || ops.peek() == '-')){
+                    ints.push(cal(ints.pop(), ints.pop(), ops.pop()));
                 }
-                opts.push(c);
-            }else if(c == '('){
-                opts.push(c);
-            }else if(c == ')'){
-                while(!opts.isEmpty() && opts.peek() != '('){
-                    ints.push(cal(ints.pop(), ints.pop(), opts.pop()));
+                ops.push(cur);
+            }else if(cur == '('){
+                ops.push(cur);
+            }else if(cur == ')'){
+                while(!ops.isEmpty() && ops.peek() != '('){
+                    ints.push(cal(ints.pop(), ints.pop(), ops.pop()));
                 }
-                if(!opts.isEmpty()){ 
-                    opts.pop();
-                }
+                if(!ops.isEmpty()) ops.pop();
             }else{
-                int tmp = c - '0';
+                int num = 0;
                 while(p < s.length() && Character.isDigit(s.charAt(p))){
-                    tmp = tmp * 10 + (s.charAt(p) - '0');
+                    num = num * 10 + s.charAt(p) - '0';
                     p++;
                 }
-                ints.push(tmp);
+                p--;
+                ints.push(num);
             }
+            p++;
         }
-        while(!opts.isEmpty()){
-            ints.push(cal(ints.pop(), ints.pop(), opts.pop()));
+        while(!ops.isEmpty()){
+            ints.push(cal(ints.pop(), ints.pop(), ops.pop()));
         }
-        return ints.isEmpty() ? 0 : ints.pop();
+        return ints.isEmpty() ? 0 : ints.peek();
     }
-    private int cal(int c1, int c2, char op){
-        if(op == '+'){
-            return c1 + c2;
-        }else{
-            return c2 - c1;
-        }
+    private int cal(int a, int b, char op){
+        if(op == '+') return a + b;
+        if(op == '-') return b - a;
+        return 0;
     }
 }
