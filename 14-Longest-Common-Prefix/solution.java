@@ -8,7 +8,7 @@ public class Solution {
         while(p < first.length()){
             char cur = first.charAt(p);
             for(int i = 1; i < strs.length; i++){
-                if(p >= strs[i].length() || strs[i].charAt(p) != cur){
+                if(p >= strs[i].length() || cur != strs[i].charAt(p)){
                     return first.substring(0, p);
                 }
             }
