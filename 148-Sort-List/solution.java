@@ -10,9 +10,12 @@ public class Solution {
     public ListNode sortList(ListNode head) {
         if(head == null || head.next == null) return head;
         ListNode mid = getMid(head);
-        ListNode right = sortList(mid.next);
+        ListNode next = mid.next;
         mid.next = null;
         ListNode left = sortList(head);
+        ListNode right = sortList(next);
+        
+        
         
         return merge(left, right);
     }
