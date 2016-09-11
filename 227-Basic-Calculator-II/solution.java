@@ -1,57 +1,51 @@
 public class Solution {
     public int calculate(String s) {
+        if(s == null || s.length() == 0) return 0;
+        int p = 0;
         Stack<Character> ops = new Stack<>();
         Stack<Integer> ints = new Stack<>();
-        int pos = 0;
-        if(s == null || s.length() == 0) return 0;
-        while(pos < s.length()){
-            char cur = s.charAt(pos);
-            pos ++;
-            if(isOpt(cur)){
-                // because once lower/equal priority operation comes, all the calculation should be done.
-                while(!ops.isEmpty() && priority(ops.peek()) >= priority(cur)){
-                    int c2 = ints.pop();
-                    int c1 = ints.pop();
-                    char op = ops.pop();
-                    ints.push(cal(c1, c2, op));
+        while(p < s.length()){
+            char c = s.charAt(p);
+            p++;
+            if(isOps(c)){
+                while(!ops.isEmpty() && getPriority(ops.peek()) >= getPriority(c)){
+                    ints.push(cal(ints.pop(), ints.pop(), ops.pop()));
                 }
-                ops.push(cur);
-            }else if(cur == ' '){
+                ops.push(c);
+            }else if(c == ' '){
                 continue;
-            }else{
-                int tmp = cur - '0';
-                while(pos < s.length() && Character.isDigit(s.charAt(pos))){
-                    tmp = tmp * 10 + (s.charAt(pos) - '0');
-                    pos ++;
+            } else{
+                int num = c - '0';
+                while(p < s.length() && Character.isDigit(s.charAt(p))){
+                    num = num * 10 + s.charAt(p) - '0';
+                    p++;
                 }
-                ints.push(tmp);
+                ints.push(num);
             }
         }
-        while(!ops.isEmpty()){
-            int c2 = ints.pop();
-            int c1 = ints.pop();
-            char op = ops.pop();
-            ints.push(cal(c1, c2, op));
+         while(!ops.isEmpty()){
+            ints.push(cal(ints.pop(), ints.pop(), ops.pop()));
         }
         return ints.isEmpty() ? 0 : ints.pop();
     }
     
-    private boolean isOpt(char cur){
-        return cur == '+' || cur == '-' || cur == '*' || cur == '/';
+    private boolean isOps(char c){
+        return c == '+' || c == '-' || c == '/' || c == '*';
     }
     
-    private int priority(char c1){
-        if(c1 == '+' || c1 == '-') return 1;
-        if(c1 == '*' || c1 == '/') return 2;
+    private int getPriority(char c){
+        if(c == '-' || c == '+') return 1;
+        if(c == '/' || c == '*') return 2;
         return 0;
     }
-    private int cal(int i1, int i2, char ops){
-        switch(ops){
-            case '+' : return i1 + i2;
-            case '-' : return i1 - i2;
-            case '*' : return i1 * i2;
-            case '/' : return i1 / i2;
+    
+    private int cal(int c1, int c2, char op){
+        switch(op){
+            case '-' : return c2 - c1;
+            case '+' : return c2 + c1;
+            case '/' : return c2 / c1;
+            case '*' : return c2 * c1;
+            default : return 0;
         }
-        return 0;
     }
 }
