@@ -10,26 +10,26 @@ public class Solution {
     public void reorderList(ListNode head) {
         if(head == null || head.next == null) return;
         ListNode mid = getMid(head);
-        ListNode next = mid.next;
+        ListNode newHead = mid.next;
         mid.next = null;
-        ListNode newHead = reverse(next);
-        merge(head, newHead);
-    }
-    
-    private void merge(ListNode l1, ListNode l2){
-        ListNode dummy = new ListNode(-1);
+        newHead = reverse(newHead);
+        ListNode dummy = new ListNode(0);
         ListNode p = dummy;
-        while(l1 != null && l2 != null){
-            p.next = l1;
-            l1 = l1.next;
+        boolean flag = true;
+        while(newHead != null && head != null){
+            if(flag){
+                p.next = head;
+                head = head.next;
+            }else{
+                p.next = newHead;
+                newHead = newHead.next;
+            }
             p = p.next;
-            p.next = l2;
-            l2 = l2.next;
-            p = p.next;
+            flag = !flag;
         }
-        if(l1 != null) p.next = l1;
+        if(head!=null) p.next = head;
+        if(newHead!=null) p.next = newHead;
     }
-    
     private ListNode reverse(ListNode head){
         ListNode pre = null, cur = head;
         while(cur != null){
