@@ -8,7 +8,11 @@
  */
 public class Solution {
     public ListNode insertionSortList(ListNode head) {
+        if(head == null || head.next == null){
+            return head;
+        }
         ListNode dummy = new ListNode(Integer.MIN_VALUE);
+        // dummy.next = head;
         ListNode cur = head;
         while(cur != null){
             ListNode pre = findInsertLocation(dummy, cur.val);
