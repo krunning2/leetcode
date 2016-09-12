@@ -11,12 +11,12 @@ Could you do this in-place?
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Amazon](/company/amazon/) [Microsoft](/company/microsoft/) [Apple](/company/apple/)</span></div>
+<span class="hidebutton">[Amazon](/company/amazon/) [Microsoft](/company/microsoft/) [Apple](/company/apple/)</span></div>
 
 <div>
 
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Array](/tag/array/)</span></div>
+<span class="hidebutton">[Array](/tag/array/)</span></div>
