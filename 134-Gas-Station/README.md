@@ -3,6 +3,11 @@
 
 Approval:
 
+0,  1, 2, 3,  4,  5
+1, -1, 3, 4, -8, 9
+you stop by -8, because total = -1. so 0-4 can't be start. because total < 0, total subtract a positive number is also < 0. or total has to subtract a negative to become greater than 0, but it is impossible, since we can't start with a negative point.
+
+
  so there are two possibilities:
 1. gas[i + 1] - cost[i + 1] > 0 (if sum < 0 then sum - positive integer is also < 0)
 2. gas[i + 1] - cost[i + 1] < 0 (start with negative)
