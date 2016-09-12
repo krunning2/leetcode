@@ -13,6 +13,6 @@ The solution is guaranteed to be unique.
 
 <div>
 
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Greedy](/tag/greedy/)</span></div>
+<span class="hidebutton">[Greedy](/tag/greedy/)</span></div>
