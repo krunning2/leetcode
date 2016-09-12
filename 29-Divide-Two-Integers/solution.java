@@ -9,16 +9,19 @@ public class Solution {
         if(divisor < 0) sign *= -1;
         long dis = Math.abs((long)divisor);
         long did = Math.abs((long)dividend);
-        int res = 0;
-        while(did >= dis){
-            int shift = 0;
-            while(did >= (dis << shift) ){
-                shift ++;
+//        int res = 0;
+        long start = 0;
+        long end = did;
+        while(start + 1 < end){
+            long mid = start - (start - end) / 2;
+            if(mid >= did / dis){
+                end = mid;
+            }else{
+                start = mid;
             }
-            shift --;
-            res += 1 << shift;
-            did -= dis << shift;
         }
-        return sign * res;
+        if(start == did / dis) return (int)(sign * start);
+        if(end == did / dis) return (int)(sign * end);
+        return 0;
     }
 }
