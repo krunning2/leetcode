@@ -1,16 +1,17 @@
 public class Solution {
     public int canCompleteCircuit(int[] gas, int[] cost) {
-        int sum = 0;
         int total = 0;
         int res = 0;
+        int sum = 0;
         for(int i = 0; i < gas.length; i++){
             total += gas[i] - cost[i];
             sum += gas[i] - cost[i];
-            if(sum < 0){
-                sum = 0;
+            if(total < 0){
                 res = i + 1;
+                total = 0;
             }
         }
-        return total < 0 ? -1 : res;
+        if(sum < 0) return -1;
+        return res;
     }
 }
