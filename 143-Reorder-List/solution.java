@@ -15,20 +15,15 @@ public class Solution {
         newHead = reverse(newHead);
         ListNode dummy = new ListNode(0);
         ListNode p = dummy;
-        boolean flag = true;
         while(newHead != null && head != null){
-            if(flag){
-                p.next = head;
-                head = head.next;
-            }else{
-                p.next = newHead;
-                newHead = newHead.next;
-            }
+            p.next = head;
+            head = head.next;
             p = p.next;
-            flag = !flag;
+            p.next = newHead;
+            newHead = newHead.next;
+            p = p.next;
         }
         if(head!=null) p.next = head;
-        if(newHead!=null) p.next = newHead;
     }
     private ListNode reverse(ListNode head){
         ListNode pre = null, cur = head;
