@@ -1,29 +1,26 @@
 public class Solution {
     public List<String> restoreIpAddresses(String s) {
         List<String> res = new ArrayList<String>();
-        if(s == null || s.length() == 0){
-            return res;
-        }
-        helper(s, 0, 0, new StringBuilder(), res);
+        if(s == null || s.length() == 0) return res;
+        DFS(0, 0, s, new StringBuilder(), res);
         return res;
     }
     
-    private void helper(String s, int start, int pos, StringBuilder sb, List<String> res){
-        if(pos > 4) return;
-        
-        if(start == s.length() && pos == 4){
-            sb.setLength(sb.length() - 1);
-            res.add(sb.toString());
+    private void DFS(int pos, int count, String s, StringBuilder sb, List<String> res){
+        if(count > 4){
             return;
         }
+        if(pos == s.length() && count == 4){
+            sb.setLength(sb.length() - 1);
+            res.add(sb.toString());
+        }
         
-        for(int i = start; i < s.length(); i++){
-            String cur = s.substring(start, i + 1);
-            if(isValid(cur)){
-                int size = sb.length();
-                sb.append(cur).append(".");
-                helper(s, i + 1, pos + 1, sb, res);
-                sb.setLength(size);
+        for(int i = pos; i < s.length(); i++){
+            String sub = s.substring(pos, i + 1);
+            if(isValid(sub)){
+                int len = sb.length();
+                DFS(i + 1, count + 1, s, sb.append(sub).append("."), res);
+                sb.setLength(len);
             }
         }
     }
@@ -32,11 +29,13 @@ public class Solution {
         if(s.length() > 3 || s.length() <= 0){
             return false;
         }
-        if(s.charAt(0) == '0' && s.length() > 1) return false;
-        int v = Integer.valueOf(s);
-        if(v > 255 || v < 0){
+        if(s.length() > 1 && s.startsWith("0")){
             return false;
         }
-        return true;
+        int val = Integer.valueOf(s);
+        if(val >= 0 && val <=255){
+            return true;
+        }
+        return false;
     }
 }
