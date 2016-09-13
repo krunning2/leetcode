@@ -13,14 +13,17 @@ public class Solution {
             return;
         }
         for(int i = pos; i < nums.length; i++){
+            if(i != pos && nums[i - 1] == nums[i]){
+                continue;
+            }
             sum += nums[i];
             cur.add(nums[i]);
             helper(nums, target, sum, i + 1, res, cur);
             sum -= nums[i];
             cur.remove(cur.size() - 1);
-            while(i < nums.length - 1 && nums[i] == nums[i + 1]){
-                i++;
-            }
+            // while(i < nums.length - 1 && nums[i] == nums[i + 1]){
+            //     i++;
+            // }
         }
     }
 }
