@@ -1,7 +1,7 @@
 class MyStack {
-    // Push element x onto stack.
     Queue<Integer> q1 = new LinkedList<>();
     Queue<Integer> q2 = new LinkedList<>();
+    // Push element x onto stack.
     public void push(int x) {
         q2.offer(x);
         while(!q1.isEmpty()){
@@ -26,5 +26,4 @@ class MyStack {
     public boolean empty() {
         return q1.isEmpty();
     }
-    
 }
