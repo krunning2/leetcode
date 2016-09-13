@@ -1,9 +1,9 @@
 public class Solution {
-    public List<List<Integer>> combinationSum2(int[] nums, int target) {
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
-        if(nums == null) return res;
-        Arrays.sort(nums);
-        helper(nums, target, 0, 0, res, new ArrayList<>());
+        if(candidates == null) return res;
+        Arrays.sort(candidates);
+        helper(candidates, target, 0, 0, res, new ArrayList<>());
         return res;
     }
     private void helper(int[] nums, int target, int sum, int pos, List<List<Integer>> res, List<Integer> cur){
