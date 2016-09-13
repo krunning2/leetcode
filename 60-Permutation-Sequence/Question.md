@@ -20,9 +20,9 @@ Given _n_ and _k_, return the _k_<sup>th</sup> permutation sequence.
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Twitter](/company/twitter/)</span></div>
+<span class="hidebutton">[Twitter](/company/twitter/)</span></div>
 
 <div>
 
