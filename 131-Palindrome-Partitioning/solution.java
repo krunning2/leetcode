@@ -1,36 +1,32 @@
 public class Solution {
     public List<List<String>> partition(String s) {
-        List<List<String>> res = new ArrayList<List<String>> ();
-        if(s == null || s.length() == 0) return res;
-        boolean[][] dp = get(s);
-        helper(res, s, 0, new ArrayList<>(), dp);
+        List<List<String>> res = new ArrayList<>();
+        boolean[][] matrix = getMatrix(s);
+        DFS(res, new ArrayList<>(), s, 0, matrix);
         return res;
     }
-    
-    private void helper(List<List<String>> res, String s, int start, List<String> cur, boolean[][] dp){
-        if(start == s.length()){
+    private void DFS(List<List<String>> res, List<String> cur, String s, int pos, boolean[][] matrix){
+        if(pos == s.length()){
             res.add(new ArrayList<>(cur));
             return;
         }
-        for(int i = start; i < s.length(); i++){
-            if(dp[start][i]){
-                cur.add(s.substring(start, i + 1));
-                helper(res, s, i + 1, cur, dp);
+        for(int i = pos; i < s.length(); i++){
+            if(matrix[pos][i]){
+                cur.add(s.substring(pos, i + 1));
+                DFS(res, cur, s, i + 1, matrix);
                 cur.remove(cur.size() - 1);
             }
         }
     }
-    
-    private boolean[][] get(String s){
-        int len = s.length();
-        boolean[][] dp = new boolean[len][len];
-        for(int i = 0; i < len; i++){
+    private boolean[][] getMatrix(String s){
+        boolean[][] dp = new boolean[s.length()][s.length()];
+        for(int i = 0; i < s.length(); i++){
             dp[i][i] = true;
         }
-        for(int i = 1; i < len; i++){
-            for(int j = 0; j + i < len; j++){
-                if(s.charAt(j) == s.charAt(j + i) && (i == 1 || dp[j + 1][j + i - 1])){
-                    dp[j][j + i] = true;
+        for(int len = 1; len < s.length(); len ++){
+            for(int i = 0; i + len < s.length(); i++){
+                if(s.charAt(i) == s.charAt(i + len) && (len == 1 || dp[i + 1][i + len - 1])){
+                    dp[i][i + len] = true;
                 }
             }
         }
