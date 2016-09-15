@@ -1,72 +1,72 @@
 public class Solution {
     public List<List<String>> findLadders(String beginWord, String endWord, Set<String> wordList) {
-        Map<String, Integer> dis = new HashMap<>();
-        HashMap<String, List<String>> graph = new HashMap<String, List<String>> ();
+        List<List<String>> res = new ArrayList<>();
         wordList.add(beginWord);
         wordList.add(endWord);
-        BFS(beginWord, endWord, wordList, dis, graph);
-        List<List<String>> res = new ArrayList<List<String>>();
-        DFS(beginWord, endWord, wordList, dis, graph, res, new ArrayList<>());
+        Map<String, List<String>> graph = new HashMap<>();
+        Map<String, Integer> dist = new HashMap<>();
+        BFS(beginWord, endWord, wordList, graph, dist);
+        DFS(beginWord, endWord, graph, dist, new ArrayList<>(), res);
         return res;
     }
     
     
-    private void DFS(String cur, String end, Set<String> dict, Map<String, Integer> dis, HashMap<String, List<String>> graph,List<List<String>> res, List<String> path){
-        path.add(cur);
-        if(cur.equals(end)){
+    private void DFS(String begin, String end, Map<String, List<String>> graph, Map<String, Integer> dist, List<String> path, List<List<String>> res){
+        path.add(begin);
+        if(begin.equals(end)){
             res.add(new ArrayList<>(path));
         }
-        for(String n : graph.get(cur)){
-            if(dis.get(cur) == dis.get(n) - 1){
-                DFS(n, end, dict, dis, graph, res, path);
+        for(String n : graph.get(begin)){
+            if(dist.get(n) == dist.get(begin) + 1){
+                DFS(n, end, graph, dist, path, res);
             }
         }
         path.remove(path.size() - 1);
     }
     
-    private void BFS(String beginWord, String endWord, Set<String> dict, Map<String, Integer> dis, HashMap<String, List<String>> graph){
-
-        for(String s : dict){
+    private void BFS(String begin, String end, Set<String> list, Map<String, List<String>> graph, Map<String, Integer> dist){
+        int level = 0;
+        Queue<String> queue = new LinkedList<String>();
+        queue.offer(begin);
+        dist.put(begin, 0);
+        for(String s : list){
             graph.put(s, new ArrayList<String>());
         }
-        Queue<String> queue = new LinkedList<>();
-        dis.put(beginWord, 0);
-        queue.offer(beginWord);
-        int len = 0;
-        while(! queue.isEmpty()){
-            len++;
+        while(!queue.isEmpty()){
             int size = queue.size();
+            level++;
             for(int i = 0; i < size; i++){
                 String cur = queue.poll();
-                for(String neighbor : getNeighbors(cur, dict)){
-                    graph.get(cur).add(neighbor);
-                    if(!dis.containsKey(neighbor)){
-                        dis.put(neighbor, len);
-                        queue.offer(neighbor);
+                //graph.putIfAbsent(cur, new ArrayList<>());
+                for(String s : getWords(cur, list)){
+                    graph.get(cur).add(s);
+                    if(!dist.containsKey(s)){
+                        queue.offer(s);
+                        dist.put(s, level);
                     }
                 }
             }
         }
     }
     
-    
-    
-    private List<String> getNeighbors(String word, Set<String> wordList){
-        char[] w = word.toCharArray();
-        List<String> words = new ArrayList<String>();
-        for(int i = 0; i < w.length; i++){
-            char cur = w[i];
-            for(char next = 'a' ;next <= 'z'; next++){
-                if(cur != next){
-                    w[i] = next;
-                    String s = new String(w);
-                    if(wordList.contains(s)){
-                        words.add(s);
+    private List<String> getWords(String word, Set<String> list){
+        List<String> words = new ArrayList<>();
+        char[] word_c = word.toCharArray();
+        for(int i = 0; i < word_c.length; i++){
+            char cur = word_c[i];
+            for(char c = 'a'; c <= 'z'; c++){
+                if(c != cur){
+                    word_c[i] = c;
+                    String newWord = new String(word_c);
+                    if(list.contains(newWord)){
+                        words.add(newWord);
                     }
-                    w[i] = cur;
-                }
+                    word_c[i] = cur;
+                }         
             }
         }
         return words;
     }
+    
+    
 }
