@@ -29,15 +29,15 @@ public class Solution {
         Queue<String> queue = new LinkedList<String>();
         queue.offer(begin);
         dist.put(begin, 0);
-        for(String s : list){
-            graph.put(s, new ArrayList<String>());
-        }
+        // for(String s : list){
+        //     graph.put(s, new ArrayList<String>());
+        // }
         while(!queue.isEmpty()){
             int size = queue.size();
             level++;
             for(int i = 0; i < size; i++){
                 String cur = queue.poll();
-                //graph.putIfAbsent(cur, new ArrayList<>());
+                graph.putIfAbsent(cur, new ArrayList<>());
                 for(String s : getWords(cur, list)){
                     graph.get(cur).add(s);
                     if(!dist.containsKey(s)){
