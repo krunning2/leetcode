@@ -29,12 +29,12 @@ Special thanks to [@vinod23](https://discuss.leetcode.com/user/vinod23) for addi
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Microsoft](/company/microsoft/)</span></div>
+<span class="hidebutton">[Microsoft](/company/microsoft/)</span></div>
 
 <div>
 
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Math](/tag/math/)</span></div>
+<span class="hidebutton">[Math](/tag/math/)</span></div>
