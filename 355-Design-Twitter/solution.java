@@ -1,44 +1,48 @@
 public class Twitter {
-    
-    public static int counter = 0;
-    private static Map<Integer, User> u_map;
-    class User {
-        int uId;
-        Set<Integer> followed;
+
+    class User{
+        int id;
+        // head always stores the latest tweet
         Tweet head;
-        
-        public User(int uId){
-            this.uId = uId;
+        Set<Integer> followed;
+        User(int id){
+            this.id = id;
             followed = new HashSet<Integer>();
-            follow(uId);
+            follow(id);
             head = null;
         }
         
-        public void follow(int id){
-            followed.add(id);
+        public void follow(int u_id){
+            followed.add(u_id);
         }
         
-        public void unfollow(int id){
-            followed.remove(id);
+        public boolean unfollow(int u_id){
+            if(followed.contains(u_id)){
+                followed.remove(u_id);
+                return true;
+            }
+            return false;
         }
         
-        public void post(int id){
-            Tweet t = new Tweet(id, counter++);
+        public void post(Tweet t){
             t.next = head;
             head = t;
         }
+        
     }
-    
-    class Tweet {
-        Tweet next;
+    class Tweet{
         int id;
-        int time;
-        public Tweet(int id, int time){
-            this.id = id;
-            this.time = time;
+        Tweet next;
+        int ts;
+        Tweet(int id, int ts){
             next = null;
+            this.id = id;
+            this.ts = ts;
         }
     }
+    
+    public static int counter = 0;
+    private static Map<Integer, User> u_map;
     
     /** Initialize your data structure here. */
     public Twitter() {
@@ -48,30 +52,26 @@ public class Twitter {
     /** Compose a new tweet. */
     public void postTweet(int userId, int tweetId) {
         u_map.putIfAbsent(userId, new User(userId));
-        u_map.get(userId).post(tweetId);
+        u_map.get(userId).post(new Tweet(tweetId, counter++));
     }
     
     /** Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */
     public List<Integer> getNewsFeed(int userId) {
         List<Integer> res = new ArrayList<>();
+        PriorityQueue<Tweet> queue = new PriorityQueue<Tweet>((t1, t2) -> t2.ts - t1.ts);
         User u = u_map.get(userId);
         if(u == null) return res;
-        Set<Integer> users = u.followed;
-        PriorityQueue<Tweet> queue = new PriorityQueue<Tweet>(users.size(), (t1, t2) -> (t2.time - t1.time));
-        users.forEach(uId ->{
-        	Tweet head = u_map.get(uId).head;
+        u.followed.forEach(followeeId->{
+            Tweet head = u_map.get(followeeId).head;
             if(head != null){
                 queue.offer(head);
             }
         });
-        int n = 0;
-        while(!queue.isEmpty() && n < 10){
-            Tweet cur = queue.poll();
-            res.add(cur.id);
-            if(cur.next != null){
-                queue.offer(cur.next);
-            }
-            n++;
+       
+        while(res.size() < 10 && !queue.isEmpty()){
+            Tweet t = queue.poll();
+            res.add(t.id);
+            if(t.next != null) queue.offer(t.next);
         }
         return res;
     }
@@ -85,7 +85,7 @@ public class Twitter {
     
     /** Follower unfollows a followee. If the operation is invalid, it should be a no-op. */
     public void unfollow(int followerId, int followeeId) {
-        if(!u_map.containsKey(followerId) || followeeId == followerId){
+        if(!u_map.containsKey(followerId) || followerId == followeeId){
             return;
         }
         u_map.get(followerId).unfollow(followeeId);
