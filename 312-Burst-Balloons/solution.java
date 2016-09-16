@@ -1,18 +1,20 @@
 public class Solution {
-    public int maxCoins(int[] nums) {
-        int len = nums.length;
-        int[][] dp = new int[len + 2][len + 2];
-        int[] new_nums = new int[len + 2];
-        for(int i = 1; i <= len; i++) new_nums[i] = nums[i - 1];
-        new_nums[0] = new_nums[len + 1] = 1;
-        for(int k = 0; k < len; k ++){
-            for(int i = 1; i <= len - k; i ++){
-                int j = i + k;
-                for(int x = i; x <= j; x ++){
-                    dp[i][j] = Math.max(dp[i][j], dp[i][x - 1] + new_nums[i - 1] * new_nums[x] * new_nums[j + 1] + dp[x + 1][j]);
-                }
+    public int maxCoins(int[] iNums) {
+        int[] nums = new int[iNums.length + 2];
+        int n = 1;
+        for (int x : iNums) if (x > 0) nums[n++] = x;
+        nums[0] = nums[n++] = 1;
+    
+    
+        int[][] dp = new int[n][n];
+        for (int k = 2; k < n; ++k)
+            for (int left = 0; left < n - k; ++left) {
+                int right = left + k;
+                for (int i = left + 1; i < right; ++i)
+                    dp[left][right] = Math.max(dp[left][right], 
+                    nums[left] * nums[i] * nums[right] + dp[left][i] + dp[i][right]);
             }
-        }
-        return dp[1][len];
+    
+        return dp[0][n - 1];
     }
 }
