@@ -7,10 +7,10 @@ public class Solution {
         for(int i = 1; i <= len; i++) new_nums[i] = nums[i - 1];
         new_nums[0] = new_nums[len + 1] = 1;
         for(int k = 0; k < len; k ++){
-            for(int i = 1; i <= len - k; i ++){
-                int j = i + k;
-                for(int x = i; x <= j; x ++){
-                    dp[i][j] = Math.max(dp[i][j], dp[i][x - 1] + new_nums[i - 1] * new_nums[x] * new_nums[j + 1] + dp[x + 1][j]);
+            for(int left = 1; left <= len - k; left ++){
+                int right = left + k;
+                for(int x = left; x <= right; x ++){
+                    dp[left][right] = Math.max(dp[left][right], dp[left][x - 1] + new_nums[left - 1] * new_nums[x] * new_nums[right + 1] + dp[x + 1][right]);
                 }
             }
         }
