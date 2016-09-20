@@ -25,16 +25,11 @@ public class Solution {
         }
         
         int find(int x){
-            int fa = father.get(x);
-            while(fa != father.get(fa)){
-                fa = father.get(fa);
+            while(x != father.get(x)){
+                father.put(x, father.get(father.get(x)));
+                x = father.get(x);
             }
-            int node = x;
-            while(node != father.get(node)){
-                father.put(node, fa);
-                node = father.get(node);
-            }
-            return fa;
+            return father.get(x);
         }
         void union(int x, int y){
             int fa1 = find(x);
