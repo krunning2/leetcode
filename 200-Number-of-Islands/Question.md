@@ -27,18 +27,18 @@ Special thanks to [@mithmatt](https://leetcode.com/discuss/user/mithmatt) for ad
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Amazon](/company/amazon/) [Microsoft](/company/microsoft/) [Google](/company/google/) [Facebook](/company/facebook/) [Zenefits](/company/zenefits/)</span></div>
-
-<div>
-
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
-
-<span class="hidebutton" style="display: inline;">[Depth-first Search](/tag/depth-first-search/) [Breadth-first Search](/tag/breadth-first-search/) [Union Find](/tag/union-find/)</span></div>
+<span class="hidebutton">[Amazon](/company/amazon/) [Microsoft](/company/microsoft/) [Google](/company/google/) [Facebook](/company/facebook/) [Zenefits](/company/zenefits/)</span></div>
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[(M) Surrounded Regions](/problems/surrounded-regions/) [(M) Walls and Gates](/problems/walls-and-gates/) [(H) Number of Islands II](/problems/number-of-islands-ii/) [(M) Number of Connected Components in an Undirected Graph](/problems/number-of-connected-components-in-an-undirected-graph/)</span></div>
+<span class="hidebutton">[Depth-first Search](/tag/depth-first-search/) [Breadth-first Search](/tag/breadth-first-search/) [Union Find](/tag/union-find/)</span></div>
+
+<div>
+
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
+
+<span class="hidebutton">[(M) Surrounded Regions](/problems/surrounded-regions/) [(M) Walls and Gates](/problems/walls-and-gates/) [(H) Number of Islands II](/problems/number-of-islands-ii/) [(M) Number of Connected Components in an Undirected Graph](/problems/number-of-connected-components-in-an-undirected-graph/)</span></div>
