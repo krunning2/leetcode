@@ -21,9 +21,9 @@ Given `n = 5` and `edges = [[0, 1], [1, 2], [2, 3], [1, 3], [1, 4]]`, return `fa
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Google](/company/google/) [Facebook](/company/facebook/) [Zenefits](/company/zenefits/)</span></div>
+<span class="hidebutton">[Google](/company/google/) [Facebook](/company/facebook/) [Zenefits](/company/zenefits/)</span></div>
 
 <div>
 
