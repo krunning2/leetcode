@@ -17,9 +17,9 @@ For example, given _n_ = 3, a solution set is:
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Google](/company/google/) [Uber](/company/uber/) [Zenefits](/company/zenefits/)</span></div>
+<span class="hidebutton">[Google](/company/google/) [Uber](/company/uber/) [Zenefits](/company/zenefits/)</span></div>
 
 <div>
 
