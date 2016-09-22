@@ -22,12 +22,12 @@ Special thanks to [@jianchao.li.fighter](https://leetcode.com/discuss/user/jianc
 
 <div>
 
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Dynamic Programming](/tag/dynamic-programming/) [Heap](/tag/heap/) [Math](/tag/math/)</span></div>
+<span class="hidebutton">[Dynamic Programming](/tag/dynamic-programming/) [Heap](/tag/heap/) [Math](/tag/math/)</span></div>
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
 
-<span class="hidebutton" style="display: inline;">[(H) Merge k Sorted Lists](/problems/merge-k-sorted-lists/) [(E) Count Primes](/problems/count-primes/) [(E) Ugly Number](/problems/ugly-number/) [(M) Perfect Squares](/problems/perfect-squares/) [(M) Super Ugly Number](/problems/super-ugly-number/)</span></div>
+<span class="hidebutton">[(H) Merge k Sorted Lists](/problems/merge-k-sorted-lists/) [(E) Count Primes](/problems/count-primes/) [(E) Ugly Number](/problems/ugly-number/) [(M) Perfect Squares](/problems/perfect-squares/) [(M) Super Ugly Number](/problems/super-ugly-number/)</span></div>
