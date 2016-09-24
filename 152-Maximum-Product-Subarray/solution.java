@@ -8,15 +8,14 @@ public class Solution {
                 min = 0;
                 max = 0;
             }else if(n > 0){
-                int tmp = max;
                 max = Math.max(n, max * n);
                 min = Math.min(n, min * n);
             }else{
                 int tmp = max;
                 max = Math.max(n, min * n);
-                min = Math.min(n, tmp * n);
+                min = Math.min(n, n * tmp);
             }
-            res = Math.max(max, res);
+            res = Math.max(res, max);
         }
         return res;
     }
