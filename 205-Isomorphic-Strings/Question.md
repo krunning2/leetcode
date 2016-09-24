@@ -20,18 +20,18 @@ You may assume both **_s_** and **_t_** have the same length.
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[LinkedIn](/company/linkedin/)</span></div>
-
-<div>
-
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
-
-<span class="hidebutton" style="display: inline;">[Hash Table](/tag/hash-table/)</span></div>
+<span class="hidebutton">[LinkedIn](/company/linkedin/)</span></div>
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[(E) Word Pattern](/problems/word-pattern/)</span></div>
+<span class="hidebutton">[Hash Table](/tag/hash-table/)</span></div>
+
+<div>
+
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
+
+<span class="hidebutton">[(E) Word Pattern](/problems/word-pattern/)</span></div>
