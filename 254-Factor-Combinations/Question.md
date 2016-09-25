@@ -53,9 +53,9 @@ output:
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[LinkedIn](/company/linkedin/) [Uber](/company/uber/)</span></div>
+<span class="hidebutton">[LinkedIn](/company/linkedin/) [Uber](/company/uber/)</span></div>
 
 <div>
 
@@ -65,6 +65,6 @@ output:
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
 
-<span class="hidebutton" style="display: inline;">[(M) Combination Sum](/problems/combination-sum/)</span></div>
+<span class="hidebutton">[(M) Combination Sum](/problems/combination-sum/)</span></div>
