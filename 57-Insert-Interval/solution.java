@@ -8,20 +8,20 @@
  * }
  */
 public class Solution {
-    public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
+    public List<Interval> insert(List<Interval> intervals, Interval pre) {
         List<Interval> res = new ArrayList<Interval>();
         for(Interval cur : intervals){
-            if(newInterval.start > cur.end){
+            if(pre.end < cur.start){
+                res.add(pre);
+                pre = cur;
+            }else if(pre.start > cur.end){
                 res.add(cur);
-            }else if(newInterval.end < cur.start){
-                res.add(newInterval);
-                newInterval = cur;
             }else{
-                newInterval.start = Math.min(newInterval.start, cur.start);
-                newInterval.end = Math.max(newInterval.end, cur.end);
+                pre.start = Math.min(pre.start, cur.start);
+                pre.end = Math.max(pre.end, cur.end);
             }
         }
-        res.add(newInterval);
+        res.add(pre);
         return res;
     }
 }
