@@ -1,23 +1,23 @@
 public class Solution {
     public List<List<Integer>> permuteUnique(int[] nums) {
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
-        if(nums == null || nums.length == 0) return res;
+        List<List<Integer>> res = new ArrayList<>();
+        if(nums == null) return res;
         Arrays.sort(nums);
-        DFS(nums, new boolean[nums.length], new ArrayList<>(), res);
+        DFS(nums, new ArrayList<>(), res, new boolean[nums.length]);
         return res;
     }
-    private void DFS(int[] nums, boolean[] visited, List<Integer> list, List<List<Integer>> res){
-        if(list.size() == nums.length){
-            res.add(new ArrayList<>(list));
+    private void DFS(int[] nums, List<Integer> cur, List<List<Integer>> res, boolean[] visited){
+        if(cur.size() == nums.length){
+            res.add(new ArrayList<>(cur));
             return;
         }
         for(int i = 0; i < nums.length; i++){
-            if(visited[i] || i != 0 && nums[i] == nums[i - 1] && !visited[i - 1]) continue;
-            list.add(nums[i]);
+            if(visited[i] || i != 0 && !visited[i - 1] && nums[i] == nums[i - 1]) continue;
             visited[i] = true;
-            DFS(nums, visited, list, res);
+            cur.add(nums[i]);
+            DFS(nums, cur, res, visited);
             visited[i] = false;
-            list.remove(list.size() - 1);
+            cur.remove(cur.size() - 1);
         }
     }
 }
