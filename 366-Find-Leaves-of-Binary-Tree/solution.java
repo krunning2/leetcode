@@ -10,18 +10,20 @@
 public class Solution {
     public List<List<Integer>> findLeaves(TreeNode root) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
-        getDepth(root, res);
+        find(root, res);
         return res;
     }
-    private int getDepth(TreeNode root, List<List<Integer>> res){
-        if(root == null) return -1;
-        int left = getDepth(root.left, res);
-        int right = getDepth(root.right, res);
-        int level = Math.max(left, right) + 1;
-        if(res.size() <= level){
+    private int find(TreeNode root, List<List<Integer>> res){
+        if(root == null){
+            return -1;
+        }
+        int left = find(root.left, res);
+        int right = find(root.right, res);
+        int depth = Math.max(left, right) + 1;
+        if(depth >= res.size()){
             res.add(new ArrayList<>());
         }
-        res.get(level).add(root.val);
-        return level;
+        res.get(depth).add(root.val);
+        return depth;
     }
 }
