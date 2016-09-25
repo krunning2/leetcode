@@ -26,12 +26,12 @@ You may assume that **A**'s column number is equal to **B**'s row number.
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[LinkedIn](/company/linkedin/) [Facebook](/company/facebook/)</span></div>
+<span class="hidebutton">[LinkedIn](/company/linkedin/) [Facebook](/company/facebook/)</span></div>
 
 <div>
 
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Hash Table](/tag/hash-table/)</span></div>
+<span class="hidebutton">[Hash Table](/tag/hash-table/)</span></div>
