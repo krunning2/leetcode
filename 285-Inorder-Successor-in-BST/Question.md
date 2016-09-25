@@ -8,9 +8,9 @@ Given a binary search tree and a node in it, find the in-order successor of that
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Pocket Gems](/company/pocket-gems/) [Microsoft](/company/microsoft/) [Facebook](/company/facebook/)</span></div>
+<span class="hidebutton">[Pocket Gems](/company/pocket-gems/) [Microsoft](/company/microsoft/) [Facebook](/company/facebook/)</span></div>
 
 <div>
 
