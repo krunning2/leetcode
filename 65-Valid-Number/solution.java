@@ -1,6 +1,32 @@
 public class Solution {
     public boolean isNumber(String s) {
         if(s == null || s.length() == 0) return false;
+        if(s.contains("e")) return valid(s);
+        return validWithoutE(s);
+    }
+    
+    private boolean validWithoutE(String s){
+        s = s.trim();
+        boolean seenNum = false;
+        boolean seenDot = false;
+        for(int i = 0; i < s.length(); i++){
+            char cur = s.charAt(i);
+            if(cur >= '0' && cur <= '9'){
+                seenNum = true;
+            }else if(cur == '.'){
+                if(seenDot) return false;
+                seenDot = true;
+            }else if(cur == '+' || cur == '-'){
+                if(i != 0) return false;
+            }else{
+                return false;
+            }
+        }
+        return seenNum;
+    }
+    
+    private boolean valid(String s){
+        
         s = s.trim();
         boolean seenNum = false;
         boolean seenE = false;
