@@ -6,10 +6,14 @@ public class Solution {
     }
     
     private boolean validWithoutE(String s){
-        s = s.trim();
+        int i = 0;
+        while(i < s.length() && s.charAt(i) == ' '){
+            i++;
+        }
+        int start = i;
         boolean seenNum = false;
         boolean seenDot = false;
-        for(int i = 0; i < s.length(); i++){
+        for(;i < s.length(); i++){
             char cur = s.charAt(i);
             if(cur >= '0' && cur <= '9'){
                 seenNum = true;
@@ -17,7 +21,12 @@ public class Solution {
                 if(seenDot) return false;
                 seenDot = true;
             }else if(cur == '+' || cur == '-'){
-                if(i != 0) return false;
+                if(i != start) return false;
+            }else if(cur == ' '){
+                while(i < s.length() && s.charAt(i) == ' '){
+                    i++;
+                }
+                return i == s.length() && seenNum;
             }else{
                 return false;
             }
