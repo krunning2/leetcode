@@ -23,18 +23,18 @@ Special thanks to [@elmirap](https://discuss.leetcode.com/user/elmirap) for addi
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[LinkedIn](/company/linkedin/)</span></div>
-
-<div>
-
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
-
-<span class="hidebutton" style="display: inline;">[Binary Search](/tag/binary-search/) [Math](/tag/math/)</span></div>
+<span class="hidebutton">[LinkedIn](/company/linkedin/)</span></div>
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[(M) Sqrt(x)](/problems/sqrtx/)</span></div>
+<span class="hidebutton">[Binary Search](/tag/binary-search/) [Math](/tag/math/)</span></div>
+
+<div>
+
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
+
+<span class="hidebutton">[(M) Sqrt(x)](/problems/sqrtx/)</span></div>
