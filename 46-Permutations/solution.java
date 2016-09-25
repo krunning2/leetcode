@@ -1,22 +1,22 @@
 public class Solution {
     public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
-        if(nums == null || nums.length == 0) return res;
-        DFS(nums, new boolean[nums.length], new ArrayList<>(), res);
+        List<List<Integer>> res = new ArrayList<>();
+        if(nums == null) return res;
+        DFS(nums, new ArrayList<>(), res, new boolean[nums.length]);
         return res;
     }
-    private void DFS(int[] nums, boolean[] visited, List<Integer> list, List<List<Integer>> res){
-        if(list.size() == nums.length){
-            res.add(new ArrayList<>(list));
+    private void DFS(int[] nums, List<Integer> cur, List<List<Integer>> res, boolean[] visited){
+        if(cur.size() == nums.length){
+            res.add(new ArrayList<>(cur));
             return;
         }
         for(int i = 0; i < nums.length; i++){
             if(!visited[i]){
-                list.add(nums[i]);
                 visited[i] = true;
-                DFS(nums, visited, list, res);
+                cur.add(nums[i]);
+                DFS(nums, cur, res, visited);
                 visited[i] = false;
-                list.remove(list.size() - 1);
+                cur.remove(cur.size() - 1);
             }
         }
     }
