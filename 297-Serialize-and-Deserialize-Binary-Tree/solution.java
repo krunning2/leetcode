@@ -8,15 +8,14 @@
  * }
  */
 public class Codec {
-    private static String DELIMETER = ",";
-    private static String NULL = "N";
+    public static final String DELIMETER = ",";
+    public static final String NULL = "X";
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         StringBuilder sb = new StringBuilder();
         serializeHelper(root, sb);
-        return sb.toString();
+        return sb.substring(0, sb.length() - 1).toString();
     }
-    
     private void serializeHelper(TreeNode root, StringBuilder sb){
         if(root == null){
             sb.append(NULL).append(DELIMETER);
@@ -29,26 +28,21 @@ public class Codec {
 
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
-        String[] parts = data.split(DELIMETER);
-        return deserializeHelper(new Pointer(0), parts);
+        return deserializeHelper(data.split(DELIMETER), new Pointer());
     }
-    private TreeNode deserializeHelper(Pointer p, String[] parts){
-        if(p.cur >= parts.length) return null;
-        String value = parts[p.cur ++];
-        if(value.equals(NULL)){
-            return null;
-        }
-        
-        TreeNode root = new TreeNode(Integer.valueOf(value));
-        root.left = deserializeHelper(p, parts);
-        root.right = deserializeHelper(p, parts);
+    
+    private TreeNode deserializeHelper(String[] data, Pointer p){
+        if(p.cur >= data.length) return null;
+        String val = data[p.cur++];
+        if(val.equals(NULL)) return null;
+        TreeNode root = new TreeNode(Integer.valueOf(val));
+        root.left = deserializeHelper(data, p);
+        root.right = deserializeHelper(data, p);
         return root;
     }
-    private class Pointer{
-        int cur;
-        Pointer(int cur){
-            this.cur = cur;
-        }
+    
+    class Pointer{
+        int cur = 0;
     }
 }
 
