@@ -24,6 +24,6 @@ You may assume no duplicate exists in the array.
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
 
-<span class="hidebutton" style="display: inline;">[(M) Search in Rotated Sorted Array II](/problems/search-in-rotated-sorted-array-ii/) [(M) Find Minimum in Rotated Sorted Array](/problems/find-minimum-in-rotated-sorted-array/)</span></div>
+<span class="hidebutton">[(M) Search in Rotated Sorted Array II](/problems/search-in-rotated-sorted-array-ii/) [(M) Find Minimum in Rotated Sorted Array](/problems/find-minimum-in-rotated-sorted-array/)</span></div>
