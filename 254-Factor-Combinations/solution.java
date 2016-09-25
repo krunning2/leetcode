@@ -1,30 +1,26 @@
 public class Solution {
     public List<List<Integer>> getFactors(int n) {
-        List<List<Integer>> res = new ArrayList<List<Integer>> ();
+        List<Integer> set = new ArrayList<>();
+        List<List<Integer>> res = new ArrayList<>();
         if(n <= 1) return res;
-        List<Integer> set = new ArrayList<Integer>();
-        for(int i = 2; i < n / 2 + 1; i++){
+        for(int i = 2; i < n; i++){
             if(n % i == 0){
                 set.add(i);
             }
         }
-        DFS(set, 0, 1, n, res, new ArrayList<>());
+        DFS(1, n, 0, set, new ArrayList<>(), res);
         return res;
     }
-    private void DFS(List<Integer> set, int start, long fac, int n, List<List<Integer>> res, List<Integer> list){
-        if(fac > n){
-            return;
-        }
+    private void DFS(long fac, int n, int start, List<Integer> set, List<Integer> cur, List<List<Integer>> res){
         if(fac == n){
-            res.add(new ArrayList<>(list));
+            res.add(new ArrayList<Integer>(cur));
+        }else if(fac > n){
             return;
         }
         for(int i = start; i < set.size(); i++){
-            fac *= set.get(i);
-            list.add(set.get(i));
-            DFS(set, i, fac, n, res, list);
-            list.remove(list.size() - 1);
-            fac /= set.get(i);
+            cur.add(set.get(i));
+            DFS(fac * set.get(i), n, i, set, cur, res);
+            cur.remove(cur.size() - 1);
         }
     }
 }
