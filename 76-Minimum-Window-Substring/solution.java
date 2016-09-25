@@ -1,46 +1,42 @@
 public class Solution {
     public String minWindow(String s, String t) {
-        Map<Character, Integer> map = new HashMap<>();
-        int total = 0;
-        int len = Integer.MAX_VALUE;
-        String res = "";
-        for(char c : t.toCharArray()){
-            if(!map.containsKey(c)){
-                map.put(c, 1);
-            }else{
-                map.put(c, map.get(c) + 1);
-            }
-            total++;
-        }
+        if(s == null || s.length() == 0 || t == null || t.length() == 0) return "";
+        HashMap<Character, Integer> map = new HashMap<>();
         int j = 0;
+        int count = 0;
+        for(int i = 0; i < t.length(); i++){
+            if(map.containsKey(t.charAt(i))){
+                map.put(t.charAt(i), map.get(t.charAt(i)) + 1);
+            }else{
+                map.put(t.charAt(i), 1);
+            }
+            count ++;
+        }
+        String result = "";
+        int len = Integer.MAX_VALUE;
         for(int i = 0; i < s.length(); i++){
-            while(total > 0 && j < s.length()){
-                char cur = s.charAt(j);
-                if(map.containsKey(cur)){
-                    // only decrease the total counter when there is no redundent chars
-                    if(map.get(cur) > 0){
-                        total --;
+            while(j < s.length() && count > 0){
+                char tmp = s.charAt(j);
+                if(map.containsKey(tmp)){
+                    if(map.get(tmp) > 0){
+                        count --;
                     }
-                    map.put(cur, map.get(cur) - 1);
+                    map.put(tmp, map.get(tmp) - 1);
                 }
                 j++;
             }
-            if(total == 0){
-                if(j - i < len){
-                    len = j - i;
-                    res = s.substring(i, j);
-                }
+            if(count == 0 && len > j - i){
+                len = j - i;
+                result = s.substring(i, j);
             }
             char cur = s.charAt(i);
             if(map.containsKey(cur)){
-                // means no redundent chars in the window
                 if(map.get(cur) >= 0){
-                    total ++;
+                    count++;
                 }
-                // remove one from the map
-                map.put(cur, map.get(cur) + 1);
+                map.put(cur ,map.get(cur) + 1);
             }
         }
-        return res;
+        return result;
     }
 }
