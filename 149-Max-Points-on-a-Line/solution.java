@@ -12,7 +12,7 @@ public class Solution {
         if(points == null || points.length == 0){
             return 0;
         }
-        Map<String, Integer> map = new HashMap<>();
+        Map<Long, Integer> map = new HashMap<>();
         int res = 1;
         for(int i = 0; i < points.length; i++){
             int same = 0;
@@ -28,7 +28,7 @@ public class Solution {
                 int gcd = getGCD(x, y);
                 x /= gcd;
                 y /= gcd;
-                String slope = String.valueOf(x) + String.valueOf(y);
+                long slope =( (long)x << 32 | y );
                 
                 if(map.containsKey(slope)){
                     map.put(slope, map.get(slope) + 1);
