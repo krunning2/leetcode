@@ -16,9 +16,9 @@ Related problem: [Rotate Array](/problems/rotate-array/)
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Amazon](/company/amazon/) [Microsoft](/company/microsoft/) [Uber](/company/uber/)</span></div>
+<span class="hidebutton">[Amazon](/company/amazon/) [Microsoft](/company/microsoft/) [Uber](/company/uber/)</span></div>
 
 <div>
 
@@ -28,6 +28,6 @@ Related problem: [Rotate Array](/problems/rotate-array/)
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
 
-<span class="hidebutton" style="display: inline;">[(M) Reverse Words in a String](/problems/reverse-words-in-a-string/) [(E) Rotate Array](/problems/rotate-array/)</span></div>
+<span class="hidebutton">[(M) Reverse Words in a String](/problems/reverse-words-in-a-string/) [(E) Rotate Array](/problems/rotate-array/)</span></div>
