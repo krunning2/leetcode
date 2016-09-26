@@ -1,27 +1,27 @@
 public class Vector2D implements Iterator<Integer> {
-    Iterator<List<Integer>> lists;
-    Iterator<Integer> ints;
+    Iterator<Integer> cur = null;
+    Iterator<List<Integer>> iterator = null;
     public Vector2D(List<List<Integer>> vec2d) {
         if(vec2d != null){
-            lists = vec2d.iterator();
-            if(lists.hasNext()){
-                ints = lists.next().iterator();
+            iterator = vec2d.iterator();
+            if(iterator.hasNext()){
+                cur = iterator.next().iterator();
             }
         }
     }
 
     @Override
     public Integer next() {
-        return ints.next();
+        return cur.next();
     }
 
     @Override
     public boolean hasNext() {
-        if(ints == null || !ints.hasNext() && !lists.hasNext()) return false;
-        while(!ints.hasNext() && lists.hasNext()){
-            ints = lists.next().iterator();
+        if(cur == null || !cur.hasNext() && !iterator.hasNext()) return false;
+        while(!cur.hasNext() && iterator.hasNext()){
+            cur = iterator.next().iterator();
         }
-        return ints.hasNext();
+        return cur.hasNext();
     }
 }
 
