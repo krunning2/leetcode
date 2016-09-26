@@ -1,6 +1,6 @@
 public class Solution {
     public int numWays(int n, int k) {
-        int[] dp = new int[4];
+        int[] dp = new int[3];
         if(n == 0){
             return 0;
         }
