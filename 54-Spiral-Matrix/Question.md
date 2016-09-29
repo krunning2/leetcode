@@ -30,6 +30,6 @@ You should return `[1,2,3,6,9,8,7,4,5]`.
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
 
-<span class="hidebutton" style="display: inline;">[(M) Spiral Matrix II](/problems/spiral-matrix-ii/)</span></div>
+<span class="hidebutton">[(M) Spiral Matrix II](/problems/spiral-matrix-ii/)</span></div>
