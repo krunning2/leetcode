@@ -5,14 +5,14 @@ public class Solution {
             x = 1 / x;
             n *= -1;
         }
-        double f = x;
+        double fac = x;
         double res = 1.0;
         while(n > 0){
             if((n & 1) == 1){
-                res *= f;
+                res *= fac;
             }
-            f *= f;
             n = n >> 1;
+            fac *= fac;
         }
         return res;
     }
