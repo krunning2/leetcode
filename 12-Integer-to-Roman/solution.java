@@ -1,27 +1,28 @@
 public class Solution {
     public String intToRoman(int num) {
-        String[] set = {"I", "V", "X", "L", "C", "D", "M"};
-        int pos = 0;
         int scale = 1000;
+        String[] romans = {"I", "V", "X", "L", "C", "D", "M"};
         StringBuilder sb = new StringBuilder();
         for(int i = 6; i >= 0; i = i-2){
-            int cur = num / scale;
-            if(cur > 0){
-                if(cur >= 1 && cur <= 3){
-                    for(int j = 0; j < cur; j++) sb.append(set[i]);
-                }else if(cur == 4){
-                    sb.append(set[i]);
-                    sb.append(set[i + 1]);
-                }else if(cur == 5){
-                    sb.append(set[i + 1]);
-                }else if(cur > 5 && cur <=8){
-                    sb.append(set[i + 1]);
-                    for(int j = 6; j <= cur; j++){
-                        sb.append(set[i]);
+            int digit = num / scale;
+            if(digit > 0){
+                if(digit > 0 && digit <= 3){
+                    for(int j = 0; j < digit; j++){
+                        sb.append(romans[i]);
                     }
-                }else if(cur == 9){
-                    sb.append(set[i]);
-                    sb.append(set[i + 2]);
+                }else if(digit == 4){
+                    sb.append(romans[i]);
+                    sb.append(romans[i + 1]);
+                }else if(digit == 5){
+                    sb.append(romans[i + 1]);
+                }else if(digit >= 6 && digit <= 8){
+                    sb.append(romans[i + 1]);
+                    for(int j = 6; j <= digit; j++){
+                        sb.append(romans[i]);
+                    }
+                }else{
+                    sb.append(romans[i]);
+                    sb.append(romans[i + 2]);
                 }
             }
             num %= scale;
