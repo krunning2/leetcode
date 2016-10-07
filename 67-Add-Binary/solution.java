@@ -1,29 +1,31 @@
 public class Solution {
     public String addBinary(String a, String b) {
+        if(a == null || a.length() == 0) return b;
+        if(b == null || b.length() == 0) return a;
+        int p1 = a.length() - 1;
+        int p2 = b.length() - 1;
         int carry = 0;
-        int p1 = a.length() - 1, p2 = b.length() - 1;
         StringBuilder sb = new StringBuilder();
         while(p1 >= 0 && p2 >= 0){
-            int x1 = a.charAt(p1) - '0';
-            int x2 = b.charAt(p2) - '0';
-            sb.insert(0, (carry + x1 + x2) % 2);
-            carry = (carry + x1 + x2) / 2;
+            carry += a.charAt(p1) - '0' + b.charAt(p2) - '0';
+            sb.append(carry % 2);
+            carry /= 2;
             p1--;
             p2--;
         }
         while(p1 >= 0){
-            int x1 = a.charAt(p1) - '0';
-            sb.insert(0, (carry + x1) % 2);
-            carry = (carry + x1) / 2;
+            carry += a.charAt(p1) - '0';
+            sb.append(carry % 2);
+            carry /= 2;
             p1--;
         }
         while(p2 >= 0){
-            int x2 = b.charAt(p2) - '0';
-            sb.insert(0, (carry + x2) % 2);
-            carry = (carry + x2) / 2;
+            carry += b.charAt(p2) - '0';
+            sb.append(carry % 2);
+            carry /= 2;
             p2--;
         }
-        if(carry > 0) sb.insert(0, 1);
-        return sb.toString();
+        if(carry > 0) sb.append(carry);
+        return sb.reverse().toString();
     }
 }
