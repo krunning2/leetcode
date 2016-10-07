@@ -1,29 +1,28 @@
 public class Solution {
     public String countAndSay(int n) {
+        if(n <= 0) return "";
         String res = "1";
-        if(n <= 0){
-            return "0";
-        }
-        for(int i = 1; i < n; i++){
-            res = helper(res);
+        while(n > 1){
+            res = count(res);
+            n--;
         }
         return res;
     }
-    private String helper(String s){
-        int p0 = 0, p1 = 0;
+    private String count(String s){
+        int p = 0;
         StringBuilder sb = new StringBuilder();
-        while(p0 < s.length()){
-            if(p0 < s.length() - 1 && s.charAt(p0) == s.charAt(p0 + 1)){
+        while(p < s.length()){
+            if(p < s.length() - 1 && s.charAt(p) == s.charAt(p + 1)){
+                char cur = s.charAt(p);
                 int count = 0;
-                char cur = s.charAt(p0);
-                while(p0 < s.length() && s.charAt(p0) == cur){
-                    p0++;
-                    count++;
+                while(p < s.length() && cur == s.charAt(p)){
+                    count ++;
+                    p++;
                 }
                 sb.append(count).append(cur);
             }else{
-                sb.append(1).append(s.charAt(p0));
-                p0++;
+                sb.append(1).append(s.charAt(p));
+                p++;
             }
         }
         return sb.toString();
