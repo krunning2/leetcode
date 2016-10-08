@@ -3,9 +3,9 @@ public class Solution {
         StringBuilder sb = new StringBuilder();
         while(n > 0){
             n--;
-            sb.insert(0, (char)((n % 26) + 'A'));
-            n /= 26;
+            sb.append((char)(n % 26 + 'A'));
+            n /=26;
         }
-        return sb.toString();
+        return sb.reverse().toString();
     }
 }
