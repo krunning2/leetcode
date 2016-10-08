@@ -9,16 +9,13 @@
  */
 public class Solution {
     public boolean isBalanced(TreeNode root) {
-        return getDeepth(root) != -1;
+        return helper(root) != -1;
     }
-    private int getDeepth(TreeNode root){
-        if(root == null){
-            return 0;
-        }
-        int left = getDeepth(root.left);
-        int right = getDeepth(root.right);
-        if(left == -1 || right == -1) return -1;
-        if(Math.abs(left - right) > 1) return -1;
-        return Math.max(left, right) + 1;
+    private int helper(TreeNode root){
+        if(root == null) return 0;
+        int left = helper(root.left);
+        int right = helper(root.right);
+        if(left == -1 || right == -1 || Math.abs(left - right) > 1) return -1;
+        return Math.max(right, left) + 1;
     }
 }
