@@ -1,41 +1,43 @@
 public class Solution {
     public int ladderLength(String beginWord, String endWord, Set<String> wordList) {
+        if(beginWord == null || endWord == null || beginWord.equals(endWord)){
+            return 0;
+        }
         wordList.add(beginWord);
         wordList.add(endWord);
-        Queue<String> queue = new LinkedList<String>();
+        Set<String> visited = new HashSet<>();
+        Queue<String> queue = new LinkedList<>();
         queue.offer(beginWord);
-        HashSet<String> set = new HashSet<>();
-        set.add(beginWord);
+        visited.add(beginWord);
         int level = 1;
-        while(! queue.isEmpty()){
+        while(!queue.isEmpty()){
             int size = queue.size();
             level ++;
             for(int i = 0; i < size; i++){
                 String cur = queue.poll();
-                for(int j = 0; j < cur.length(); j++){
-                    for(String s : getList(cur, j, wordList, set)){
-                        if(endWord.equals(s)) return level;
-                        queue.offer(s);
-                    }
+                for(String nei : getNei(cur, wordList, visited)){
+                    if(nei.equals(endWord)) return level;
+                    queue.offer(nei);
                 }
             }
         }
         return 0;
     }
-    
-    private List<String> getList(String s, int pos, Set<String> wordList, HashSet<String> set){
-        char[] chars = s.toCharArray();
-        List<String> res = new ArrayList<String>();
-        for(char c = 'a'; c <= 'z'; c++){
-            char tmp = chars[pos];
-            if(c != tmp){
-                chars[pos] = c;
-                String ss = new String(chars);
-                if(!set.contains(ss) && wordList.contains(ss)){
-                    res.add(ss);
-                    set.add(ss);
+    private List<String> getNei(String s, Set<String> list, Set<String> set){
+        char[] s_c = s.toCharArray();
+        List<String> res = new ArrayList<>();
+        for(int i = 0; i < s_c.length; i++){
+            for(char c = 'a'; c <= 'z'; c ++){
+                if(s_c[i] != c ){
+                    char tmp = s_c[i];
+                    s_c[i] = c;
+                    String ss = new String(s_c);
+                    if(list.contains(ss) && !set.contains(ss)){
+                        res.add(ss);
+                        set.add(ss);
+                    }
+                    s_c[i] = tmp;
                 }
-                chars[pos] = tmp;
             }
         }
         return res;
