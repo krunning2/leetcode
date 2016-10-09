@@ -11,12 +11,15 @@ public class Solution {
         int res = 0;
         while(div >= dis){
             int shift = 0;
-            while(div >= (dis << shift)){
+            long tmp = dis;
+            while(div >= tmp){
                 shift++;
+                tmp <<= 1 ;
             }
+            tmp >>= 1;
             shift --;
             res += 1 << shift;
-            div -= dis << shift;
+            div -= tmp;
         }
         return res * sign;
     }
