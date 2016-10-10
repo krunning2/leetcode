@@ -1,27 +1,27 @@
 public class Solution {
     public List<String> generateParenthesis(int n) {
-        List<String> res = new ArrayList<String>();
+        List<String> res = new ArrayList<>();
         if(n <= 0){
             return res;
         }
-        helper(n, 0, 0, res, new StringBuilder());
+        DFS(n, n, res, new StringBuilder());
         return res;
     }
-    
-    private void helper(int n, int l, int r, List<String> res, StringBuilder sb){
-        if(l == n && r == n){
+    private void DFS(int left, int right, List<String> res, StringBuilder sb){
+        if(left == 0 && right == 0){
             res.add(sb.toString());
-            return;
+            return ;
         }
-        int len = sb.length();
-        if(l < n){
+        if(left > 0){
+            int len = sb.length();
             sb.append("(");
-            helper(n, l + 1, r, res, sb);
+            DFS(left - 1, right, res, sb);
             sb.setLength(len);
         }
-        if(r < l){
+        if(right > left){
+            int len = sb.length();
             sb.append(")");
-            helper(n, l, r + 1, res, sb);
+            DFS(left, right - 1, res, sb);
             sb.setLength(len);
         }
     }
