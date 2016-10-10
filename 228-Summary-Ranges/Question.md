@@ -23,6 +23,6 @@ Special thanks to [@jianchao.li.fighter](https://leetcode.com/discuss/user/jianc
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
 
-<span class="hidebutton" style="display: inline;">[(M) Missing Ranges](/problems/missing-ranges/) [(H) Data Stream as Disjoint Intervals](/problems/data-stream-as-disjoint-intervals/)</span></div>
+<span class="hidebutton">[(M) Missing Ranges](/problems/missing-ranges/) [(H) Data Stream as Disjoint Intervals](/problems/data-stream-as-disjoint-intervals/)</span></div>
