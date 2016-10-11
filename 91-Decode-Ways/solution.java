@@ -13,7 +13,7 @@ public class Solution {
             int two = Integer.valueOf(s.substring(i - 1, i + 1));
             dp[i % 3] = 0;
             if(one >= 1 && one <= 9){
-                dp[i % 3] += dp[(i - 1) % 3];
+                dp[i % 3] = dp[(i - 1) % 3];
             }
             if(two >= 10 && two <= 26){
                 if(i == 1){
