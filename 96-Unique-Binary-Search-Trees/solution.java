@@ -4,6 +4,7 @@ public class Solution {
         dp[0] = 1;
         dp[1] = 1;
         for(int i = 2; i <= n; i++){
+            //j 代表左边放几个
             for(int j = 0; j < i; j++){
                 dp[i] += dp[j] * dp[i - j - 1];
             }
