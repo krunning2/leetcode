@@ -9,7 +9,7 @@
 public class Solution {
     public boolean isPalindrome(ListNode head) {
         if(head == null) return true;
-        ListNode mid = findMid(head);
+        ListNode mid = getMid(head);
         ListNode newHead = mid.next;
         mid.next = null;
         ListNode reversed = reverse(newHead);
@@ -21,14 +21,12 @@ public class Solution {
                 break;
             }
             head = head.next;
-            head1 = head1.next;
+            head2 = head2.next;
         }
         head2 = reverse(reversed);
         mid.next = head2;
         return flag;
     }
-    
-    
     
     private ListNode reverse(ListNode node){
         ListNode pre = null;
@@ -41,7 +39,7 @@ public class Solution {
         }
         return pre;
     }
-    private ListNode findMid(ListNode head){
+    private ListNode getMid(ListNode head){
         ListNode fast = head;
         ListNode slow = head;
         while(true){
