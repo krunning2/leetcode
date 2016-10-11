@@ -9,13 +9,13 @@ public class Solution {
             return dp[0];
         }
         for(int i = 1; i < s.length(); i++){
-            int one = Integer.valueOf(s.substring(i, i + 1));
-            int two = Integer.valueOf(s.substring(i - 1, i + 1));
+            int i1 = Integer.valueOf(s.substring(i, i + 1));
+            int i2 = Integer.valueOf(s.substring(i - 1, i + 1));
             dp[i % 3] = 0;
-            if(one >= 1 && one <= 9){
+            if(i1 >= 1 && i1 <= 9){
                 dp[i % 3] = dp[(i - 1) % 3];
             }
-            if(two >= 10 && two <= 26){
+            if(i2 >= 10 && i2 <= 26){
                 if(i == 1){
                     dp[i % 3] += 1;
                 }else{
