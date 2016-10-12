@@ -19,6 +19,7 @@ public class Solution {
                     cur = cur.next;
                 }
                 pre.next = cur;
+                // no need to move cur pointer now, since it already been in the new element
             } else {
                 pre = cur;
                 cur = cur.next;
