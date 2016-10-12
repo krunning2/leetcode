@@ -16,18 +16,18 @@ Return 6.
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Facebook](/company/facebook/)</span></div>
-
-<div>
-
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
-
-<span class="hidebutton" style="display: inline;">[Array](/tag/array/) [Hash Table](/tag/hash-table/) [Stack](/tag/stack/) [Dynamic Programming](/tag/dynamic-programming/)</span></div>
+<span class="hidebutton">[Facebook](/company/facebook/)</span></div>
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: inline;">[(H) Largest Rectangle in Histogram](/problems/largest-rectangle-in-histogram/) [(M) Maximal Square](/problems/maximal-square/)</span></div>
+<span class="hidebutton">[Array](/tag/array/) [Hash Table](/tag/hash-table/) [Stack](/tag/stack/) [Dynamic Programming](/tag/dynamic-programming/)</span></div>
+
+<div>
+
+<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
+
+<span class="hidebutton">[(H) Largest Rectangle in Histogram](/problems/largest-rectangle-in-histogram/) [(M) Maximal Square](/problems/maximal-square/)</span></div>
