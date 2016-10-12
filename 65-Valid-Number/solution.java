@@ -1,59 +1,24 @@
 public class Solution {
     public boolean isNumber(String s) {
         if(s == null || s.length() == 0) return false;
-        if(s.contains("e")) return valid(s);
-        return validWithoutE(s);
-    }
-    
-    private boolean validWithoutE(String s){
-        int i = 0;
-        while(i < s.length() && s.charAt(i) == ' '){
-            i++;
-        }
-        int start = i;
-        boolean seenNum = false;
         boolean seenDot = false;
-        for(;i < s.length(); i++){
-            char cur = s.charAt(i);
-            if(cur >= '0' && cur <= '9'){
-                seenNum = true;
-            }else if(cur == '.'){
-                if(seenDot) return false;
-                seenDot = true;
-            }else if(cur == '+' || cur == '-'){
-                if(i != start) return false;
-            }else if(cur == ' '){
-                while(i < s.length() && s.charAt(i) == ' '){
-                    i++;
-                }
-                return i == s.length() && seenNum;
-            }else{
-                return false;
-            }
-        }
-        return seenNum;
-    }
-    
-    private boolean valid(String s){
-        
-        s = s.trim();
-        boolean seenNum = false;
         boolean seenE = false;
-        boolean seenDot = false;
         boolean numAfterE = false;
+        boolean seenNum = false;
+        s = s.trim();
         for(int i = 0; i < s.length(); i++){
-            char cur = s.charAt(i);
-            if(cur >= '0' && cur <= '9'){
+            char c = s.charAt(i);
+            if(c >= '0' && c <= '9'){
                 seenNum = true;
                 numAfterE = true;
-            }else if(cur == 'e'){
+            }else if(c == '.'){
+                if(seenDot || seenE) return false;
+                seenDot = true;
+            }else if(c == 'e'){
                 if(seenE || !seenNum) return false;
                 numAfterE = false;
                 seenE = true;
-            }else if(cur == '.'){
-                if(seenE || seenDot) return false;
-                seenDot = true;
-            }else if(cur == '+' || cur == '-'){
+            }else if(c == '+' || c == '-'){
                 if(i != 0 && s.charAt(i - 1) != 'e') return false;
             }else{
                 return false;
