@@ -31,6 +31,6 @@ For example,
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
+<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
 
-<span class="hidebutton">[(M) Next Permutation](/problems/next-permutation/) [(M) Permutations II](/problems/permutations-ii/) [(M) Permutation Sequence](/problems/permutation-sequence/) [(M) Combinations](/problems/combinations/)</span></div>
+<span class="hidebutton" style="display: inline; opacity: 0.216797;">[(M) Next Permutation](/problems/next-permutation/) [(M) Permutations II](/problems/permutations-ii/) [(M) Permutation Sequence](/problems/permutation-sequence/) [(M) Combinations](/problems/combinations/)</span></div>
