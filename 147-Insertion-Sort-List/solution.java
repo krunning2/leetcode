@@ -8,14 +8,13 @@
  */
 public class Solution {
     public ListNode insertionSortList(ListNode head) {
+        ListNode dummy = new ListNode(Integer.MIN_VALUE);
         if(head == null || head.next == null){
             return head;
         }
-        ListNode dummy = new ListNode(Integer.MIN_VALUE);
-        // dummy.next = head;
         ListNode cur = head;
         while(cur != null){
-            ListNode pre = findInsertLocation(dummy, cur.val);
+            ListNode pre = findPosition(dummy, cur.val);
             ListNode next = cur.next;
             cur.next = pre.next;
             pre.next = cur;
@@ -23,7 +22,7 @@ public class Solution {
         }
         return dummy.next;
     }
-    private ListNode findInsertLocation(ListNode head, int val){
+    private ListNode findPosition(ListNode head, int val){
         ListNode pre = null, cur = head;
         while(cur != null && cur.val <= val){
             pre = cur;
