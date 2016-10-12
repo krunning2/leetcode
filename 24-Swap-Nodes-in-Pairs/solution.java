@@ -9,14 +9,14 @@
 public class Solution {
     public ListNode swapPairs(ListNode head) {
         if(head == null || head.next == null) return head;
-        ListNode dummy = new ListNode(0);
+        ListNode dummy = new ListNode(1);
         dummy.next = head;
         ListNode pre = dummy, cur = head, next = head.next;
         while(next != null){
             ListNode tmp = next.next;
             next.next = cur;
-            cur.next = tmp;
             pre.next = next;
+            cur.next = tmp;
             pre = cur;
             cur = tmp;
             next = tmp == null ? null : tmp.next;
