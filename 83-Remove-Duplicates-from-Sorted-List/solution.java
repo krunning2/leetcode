@@ -11,20 +11,19 @@ public class Solution {
         if(head == null || head.next == null){
             return head;
         }
-        ListNode dummy = new ListNode(head.val + 1);
+        ListNode dummy = new ListNode(head.val - 1);
         dummy.next = head;
-        ListNode pre = dummy, cur = head;
-        while(cur != null){
-            if(cur.val == pre.val){
-                int val = cur.val;
-                while(cur != null && cur.val == val){
-                    cur = cur.next;
+        ListNode p = dummy;
+        while(p != null){
+            if(p.next != null && p.val == p.next.val){
+                int val = p.val;
+                ListNode p2 = p;
+                while(p2 != null && p2.val == val){
+                    p2 = p2.next;
                 }
-                pre.next = cur;
-            }else{
-                pre = cur;
-                cur = cur.next;
+                p.next = p2;
             }
+            p = p.next;
         }
         return dummy.next;
     }
