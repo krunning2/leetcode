@@ -13,17 +13,20 @@ public class Solution {
         }
         ListNode dummy = new ListNode(head.val - 1);
         dummy.next = head;
-        ListNode p = dummy;
-        while(p != null){
-            if(p.next != null && p.val == p.next.val){
-                int val = p.val;
-                ListNode p2 = p;
-                while(p2 != null && p2.val == val){
-                    p2 = p2.next;
+        ListNode pre = dummy;
+        ListNode cur = head;
+        while(cur != null){
+            if(pre.val == cur.val){
+                int val = cur.val;
+                while(cur != null && cur.val == val){
+                    cur = cur.next;
                 }
-                p.next = p2;
+                pre.next = cur;
+            }else{
+                pre = cur;
+                cur = cur.next;
             }
-            p = p.next;
+            
         }
         return dummy.next;
     }
