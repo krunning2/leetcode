@@ -17,6 +17,7 @@ public class Solution {
         ListNode p = dummy;
         while(head != null && newHead != null){
             p.next = head;
+            // should move head first, otherwise will have cycle.
             head = head.next;
             p = p.next;
             p.next = newHead;
