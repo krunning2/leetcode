@@ -3,14 +3,6 @@ public class Solution {
         if(s == null || t == null || s.length() == 0 || t.length() == 0){
             return "";
         }
-        // 
-        // for(int i = 0; i < s.length(); i++){
-        //     if(source.containsKey(s.charAt(i))){
-        //         source.put(s.charAt(i), source.get(s.charAt(i)) + 1);
-        //     }else{
-        //         source.put(s.charAt(i), 1);
-        //     }
-        // }
         Map<Character, Integer> target = new HashMap<>();
         for(int i = 0; i < t.length(); i++){
             if(target.containsKey(t.charAt(i))){
