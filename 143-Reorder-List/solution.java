@@ -13,9 +13,9 @@ public class Solution {
         ListNode newHead = mid.next;
         mid.next = null;
         newHead = reverse(newHead);
-        ListNode dummy = new ListNode(0);
+        ListNode dummy = new ListNode(-1);
         ListNode p = dummy;
-        while(newHead != null && head != null){
+        while(head != null && newHead != null){
             p.next = head;
             head = head.next;
             p = p.next;
@@ -23,10 +23,12 @@ public class Solution {
             newHead = newHead.next;
             p = p.next;
         }
-        if(head!=null) p.next = head;
+        if(head != null) p.next = head;
     }
+    
     private ListNode reverse(ListNode head){
-        ListNode pre = null, cur = head;
+        ListNode pre = null;
+        ListNode cur = head;
         while(cur != null){
             ListNode next = cur.next;
             cur.next = pre;
