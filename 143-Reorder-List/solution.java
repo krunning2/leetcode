@@ -20,8 +20,8 @@ public class Solution {
             head = head.next;
             p = p.next;
             p.next = newHead;
-            newHead = newHead.next;
             p = p.next;
+            newHead = newHead.next;
         }
         if(head != null) p.next = head;
     }
