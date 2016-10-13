@@ -1,42 +1,51 @@
 public class Solution {
     public String minWindow(String s, String t) {
-        if(s == null || s.length() == 0 || t == null || t.length() == 0) return "";
-        HashMap<Character, Integer> map = new HashMap<>();
-        int j = 0;
-        int count = 0;
-        for(int i = 0; i < t.length(); i++){
-            if(map.containsKey(t.charAt(i))){
-                map.put(t.charAt(i), map.get(t.charAt(i)) + 1);
-            }else{
-                map.put(t.charAt(i), 1);
-            }
-            count ++;
+        if(s == null || t == null || s.length() == 0 || t.length() == 0){
+            return "";
         }
-        String result = "";
-        int len = Integer.MAX_VALUE;
+        // 
+        // for(int i = 0; i < s.length(); i++){
+        //     if(source.containsKey(s.charAt(i))){
+        //         source.put(s.charAt(i), source.get(s.charAt(i)) + 1);
+        //     }else{
+        //         source.put(s.charAt(i), 1);
+        //     }
+        // }
+        Map<Character, Integer> target = new HashMap<>();
+        for(int i = 0; i < t.length(); i++){
+            if(target.containsKey(t.charAt(i))){
+                target.put(t.charAt(i), target.get(t.charAt(i)) + 1);
+            }else{
+                target.put(t.charAt(i), 1);
+            }
+        }
+        
+        int j = 0;
+        int count = t.length();
+        int min = Integer.MAX_VALUE;
+        String res = "";
         for(int i = 0; i < s.length(); i++){
             while(j < s.length() && count > 0){
-                char tmp = s.charAt(j);
-                if(map.containsKey(tmp)){
-                    if(map.get(tmp) > 0){
-                        count --;
-                    }
-                    map.put(tmp, map.get(tmp) - 1);
+                char cur = s.charAt(j);
+                if(target.containsKey(cur) && target.get(cur) > 0){
+                    count--;
+                    target.put(cur, target.get(cur) - 1);
+                }else if(target.containsKey(cur)){
+                    target.put(cur, target.get(cur) - 1);
                 }
                 j++;
             }
-            if(count == 0 && len > j - i){
-                len = j - i;
-                result = s.substring(i, j);
+            if(min > j - i && count == 0){
+                min = j - i;
+                res = s.substring(i, j);
             }
-            char cur = s.charAt(i);
-            if(map.containsKey(cur)){
-                if(map.get(cur) >= 0){
+            if(target.containsKey(s.charAt(i))){
+                if(target.get(s.charAt(i)) >= 0){
                     count++;
                 }
-                map.put(cur ,map.get(cur) + 1);
+                target.put(s.charAt(i), target.get(s.charAt(i)) + 1);
             }
         }
-        return result;
+        return res;
     }
 }
